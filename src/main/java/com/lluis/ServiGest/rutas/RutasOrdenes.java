@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lluis.ServiGest.beans.Orden;
-import com.lluis.ServiGest.beans.Vivienda;
 
 @Controller
 public class RutasOrdenes {
