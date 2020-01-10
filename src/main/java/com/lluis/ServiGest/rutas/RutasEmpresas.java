@@ -43,8 +43,8 @@ public class RutasEmpresas {
 	 * Post que añade una empresa
 	 * 
 	 */
-	@PostMapping("/ordenes/add")
-	public ModelAndView addVivienda(@ModelAttribute Empresa empresa) {
+	@PostMapping("/empresas/add")
+	public ModelAndView addEmpresa(@ModelAttribute Empresa empresa) {
 		
 		ModelAndView model = new ModelAndView();
 		model.setViewName("redirect:/empresas");
@@ -57,7 +57,7 @@ public class RutasEmpresas {
 	 * 
 	 */	
 	@PostMapping("/empresas/update")
-	public ModelAndView updateVivienda(@ModelAttribute Empresa empresa) {
+	public ModelAndView updateEmpresa(@ModelAttribute Empresa empresa) {
 		
 		ModelAndView model = new ModelAndView();
 		model.setViewName("redirect:/empresas");
@@ -70,7 +70,7 @@ public class RutasEmpresas {
 	 * 
 	 */
 	@PostMapping("/empresas/delete/{idEmpresa}")
-	public ModelAndView deleteVivienda(@PathVariable Integer idEmpresa) {
+	public ModelAndView deleteEmpresa(@PathVariable Integer idEmpresa) {
 		
 		ModelAndView model = new ModelAndView();
 		model.setViewName("redirect:/empresas");
