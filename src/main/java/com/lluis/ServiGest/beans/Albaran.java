@@ -1,9 +1,8 @@
 package com.lluis.ServiGest.beans;
 
-public class Trabajo {
+public class Albaran {
 
-	private Integer idTrabajo;
+	private Integer idAlbaran;
 	private String fecha; // Ver que tipo es el date de MySQL en Java
-	private String descripcion;
 	
 }
