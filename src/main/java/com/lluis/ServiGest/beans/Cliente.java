@@ -25,6 +25,9 @@ public class Cliente {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idInquilino")
     private List<Vivienda> viviendasInquilino;
 	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idContacto")
+    private List<ClienteContacto> contactos;
+	
 	@Column
 	private String nombre;
 	
