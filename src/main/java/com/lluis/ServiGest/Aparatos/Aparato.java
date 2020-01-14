@@ -1,4 +1,4 @@
-package com.lluis.ServiGest.beans;
+package com.lluis.ServiGest.Aparatos;
 
 import java.util.List;
 
@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.lluis.ServiGest.Viviendas.Vivienda;
 
 @Entity
 @Table(name="aparatos")

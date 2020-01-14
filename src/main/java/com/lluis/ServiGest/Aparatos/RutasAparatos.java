@@ -1,4 +1,4 @@
-package com.lluis.ServiGest.rutas;
+package com.lluis.ServiGest.Aparatos;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.lluis.ServiGest.beans.Aparato;
-import com.lluis.ServiGest.beans.Orden;
+import com.lluis.ServiGest.Ordenes.Orden;
 
 @Controller
 public class RutasAparatos {

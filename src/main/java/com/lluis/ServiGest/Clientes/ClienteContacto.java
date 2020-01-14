@@ -1,4 +1,4 @@
-package com.lluis.ServiGest.beans;
+package com.lluis.ServiGest.Clientes;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,19 +11,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="empresas_contactos")
-public class EmpresaContacto {
+@Table(name="clientes_contactos")
+public class ClienteContacto {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idContacto;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idEmpresa")
-	private Empresa idEmpresa; // Relación con la Empresa
+	@JoinColumn(name = "idCliente")
+	private Cliente idCliente; // Relación con el Cliente
 	
 	@Column
-	private String nombre;
+	private String contacto;
 	
 	@Column
 	private Integer telefono;

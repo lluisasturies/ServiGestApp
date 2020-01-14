@@ -1,4 +1,4 @@
-package com.lluis.ServiGest.beans;
+package com.lluis.ServiGest.Albaranes;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

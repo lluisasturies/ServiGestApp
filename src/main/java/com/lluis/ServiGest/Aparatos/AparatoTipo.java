@@ -1,4 +1,4 @@
-package com.lluis.ServiGest.beans;
+package com.lluis.ServiGest.Aparatos;
 
 import java.util.List;
 
@@ -12,17 +12,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="aparatos_marcas")
-public class AparatoMarca {
+@Table(name="aparatos_tipos")
+public class AparatoTipo {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer idMarca;
+	private Integer idTipo;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idAparato")
 	private List<Aparato> aparatos;
 	
 	@Column
-	private String marca;
+	private String tipo;
 	
 }

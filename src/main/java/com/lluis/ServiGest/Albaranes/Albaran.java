@@ -1,4 +1,4 @@
-package com.lluis.ServiGest.beans;
+package com.lluis.ServiGest.Albaranes;
 
 import java.util.List;
 
@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.lluis.ServiGest.Ordenes.Orden;
 
 @Entity
 @Table(name="albaranes")

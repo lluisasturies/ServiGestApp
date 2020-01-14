@@ -1,4 +1,4 @@
-package com.lluis.ServiGest.beans;
+package com.lluis.ServiGest.Viviendas;
 
 import java.util.List;
 
@@ -13,6 +13,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.lluis.ServiGest.Aparatos.Aparato;
+import com.lluis.ServiGest.Clientes.Cliente;
+import com.lluis.ServiGest.Ordenes.Orden;
 
 @Entity
 @Table(name="viviendas")

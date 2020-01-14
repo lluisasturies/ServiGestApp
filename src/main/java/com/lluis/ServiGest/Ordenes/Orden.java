@@ -1,4 +1,4 @@
-package com.lluis.ServiGest.beans;
+package com.lluis.ServiGest.Ordenes;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.lluis.ServiGest.Empresas.Empresa;
+import com.lluis.ServiGest.Viviendas.Vivienda;
 
 @Entity
 @Table(name="ordenes")
