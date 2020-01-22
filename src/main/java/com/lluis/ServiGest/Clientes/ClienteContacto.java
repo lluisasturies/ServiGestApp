@@ -30,5 +30,47 @@ public class ClienteContacto {
 	
 	@Column
 	private String email;
+
+	
+	
+	public Integer getIdContacto() {
+		return idContacto;
+	}
+
+	public void setIdContacto(Integer idContacto) {
+		this.idContacto = idContacto;
+	}
+
+	public Cliente getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(Cliente idCliente) {
+		this.idCliente = idCliente;
+	}
+
+	public String getContacto() {
+		return contacto;
+	}
+
+	public void setContacto(String contacto) {
+		this.contacto = contacto;
+	}
+
+	public Integer getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(Integer telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 }

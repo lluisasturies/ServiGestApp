@@ -36,5 +36,47 @@ public class Aparato {
 	
 	@Column
 	private String modelo;
+
+	
+	
+	public Integer getIdAparato() {
+		return idAparato;
+	}
+
+	public void setIdAparato(Integer idAparato) {
+		this.idAparato = idAparato;
+	}
+
+	public AparatoTipo getIdTipo() {
+		return idTipo;
+	}
+
+	public void setIdTipo(AparatoTipo idTipo) {
+		this.idTipo = idTipo;
+	}
+
+	public AparatoMarca getIdMarca() {
+		return idMarca;
+	}
+
+	public void setIdMarca(AparatoMarca idMarca) {
+		this.idMarca = idMarca;
+	}
+
+	public List<Vivienda> getIdVivienda() {
+		return idVivienda;
+	}
+
+	public void setIdVivienda(List<Vivienda> idVivienda) {
+		this.idVivienda = idVivienda;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
 	
 }

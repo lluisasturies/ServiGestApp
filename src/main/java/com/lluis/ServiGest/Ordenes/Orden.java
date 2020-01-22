@@ -49,5 +49,87 @@ public class Orden {
 	
 	@Column
 	private String factura;
+
+	
+	
+	public Integer getIdOrden() {
+		return idOrden;
+	}
+
+	public void setIdOrden(Integer idOrden) {
+		this.idOrden = idOrden;
+	}
+
+	public Vivienda getIdVivienda() {
+		return idVivienda;
+	}
+
+	public void setIdVivienda(Vivienda idVivienda) {
+		this.idVivienda = idVivienda;
+	}
+
+	public Empresa getIdEmpresa() {
+		return idEmpresa;
+	}
+
+	public void setIdEmpresa(Empresa idEmpresa) {
+		this.idEmpresa = idEmpresa;
+	}
+
+	public boolean isCierre() {
+		return cierre;
+	}
+
+	public void setCierre(boolean cierre) {
+		this.cierre = cierre;
+	}
+
+	public String getInforme() {
+		return informe;
+	}
+
+	public void setInforme(String informe) {
+		this.informe = informe;
+	}
+
+	public String getOrden() {
+		return orden;
+	}
+
+	public void setOrden(String orden) {
+		this.orden = orden;
+	}
+
+	public String getAsunto() {
+		return asunto;
+	}
+
+	public void setAsunto(String asunto) {
+		this.asunto = asunto;
+	}
+
+	public boolean isPendiente() {
+		return pendiente;
+	}
+
+	public void setPendiente(boolean pendiente) {
+		this.pendiente = pendiente;
+	}
+
+	public boolean isLiquidada() {
+		return liquidada;
+	}
+
+	public void setLiquidada(boolean liquidada) {
+		this.liquidada = liquidada;
+	}
+
+	public String getFactura() {
+		return factura;
+	}
+
+	public void setFactura(String factura) {
+		this.factura = factura;
+	}
 	
 }

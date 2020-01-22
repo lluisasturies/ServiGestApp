@@ -24,5 +24,31 @@ public class AparatoMarca {
 	
 	@Column
 	private String marca;
+
+	
+	
+	public Integer getIdMarca() {
+		return idMarca;
+	}
+
+	public void setIdMarca(Integer idMarca) {
+		this.idMarca = idMarca;
+	}
+
+	public List<Aparato> getAparatos() {
+		return aparatos;
+	}
+
+	public void setAparatos(List<Aparato> aparatos) {
+		this.aparatos = aparatos;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
 	
 }

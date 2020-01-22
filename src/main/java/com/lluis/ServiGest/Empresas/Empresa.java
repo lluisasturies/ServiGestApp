@@ -47,5 +47,87 @@ public class Empresa {
 	
 	@Column
 	private String email;
+
+	
+	
+	public Integer getIdEmpresa() {
+		return idEmpresa;
+	}
+
+	public void setIdEmpresa(Integer idEmpresa) {
+		this.idEmpresa = idEmpresa;
+	}
+
+	public List<EmpresaContacto> getContactos() {
+		return contactos;
+	}
+
+	public void setContactos(List<EmpresaContacto> contactos) {
+		this.contactos = contactos;
+	}
+
+	public List<Orden> getEmpresas() {
+		return empresas;
+	}
+
+	public void setEmpresas(List<Orden> empresas) {
+		this.empresas = empresas;
+	}
+
+	public String getNombreComercial() {
+		return nombreComercial;
+	}
+
+	public void setNombreComercial(String nombreComercial) {
+		this.nombreComercial = nombreComercial;
+	}
+
+	public String getNombreFiscal() {
+		return nombreFiscal;
+	}
+
+	public void setNombreFiscal(String nombreFiscal) {
+		this.nombreFiscal = nombreFiscal;
+	}
+
+	public String getNif() {
+		return nif;
+	}
+
+	public void setNif(String nif) {
+		this.nif = nif;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getLocalidad() {
+		return localidad;
+	}
+
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
+	}
+
+	public String getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 }

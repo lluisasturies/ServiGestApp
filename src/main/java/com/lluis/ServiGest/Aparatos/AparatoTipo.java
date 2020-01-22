@@ -24,5 +24,31 @@ public class AparatoTipo {
 	
 	@Column
 	private String tipo;
+
+	
+	
+	public Integer getIdTipo() {
+		return idTipo;
+	}
+
+	public void setIdTipo(Integer idTipo) {
+		this.idTipo = idTipo;
+	}
+
+	public List<Aparato> getAparatos() {
+		return aparatos;
+	}
+
+	public void setAparatos(List<Aparato> aparatos) {
+		this.aparatos = aparatos;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 	
 }

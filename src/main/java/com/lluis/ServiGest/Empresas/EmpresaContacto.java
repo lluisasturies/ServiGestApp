@@ -30,5 +30,47 @@ public class EmpresaContacto {
 	
 	@Column
 	private String email;
+
+	
+	
+	public Integer getIdContacto() {
+		return idContacto;
+	}
+
+	public void setIdContacto(Integer idContacto) {
+		this.idContacto = idContacto;
+	}
+
+	public Empresa getIdEmpresa() {
+		return idEmpresa;
+	}
+
+	public void setIdEmpresa(Empresa idEmpresa) {
+		this.idEmpresa = idEmpresa;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Integer getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(Integer telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 }

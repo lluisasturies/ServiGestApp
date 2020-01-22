@@ -30,5 +30,47 @@ public class AlbaranLinea {
 	
 	@Column
 	private Integer precio;
+
+	
+	
+	public Integer getIdLinea() {
+		return idLinea;
+	}
+
+	public void setIdLinea(Integer idLinea) {
+		this.idLinea = idLinea;
+	}
+
+	public Albaran getIdAlbaran() {
+		return idAlbaran;
+	}
+
+	public void setIdAlbaran(Albaran idAlbaran) {
+		this.idAlbaran = idAlbaran;
+	}
+
+	public String getConcepto() {
+		return concepto;
+	}
+
+	public void setConcepto(String concepto) {
+		this.concepto = concepto;
+	}
+
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	public Integer getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Integer precio) {
+		this.precio = precio;
+	}
 	
 }

@@ -48,5 +48,72 @@ public class Vivienda {
 	
 	@Column
 	private String provincia;
+
+	
+	
+	public Integer getIdVivienda() {
+		return idVivienda;
+	}
+
+	public void setIdVivienda(Integer idVivienda) {
+		this.idVivienda = idVivienda;
+	}
+
+	public Cliente getIdPropietario() {
+		return idPropietario;
+	}
+
+	public void setIdPropietario(Cliente idPropietario) {
+		this.idPropietario = idPropietario;
+	}
+
+	public Cliente getIdInquilino() {
+		return idInquilino;
+	}
+
+	public void setIdInquilino(Cliente idInquilino) {
+		this.idInquilino = idInquilino;
+	}
+
+	public List<Aparato> getIdAparato() {
+		return idAparato;
+	}
+
+	public void setIdAparato(List<Aparato> idAparato) {
+		this.idAparato = idAparato;
+	}
+
+	public List<Orden> getOrdenes() {
+		return ordenes;
+	}
+
+	public void setOrdenes(List<Orden> ordenes) {
+		this.ordenes = ordenes;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getLocalidad() {
+		return localidad;
+	}
+
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
+	}
+
+	public String getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
+	
 	
 }
