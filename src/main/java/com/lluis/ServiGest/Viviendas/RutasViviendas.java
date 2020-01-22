@@ -1,5 +1,9 @@
 package com.lluis.ServiGest.Viviendas;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,6 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class RutasViviendas {
 
+	@Autowired
+	public ViviendaDAO viviendas;
+	
 	/*
 	 * Ruta de la lista de viviendas
 	 * 
@@ -19,6 +26,9 @@ public class RutasViviendas {
 		
 		ModelAndView model = new ModelAndView();
 		model.setViewName("viviendas/viviendas"); // Nombre de la vista
+		
+		List<Vivienda> listaViviendas = (List<Vivienda>) viviendas.findAll();
+		model.addObject("listaViviendas", listaViviendas);
 		
 		return model;
 	}
