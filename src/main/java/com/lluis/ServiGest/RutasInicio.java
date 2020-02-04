@@ -29,6 +29,7 @@ public class RutasInicio {
 		model.addObject("numeroViviendas", viviendaDAO.count());
 		model.addObject("numeroClientes", clienteDAO.count());
 		model.addObject("numeroOrdenes", ordenDAO.count());
+		model.addObject("listaOrdenes", ordenDAO.findAll());
 		
 		return model;
 	}

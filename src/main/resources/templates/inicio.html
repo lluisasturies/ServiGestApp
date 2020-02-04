@@ -217,12 +217,12 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                      <tr th:each="orden : ${listaOrdenes}" th:unless="${orden.index > 4}">
                         <td>
                           <div class="disc bg-secondary"></div>
                         </td>
                         <td>
-                          <h4 class="text-primary font-weight-normal">490-525-4779</h4>
+                          <h4 class="text-primary font-weight-normal" th:text="${orden.orden}"></h4>
                           <p class="text-muted mb-0">Online sale</p>
                         </td>
                         <td>
@@ -231,54 +231,6 @@
                         <td>
                           <p>27 Sep 2018</p>
                           <p class="text-muted mb-0">3 days ago</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="disc bg-secondary"></div>
-                        </td>
-                        <td>
-                          <h4 class="text-primary font-weight-normal">490-525-4780</h4>
-                          <p class="text-muted mb-0">Online sale</p>
-                        </td>
-                        <td>
-                          $65789
-                        </td>
-                        <td>
-                          <p>27 Sep 2018</p>
-                          <p class="text-muted mb-0">2 days ago</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="disc bg-secondary"></div>
-                        </td>
-                        <td>
-                          <h4 class="text-primary font-weight-normal">490-525-4781</h4>
-                          <p class="text-muted mb-0">Offline sale</p>
-                        </td>
-                        <td>
-                          $98076
-                        </td>
-                        <td>
-                          <p>27 Sep 2018</p>
-                          <p class="text-muted mb-0">4 days ago</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="disc bg-secondary"></div>
-                        </td>
-                        <td>
-                          <h4 class="text-primary font-weight-normal">490-525-4782</h4>
-                          <p class="text-muted mb-0">Online sale</p>
-                        </td>
-                        <td>
-                          $67589
-                        </td>
-                        <td>
-                          <p>27 Sep 2018</p>
-                          <p class="text-muted mb-0">1 day ago</p>
                         </td>
                       </tr>
                     </tbody>

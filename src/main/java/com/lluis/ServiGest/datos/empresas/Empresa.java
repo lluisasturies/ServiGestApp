@@ -24,8 +24,8 @@ public class Empresa {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idContacto")
     private List<EmpresaContacto> contactos;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idOrden")
-    private List<Orden> empresas;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idEmpresa")
+    private List<Orden> ordenes;
 	
 	@Column
 	private String nombreComercial;
@@ -66,12 +66,12 @@ public class Empresa {
 		this.contactos = contactos;
 	}
 
-	public List<Orden> getEmpresas() {
-		return empresas;
+	public List<Orden> getOrdenes() {
+		return ordenes;
 	}
 
-	public void setEmpresas(List<Orden> empresas) {
-		this.empresas = empresas;
+	public void setOrdenes(List<Orden> ordenes) {
+		this.ordenes = ordenes;
 	}
 
 	public String getNombreComercial() {

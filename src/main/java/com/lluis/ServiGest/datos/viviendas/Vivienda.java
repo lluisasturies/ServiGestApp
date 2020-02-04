@@ -37,7 +37,7 @@ public class Vivienda {
 	@ManyToMany(mappedBy = "idVivienda")
 	private List<Aparato> idAparato;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idOrden")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idVivienda")
     private List<Orden> ordenes;
 	
 	@Column
