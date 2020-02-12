@@ -1,6 +1,5 @@
 package com.lluis.ServiGest.datos.viviendas;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +41,10 @@ public class RutasViviendas {
 		
 		ModelAndView model = new ModelAndView();
 		model.setViewName("viviendas/verVivienda"); // Nombre de la vista
+		
+		Vivienda vivienda = viviendas.findById(idVivienda).get();
+		
+		model.addObject("vivienda", vivienda);
 		
 		return model;
 	}

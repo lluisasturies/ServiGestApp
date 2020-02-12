@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <!-- Required meta tags -->
@@ -7,18 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Servigest - Gestión de trabajos</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="../../vendors/iconfonts/simple-line-icon/css/simple-line-icons.css">
-  <link rel="stylesheet" href="../../vendors/iconfonts/flag-icon-css/css/flag-icon.min.css">
-  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.addons.css">
+  <link rel="stylesheet" href="/vendors/iconfonts/simple-line-icon/css/simple-line-icons.css">
+  <link rel="stylesheet" href="/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/vendors/css/vendor.bundle.addons.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
-  <link rel="stylesheet" href="../../vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/favicon.png" />
+  <link rel="shortcut icon" href="/images/favicon.png" />
 </head>
 
 <body>
@@ -28,8 +28,8 @@
       <div class="nav-top flex-grow-1">
         <div class="container d-flex flex-row h-100 align-items-center">
           <div class="text-center navbar-brand-wrapper d-flex align-items-center">
-            <a class="navbar-brand brand-logo" th:href="@{/}"><img src="images/logo.svg" alt="logo"/></a>
-            <a class="navbar-brand brand-logo-mini" th:href="@{/}"><img src="images/logo-mini.svg" alt="logo"/></a>
+            <a class="navbar-brand brand-logo" th:href="@{/}"><img src="/images/logo.svg" alt="logo"/></a>
+            <a class="navbar-brand brand-logo-mini" th:href="@{/}"><img src="/images/logo-mini.svg" alt="logo"/></a>
           </div>
           <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between flex-grow-1">
             <form class="search-field d-none d-md-flex" action="#">
@@ -171,7 +171,7 @@
                     </thead>
                     <tbody>
                       <tr th:each="vivienda : ${listaViviendas}">
-                          <td th:text="${vivienda.direccion}"></td>
+                          <td><a th:href="@{/viviendas/ver/{idVivienda}(idVivienda=${vivienda.id})}">adsd</a></td>
                           <td th:text="${vivienda.localidad}"></td>
                           <td th:text="${vivienda.provincia}"></td>
                       </tr>
