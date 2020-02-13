@@ -171,7 +171,7 @@
                     </thead>
                     <tbody>
                       <tr th:each="vivienda : ${listaViviendas}">
-                          <td><a th:href="@{/viviendas/ver/{idVivienda}(idVivienda=${vivienda.id})}">adsd</a></td>
+                          <td><a th:href="@{/viviendas/ver/{idVivienda}(idVivienda=${vivienda.idVivienda})}" th:text="${vivienda.direccion}"></a></td>
                           <td th:text="${vivienda.localidad}"></td>
                           <td th:text="${vivienda.provincia}"></td>
                       </tr>
