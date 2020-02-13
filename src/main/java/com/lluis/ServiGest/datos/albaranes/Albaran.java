@@ -1,5 +1,6 @@
 package com.lluis.ServiGest.datos.albaranes;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.lluis.ServiGest.datos.ordenes.Orden;
 
@@ -34,8 +37,8 @@ public class Albaran {
 	@Column
 	private String codigoAlbaran;
 	
-	@Column
-	private String fecha; // Ver que tipo es el date de MySQL en Java
+	@Temporal(TemporalType.DATE)
+	private Date fecha;
 
 	
 	
@@ -71,11 +74,11 @@ public class Albaran {
 		this.codigoAlbaran = codigoAlbaran;
 	}
 
-	public String getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(String fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 	

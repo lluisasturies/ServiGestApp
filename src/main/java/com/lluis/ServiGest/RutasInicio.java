@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.lluis.ServiGest.datos.albaranes.AlbaranDAO;
 import com.lluis.ServiGest.datos.clientes.ClienteDAO;
 import com.lluis.ServiGest.datos.ordenes.OrdenDAO;
 import com.lluis.ServiGest.datos.viviendas.ViviendaDAO;
@@ -21,6 +22,9 @@ public class RutasInicio {
 	@Autowired
 	private OrdenDAO ordenDAO;
 	
+	@Autowired
+	private AlbaranDAO albaranDAO;
+	
 	@GetMapping("/")
 	public ModelAndView inicio() {
 		
@@ -29,6 +33,7 @@ public class RutasInicio {
 		model.addObject("numeroViviendas", viviendaDAO.count());
 		model.addObject("numeroClientes", clienteDAO.count());
 		model.addObject("numeroOrdenes", ordenDAO.count());
+		model.addObject("numeroAlbaranes", albaranDAO.count());
 		model.addObject("listaOrdenes", ordenDAO.findAll());
 		
 		return model;

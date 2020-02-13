@@ -165,9 +165,9 @@
                       <div class="d-flex justify-content-between border-right card-statistics-item">
                         <div>
                           <h1 th:text="${numeroOrdenes}"></h1>
-                          <p class="text-muted mb-0">Ordenes totales</p>
+                          <p class="text-muted mb-0">Ordenes</p>
                         </div>
-                        <i class="icon-layers text-primary icon-lg"></i>
+                        <i class="icon-note text-primary icon-lg"></i>
                       </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
@@ -185,16 +185,16 @@
                           <h1 th:text="${numeroViviendas}"></h1>
                           <p class="text-muted mb-0">Viviendas</p>
                         </div>
-                        <i class="icon-pin text-primary icon-lg"></i>
+                        <i class="icon-home text-primary icon-lg"></i>
                       </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
                       <div class="d-flex justify-content-between card-statistics-item">
                         <div>
-                          <h1>45596</h1>
+                          <h1 th:text="${numeroAlbaranes}"></h1>
                           <p class="text-muted mb-0">Albaranes</p>
                         </div>
-                        <i class="icon-refresh text-primary icon-lg"></i>
+                        <i class="icon-credit-card text-primary icon-lg"></i>
                       </div>
                     </div>
                   </div>
@@ -212,18 +212,18 @@
                       <tr>
                         <th></th>
                         <th>Orden</th>
-                        <th>Amount</th>
+                        <th>Dirección</th>
                         <th>Fecha</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr th:each="orden : ${listaOrdenes}" th:unless="${orden.index > 4}">
+                      <tr th:each="orden, stats : ${listaOrdenes}" th:unless="${stats.index > 4}">
                         <td>
                           <div class="disc bg-secondary"></div>
                         </td>
                         <td>
-                          <h4 class="text-primary font-weight-normal" th:text="${orden.orden}"></h4>
-                          <p class="text-muted mb-0">Online sale</p>
+                          <h4 th:text="${orden.orden}" class="text-primary font-weight-normal"></h4>
+                          <p th:text="${orden.idOrden}" class="text-muted mb-0"></p>
                         </td>
                         <td>
                           $41991
@@ -290,7 +290,7 @@
             <div class="col-md-4 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Calendar</h4>
+                  <h4 class="card-title">Calendario</h4>
                   <div id="inline-datepicker-example" class="datepicker"></div>
                 </div>
               </div>
@@ -337,10 +337,10 @@
             <div class="col-md-7 grid-margin grid-margin-md-0 stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Todo list</h4>
+                  <h4 class="card-title">Tareas</h4>
                   <div class="add-items d-flex">
-                    <input type="text" class="form-control todo-list-input"  placeholder="What do you need to do today?">
-                    <button class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
+                    <input type="text" class="form-control todo-list-input"  placeholder="¿Qué necesitas hacer hoy?">
+                    <button class="add btn btn-primary todo-list-add-btn" id="add-task">Añadir</button>
                   </div>
                   <div class="list-wrapper">
                     <ul class="d-flex flex-column-reverse todo-list">

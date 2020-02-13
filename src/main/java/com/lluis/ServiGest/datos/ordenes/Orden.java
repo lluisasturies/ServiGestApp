@@ -1,5 +1,7 @@
 package com.lluis.ServiGest.datos.ordenes;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.lluis.ServiGest.datos.empresas.Empresa;
 import com.lluis.ServiGest.datos.viviendas.Vivienda;
@@ -40,6 +44,9 @@ public class Orden {
 	
 	@Column
 	private String asunto;
+	
+	@Temporal(TemporalType.DATE)
+	private Date fecha;
 	
 	@Column
 	private boolean pendiente;
@@ -106,6 +113,14 @@ public class Orden {
 
 	public void setAsunto(String asunto) {
 		this.asunto = asunto;
+	}
+	
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	}
 
 	public boolean isPendiente() {
