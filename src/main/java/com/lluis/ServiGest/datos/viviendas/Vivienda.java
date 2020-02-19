@@ -37,7 +37,7 @@ public class Vivienda {
 	@ManyToMany(mappedBy = "idVivienda")
 	private List<Aparato> idAparato;
 	
-	@OneToMany(mappedBy = "idVivienda")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "idVivienda")
     private List<Orden> ordenes;
 	
 	@Column

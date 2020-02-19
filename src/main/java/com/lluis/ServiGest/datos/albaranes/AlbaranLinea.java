@@ -2,7 +2,6 @@ package com.lluis.ServiGest.datos.albaranes;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,7 +17,7 @@ public class AlbaranLinea {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idLinea;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "idAlbaran")
 	private Albaran idAlbaran; // Relación con el Albaran
 	

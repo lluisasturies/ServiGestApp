@@ -212,7 +212,6 @@
                       <tr>
                         <th></th>
                         <th>Orden</th>
-                        <th>Dirección</th>
                         <th>Fecha</th>
                       </tr>
                     </thead>
@@ -223,14 +222,10 @@
                         </td>
                         <td>
                           <h4 th:text="${orden.orden}" class="text-primary font-weight-normal"></h4>
-                          <p th:text="${orden.idOrden}" class="text-muted mb-0"></p>
-                        </td>
-                        <td>
-                          $41991
+                          <p th:text="${orden.idVivienda.direccion}" class="text-muted mb-0"></p>
                         </td>
                         <td>
                           <p>27 Sep 2018</p>
-                          <p class="text-muted mb-0">3 days ago</p>
                         </td>
                       </tr>
                     </tbody>
