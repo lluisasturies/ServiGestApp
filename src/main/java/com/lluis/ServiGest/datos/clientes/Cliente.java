@@ -21,13 +21,13 @@ public class Cliente {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idCliente;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idPropietario")
+	@OneToMany(mappedBy = "idPropietario")
     private List<Vivienda> viviendasPropietario;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idInquilino")
+	@OneToMany(mappedBy = "idInquilino")
     private List<Vivienda> viviendasInquilino;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idContacto")
+	@OneToMany(mappedBy = "idContacto")
     private List<ClienteContacto> contactos;
 	
 	@Column

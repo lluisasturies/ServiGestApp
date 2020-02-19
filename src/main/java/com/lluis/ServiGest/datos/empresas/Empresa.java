@@ -21,10 +21,10 @@ public class Empresa {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idEmpresa;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idContacto")
+	@OneToMany(mappedBy = "idContacto")
     private List<EmpresaContacto> contactos;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idEmpresa")
+	@OneToMany(mappedBy = "idEmpresa")
     private List<Orden> ordenes;
 	
 	@Column

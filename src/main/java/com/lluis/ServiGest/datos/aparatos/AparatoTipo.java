@@ -19,7 +19,7 @@ public class AparatoTipo {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idTipo;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idAparato")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "idAparato")
 	private List<Aparato> aparatos;
 	
 	@Column

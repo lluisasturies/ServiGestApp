@@ -18,7 +18,7 @@ public class AlbaranLinea {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idLinea;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idAlbaran")
 	private Albaran idAlbaran; // Relación con el Albaran
 	

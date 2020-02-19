@@ -31,7 +31,7 @@ public class Albaran {
 	@JoinColumn(name = "idOrden")
 	private Orden idOrden; // Relación con la Orden
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idLinea")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "idLinea")
     private List<AlbaranLinea> lineas;
 	
 	@Column

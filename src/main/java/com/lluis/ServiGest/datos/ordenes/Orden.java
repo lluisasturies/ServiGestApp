@@ -25,11 +25,11 @@ public class Orden {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idOrden;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "idVivienda")
 	private Vivienda idVivienda; // Relación con la Vivienda
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "idEmpresa")
 	private Empresa idEmpresa; // Relación con la Empresa
 	

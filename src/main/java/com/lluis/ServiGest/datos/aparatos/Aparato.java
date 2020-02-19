@@ -23,15 +23,15 @@ public class Aparato {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idAparato;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "idTipo")
 	private AparatoTipo idTipo; // Relación con el AparatoTipo
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "idMarca")
 	private AparatoMarca idMarca; // Relación con el AparatoMarca
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Vivienda> idVivienda;
 	
 	@Column

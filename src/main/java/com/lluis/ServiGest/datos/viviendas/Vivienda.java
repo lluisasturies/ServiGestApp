@@ -26,18 +26,18 @@ public class Vivienda {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idVivienda;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "idPropietario")
 	private Cliente idPropietario; // Cliente asignado como propietario
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "idInquilino")
 	private Cliente idInquilino; // Cliente asignado como inquilino
 	
 	@ManyToMany(mappedBy = "idVivienda")
 	private List<Aparato> idAparato;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idVivienda")
+	@OneToMany(mappedBy = "idVivienda")
     private List<Orden> ordenes;
 	
 	@Column

@@ -18,7 +18,7 @@ public class ClienteContacto {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idContacto;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "idCliente")
 	private Cliente idCliente; // Relación con el Cliente
 	
