@@ -35,6 +35,7 @@ public class RutasInicio {
 		model.addObject("numeroOrdenes", ordenDAO.count());
 		model.addObject("numeroAlbaranes", albaranDAO.count());
 		model.addObject("listaOrdenes", ordenDAO.findAll());
+		model.addObject("ordenesPendientes", ordenDAO.mostrarPendientes());
 		
 		return model;
 	}

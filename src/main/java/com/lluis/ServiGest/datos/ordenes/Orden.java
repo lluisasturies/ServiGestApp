@@ -33,12 +33,6 @@ public class Orden {
 	private Empresa idEmpresa; // Relación con la Empresa
 	
 	@Column
-	private boolean cierre;
-	
-	@Column
-	private String informe;
-	
-	@Column
 	private String orden;
 	
 	@Column
@@ -48,13 +42,13 @@ public class Orden {
 	private Date fecha;
 	
 	@Column
+	private boolean cierre;
+	
+	@Column
 	private boolean pendiente;
 	
 	@Column
 	private boolean liquidada;
-	
-	@Column
-	private String factura;
 
 	
 	
@@ -88,14 +82,6 @@ public class Orden {
 
 	public void setCierre(boolean cierre) {
 		this.cierre = cierre;
-	}
-
-	public String getInforme() {
-		return informe;
-	}
-
-	public void setInforme(String informe) {
-		this.informe = informe;
 	}
 
 	public String getOrden() {
@@ -136,14 +122,6 @@ public class Orden {
 
 	public void setLiquidada(boolean liquidada) {
 		this.liquidada = liquidada;
-	}
-
-	public String getFactura() {
-		return factura;
-	}
-
-	public void setFactura(String factura) {
-		this.factura = factura;
 	}
 	
 }

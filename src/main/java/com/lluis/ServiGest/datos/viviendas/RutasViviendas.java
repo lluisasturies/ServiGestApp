@@ -10,11 +10,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.lluis.ServiGest.datos.aparatos.Aparato;
+import com.lluis.ServiGest.datos.aparatos.AparatoDAO;
+
 @Controller
 public class RutasViviendas {
 
 	@Autowired
-	public ViviendaDAO viviendas;
+	public ViviendaDAO viviendaDAO;
+	
+	@Autowired
+	public AparatoDAO aparatoDAO;
 	
 	/*
 	 * Ruta de la lista de viviendas
@@ -26,7 +32,7 @@ public class RutasViviendas {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("viviendas/viviendas"); // Nombre de la vista
 		
-		List<Vivienda> listaViviendas = (List<Vivienda>) viviendas.findAll();
+		List<Vivienda> listaViviendas = (List<Vivienda>) viviendaDAO.findAll();
 		model.addObject("listaViviendas", listaViviendas);
 		
 		return model;
@@ -42,9 +48,15 @@ public class RutasViviendas {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("viviendas/verVivienda"); // Nombre de la vista
 		
-		Vivienda vivienda = viviendas.findById(idVivienda).get();
+		// Obtengo la vivienda concreta
+		Vivienda vivienda = viviendaDAO.findById(idVivienda).get();
 		
+		// Obtengo la lista de aparatos de esta vivienda
+		List<Aparato> aparato = (List<Aparato>) aparatoDAO.aparatosPorVivienda(idVivienda);
+		
+		// Lo añado a la vista...
 		model.addObject("vivienda", vivienda);
+		model.addObject("listaAparatos", aparato);
 		
 		return model;
 	}

@@ -176,18 +176,14 @@
 	                    <table class="table">
 	                      <thead>
 	                        <tr>
-	                          <th>Nº</th>
-	                          <th>Asunto</th>
-	                          <th>Fecha</th>
-	                          <th>Estado</th>
+	                          <th>Marca</th>
+	                          <th>Modelo</th>
 	                        </tr>
 	                      </thead>
 	                      <tbody>
-	                        <tr th:each="orden : ${vivienda.ordenes}">
-	                          <td><a th:href="@{/ordenes/ver/{idOrden}(idOrden=${orden.idOrden})}" th:text="${orden.orden}"></a></td>
-	                          <td th:text="${orden.asunto}"></td>
-	                          <td th:text="${orden.fecha}"></td>
-	                          <td><label class="badge badge-danger">Pendiente</label></td>
+	                        <tr th:each="aparato : ${listaAparatos}">
+	                          <td th:text="${aparato.idaparato.idmarca.marca}"></td>
+	                          <td th:text="${aparato.modelo}"></td>
 	                        </tr>
 	                      </tbody>
 	                    </table>

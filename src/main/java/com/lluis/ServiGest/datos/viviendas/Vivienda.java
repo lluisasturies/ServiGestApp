@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -34,8 +35,11 @@ public class Vivienda {
 	@JoinColumn(name = "idInquilino")
 	private Cliente idInquilino; // Cliente asignado como inquilino
 	
-	@ManyToMany(mappedBy = "idVivienda")
-	private List<Aparato> idAparato;
+	@ManyToMany
+	@JoinTable(name = "viviendas_aparatos", 
+    joinColumns = { @JoinColumn(name = "FK_idVivienda") }, 
+    inverseJoinColumns = { @JoinColumn(name = "FK_idAparato") })
+	private List<Aparato> aparatos;
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "idVivienda")
     private List<Orden> ordenes;
@@ -75,12 +79,12 @@ public class Vivienda {
 		this.idInquilino = idInquilino;
 	}
 
-	public List<Aparato> getIdAparato() {
-		return idAparato;
+	public List<Aparato> getAparatos() {
+		return aparatos;
 	}
 
-	public void setIdAparato(List<Aparato> idAparato) {
-		this.idAparato = idAparato;
+	public void setAparatos(List<Aparato> aparatos) {
+		this.aparatos = aparatos;
 	}
 
 	public List<Orden> getOrdenes() {

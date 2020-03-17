@@ -216,7 +216,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr th:each="orden, stats : ${listaOrdenes}" th:unless="${stats.index > 4}">
+                      <tr th:each="orden, stats : ${ordenesPendientes}" th:unless="${stats.index > 4}">
                         <td>
                           <div class="disc bg-secondary"></div>
                         </td>

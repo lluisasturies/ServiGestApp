@@ -4,11 +4,11 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -31,8 +31,11 @@ public class Aparato {
 	@JoinColumn(name = "idMarca")
 	private AparatoMarca idMarca; // Relación con el AparatoMarca
 	
-	@ManyToMany(fetch = FetchType.EAGER)
-	private List<Vivienda> idVivienda;
+	@ManyToMany
+	@JoinTable(name = "viviendas_aparatos", 
+    joinColumns = { @JoinColumn(name = "FK_idAparato") }, 
+    inverseJoinColumns = { @JoinColumn(name = "FK_idVivienda") })
+	private List<Vivienda> viviendas;
 	
 	@Column
 	private String modelo;
@@ -63,12 +66,12 @@ public class Aparato {
 		this.idMarca = idMarca;
 	}
 
-	public List<Vivienda> getIdVivienda() {
-		return idVivienda;
+	public List<Vivienda> getViviendas() {
+		return viviendas;
 	}
 
-	public void setIdVivienda(List<Vivienda> idVivienda) {
-		this.idVivienda = idVivienda;
+	public void setIdVivienda(List<Vivienda> viviendas) {
+		this.viviendas = viviendas;
 	}
 
 	public String getModelo() {
