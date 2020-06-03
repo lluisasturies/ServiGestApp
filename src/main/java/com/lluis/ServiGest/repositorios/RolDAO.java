@@ -9,7 +9,7 @@ import com.lluis.ServiGest.pojos.Rol;
 import java.util.Optional;
 
 @Repository
-public interface RolDAO extends JpaRepository<Rol, Long> {
+public interface RolDAO extends JpaRepository<Rol, RolNombre> {
 	
     Optional<Rol> findByRolNombre(RolNombre rolNombre);
     
