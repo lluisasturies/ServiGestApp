@@ -10,6 +10,8 @@ public class LoginUsuario {
     @NotBlank
     private String password;
 
+    
+    
     public String getNombreUsuario() {
         return nombreUsuario;
     }

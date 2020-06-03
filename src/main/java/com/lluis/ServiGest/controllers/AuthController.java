@@ -86,22 +86,24 @@ public class AuthController {
         }
         
         usuario.setRoles(roles);
-        usuarioService.guardar(usuario);
+        usuarioService.add(usuario);
         
         return new ResponseEntity("usuario guardado", HttpStatus.CREATED);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<JwtDTO> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult){
+    public ResponseEntity<JwtDTO> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
         if(bindingResult.hasErrors())
             return new ResponseEntity("campos vacíos o email inválido", HttpStatus.BAD_REQUEST);
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginUsuario.getNombreUsuario(), loginUsuario.getPassword())
         );
+        
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtProvider.generateToken(authentication);
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         JwtDTO jwtDTO = new JwtDTO(jwt, userDetails.getUsername(), userDetails.getAuthorities());
+        
         return new ResponseEntity<JwtDTO>(jwtDTO, HttpStatus.OK);
     }
 }

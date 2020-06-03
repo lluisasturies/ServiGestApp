@@ -14,25 +14,25 @@ import java.util.Optional;
 public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
-    UsuarioDAO usuarioRepository;
+    UsuarioDAO usuarioDAO;
 
     @Override
     public Optional<Usuario> getByNombreUsuario(String nu) {
-        return usuarioRepository.findByNombreUsuario(nu);
+        return usuarioDAO.findByNombreUsuario(nu);
     }
 
     @Override
     public boolean existePorNombre(String nu) {
-        return usuarioRepository.existsByNombreUsuario(nu);
+        return usuarioDAO.existsByNombreUsuario(nu);
     }
 
     @Override
     public boolean existePorEmail(String email) {
-        return usuarioRepository.existsByEmail(email);
+        return usuarioDAO.existsByEmail(email);
     }
 
     @Override
-    public void guardar(Usuario usuario) {
-        usuarioRepository.save(usuario);
+    public void add(Usuario usuario) {
+        usuarioDAO.save(usuario);
     }
 }

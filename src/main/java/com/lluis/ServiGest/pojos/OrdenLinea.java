@@ -26,4 +26,38 @@ public class OrdenLinea {
 	
 	@Column
 	private Integer cantidad;
+
+	
+	
+	public Integer getIdTrabajo() {
+		return idTrabajo;
+	}
+
+	public void setIdTrabajo(Integer idTrabajo) {
+		this.idTrabajo = idTrabajo;
+	}
+
+	public Orden getIdOrden() {
+		return idOrden;
+	}
+
+	public void setIdOrden(Orden idOrden) {
+		this.idOrden = idOrden;
+	}
+
+	public String getConcepto() {
+		return concepto;
+	}
+
+	public void setConcepto(String concepto) {
+		this.concepto = concepto;
+	}
+
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
 }

@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
 public class NuevoUsuario {
+	
     @NotBlank
     private String nombre;
 
@@ -20,6 +21,8 @@ public class NuevoUsuario {
 
     private Set<String> roles;
 
+    
+    
     public String getNombre() {
         return nombre;
     }

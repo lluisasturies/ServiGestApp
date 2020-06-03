@@ -10,5 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface RolDAO extends JpaRepository<Rol, Long> {
+	
     Optional<Rol> findByRolNombre(RolNombre rolNombre);
+    
 }

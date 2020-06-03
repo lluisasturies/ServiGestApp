@@ -12,5 +12,5 @@ public interface UsuarioService {
 	
 	public boolean existePorEmail(String email);
 	
-	public void guardar(Usuario usuario);
+	public void add(Usuario usuario);
 }

@@ -21,6 +21,8 @@ public class Rol {
     @NotNull
     private RolNombre rolNombre;
 
+    
+    
     public Rol() {
     }
 
