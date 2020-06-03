@@ -5,10 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.lluis.ServiGest.datos.albaranes.AlbaranDAO;
-import com.lluis.ServiGest.datos.clientes.ClienteDAO;
-import com.lluis.ServiGest.datos.ordenes.OrdenDAO;
-import com.lluis.ServiGest.datos.viviendas.ViviendaDAO;
+import com.lluis.ServiGest.repositorios.AlbaranDAO;
+import com.lluis.ServiGest.repositorios.ClienteDAO;
+import com.lluis.ServiGest.repositorios.OrdenDAO;
+import com.lluis.ServiGest.repositorios.ViviendaDAO;
 
 @Controller
 public class RutasInicio {

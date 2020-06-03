@@ -20,18 +20,6 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="/images/favicon.png" />
     <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="/vendors/js/vendor.bundle.base.js"></script>
-    <script src="/vendors/js/vendor.bundle.addons.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page-->
-    <!-- End plugin js for this page-->
-    <!-- inject:js -->
-    <script src="/js/template.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page-->
-    <script src="/js/data-table.js"></script>
-    <!-- End custom js for this page-->
 </head>
 
 <body>
@@ -182,30 +170,56 @@
         <div class="container-fluid page-body-wrapper">
             <div class="main-panel">
                 <div class="content-wrapper">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Listado de viviendas</h4>
-                            <p class="page-description"><a href="/viviendas/crear" type="button"
-                                    class="btn btn-primary btn-fw">Crear Vivienda</a></p>
-                            <div class="row">
-                                <div class="col-12 table-responsive">
-                                    <table id="order-listing" class="table">
-                                        <thead>
-                                            <tr class="bg-light">
-                                                <th>Dirección</th>
-                                                <th>Localidad</th>
-                                                <th>Provincia</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr th:each="vivienda : ${listaViviendas}">
-                                                <td><a th:href="@{/viviendas/ver/{idVivienda}(idVivienda=${vivienda.idVivienda})}"
-                                                        th:text="${vivienda.direccion}"></a></td>
-                                                <td th:text="${vivienda.localidad}"></td>
-                                                <td th:text="${vivienda.provincia}"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                    <div class="row">
+                        <div class="col-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 th:text="'Editar ' + ${vivienda.direccion}" class="card-title"></h4>
+                                    <form th:action="@{/viviendas/update}" th:object="${vivienda}" method="post"
+                                        class="forms-sample">
+                                        <input th:field="*{idVivienda}" type="hidden">
+                                        <div class="form-group">
+                                            <label>Dirección</label>
+                                            <input th:field="*{direccion}" type="text" class="form-control"
+                                                aria-label="Calle, numero, piso, letra">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Localidad</label>
+                                            <input th:field="*{localidad}" type="text" class="form-control"
+                                                placeholder="Localidad">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Provincia</label>
+                                            <input th:field="*{provincia}" type="text" class="form-control"
+                                                placeholder="Provincia">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Propietario</label>
+                                            <div id="the-basics">
+                                                <select th:field="*{idPropietario}"
+                                                    class="js-example-basic-single w-100">
+                                                    <option value="" selected>---</option>
+                                                    <option th:each="cliente: ${listaClientes}"
+                                                        th:value="${cliente.idCliente}"
+                                                        th:text="${cliente.nombre} + ' ' + ${cliente.apellidos} + ' - ' + ${cliente.dni}">
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Inquilino</label>
+                                            <div id="the-basics">
+                                                <select th:field="*{idInquilino}" class="js-example-basic-single w-100">
+                                                    <option value="" selected>---</option>
+                                                    <option th:each="cliente: ${listaClientes}"
+                                                        th:value="${cliente.idCliente}"
+                                                        th:text="${cliente.nombre} + ' ' + ${cliente.apellidos} + ' - ' + ${cliente.dni}">
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary mr-2">Guardar</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -226,6 +240,19 @@
         </div>
         <!-- page-body-wrapper ends -->
     </div>
+    <!-- plugins:js -->
+    <script src="../../vendors/js/vendor.bundle.base.js"></script>
+    <script src="../../vendors/js/vendor.bundle.addons.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="../../js/template.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="../../js/typeahead.js"></script>
+    <script src="../../js/select2.js"></script>
+    <!-- End custom js for this page-->
 </body>
 
 </html>

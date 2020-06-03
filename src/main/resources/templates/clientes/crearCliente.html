@@ -21,16 +21,17 @@
     <link rel="shortcut icon" href="/images/favicon.png" />
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="/vendors/js/vendor.bundle.base.js"></script>
-    <script src="/vendors/js/vendor.bundle.addons.js"></script>
+    <script src="../../vendors/js/vendor.bundle.base.js"></script>
+    <script src="../../vendors/js/vendor.bundle.addons.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page-->
     <!-- End plugin js for this page-->
     <!-- inject:js -->
-    <script src="/js/template.js"></script>
+    <script src="../../js/template.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page-->
-    <script src="/js/data-table.js"></script>
+    <script src="../../js/typeahead.js"></script>
+    <script src="../../js/select2.js"></script>
     <!-- End custom js for this page-->
 </head>
 
@@ -182,30 +183,33 @@
         <div class="container-fluid page-body-wrapper">
             <div class="main-panel">
                 <div class="content-wrapper">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Listado de viviendas</h4>
-                            <p class="page-description"><a href="/viviendas/crear" type="button"
-                                    class="btn btn-primary btn-fw">Crear Vivienda</a></p>
-                            <div class="row">
-                                <div class="col-12 table-responsive">
-                                    <table id="order-listing" class="table">
-                                        <thead>
-                                            <tr class="bg-light">
-                                                <th>Dirección</th>
-                                                <th>Localidad</th>
-                                                <th>Provincia</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr th:each="vivienda : ${listaViviendas}">
-                                                <td><a th:href="@{/viviendas/ver/{idVivienda}(idVivienda=${vivienda.idVivienda})}"
-                                                        th:text="${vivienda.direccion}"></a></td>
-                                                <td th:text="${vivienda.localidad}"></td>
-                                                <td th:text="${vivienda.provincia}"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                    <div class="row">
+                        <div class="col-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Nuevo Cliente</h4>
+                                    <p class="card-description">
+                                        Creando un nuevo cliente
+                                    </p>
+                                    <form th:action="@{/clientes/add}" th:object="${cliente}" method="post"
+                                        class="forms-sample">
+                                        <div class="form-group">
+                                            <label>Nombre</label>
+                                            <input th:field="*{nombre}" type="text" class="form-control"
+                                                aria-label="Nombre">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Apellidos</label>
+                                            <input th:field="*{apellidos}" type="text" class="form-control"
+                                                placeholder="Apellidos">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>DNI</label>
+                                            <input th:field="*{dni}" type="text" class="form-control"
+                                                placeholder="Numero de DNI">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary mr-2">Crear</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

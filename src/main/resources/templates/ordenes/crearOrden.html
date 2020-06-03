@@ -141,7 +141,7 @@
               <a href="#" class="nav-link"><i class="link-icon icon-book-open"></i><span class="menu-title">Gestión</span><i class="menu-arrow"></i></a>
               <div class="submenu">
                 <ul class="submenu-item">
-                  <li class="nav-item"><a class="nav-link" th:href="@{/apartos}">Aparatos</a></li>
+                  <li class="nav-item"><a class="nav-link" th:href="@{/apaartos}">Aparatos</a></li>
                   <li class="nav-item"><a class="nav-link" th:href="@{/empresas}">Empresas</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">Configuración</a></li>
                 </ul>
@@ -156,34 +156,41 @@
     <div class="container-fluid page-body-wrapper">
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Listado de clientes</h4>
-              <p class="page-description"><a href="/clientes/crear" type="button" class="btn btn-primary btn-fw">Crear Cliente</a></p>
-              <div class="row">
-                <div class="col-12 table-responsive">
-                  <table id="order-listing" class="table">
-                    <thead>
-                      <tr class="bg-light">
-                          <th>Nombre</th>
-                          <th>Apellidos</th>
-                          <th>DNI</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr th:each="cliente : ${listaClientes}">
-                      	  <td th:text="${cliente.nombre}"></td>
-                      	  <td th:text="${cliente.apellidos}"></td>
-                          <td><a th:href="@{/clientes/ver/{idCliente}(idCliente=${cliente.idCliente})}" th:text="${cliente.dni}"></a></td>
-                      </tr>
-                    </tbody>
-                  </table>
+		  <div class="row">
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Nueva Orden</h4>
+                  <p class="card-description">
+                    Creando una nueva orden a la vivienda
+                  </p>
+                  <form th:action="@{/ordenes/add}" th:object="${orden}" method="post" class="forms-sample">
+                  	<input name="idVivienda" th:value="${idVivienda}" type="hidden">
+                    <div class="form-group">
+                      <label>Orden</label>
+                      <input th:field="*{orden}" type="text" class="form-control" aria-label="Numero de orden">
+                    </div>
+                    <div class="form-group">
+                      <label>Empresa</label>
+                        <div id="the-basics">
+                          <select th:field="*{idEmpresa}" class="form-control">
+                            <option value="" selected>Elegir empresa</option>
+                            <option th:each="empresa: ${listaEmpresas}" th:value="${empresa.idEmpresa}" th:text="${empresa.nombreComercial}"></option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Asunto</label>
+                      <input th:field="*{asunto}" type="text" class="form-control" placeholder="Asunto">
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Crear</button>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- content-wrapper ends -->                
+        <!-- content-wrapper ends -->               
         <!-- partial:../../partials/_footer.html -->
         <footer class="footer">
           <div class="w-100 clearfix">
@@ -198,16 +205,17 @@
   </div>
   <!-- container-scroller -->
   <!-- plugins:js -->
-  <script src="/vendors/js/vendor.bundle.base.js"></script>
-  <script src="/vendors/js/vendor.bundle.addons.js"></script>
+  <script src="../../vendors/js/vendor.bundle.base.js"></script>
+  <script src="../../vendors/js/vendor.bundle.addons.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <!-- End plugin js for this page-->
   <!-- inject:js -->
-  <script src="/js/template.js"></script>
+  <script src="../../js/template.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="/js/data-table.js"></script>
+  <script src="../../js/typeahead.js"></script>
+  <script src="../../js/select2.js"></script>
   <!-- End custom js for this page-->
 </body>
 
