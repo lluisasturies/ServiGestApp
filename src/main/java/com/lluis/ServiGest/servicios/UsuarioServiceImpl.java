@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.lluis.ServiGest.pojos.Usuario;
 import com.lluis.ServiGest.repositorios.UsuarioDAO;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -15,11 +15,36 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
     UsuarioDAO usuarioDAO;
+    
+    @Override
+	public List<Usuario> listaUsuarios() {
+		return (List<Usuario>) usuarioDAO.findAll();
+	}
 
     @Override
-    public Optional<Usuario> getByNombreUsuario(String nu) {
+    public Usuario getUsuario(String nu) {
         return usuarioDAO.findByNombreUsuario(nu);
     }
+    
+    @Override
+    public void add(Usuario usuario) {
+        usuarioDAO.save(usuario);
+    }
+
+	@Override
+	public void update(Usuario usuario) {
+		if (usuarioDAO.existsById(usuario.getId())) {
+			usuarioDAO.save(usuario);
+		}
+	}
+
+	@Override
+	public void delete(Long idUsuario) {
+		if (usuarioDAO.existsById(idUsuario)) {
+			Usuario usuario = usuarioDAO.findById(idUsuario).get();
+			usuarioDAO.delete(usuario);
+		}
+	}
 
     @Override
     public boolean existePorNombre(String nu) {
@@ -31,8 +56,4 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarioDAO.existsByEmail(email);
     }
 
-    @Override
-    public void add(Usuario usuario) {
-        usuarioDAO.save(usuario);
-    }
 }

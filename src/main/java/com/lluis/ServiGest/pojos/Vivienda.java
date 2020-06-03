@@ -31,12 +31,6 @@ public class Vivienda {
 	@JoinColumn(name = "idInquilino")
 	private Cliente idInquilino; // Cliente asignado como inquilino
 	
-	/*
-	@ManyToMany
-	@JoinTable(name = "viviendas_aparatos", 
-    joinColumns = { @JoinColumn(name = "FK_idVivienda") }, 
-    inverseJoinColumns = { @JoinColumn(name = "FK_idAparato") })
-    */
 	@OneToMany(mappedBy = "idVivienda")
 	@JsonIgnore
 	private List<ViviendaAparato> aparatos;	

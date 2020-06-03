@@ -17,7 +17,6 @@ public class ViviendaServiceImpl implements ViviendaService {
 	@Override
 	public List<Vivienda> listaViviendas() {
 		return (List<Vivienda>) viviendaDAO.findAll();
-		
 	}
 
 	@Override

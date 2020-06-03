@@ -31,7 +31,7 @@ public class ViviendaController {
 	// Obtener LISTA de Viviendas
 	@GetMapping
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
-	public List<Vivienda> listaViviendas(){
+	public List<Vivienda> listaViviendas() {
 		return viviendaService.listaViviendas();
 	}
 	

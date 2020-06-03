@@ -20,7 +20,6 @@ import com.lluis.ServiGest.dto.JwtDTO;
 import com.lluis.ServiGest.dto.LoginUsuario;
 import com.lluis.ServiGest.pojos.Usuario;
 import com.lluis.ServiGest.seguridad.jwt.JwtProvider;
-import com.lluis.ServiGest.servicios.RolService;
 import com.lluis.ServiGest.servicios.UsuarioService;
 
 import javax.validation.Valid;
@@ -40,40 +39,14 @@ public class AuthController {
     UsuarioService usuarioService;
 
     @Autowired
-    RolService rolService;
-
-    @Autowired
     JwtProvider jwtProvider;
-
-    @PostMapping("/nuevo")
-    public ResponseEntity nuevo(@Valid @RequestBody Usuario nuevoUsuario, BindingResult bindingResult){
-    	
-        if (bindingResult.hasErrors()) {
-            return new ResponseEntity("Campos erroneos", HttpStatus.BAD_REQUEST);
-    	}
-        
-        if (usuarioService.existePorNombre(nuevoUsuario.getNombreUsuario())) {
-            return new ResponseEntity("El nombre de usuario ya existe", HttpStatus.BAD_REQUEST);
-        }
-        
-        if (usuarioService.existePorEmail(nuevoUsuario.getEmail())) {
-            return new ResponseEntity("El email ya existe", HttpStatus.BAD_REQUEST);
-        }
-        
-        // Codifico el password
-        nuevoUsuario.setPassword(passwordEncoder.encode(nuevoUsuario.getPassword()));
-        
-        // Añado el nuevo Usuario
-        usuarioService.add(nuevoUsuario);
-        
-        return new ResponseEntity(HttpStatus.CREATED);
-    }
+    
 
     @PostMapping("/login")
     public ResponseEntity<JwtDTO> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
         
     	if (bindingResult.hasErrors()) {
-            return new ResponseEntity("campos vacíos o email inválido", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity("Campos vacíos o email inválido", HttpStatus.BAD_REQUEST);
     	}
     	
         Authentication authentication = authenticationManager.authenticate(

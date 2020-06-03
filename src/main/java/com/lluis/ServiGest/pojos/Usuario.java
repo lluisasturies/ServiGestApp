@@ -3,8 +3,8 @@ package com.lluis.ServiGest.pojos;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="usuarios")
@@ -31,19 +31,9 @@ public class Usuario {
     @NotNull
     @ManyToMany
     @JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol"))
-    private Set<Rol> roles = new HashSet<>();
+    private List<Rol> roles = new ArrayList<>();
 
     
-    
-    public Usuario() {
-    }
-
-    public Usuario(@NotNull String nombre, @NotNull String nombreUsuario, @NotNull String email, @NotNull String password) {
-        this.nombre = nombre;
-        this.nombreUsuario = nombreUsuario;
-        this.email = email;
-        this.password = password;
-    }
 
     public Long getId() {
         return id;
@@ -85,11 +75,11 @@ public class Usuario {
         this.password = password;
     }
 
-    public Set<Rol> getRoles() {
+    public List<Rol> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Rol> roles) {
+    public void setRoles(List<Rol> roles) {
         this.roles = roles;
     }
 }

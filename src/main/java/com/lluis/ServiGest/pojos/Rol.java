@@ -1,11 +1,15 @@
 package com.lluis.ServiGest.pojos;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lluis.ServiGest.enums.RolNombre;
 import com.sun.istack.NotNull;
 
@@ -17,16 +21,13 @@ public class Rol {
     @Enumerated(EnumType.STRING)
     @NotNull
     private RolNombre rolNombre;
-
+    
+    @ManyToMany(mappedBy = "roles")
+    @JsonIgnore
+    private List<Usuario> usuarios;
     
     
-    public Rol() {
-    }
-
-    public Rol(@NotNull RolNombre rolNombre) {
-        this.rolNombre = rolNombre;
-    }
-
+    
     public RolNombre getRolNombre() {
         return rolNombre;
     }
@@ -34,4 +35,13 @@ public class Rol {
     public void setRolNombre(RolNombre rolNombre) {
         this.rolNombre = rolNombre;
     }
+
+	public List<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+    
 }
