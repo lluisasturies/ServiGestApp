@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
 @Table(name="clientes_contactos")
@@ -21,7 +23,7 @@ public class ClienteContacto {
 	
 	@ManyToOne
 	@JoinColumn(name = "idCliente")
-	@JsonIgnore
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Cliente idCliente; // Relación con el Cliente
 	
 	@Column
