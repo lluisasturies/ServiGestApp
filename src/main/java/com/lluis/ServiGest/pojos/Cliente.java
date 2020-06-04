@@ -29,7 +29,6 @@ public class Cliente {
     private List<Vivienda> viviendasInquilino;
 	
 	@OneToMany(mappedBy = "idCliente")
-	@JsonIgnore
     private List<ClienteContacto> contactos;
 	
 	@Column

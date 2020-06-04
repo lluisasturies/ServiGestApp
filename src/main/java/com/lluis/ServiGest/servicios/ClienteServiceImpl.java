@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lluis.ServiGest.pojos.Cliente;
-import com.lluis.ServiGest.pojos.ClienteContacto;
 import com.lluis.ServiGest.repositorios.ClienteContactoDAO;
 import com.lluis.ServiGest.repositorios.ClienteDAO;
 
@@ -36,11 +35,6 @@ public class ClienteServiceImpl implements ClienteService {
 			return null;
 			
 		}
-	}
-	
-	@Override
-	public List<ClienteContacto> verContactosCliente(Integer idCliente) {
-		return clienteContactoDAO.contactosPorCliente(idCliente);
 	}
 
 	@Override

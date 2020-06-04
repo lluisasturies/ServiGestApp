@@ -19,11 +19,6 @@ public class OrdenServiceImpl implements OrdenService {
 		return (List<Orden>) ordenDAO.findAll();
 		
 	}
-	
-	@Override
-	public List<Orden> listaOrdenesPorVivienda(Integer idVivienda) {
-		return ordenDAO.ordenesPorVivienda(idVivienda);
-	}
 
 	@Override
 	public Orden verOrden(Integer idOrden) {

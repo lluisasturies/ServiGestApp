@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="ordenes_lineas")
 public class OrdenLinea {
@@ -19,6 +21,7 @@ public class OrdenLinea {
 	
 	@ManyToOne
 	@JoinColumn(name = "idOrden")
+	@JsonIgnore
 	private Orden idOrden;
 	
 	@Column

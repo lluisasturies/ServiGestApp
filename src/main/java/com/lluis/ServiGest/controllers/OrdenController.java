@@ -32,13 +32,6 @@ public class OrdenController {
 	public List<Orden> listaOrdenes(){
 		return ordenService.listaOrdenes();
 	}
-	
-	// Obtener LISTA de Ordenes de una Vivienda
-	@GetMapping("/vivienda/{idVivienda}")
-	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
-	public List<Orden> listaOrdenesPorVivienda(@PathVariable Integer idVivienda){
-		return ordenService.listaOrdenesPorVivienda(idVivienda);
-	}
 		
 	// Obtener UNA Orden
 	@GetMapping("/{idOrden}")

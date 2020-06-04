@@ -1,7 +1,5 @@
 package com.lluis.ServiGest.servicios;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +11,6 @@ public class ClienteContactoServiceImpl implements ClienteContactoService  {
 	
 	@Autowired
 	ClienteContactoDAO clienteContactoDAO;
-	
-	@Override
-	public List<ClienteContacto> verContactosCliente(Integer idCliente) {
-		return (List<ClienteContacto>) clienteContactoDAO.contactosPorCliente(idCliente);
-	}
 	
 	@Override
 	public void add(ClienteContacto contactoCliente) {

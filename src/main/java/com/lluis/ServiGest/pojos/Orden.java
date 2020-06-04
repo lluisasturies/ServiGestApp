@@ -25,6 +25,7 @@ public class Orden {
 	
 	@ManyToOne
 	@JoinColumn(name = "idVivienda")
+	@JsonIgnore
 	private Vivienda idVivienda; // Relación con la Vivienda
 	
 	@ManyToOne
@@ -32,7 +33,6 @@ public class Orden {
 	private Empresa idEmpresa; // Relación con la Empresa
 	
 	@OneToMany(mappedBy = "idOrden")
-	@JsonIgnore
 	private List<OrdenLinea> idTrabajo;
 	
 	@Column

@@ -32,18 +32,14 @@ public class EmpresaController {
 	@GetMapping
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	public List<Empresa> listaEmpresas(){
-		
 		return empresaService.listaEmpresas();
-		
 	}
 	
 	// Obtener UNA Empresa
 	@GetMapping("/{idEmpresa}")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	public Empresa verEmpresa(@PathVariable("idEmpresa") Integer idEmpresa) {
-			
 		return empresaService.verEmpresa(idEmpresa);
-		
 	}
 	
 	// ADD
@@ -51,9 +47,7 @@ public class EmpresaController {
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
 	public void add(@RequestBody Empresa empresa) {
-		
 		empresaService.add(empresa);
-		
 	}
 	
 	// UPDATE
@@ -61,7 +55,6 @@ public class EmpresaController {
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	public void update(@RequestBody Empresa empresa) {
-		
 		empresaService.update(empresa);
 	}
 	
@@ -70,7 +63,6 @@ public class EmpresaController {
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	public void delete(@PathVariable("idEmpresa") Integer idEmpresa) {
-		
 		empresaService.delete(idEmpresa);
 	}
 

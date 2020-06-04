@@ -8,8 +8,6 @@ public interface OrdenService {
 
 	// LIST de Ordenes
 	public List<Orden> listaOrdenes();
-	
-	public List<Orden> listaOrdenesPorVivienda(Integer idVivienda);
 		
 	// READ
 	public Orden verOrden(Integer idOrden);

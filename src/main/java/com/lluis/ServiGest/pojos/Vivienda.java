@@ -13,8 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name="viviendas")
 public class Vivienda {
@@ -32,11 +30,9 @@ public class Vivienda {
 	private Cliente idInquilino; // Cliente asignado como inquilino
 	
 	@OneToMany(mappedBy = "idVivienda")
-	@JsonIgnore
 	private List<ViviendaAparato> aparatos;	
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "idVivienda")
-	@JsonIgnore
     private List<Orden> ordenes;
 	
 	@Column

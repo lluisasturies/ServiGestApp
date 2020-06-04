@@ -21,7 +21,6 @@ public class Empresa {
 	private Integer idEmpresa;
 	
 	@OneToMany(mappedBy = "idEmpresa")
-	@JsonIgnore
     private List<EmpresaContacto> contactos;
 	
 	@OneToMany(mappedBy = "idEmpresa")

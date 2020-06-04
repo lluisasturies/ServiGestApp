@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lluis.ServiGest.pojos.Cliente;
-import com.lluis.ServiGest.pojos.ClienteContacto;
 import com.lluis.ServiGest.servicios.ClienteService;
 
 @RestController
@@ -40,13 +39,6 @@ public class ClienteController {
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	public Cliente verCliente(@PathVariable("idCliente") Integer idCliente) {
 		return clienteService.verCliente(idCliente);
-	}
-	
-	// Obtener Lineas de Contacto de un Cliente
-	@GetMapping("/{idCliente}/contactos")
-	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
-	public List<ClienteContacto> verContactosCliente(@PathVariable("idCliente") Integer idCliente) {
-		return clienteService.verContactosCliente(idCliente);
 	}
 		
 	// ADD
@@ -72,6 +64,5 @@ public class ClienteController {
 	public void delete(@PathVariable("idCliente") Integer idCliente) {
 		clienteService.delete(idCliente);
 	}
-	
 	
 }
