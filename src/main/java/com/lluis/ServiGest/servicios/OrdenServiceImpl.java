@@ -46,7 +46,6 @@ public class OrdenServiceImpl implements OrdenService {
 	public void delete(Integer idOrden) {
 		if (ordenDAO.existsById(idOrden)) {
 			Orden orden = ordenDAO.findById(idOrden).get();
-			
 			ordenDAO.delete(orden);
 		}
 	}

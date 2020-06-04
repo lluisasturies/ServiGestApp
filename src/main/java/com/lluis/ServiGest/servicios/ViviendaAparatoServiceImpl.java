@@ -1,7 +1,5 @@
 package com.lluis.ServiGest.servicios;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,21 +13,21 @@ public class ViviendaAparatoServiceImpl implements ViviendaAparatoService  {
 	ViviendaAparatoDAO viviendaAparatoDAO;
 	
 	@Override
-	public List<ViviendaAparato> verAparatosVivienda(Integer idVivienda) {
-		return viviendaAparatoDAO.aparatosPorVivienda(idVivienda);
+	public void add(ViviendaAparato viviendaAparato) {
+		viviendaAparatoDAO.save(viviendaAparato);
 	}
 	
 	@Override
-	public void add(ViviendaAparato viviendaAparato) {
-		viviendaAparatoDAO.save(viviendaAparato);
-		
+	public void update(ViviendaAparato viviendaAparato) {
+		if (viviendaAparatoDAO.existsById(viviendaAparato.getId())) {
+			viviendaAparatoDAO.save(viviendaAparato);
+		}
 	}
 
 	@Override
 	public void delete(Integer id) {		
 		if (viviendaAparatoDAO.existsById(id)) {
 			ViviendaAparato viviendaAparato = viviendaAparatoDAO.findById(id).get();
-			
 			viviendaAparatoDAO.delete(viviendaAparato);
 		}
 	}
