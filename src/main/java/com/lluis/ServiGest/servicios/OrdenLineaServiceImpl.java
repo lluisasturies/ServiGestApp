@@ -1,11 +1,13 @@
 package com.lluis.ServiGest.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.lluis.ServiGest.pojos.OrdenLinea;
 import com.lluis.ServiGest.repositorios.OrdenLineaDAO;
 
-public class OrdenLineaImpl implements OrdenLineaService {
+@Service
+public class OrdenLineaServiceImpl implements OrdenLineaService {
 	
 	@Autowired
 	OrdenLineaDAO ordenLineaDAO;
