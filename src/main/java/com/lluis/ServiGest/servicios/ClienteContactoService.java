@@ -5,8 +5,11 @@ import com.lluis.ServiGest.pojos.ClienteContacto;
 public interface ClienteContactoService {
 
 	// CREATE
-	public void add(ClienteContacto contactoCliente);
+	public void add(ClienteContacto clienteContacto);
+	
+	// UPDATE
+	public void update(ClienteContacto clienteContacto);
 	
 	// DELETE
-	public void delete(Integer id);
+	public void delete(Integer idContacto);
 }

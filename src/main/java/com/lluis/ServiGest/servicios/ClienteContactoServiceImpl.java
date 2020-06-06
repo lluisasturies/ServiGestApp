@@ -13,18 +13,23 @@ public class ClienteContactoServiceImpl implements ClienteContactoService  {
 	ClienteContactoDAO clienteContactoDAO;
 	
 	@Override
-	public void add(ClienteContacto contactoCliente) {
-		clienteContactoDAO.save(contactoCliente);
+	public void add(ClienteContacto clienteContacto) {
+		clienteContactoDAO.save(clienteContacto);
+	}
+	
+	@Override
+	public void update(ClienteContacto clienteContacto) {
+		if (clienteContactoDAO.existsById(clienteContacto.getIdContacto())) {
+			clienteContactoDAO.save(clienteContacto);
+		}
 	}
 
 	@Override
-	public void delete(Integer id) {
-		if (clienteContactoDAO.existsById(id)) {
-			ClienteContacto clienteContacto = clienteContactoDAO.findById(id).get();
-			
+	public void delete(Integer idContacto) {
+		if (clienteContactoDAO.existsById(idContacto)) {
+			ClienteContacto clienteContacto = clienteContactoDAO.findById(idContacto).get();
 			clienteContactoDAO.delete(clienteContacto);
 		}
-		
 	}
 
 }
