@@ -17,7 +17,7 @@ import com.lluis.ServiGest.servicios.ClienteContactoService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("api/clientes/contacto")
+@RequestMapping("api/clientes/contactos")
 public class ClienteContactoController {
 
 	@Autowired

@@ -17,7 +17,7 @@ import com.lluis.ServiGest.servicios.EmpresaContactoService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("api/empresas/contacto")
+@RequestMapping("api/empresas/contactos")
 public class EmpresaContactoController {
 
 	@Autowired
