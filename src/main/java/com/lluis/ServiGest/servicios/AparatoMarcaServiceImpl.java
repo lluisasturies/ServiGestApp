@@ -3,10 +3,12 @@ package com.lluis.ServiGest.servicios;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.lluis.ServiGest.pojos.AparatoMarca;
 import com.lluis.ServiGest.repositorios.AparatoMarcaDAO;
 
+@Service
 public class AparatoMarcaServiceImpl implements AparatoMarcaService {
 
 	@Autowired
@@ -25,7 +27,6 @@ public class AparatoMarcaServiceImpl implements AparatoMarcaService {
 		else {
 			return null;
 		}
-		
 	}
 
 	@Override
