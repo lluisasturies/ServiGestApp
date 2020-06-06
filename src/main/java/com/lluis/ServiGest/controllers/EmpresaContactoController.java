@@ -12,23 +12,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lluis.ServiGest.pojos.ClienteContacto;
-import com.lluis.ServiGest.servicios.ClienteContactoService;
+import com.lluis.ServiGest.pojos.EmpresaContacto;
+import com.lluis.ServiGest.servicios.EmpresaContactoService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("api/clientes/contacto")
-public class ClienteContactoController {
+@RequestMapping("api/empresas/contacto")
+public class EmpresaContactoController {
 
 	@Autowired
-	ClienteContactoService clienteContactoService;
+	EmpresaContactoService empresaContactoService;
 		
 	// ADD
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void add(@RequestBody ClienteContacto clienteContacto) {
-		clienteContactoService.add(clienteContacto);
+	public void add(@RequestBody EmpresaContacto empresaContacto) {
+		empresaContactoService.add(empresaContacto);
 	}
 		
 	// DELETE
@@ -36,7 +36,7 @@ public class ClienteContactoController {
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	public void delete(@PathVariable("idContacto") Integer idContacto) {
-		clienteContactoService.delete(idContacto);
+		empresaContactoService.delete(idContacto);
 	}
 	
 }

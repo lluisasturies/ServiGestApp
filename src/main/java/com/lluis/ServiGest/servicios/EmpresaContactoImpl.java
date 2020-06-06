@@ -1,10 +1,12 @@
 package com.lluis.ServiGest.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.lluis.ServiGest.pojos.EmpresaContacto;
 import com.lluis.ServiGest.repositorios.EmpresaContactoDAO;
 
+@Service
 public class EmpresaContactoImpl implements EmpresaContactoService {
 
 	@Autowired
