@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="albaranes")
 public class Albaran {
@@ -25,6 +27,7 @@ public class Albaran {
 	
 	@OneToOne
 	@JoinColumn(name = "idOrden")
+	@JsonIgnore
 	private Orden idOrden; // Relación con la Orden
 	
 	@OneToMany(mappedBy = "idAlbaran")
