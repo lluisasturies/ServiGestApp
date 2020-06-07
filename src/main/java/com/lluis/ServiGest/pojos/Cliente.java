@@ -29,6 +29,10 @@ public class Cliente {
     private List<Vivienda> viviendasInquilino;
 	
 	@OneToMany(mappedBy = "idCliente")
+	@JsonIgnore
+	private List<Albaran> albaranes;
+	
+	@OneToMany(mappedBy = "idCliente")
     private List<ClienteContacto> contactos;
 	
 	@Column

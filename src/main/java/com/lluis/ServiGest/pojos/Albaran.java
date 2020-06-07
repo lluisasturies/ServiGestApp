@@ -9,13 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="albaranes")
@@ -25,9 +24,12 @@ public class Albaran {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idAlbaran;
 	
+	@ManyToOne
+	@JoinColumn(name = "idCliente")
+	private Cliente idCliente;
+	
 	@OneToOne
 	@JoinColumn(name = "idOrden")
-	@JsonIgnore
 	private Orden idOrden; // Relación con la Orden
 	
 	@OneToMany(mappedBy = "idAlbaran")
@@ -50,6 +52,14 @@ public class Albaran {
 
 	public void setIdAlbaran(Integer idAlbaran) {
 		this.idAlbaran = idAlbaran;
+	}
+	
+	public Cliente getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(Cliente idCliente) {
+		this.idCliente = idCliente;
 	}
 
 	public Orden getIdOrden() {
@@ -82,6 +92,14 @@ public class Albaran {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+
+	public boolean isFacturado() {
+		return facturado;
+	}
+
+	public void setFacturado(boolean facturado) {
+		this.facturado = facturado;
 	}
 	
 }
