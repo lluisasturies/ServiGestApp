@@ -49,7 +49,7 @@ public class Orden {
 	private byte estado;
 	
 	
-	
+
 	public Integer getIdOrden() {
 		return idOrden;
 	}
@@ -72,6 +72,14 @@ public class Orden {
 
 	public void setIdEmpresa(Empresa idEmpresa) {
 		this.idEmpresa = idEmpresa;
+	}
+	
+	public List<OrdenLinea> getIdTrabajo() {
+		return idTrabajo;
+	}
+
+	public void setIdTrabajo(List<OrdenLinea> idTrabajo) {
+		this.idTrabajo = idTrabajo;
 	}
 
 	public byte getEstado() {
