@@ -7,7 +7,7 @@ import com.lluis.ServiGest.pojos.EmpresaContacto;
 import com.lluis.ServiGest.repositorios.EmpresaContactoDAO;
 
 @Service
-public class EmpresaContactoImpl implements EmpresaContactoService {
+public class EmpresaContactoServiceImpl implements EmpresaContactoService {
 
 	@Autowired
 	EmpresaContactoDAO empresaContactoDAO;
