@@ -19,15 +19,15 @@ public class ViviendaAparatoServiceImpl implements ViviendaAparatoService  {
 	
 	@Override
 	public void update(ViviendaAparato viviendaAparato) {
-		if (viviendaAparatoDAO.existsById(viviendaAparato.getId())) {
+		if (viviendaAparatoDAO.existsById(viviendaAparato.getIdAparato())) {
 			viviendaAparatoDAO.save(viviendaAparato);
 		}
 	}
 
 	@Override
-	public void delete(Integer id) {		
-		if (viviendaAparatoDAO.existsById(id)) {
-			ViviendaAparato viviendaAparato = viviendaAparatoDAO.findById(id).get();
+	public void delete(Integer idAparato) {		
+		if (viviendaAparatoDAO.existsById(idAparato)) {
+			ViviendaAparato viviendaAparato = viviendaAparatoDAO.findById(idAparato).get();
 			viviendaAparatoDAO.delete(viviendaAparato);
 		}
 	}

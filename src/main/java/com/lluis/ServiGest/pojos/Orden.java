@@ -34,7 +34,7 @@ public class Orden {
 	private Empresa empresa; // Relación con la Empresa
 	
 	@OneToMany(mappedBy = "orden")
-	private List<OrdenLinea> idTrabajo;
+	private List<OrdenLinea> lineas;
 	
 	@Column
 	private String orden;
@@ -58,28 +58,28 @@ public class Orden {
 		this.idOrden = idOrden;
 	}
 
-	public Vivienda getIdVivienda() {
+	public Vivienda getVivienda() {
 		return vivienda;
 	}
 
-	public void setIdVivienda(Vivienda idVivienda) {
-		this.vivienda = idVivienda;
+	public void setVivienda(Vivienda vivienda) {
+		this.vivienda = vivienda;
 	}
 
-	public Empresa getIdEmpresa() {
+	public Empresa getEmpresa() {
 		return empresa;
 	}
 
-	public void setIdEmpresa(Empresa idEmpresa) {
-		this.empresa = idEmpresa;
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
 	
-	public List<OrdenLinea> getIdTrabajo() {
-		return idTrabajo;
+	public List<OrdenLinea> getLineas() {
+		return lineas;
 	}
 
-	public void setIdTrabajo(List<OrdenLinea> idTrabajo) {
-		this.idTrabajo = idTrabajo;
+	public void setLineas(List<OrdenLinea> lineas) {
+		this.lineas = lineas;
 	}
 
 	public byte getEstado() {

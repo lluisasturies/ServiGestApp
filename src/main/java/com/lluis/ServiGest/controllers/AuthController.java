@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lluis.ServiGest.dto.JwtDTO;
 import com.lluis.ServiGest.dto.LoginUsuario;
-import com.lluis.ServiGest.pojos.Usuario;
 import com.lluis.ServiGest.seguridad.jwt.JwtProvider;
 import com.lluis.ServiGest.servicios.UsuarioService;
 

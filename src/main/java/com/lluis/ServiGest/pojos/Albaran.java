@@ -54,20 +54,20 @@ public class Albaran {
 		this.idAlbaran = idAlbaran;
 	}
 	
-	public Cliente getIdCliente() {
+	public Cliente getCliente() {
 		return cliente;
 	}
 
-	public void setIdCliente(Cliente idCliente) {
-		this.cliente = idCliente;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
-	public Orden getIdOrden() {
+	public Orden getOrden() {
 		return orden;
 	}
 
-	public void setIdOrden(Orden idOrden) {
-		this.orden = idOrden;
+	public void setOrden(Orden orden) {
+		this.orden = orden;
 	}
 
 	public List<AlbaranLinea> getLineas() {

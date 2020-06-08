@@ -41,12 +41,12 @@ public class OrdenLinea {
 		this.idTrabajo = idTrabajo;
 	}
 
-	public Orden getIdOrden() {
+	public Orden getOrden() {
 		return orden;
 	}
 
-	public void setIdOrden(Orden idOrden) {
-		this.orden = idOrden;
+	public void setOrden(Orden orden) {
+		this.orden = orden;
 	}
 
 	public String getConcepto() {

@@ -44,12 +44,12 @@ public class EmpresaContacto {
 		this.idContacto = idContacto;
 	}
 
-	public Empresa getIdEmpresa() {
+	public Empresa getEmpresa() {
 		return empresa;
 	}
 
-	public void setIdEmpresa(Empresa idEmpresa) {
-		this.empresa = idEmpresa;
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
 
 	public String getNombre() {

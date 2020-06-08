@@ -47,27 +47,27 @@ public class Aparato {
 		this.idAparato = idAparato;
 	}
 
-	public AparatoTipo getIdTipo() {
+	public AparatoTipo getTipo() {
 		return tipo;
 	}
 
-	public void setIdTipo(AparatoTipo idTipo) {
-		this.tipo = idTipo;
+	public void setTipo(AparatoTipo tipo) {
+		this.tipo = tipo;
 	}
 
-	public AparatoMarca getIdMarca() {
+	public AparatoMarca getMarca() {
 		return marca;
 	}
 
-	public void setIdMarca(AparatoMarca idMarca) {
-		this.marca = idMarca;
+	public void setMarca(AparatoMarca marca) {
+		this.marca = marca;
 	}
 
 	public List<ViviendaAparato> getViviendas() {
 		return viviendas;
 	}
 
-	public void setIdVivienda(List<ViviendaAparato> viviendas) {
+	public void setViviendas(List<ViviendaAparato> viviendas) {
 		this.viviendas = viviendas;
 	}
 

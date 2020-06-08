@@ -44,12 +44,12 @@ public class AlbaranLinea {
 		this.idLinea = idLinea;
 	}
 
-	public Albaran getIdAlbaran() {
+	public Albaran getAlbaran() {
 		return albaran;
 	}
 
-	public void setIdAlbaran(Albaran idAlbaran) {
-		this.albaran = idAlbaran;
+	public void setAlbaran(Albaran albaran) {
+		this.albaran = albaran;
 	}
 
 	public String getConcepto() {

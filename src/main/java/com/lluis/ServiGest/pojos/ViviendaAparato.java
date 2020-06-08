@@ -15,7 +15,7 @@ public class ViviendaAparato {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer id;
+	private Integer idAparato;
 	
 	@ManyToOne
 	@JoinColumn(name = "FK_idVivienda")
@@ -27,12 +27,12 @@ public class ViviendaAparato {
 
 	
 	
-	public Integer getId() {
-		return id;
+	public Integer getIdAparato() {
+		return idAparato;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdAparato(Integer idAparato) {
+		this.idAparato = idAparato;
 	}
 
 	public Vivienda getIdVivienda() {
@@ -43,12 +43,12 @@ public class ViviendaAparato {
 		this.vivienda = idVivienda;
 	}
 
-	public Aparato getIdAparato() {
+	public Aparato getAparato() {
 		return aparato;
 	}
 
-	public void setIdAparato(Aparato idAparato) {
-		this.aparato = idAparato;
+	public void setAparato(Aparato aparato) {
+		this.aparato = aparato;
 	}
 	
 }

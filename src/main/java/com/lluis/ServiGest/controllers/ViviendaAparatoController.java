@@ -35,7 +35,7 @@ public class ViviendaAparatoController {
 		vivienda.setIdVivienda(idVivienda);
 		
 		ViviendaAparato viviendaAparato = new ViviendaAparato();
-		viviendaAparato.setIdAparato(aparato);
+		viviendaAparato.setAparato(aparato);
 		viviendaAparato.setIdVivienda(vivienda);
 			
 		viviendaAparatoService.add(viviendaAparato);	

@@ -44,12 +44,12 @@ public class ClienteContacto {
 		this.idContacto = idContacto;
 	}
 
-	public Cliente getIdCliente() {
+	public Cliente getCliente() {
 		return cliente;
 	}
 
-	public void setIdCliente(Cliente idCliente) {
-		this.cliente = idCliente;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public String getContacto() {

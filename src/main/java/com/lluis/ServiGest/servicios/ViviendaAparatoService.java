@@ -11,6 +11,6 @@ public interface ViviendaAparatoService {
 	public void update(ViviendaAparato viviendaAparato);
 		
 	// DELETE
-	public void delete(Integer id);
+	public void delete(Integer idAparato);
 		
 }

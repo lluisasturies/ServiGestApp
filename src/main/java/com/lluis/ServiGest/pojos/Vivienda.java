@@ -54,21 +54,21 @@ public class Vivienda {
 		this.idVivienda = idVivienda;
 	}
 
-	public Cliente getIdPropietario() {
+	public Cliente getPropietario() {
 		return propietario;
 	}
 	
 	
-	public void setIdPropietario(Cliente idPropietario) {
-		this.propietario = idPropietario;
+	public void setPropietario(Cliente propietario) {
+		this.propietario = propietario;
 	}
 
-	public Cliente getIdInquilino() {
+	public Cliente getInquilino() {
 		return inquilino;
 	}
 
-	public void setIdInquilino(Cliente idInquilino) {
-		this.inquilino = idInquilino;
+	public void setInquilino(Cliente inquilino) {
+		this.inquilino = inquilino;
 	}
 
 	public List<ViviendaAparato> getAparatos() {
