@@ -20,19 +20,19 @@ public class Cliente {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idCliente;
 	
-	@OneToMany(mappedBy = "idPropietario")
+	@OneToMany(mappedBy = "propietario")
 	@JsonIgnore
     private List<Vivienda> viviendasPropietario;
 	
-	@OneToMany(mappedBy = "idInquilino")
+	@OneToMany(mappedBy = "inquilino")
 	@JsonIgnore
     private List<Vivienda> viviendasInquilino;
 	
-	@OneToMany(mappedBy = "idCliente")
+	@OneToMany(mappedBy = "cliente")
 	@JsonIgnore
 	private List<Albaran> albaranes;
 	
-	@OneToMany(mappedBy = "idCliente")
+	@OneToMany(mappedBy = "cliente")
     private List<ClienteContacto> contactos;
 	
 	@Column

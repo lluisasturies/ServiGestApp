@@ -24,19 +24,13 @@ public class Aparato {
 	
 	@ManyToOne
 	@JoinColumn(name = "idTipo")
-	private AparatoTipo idTipo; // Relación con el AparatoTipo
+	private AparatoTipo tipo; // Relación con el AparatoTipo
 	
 	@ManyToOne
 	@JoinColumn(name = "idMarca")
-	private AparatoMarca idMarca; // Relación con el AparatoMarca
+	private AparatoMarca marca; // Relación con el AparatoMarca
 	
-	/*
-	@ManyToMany
-	@JoinTable(name = "viviendas_aparatos", 
-    joinColumns = { @JoinColumn(name = "FK_idAparato") }, 
-    inverseJoinColumns = { @JoinColumn(name = "FK_idVivienda") })
-    */
-	@OneToMany(mappedBy = "idAparato")
+	@OneToMany(mappedBy = "aparato")
 	@JsonIgnore
 	private List<ViviendaAparato> viviendas;
 	
@@ -54,19 +48,19 @@ public class Aparato {
 	}
 
 	public AparatoTipo getIdTipo() {
-		return idTipo;
+		return tipo;
 	}
 
 	public void setIdTipo(AparatoTipo idTipo) {
-		this.idTipo = idTipo;
+		this.tipo = idTipo;
 	}
 
 	public AparatoMarca getIdMarca() {
-		return idMarca;
+		return marca;
 	}
 
 	public void setIdMarca(AparatoMarca idMarca) {
-		this.idMarca = idMarca;
+		this.marca = idMarca;
 	}
 
 	public List<ViviendaAparato> getViviendas() {

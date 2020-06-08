@@ -20,10 +20,10 @@ public class Empresa {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idEmpresa;
 	
-	@OneToMany(mappedBy = "idEmpresa")
+	@OneToMany(mappedBy = "empresa")
     private List<EmpresaContacto> contactos;
 	
-	@OneToMany(mappedBy = "idEmpresa")
+	@OneToMany(mappedBy = "empresa")
 	@JsonIgnore
     private List<Orden> ordenes;
 	

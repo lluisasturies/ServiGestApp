@@ -23,7 +23,7 @@ public class EmpresaContacto {
 	@ManyToOne
 	@JoinColumn(name = "idEmpresa")
 	@JsonProperty(access = Access.WRITE_ONLY)
-	private Empresa idEmpresa; // Relación con la Empresa
+	private Empresa empresa; // Relación con la Empresa
 	
 	@Column
 	private String nombre;
@@ -45,11 +45,11 @@ public class EmpresaContacto {
 	}
 
 	public Empresa getIdEmpresa() {
-		return idEmpresa;
+		return empresa;
 	}
 
 	public void setIdEmpresa(Empresa idEmpresa) {
-		this.idEmpresa = idEmpresa;
+		this.empresa = idEmpresa;
 	}
 
 	public String getNombre() {

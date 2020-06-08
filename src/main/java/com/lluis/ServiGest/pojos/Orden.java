@@ -27,13 +27,13 @@ public class Orden {
 	@ManyToOne
 	@JoinColumn(name = "idVivienda")
 	@JsonProperty(access = Access.WRITE_ONLY)
-	private Vivienda idVivienda; // Relación con la Vivienda
+	private Vivienda vivienda; // Relación con la Vivienda
 	
 	@ManyToOne
 	@JoinColumn(name = "idEmpresa")
-	private Empresa idEmpresa; // Relación con la Empresa
+	private Empresa empresa; // Relación con la Empresa
 	
-	@OneToMany(mappedBy = "idOrden")
+	@OneToMany(mappedBy = "orden")
 	private List<OrdenLinea> idTrabajo;
 	
 	@Column
@@ -59,19 +59,19 @@ public class Orden {
 	}
 
 	public Vivienda getIdVivienda() {
-		return idVivienda;
+		return vivienda;
 	}
 
 	public void setIdVivienda(Vivienda idVivienda) {
-		this.idVivienda = idVivienda;
+		this.vivienda = idVivienda;
 	}
 
 	public Empresa getIdEmpresa() {
-		return idEmpresa;
+		return empresa;
 	}
 
 	public void setIdEmpresa(Empresa idEmpresa) {
-		this.idEmpresa = idEmpresa;
+		this.empresa = idEmpresa;
 	}
 	
 	public List<OrdenLinea> getIdTrabajo() {

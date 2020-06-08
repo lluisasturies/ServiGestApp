@@ -26,13 +26,13 @@ public class Albaran {
 	
 	@ManyToOne
 	@JoinColumn(name = "idCliente")
-	private Cliente idCliente;
+	private Cliente cliente;
 	
 	@OneToOne
 	@JoinColumn(name = "idOrden")
-	private Orden idOrden; // Relación con la Orden
+	private Orden orden; // Relación con la Orden
 	
-	@OneToMany(mappedBy = "idAlbaran")
+	@OneToMany(mappedBy = "albaran")
     private List<AlbaranLinea> lineas;
 	
 	@Column
@@ -55,19 +55,19 @@ public class Albaran {
 	}
 	
 	public Cliente getIdCliente() {
-		return idCliente;
+		return cliente;
 	}
 
 	public void setIdCliente(Cliente idCliente) {
-		this.idCliente = idCliente;
+		this.cliente = idCliente;
 	}
 
 	public Orden getIdOrden() {
-		return idOrden;
+		return orden;
 	}
 
 	public void setIdOrden(Orden idOrden) {
-		this.idOrden = idOrden;
+		this.orden = idOrden;
 	}
 
 	public List<AlbaranLinea> getLineas() {

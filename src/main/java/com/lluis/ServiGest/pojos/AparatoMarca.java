@@ -21,12 +21,12 @@ public class AparatoMarca {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idMarca;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idMarca")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "marca")
 	@JsonIgnore
 	private List<Aparato> aparatos;
 	
 	@Column
-	private String marca;
+	private String nombre;
 
 	
 	
@@ -47,11 +47,11 @@ public class AparatoMarca {
 	}
 
 	public String getMarca() {
-		return marca;
+		return nombre;
 	}
 
 	public void setMarca(String marca) {
-		this.marca = marca;
+		this.nombre = marca;
 	}
 	
 }

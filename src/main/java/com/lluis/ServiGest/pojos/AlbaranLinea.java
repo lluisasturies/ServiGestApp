@@ -23,7 +23,7 @@ public class AlbaranLinea {
 	@ManyToOne
 	@JoinColumn(name = "idAlbaran")
 	@JsonProperty(access = Access.WRITE_ONLY)
-	private Albaran idAlbaran; // Relación con el Albaran
+	private Albaran albaran; // Relación con el Albaran
 	
 	@Column
 	private String concepto;
@@ -45,11 +45,11 @@ public class AlbaranLinea {
 	}
 
 	public Albaran getIdAlbaran() {
-		return idAlbaran;
+		return albaran;
 	}
 
 	public void setIdAlbaran(Albaran idAlbaran) {
-		this.idAlbaran = idAlbaran;
+		this.albaran = idAlbaran;
 	}
 
 	public String getConcepto() {

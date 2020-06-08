@@ -23,7 +23,7 @@ public class OrdenLinea {
 	@ManyToOne
 	@JoinColumn(name = "idOrden")
 	@JsonProperty(access = Access.WRITE_ONLY)
-	private Orden idOrden;
+	private Orden orden;
 	
 	@Column
 	private String concepto;
@@ -42,11 +42,11 @@ public class OrdenLinea {
 	}
 
 	public Orden getIdOrden() {
-		return idOrden;
+		return orden;
 	}
 
 	public void setIdOrden(Orden idOrden) {
-		this.idOrden = idOrden;
+		this.orden = idOrden;
 	}
 
 	public String getConcepto() {

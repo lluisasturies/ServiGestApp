@@ -21,12 +21,12 @@ public class AparatoTipo {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idTipo;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "idTipo")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "tipo")
 	@JsonIgnore
 	private List<Aparato> aparatos;
 	
 	@Column
-	private String tipo;
+	private String nombre;
 
 	
 	
@@ -47,11 +47,11 @@ public class AparatoTipo {
 	}
 
 	public String getTipo() {
-		return tipo;
+		return nombre;
 	}
 
 	public void setTipo(String tipo) {
-		this.tipo = tipo;
+		this.nombre = tipo;
 	}
 	
 }

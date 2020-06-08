@@ -19,11 +19,11 @@ public class ViviendaAparato {
 	
 	@ManyToOne
 	@JoinColumn(name = "FK_idVivienda")
-	private Vivienda idVivienda ;
+	private Vivienda vivienda ;
 	
 	@ManyToOne
 	@JoinColumn(name = "FK_idAparato")
-	private Aparato idAparato;
+	private Aparato aparato;
 
 	
 	
@@ -36,19 +36,19 @@ public class ViviendaAparato {
 	}
 
 	public Vivienda getIdVivienda() {
-		return idVivienda;
+		return vivienda;
 	}
 
 	public void setIdVivienda(Vivienda idVivienda) {
-		this.idVivienda = idVivienda;
+		this.vivienda = idVivienda;
 	}
 
 	public Aparato getIdAparato() {
-		return idAparato;
+		return aparato;
 	}
 
 	public void setIdAparato(Aparato idAparato) {
-		this.idAparato = idAparato;
+		this.aparato = idAparato;
 	}
 	
 }

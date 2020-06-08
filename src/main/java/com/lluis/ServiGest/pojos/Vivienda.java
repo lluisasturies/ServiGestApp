@@ -23,16 +23,16 @@ public class Vivienda {
 	
 	@ManyToOne
 	@JoinColumn(name = "idPropietario")
-	private Cliente idPropietario; // Cliente asignado como propietario
+	private Cliente propietario; // Cliente asignado como propietario
 	
 	@ManyToOne
 	@JoinColumn(name = "idInquilino")
-	private Cliente idInquilino; // Cliente asignado como inquilino
+	private Cliente inquilino; // Cliente asignado como inquilino
 	
-	@OneToMany(mappedBy = "idVivienda")
+	@OneToMany(mappedBy = "vivienda")
 	private List<ViviendaAparato> aparatos;	
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "idVivienda")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "vivienda")
     private List<Orden> ordenes;
 	
 	@Column
@@ -43,7 +43,8 @@ public class Vivienda {
 	
 	@Column
 	private String provincia;
-		
+	
+	
 	
 	public Integer getIdVivienda() {
 		return idVivienda;
@@ -54,20 +55,20 @@ public class Vivienda {
 	}
 
 	public Cliente getIdPropietario() {
-		return idPropietario;
+		return propietario;
 	}
 	
 	
 	public void setIdPropietario(Cliente idPropietario) {
-		this.idPropietario = idPropietario;
+		this.propietario = idPropietario;
 	}
 
 	public Cliente getIdInquilino() {
-		return idInquilino;
+		return inquilino;
 	}
 
 	public void setIdInquilino(Cliente idInquilino) {
-		this.idInquilino = idInquilino;
+		this.inquilino = idInquilino;
 	}
 
 	public List<ViviendaAparato> getAparatos() {
