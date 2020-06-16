@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -30,6 +31,14 @@ public class OrdenLineaController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public void add(@RequestBody OrdenLinea ordenLinea) {
 		ordenLineaService.add(ordenLinea);
+	}
+	
+	// UPDATE
+	@PutMapping("/update")
+	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
+	@ResponseStatus(HttpStatus.OK)
+	public void update(@RequestBody OrdenLinea ordenLinea) {
+		ordenLineaService.update(ordenLinea);
 	}
 	
 	// DELETE

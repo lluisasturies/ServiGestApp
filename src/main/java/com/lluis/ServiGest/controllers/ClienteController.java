@@ -50,7 +50,7 @@ public class ClienteController {
 	}
 	
 	// UPDATE
-	@PutMapping("/update/{idCliente}")
+	@PutMapping("/update")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	public void update(@RequestBody Cliente cliente) {

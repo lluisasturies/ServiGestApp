@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -29,6 +30,14 @@ public class EmpresaContactoController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public void add(@RequestBody EmpresaContacto empresaContacto) {
 		empresaContactoService.add(empresaContacto);
+	}
+	
+	// UPDATE
+	@PutMapping("/update")
+	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
+	@ResponseStatus(HttpStatus.OK)
+	public void update(@RequestBody EmpresaContacto empresaContacto) {
+		empresaContactoService.update(empresaContacto);
 	}
 		
 	// DELETE
