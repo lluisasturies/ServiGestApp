@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -23,12 +24,15 @@ public class OrdenLinea {
 	@ManyToOne
 	@JoinColumn(name = "idOrden")
 	@JsonProperty(access = Access.WRITE_ONLY)
+	@NotNull
 	private Orden orden;
 	
 	@Column
+	@NotNull
 	private String concepto;
 	
 	@Column
+	@NotNull
 	private Integer cantidad;
 
 	

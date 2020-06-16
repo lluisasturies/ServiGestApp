@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -27,19 +28,23 @@ public class Orden {
 	@ManyToOne
 	@JoinColumn(name = "idVivienda")
 	@JsonProperty(access = Access.WRITE_ONLY)
+	@NotNull
 	private Vivienda vivienda; // Relación con la Vivienda
 	
 	@ManyToOne
 	@JoinColumn(name = "idEmpresa")
+	@NotNull
 	private Empresa empresa; // Relación con la Empresa
 	
 	@OneToMany(mappedBy = "orden")
 	private List<OrdenLinea> lineas;
 	
 	@Column
+	@NotNull
 	private String orden;
 	
 	@Column
+	@NotNull
 	private String asunto;
 	
 	@Column

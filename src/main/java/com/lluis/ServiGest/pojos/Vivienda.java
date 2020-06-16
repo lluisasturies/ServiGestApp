@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="viviendas")
@@ -36,12 +37,15 @@ public class Vivienda {
     private List<Orden> ordenes;
 	
 	@Column
+	@NotNull
 	private String direccion;
 	
 	@Column
+	@NotNull
 	private String localidad;
 	
 	@Column
+	@NotNull
 	private String provincia;
 	
 	

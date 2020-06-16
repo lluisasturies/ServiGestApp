@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -36,12 +37,15 @@ public class Cliente {
     private List<ClienteContacto> contactos;
 	
 	@Column
+	@NotNull
 	private String nombre;
 	
 	@Column
+	@NotNull
 	private String apellidos;
 	
 	@Column
+	@NotNull
 	private String dni;
 
 	

@@ -2,6 +2,8 @@ package com.lluis.ServiGest.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -46,7 +48,7 @@ public class AlbaranController {
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void add(@RequestBody Albaran albaran) {
+	public void add(@Valid @RequestBody Albaran albaran) {
 		albaranService.add(albaran);
 	}
 	
@@ -54,7 +56,7 @@ public class AlbaranController {
 	@PutMapping("/update")
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void update(@RequestBody Albaran albaran) {
+	public void update(@Valid @RequestBody Albaran albaran) {
 		albaranService.update(albaran);
 	}
 	

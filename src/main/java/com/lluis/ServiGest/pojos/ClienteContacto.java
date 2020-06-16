@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -26,12 +27,15 @@ public class ClienteContacto {
 	private Cliente cliente; // Relación con el Cliente
 	
 	@Column
+	@NotNull
 	private String contacto;
 	
 	@Column
+	@NotNull
 	private Integer telefono;
 	
 	@Column
+	@NotNull
 	private String email;
 
 	

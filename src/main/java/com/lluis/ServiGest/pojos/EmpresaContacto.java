@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -23,15 +24,19 @@ public class EmpresaContacto {
 	@ManyToOne
 	@JoinColumn(name = "idEmpresa")
 	@JsonProperty(access = Access.WRITE_ONLY)
+	@NotNull
 	private Empresa empresa; // Relación con la Empresa
 	
 	@Column
+	@NotNull
 	private String nombre;
 	
 	@Column
+	@NotNull
 	private Integer telefono;
 	
 	@Column
+	@NotNull
 	private String email;
 
 	

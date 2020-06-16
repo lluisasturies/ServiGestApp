@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,24 +29,31 @@ public class Empresa {
     private List<Orden> ordenes;
 	
 	@Column
+	@NotNull
 	private String nombreComercial;
 	
 	@Column
+	@NotNull
 	private String nombreFiscal;
 	
 	@Column
+	@NotNull
 	private String nif;
 	
 	@Column
+	@NotNull
 	private String direccion;
 	
 	@Column
+	@NotNull
 	private String localidad;
 	
 	@Column
+	@NotNull
 	private String provincia;
 	
 	@Column
+	@NotNull
 	private String email;
 
 	

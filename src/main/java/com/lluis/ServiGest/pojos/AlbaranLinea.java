@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -23,15 +24,19 @@ public class AlbaranLinea {
 	@ManyToOne
 	@JoinColumn(name = "idAlbaran")
 	@JsonProperty(access = Access.WRITE_ONLY)
+	@NotNull
 	private Albaran albaran; // Relación con el Albaran
 	
 	@Column
+	@NotNull
 	private String concepto;
 	
 	@Column
+	@NotNull
 	private Integer cantidad;
 	
 	@Column
+	@NotNull
 	private Integer precio;
 
 	

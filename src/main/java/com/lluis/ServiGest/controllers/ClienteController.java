@@ -2,6 +2,8 @@ package com.lluis.ServiGest.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -45,7 +47,7 @@ public class ClienteController {
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void add(@RequestBody Cliente cliente) {
+	public void add(@Valid @RequestBody Cliente cliente) {
 		clienteService.add(cliente);
 	}
 	
@@ -53,7 +55,7 @@ public class ClienteController {
 	@PutMapping("/update")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void update(@RequestBody Cliente cliente) {
+	public void update(@Valid @RequestBody Cliente cliente) {
 		clienteService.update(cliente);
 	}
 		

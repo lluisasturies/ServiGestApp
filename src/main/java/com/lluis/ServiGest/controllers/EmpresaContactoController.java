@@ -1,5 +1,7 @@
 package com.lluis.ServiGest.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -28,7 +30,7 @@ public class EmpresaContactoController {
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void add(@RequestBody EmpresaContacto empresaContacto) {
+	public void add(@Valid @RequestBody EmpresaContacto empresaContacto) {
 		empresaContactoService.add(empresaContacto);
 	}
 	
@@ -36,7 +38,7 @@ public class EmpresaContactoController {
 	@PutMapping("/update")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void update(@RequestBody EmpresaContacto empresaContacto) {
+	public void update(@Valid @RequestBody EmpresaContacto empresaContacto) {
 		empresaContactoService.update(empresaContacto);
 	}
 		

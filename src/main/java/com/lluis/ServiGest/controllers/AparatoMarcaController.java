@@ -2,6 +2,8 @@ package com.lluis.ServiGest.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -46,7 +48,7 @@ public class AparatoMarcaController {
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void add(@RequestBody AparatoMarca aparatoMarca) {
+	public void add(@Valid @RequestBody AparatoMarca aparatoMarca) {
 		aparatoMarcaService.add(aparatoMarca);
 	}
 	
@@ -54,7 +56,7 @@ public class AparatoMarcaController {
 	@PutMapping("/update")
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void update(@RequestBody AparatoMarca aparatoMarca) {
+	public void update(@Valid @RequestBody AparatoMarca aparatoMarca) {
 		aparatoMarcaService.update(aparatoMarca);
 	}
 	

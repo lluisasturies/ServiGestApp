@@ -2,6 +2,8 @@ package com.lluis.ServiGest.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -46,7 +48,7 @@ public class ViviendaController {
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void add(@RequestBody Vivienda vivienda) {
+	public void add(@Valid @RequestBody Vivienda vivienda) {
 		viviendaService.add(vivienda);
 	}
 	
@@ -54,7 +56,7 @@ public class ViviendaController {
 	@PutMapping("/update")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void update(@RequestBody Vivienda vivienda) {
+	public void update(@Valid @RequestBody Vivienda vivienda) {
 		viviendaService.update(vivienda);
 	}
 	

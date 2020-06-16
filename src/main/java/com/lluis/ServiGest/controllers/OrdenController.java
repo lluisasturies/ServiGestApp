@@ -2,6 +2,8 @@ package com.lluis.ServiGest.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -45,7 +47,7 @@ public class OrdenController {
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void guardar(@RequestBody Orden orden) {
+	public void guardar(@Valid @RequestBody Orden orden) {
 		ordenService.add(orden);
 	}
 	
@@ -53,7 +55,7 @@ public class OrdenController {
 	@PutMapping("/update")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void update(@RequestBody Orden orden) {
+	public void update(@Valid @RequestBody Orden orden) {
 		ordenService.update(orden);
 	}
 	

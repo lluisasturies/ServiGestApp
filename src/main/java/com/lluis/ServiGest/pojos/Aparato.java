@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -24,10 +25,12 @@ public class Aparato {
 	
 	@ManyToOne
 	@JoinColumn(name = "idTipo")
+	@NotNull
 	private AparatoTipo tipo; // Relación con el AparatoTipo
 	
 	@ManyToOne
 	@JoinColumn(name = "idMarca")
+	@NotNull
 	private AparatoMarca marca; // Relación con el AparatoMarca
 	
 	@OneToMany(mappedBy = "aparato")
@@ -35,6 +38,7 @@ public class Aparato {
 	private List<ViviendaAparato> viviendas;
 	
 	@Column
+	@NotNull
 	private String modelo;
 
 	

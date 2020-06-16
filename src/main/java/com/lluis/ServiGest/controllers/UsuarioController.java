@@ -79,7 +79,7 @@ public class UsuarioController {
 	@PutMapping("/update")
 	@PreAuthorize("#nombreusuario == authentication.principal.username || hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void update(@RequestBody Usuario usuario) {
+	public void update(@Valid @RequestBody Usuario usuario) {
 		usuarioService.update(usuario);
 	}
 	

@@ -1,5 +1,7 @@
 package com.lluis.ServiGest.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,7 +32,7 @@ public class ViviendaAparatoController {
 	@PostMapping("/{idVivienda}/add")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void add(@PathVariable("idVivienda") Integer idVivienda, @RequestBody Aparato aparato) {
+	public void add(@PathVariable("idVivienda") Integer idVivienda, @Valid @RequestBody Aparato aparato) {
 		Vivienda vivienda = new Vivienda();
 		vivienda.setIdVivienda(idVivienda);
 		

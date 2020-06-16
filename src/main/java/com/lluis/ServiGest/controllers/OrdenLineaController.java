@@ -1,5 +1,7 @@
 package com.lluis.ServiGest.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,7 +31,7 @@ public class OrdenLineaController {
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void add(@RequestBody OrdenLinea ordenLinea) {
+	public void add(@Valid @RequestBody OrdenLinea ordenLinea) {
 		ordenLineaService.add(ordenLinea);
 	}
 	
@@ -37,7 +39,7 @@ public class OrdenLineaController {
 	@PutMapping("/update")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void update(@RequestBody OrdenLinea ordenLinea) {
+	public void update(@Valid @RequestBody OrdenLinea ordenLinea) {
 		ordenLineaService.update(ordenLinea);
 	}
 	

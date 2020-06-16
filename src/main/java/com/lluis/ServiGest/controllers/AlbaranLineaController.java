@@ -1,5 +1,7 @@
 package com.lluis.ServiGest.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -27,7 +29,7 @@ public class AlbaranLineaController {
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void add(@RequestBody AlbaranLinea albaranLinea) {
+	public void add(@Valid @RequestBody AlbaranLinea albaranLinea) {
 		albaranLineaService.add(albaranLinea);
 	}
 		

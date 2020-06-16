@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="albaranes")
@@ -26,22 +27,26 @@ public class Albaran {
 	
 	@ManyToOne
 	@JoinColumn(name = "idCliente")
+	@NotNull
 	private Cliente cliente;
 	
 	@OneToOne
 	@JoinColumn(name = "idOrden")
+	@NotNull
 	private Orden orden; // Relación con la Orden
 	
 	@OneToMany(mappedBy = "albaran")
     private List<AlbaranLinea> lineas;
 	
 	@Column
+	@NotNull
 	private String codigoAlbaran;
 	
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
 	
 	@Column
+	@NotNull
 	private boolean facturado;
 
 	

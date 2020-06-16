@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="viviendas_aparatos")
@@ -19,10 +20,12 @@ public class ViviendaAparato {
 	
 	@ManyToOne
 	@JoinColumn(name = "FK_idVivienda")
+	@NotNull
 	private Vivienda vivienda ;
 	
 	@ManyToOne
 	@JoinColumn(name = "FK_idAparato")
+	@NotNull
 	private Aparato aparato;
 
 	
