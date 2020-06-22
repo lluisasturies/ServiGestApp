@@ -21,7 +21,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("api/ordenes/citas")
+@RequestMapping("api/viviendas/citas")
 public class ViviendaCitaController {
 	
 	@Autowired
