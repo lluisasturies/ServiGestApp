@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lluis.ServiGest.error.ClienteNotFoundException;
 import com.lluis.ServiGest.pojos.Cliente;
 import com.lluis.ServiGest.repositorios.ClienteContactoDAO;
 import com.lluis.ServiGest.repositorios.ClienteDAO;
@@ -25,16 +26,7 @@ public class ClienteServiceImpl implements ClienteService {
 
 	@Override
 	public Cliente verCliente(Integer idCliente) {
-		if (clienteDAO.existsById(idCliente)) {
-			Cliente cliente = clienteDAO.findById(idCliente).get();
-			
-			return cliente;
-			
-		}
-		else {
-			return null;
-			
-		}
+		return clienteDAO.findById(idCliente).orElseThrow(() -> new ClienteNotFoundException());
 	}
 
 	@Override

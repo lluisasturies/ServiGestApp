@@ -22,7 +22,7 @@ public class ViviendaServiceImpl implements ViviendaService {
 
 	@Override
 	public Vivienda verVivienda(Integer idVivienda) {	
-			return viviendaDAO.findById(idVivienda).orElseThrow(() -> new ViviendaNotFoundException(idVivienda));
+		return viviendaDAO.findById(idVivienda).orElseThrow(() -> new ViviendaNotFoundException());
 	}
 
 	@Override

@@ -4,10 +4,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.http.HttpStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class ViviendaNotFoundException extends RuntimeException {
+public class AparatoMarcaNotFoundException extends RuntimeException {
 
-	public ViviendaNotFoundException() {
-        super("No se encuentra la vivienda");
+	public AparatoMarcaNotFoundException() {
+        super("No se encuentra la marca de aparato");
     }
 	
 }

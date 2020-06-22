@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lluis.ServiGest.error.AparatoTipoNotFoundException;
 import com.lluis.ServiGest.pojos.AparatoTipo;
 import com.lluis.ServiGest.repositorios.AparatoTipoDAO;
 
@@ -21,12 +22,7 @@ public class AparatoTipoServiceImpl implements AparatoTipoService {
 
 	@Override
 	public AparatoTipo verTipoAparato(Integer idTipo) {
-		if (aparatoTipoDAO.existsById(idTipo)) {
-			return aparatoTipoDAO.findById(idTipo).get();
-		}
-		else {
-			return null;
-		}
+		return aparatoTipoDAO.findById(idTipo).orElseThrow(() -> new AparatoTipoNotFoundException());
 	}
 
 	@Override

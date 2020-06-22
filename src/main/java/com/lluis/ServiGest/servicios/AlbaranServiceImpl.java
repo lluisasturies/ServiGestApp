@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lluis.ServiGest.error.AlbaranNotFoundException;
 import com.lluis.ServiGest.pojos.Albaran;
 import com.lluis.ServiGest.repositorios.AlbaranDAO;
 
@@ -21,12 +22,7 @@ public class AlbaranServiceImpl implements AlbaranService {
 
 	@Override
 	public Albaran verAlbaran(Integer idAlbaran) {
-		if (albaranDAO.existsById(idAlbaran)) {
-			return albaranDAO.findById(idAlbaran).get();
-		}
-		else {
-			return null;
-		}
+		return albaranDAO.findById(idAlbaran).orElseThrow(() -> new AlbaranNotFoundException());
 	}
 
 	@Override

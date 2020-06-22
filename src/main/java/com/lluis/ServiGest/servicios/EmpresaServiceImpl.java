@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lluis.ServiGest.error.EmpresaNotFoundException;
 import com.lluis.ServiGest.pojos.Empresa;
 import com.lluis.ServiGest.repositorios.EmpresaDAO;
 
@@ -21,12 +22,7 @@ public class EmpresaServiceImpl implements EmpresaService {
 
 	@Override
 	public Empresa verEmpresa(Integer idEmpresa) {
-		if (empresaDAO.existsById(idEmpresa)) {
-			return empresaDAO.findById(idEmpresa).get();
-		} 
-		else {
-			return null;
-		}
+		return empresaDAO.findById(idEmpresa).orElseThrow(() -> new EmpresaNotFoundException());
 	}
 
 	@Override

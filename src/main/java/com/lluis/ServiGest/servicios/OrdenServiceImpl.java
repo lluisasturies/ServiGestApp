@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lluis.ServiGest.error.OrdenNotFoundException;
 import com.lluis.ServiGest.pojos.Orden;
 import com.lluis.ServiGest.repositorios.OrdenDAO;
 
@@ -22,12 +23,7 @@ public class OrdenServiceImpl implements OrdenService {
 
 	@Override
 	public Orden verOrden(Integer idOrden) {
-		if (ordenDAO.existsById(idOrden)) {	
-			return ordenDAO.findById(idOrden).get();
-		} 
-		else {
-			return null;
-		}
+		return ordenDAO.findById(idOrden).orElseThrow(() -> new OrdenNotFoundException());
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lluis.ServiGest.error.AparatoMarcaNotFoundException;
 import com.lluis.ServiGest.pojos.AparatoMarca;
 import com.lluis.ServiGest.repositorios.AparatoMarcaDAO;
 
@@ -21,12 +22,7 @@ public class AparatoMarcaServiceImpl implements AparatoMarcaService {
 
 	@Override
 	public AparatoMarca verMarcaAparato(Integer idMarca) {
-		if (aparatoMarcaDAO.existsById(idMarca)) {
-			return aparatoMarcaDAO.findById(idMarca).get();
-		}
-		else {
-			return null;
-		}
+		return aparatoMarcaDAO.findById(idMarca).orElseThrow(() -> new AparatoMarcaNotFoundException());
 	}
 
 	@Override
