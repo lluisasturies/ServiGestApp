@@ -33,9 +33,6 @@ public class Vivienda {
 	@OneToMany(mappedBy = "vivienda")
 	private List<ViviendaAparato> aparatos;
 	
-	@OneToMany(mappedBy = "vivienda")
-	private List<ViviendaCita> citas;
-	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "vivienda")
     private List<Orden> ordenes;
 	
@@ -88,14 +85,6 @@ public class Vivienda {
 
 	public List<Orden> getOrdenes() {
 		return ordenes;
-	}
-
-	public List<ViviendaCita> getCitas() {
-		return citas;
-	}
-
-	public void setCitas(List<ViviendaCita> citas) {
-		this.citas = citas;
 	}
 
 	public void setOrdenes(List<Orden> ordenes) {

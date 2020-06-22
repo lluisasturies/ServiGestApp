@@ -3,22 +3,22 @@ package com.lluis.ServiGest.servicios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lluis.ServiGest.pojos.ViviendaCita;
-import com.lluis.ServiGest.repositorios.ViviendaCitaDAO;
+import com.lluis.ServiGest.pojos.OrdenCita;
+import com.lluis.ServiGest.repositorios.OrdenCitaDAO;
 
 @Service
-public class ViviendaCitaServiceImpl implements ViviendaCitaService {
+public class OrdenCitaServiceImpl implements OrdenCitaService {
 
 	@Autowired
-	ViviendaCitaDAO ordenCitaDAO;
+	OrdenCitaDAO ordenCitaDAO;
 	
 	@Override
-	public void add(ViviendaCita ordenCita) {
+	public void add(OrdenCita ordenCita) {
 		ordenCitaDAO.save(ordenCita);
 	}
 
 	@Override
-	public void update(ViviendaCita ordenCita) {
+	public void update(OrdenCita ordenCita) {
 		if (ordenCitaDAO.existsById(ordenCita.getIdCita())) {
 			ordenCitaDAO.save(ordenCita);
 		}
@@ -27,7 +27,7 @@ public class ViviendaCitaServiceImpl implements ViviendaCitaService {
 	@Override
 	public void delete(Integer idCita) {
 		if (ordenCitaDAO.existsById(idCita)) {
-			ViviendaCita ordenCita = ordenCitaDAO.findById(idCita).get();
+			OrdenCita ordenCita = ordenCitaDAO.findById(idCita).get();
 			ordenCitaDAO.delete(ordenCita);
 		}
 	}
