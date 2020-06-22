@@ -31,7 +31,10 @@ public class Vivienda {
 	private Cliente inquilino; // Cliente asignado como inquilino
 	
 	@OneToMany(mappedBy = "vivienda")
-	private List<ViviendaAparato> aparatos;	
+	private List<ViviendaAparato> aparatos;
+	
+	@OneToMany(mappedBy = "vivienda")
+	private List<ViviendaCita> citas;
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "vivienda")
     private List<Orden> ordenes;
@@ -87,6 +90,14 @@ public class Vivienda {
 		return ordenes;
 	}
 
+	public List<ViviendaCita> getCitas() {
+		return citas;
+	}
+
+	public void setCitas(List<ViviendaCita> citas) {
+		this.citas = citas;
+	}
+
 	public void setOrdenes(List<Orden> ordenes) {
 		this.ordenes = ordenes;
 	}
@@ -114,6 +125,5 @@ public class Vivienda {
 	public void setProvincia(String provincia) {
 		this.provincia = provincia;
 	}
-	
 	
 }

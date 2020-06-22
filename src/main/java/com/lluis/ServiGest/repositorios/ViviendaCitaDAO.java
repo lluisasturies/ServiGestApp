@@ -3,9 +3,9 @@ package com.lluis.ServiGest.repositorios;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.lluis.ServiGest.pojos.OrdenCita;
+import com.lluis.ServiGest.pojos.ViviendaCita;
 
 @Repository
-public interface OrdenCitaDAO extends CrudRepository<OrdenCita,Integer> {
+public interface ViviendaCitaDAO extends CrudRepository<ViviendaCita,Integer> {
 
 }

@@ -16,18 +16,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
-@Table(name="ordenes_citas")
-public class OrdenCita {
+@Table(name="viviendas_citas")
+public class ViviendaCita {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idCita;
 	
 	@ManyToOne
-	@JoinColumn(name = "idOrden")
+	@JoinColumn(name = "idVivienda")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@NotNull
-	private Orden orden;
+	private Vivienda vivienda;
 	
 	@Column
 	private LocalDate fecha;
@@ -42,12 +42,12 @@ public class OrdenCita {
 		this.idCita = idCita;
 	}
 
-	public Orden getOrden() {
-		return orden;
+	public Vivienda getVivienda() {
+		return vivienda;
 	}
 
-	public void setOrden(Orden orden) {
-		this.orden = orden;
+	public void setVivienda(Vivienda vivienda) {
+		this.vivienda = vivienda;
 	}
 
 	public LocalDate getFecha() {

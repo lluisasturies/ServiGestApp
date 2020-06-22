@@ -39,9 +39,6 @@ public class Orden {
 	@OneToMany(mappedBy = "orden")
 	private List<OrdenLinea> lineas;
 	
-	@OneToMany(mappedBy = "orden")
-	private List<OrdenCita> citas;
-	
 	@Column
 	@NotNull
 	private String orden;
@@ -89,14 +86,6 @@ public class Orden {
 	public void setLineas(List<OrdenLinea> lineas) {
 		this.lineas = lineas;
 	}
-	
-	public List<OrdenCita> getCitas() {
-		return citas;
-	}
-
-	public void setCitas(List<OrdenCita> citas) {
-		this.citas = citas;
-	}	
 
 	public byte getEstado() {
 		return estado;
