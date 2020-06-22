@@ -50,4 +50,13 @@ public class OrdenServiceImpl implements OrdenService {
 		}
 	}
 
+	@Override
+	public void cambiarEstado(Integer idOrden, byte estado) {
+		if (ordenDAO.existsById(idOrden)) {
+			Orden orden = ordenDAO.findById(idOrden).get();
+			orden.setEstado(estado);
+			ordenDAO.save(orden);
+		}
+	}
+
 }

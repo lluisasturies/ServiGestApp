@@ -20,5 +20,8 @@ public interface OrdenService {
 		
 	// DELETE
 	public void delete(Integer idOrden);
+	
+	// Cambiar el estado de la Orden
+	public void cambiarEstado(Integer idOrden, byte estado);
 
 }
