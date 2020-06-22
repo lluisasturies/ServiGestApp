@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lluis.ServiGest.error.ViviendaNotFoundException;
 import com.lluis.ServiGest.pojos.Vivienda;
 import com.lluis.ServiGest.repositorios.ViviendaDAO;
 
@@ -20,13 +21,8 @@ public class ViviendaServiceImpl implements ViviendaService {
 	}
 
 	@Override
-	public Vivienda verVivienda(Integer idVivienda) {
-		if (viviendaDAO.existsById(idVivienda)) {		
-			return viviendaDAO.findById(idVivienda).get();
-		}
-		else {
-			return null;
-		}
+	public Vivienda verVivienda(Integer idVivienda) {	
+			return viviendaDAO.findById(idVivienda).orElseThrow(() -> new ViviendaNotFoundException(idVivienda));
 	}
 
 	@Override
@@ -45,7 +41,6 @@ public class ViviendaServiceImpl implements ViviendaService {
 	public void delete(Integer idVivienda) {
 		if (viviendaDAO.existsById(idVivienda)) {
 			Vivienda vivienda = viviendaDAO.findById(idVivienda).get();
-			
 			viviendaDAO.delete(vivienda);
 		}
 	}
