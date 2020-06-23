@@ -15,12 +15,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.lluis.ServiGest.pojos.Vivienda;
 import com.lluis.ServiGest.servicios.ViviendaService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.BindingResult;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -48,7 +50,11 @@ public class ViviendaController {
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void add(@Valid @RequestBody Vivienda vivienda) {
+	public void add(@Valid @RequestBody Vivienda vivienda, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+    		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos vacíos o datos erroneos");
+    	}
+		
 		viviendaService.add(vivienda);
 	}
 	
@@ -56,7 +62,11 @@ public class ViviendaController {
 	@PutMapping("/update")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void update(@Valid @RequestBody Vivienda vivienda) {
+	public void update(@Valid @RequestBody Vivienda vivienda, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+    		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos vacíos o datos erroneos");
+    	}
+		
 		viviendaService.update(vivienda);
 	}
 	

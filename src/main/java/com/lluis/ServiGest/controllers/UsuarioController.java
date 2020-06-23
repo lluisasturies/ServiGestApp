@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.lluis.ServiGest.servicios.UsuarioService;
 import com.lluis.ServiGest.pojos.Usuario;
@@ -55,15 +56,15 @@ public class UsuarioController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity add(@Valid @RequestBody Usuario nuevoUsuario, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
-            return new ResponseEntity("Campos erroneos", HttpStatus.BAD_REQUEST);
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos erroneos");
     	}
         
         if (usuarioService.existePorNombre(nuevoUsuario.getNombreUsuario())) {
-            return new ResponseEntity("El nombre de usuario ya existe", HttpStatus.BAD_REQUEST);
+        	throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El nombre de usuario ya existe");
         }
         
         if (usuarioService.existePorEmail(nuevoUsuario.getEmail())) {
-            return new ResponseEntity("El email ya existe", HttpStatus.BAD_REQUEST);
+        	throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El email ya existe");
         }
         
         // Codifico el password
@@ -72,14 +73,18 @@ public class UsuarioController {
         // Añado el nuevo Usuario
         usuarioService.add(nuevoUsuario);
         
-        return new ResponseEntity(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 	// UPDATE
 	@PutMapping("/update")
 	@PreAuthorize("#nombreusuario == authentication.principal.username || hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void update(@Valid @RequestBody Usuario usuario) {
+	public void update(@Valid @RequestBody Usuario usuario, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos erroneos");
+    	}
+		
 		usuarioService.update(usuario);
 	}
 	

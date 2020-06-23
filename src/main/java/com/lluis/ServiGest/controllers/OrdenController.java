@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.lluis.ServiGest.pojos.Orden;
 import com.lluis.ServiGest.servicios.OrdenService;
@@ -47,7 +49,11 @@ public class OrdenController {
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void guardar(@Valid @RequestBody Orden orden) {
+	public void guardar(@Valid @RequestBody Orden orden, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos erroneos");
+    	}
+		
 		ordenService.add(orden);
 	}
 	
@@ -55,7 +61,11 @@ public class OrdenController {
 	@PutMapping("/update")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void update(@Valid @RequestBody Orden orden) {
+	public void update(@Valid @RequestBody Orden orden, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos erroneos");
+    	}
+		
 		ordenService.update(orden);
 	}
 	

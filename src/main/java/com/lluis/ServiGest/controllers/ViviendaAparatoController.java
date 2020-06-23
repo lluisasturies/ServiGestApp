@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.lluis.ServiGest.pojos.Aparato;
 import com.lluis.ServiGest.pojos.Vivienda;
@@ -19,6 +20,7 @@ import com.lluis.ServiGest.servicios.ViviendaAparatoService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.BindingResult;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -32,7 +34,11 @@ public class ViviendaAparatoController {
 	@PostMapping("/{idVivienda}/add")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void add(@PathVariable("idVivienda") Integer idVivienda, @Valid @RequestBody Aparato aparato) {
+	public void add(@PathVariable("idVivienda") Integer idVivienda, @Valid @RequestBody Aparato aparato, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+    		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos vacíos o datos erroneos");
+    	}
+		
 		Vivienda vivienda = new Vivienda();
 		vivienda.setIdVivienda(idVivienda);
 		

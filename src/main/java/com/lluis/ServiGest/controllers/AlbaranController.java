@@ -15,12 +15,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.lluis.ServiGest.pojos.Albaran;
 import com.lluis.ServiGest.servicios.AlbaranService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.BindingResult;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -48,7 +50,11 @@ public class AlbaranController {
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void add(@Valid @RequestBody Albaran albaran) {
+	public void add(@Valid @RequestBody Albaran albaran, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos erroneos");
+    	}
+		
 		albaranService.add(albaran);
 	}
 	
@@ -56,7 +62,11 @@ public class AlbaranController {
 	@PutMapping("/update")
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void update(@Valid @RequestBody Albaran albaran) {
+	public void update(@Valid @RequestBody Albaran albaran, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos erroneos");
+    	}
+		
 		albaranService.update(albaran);
 	}
 	

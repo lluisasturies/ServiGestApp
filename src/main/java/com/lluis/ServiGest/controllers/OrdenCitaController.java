@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.lluis.ServiGest.pojos.OrdenCita;
 import com.lluis.ServiGest.servicios.OrdenCitaService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.BindingResult;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -31,7 +33,11 @@ public class OrdenCitaController {
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void add(@Valid @RequestBody OrdenCita ordenCita) {
+	public void add(@Valid @RequestBody OrdenCita ordenCita, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos erroneos");
+    	}
+		
 		ordenCitaService.add(ordenCita);
 	}
 	
@@ -39,7 +45,11 @@ public class OrdenCitaController {
 	@PutMapping("/update")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void update(@Valid @RequestBody OrdenCita ordenCita) {
+	public void update(@Valid @RequestBody OrdenCita ordenCita, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos erroneos");
+    	}
+		
 		ordenCitaService.update(ordenCita);
 	}
 	
