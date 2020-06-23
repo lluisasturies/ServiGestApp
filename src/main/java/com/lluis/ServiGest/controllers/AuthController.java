@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.lluis.ServiGest.dto.JwtDTO;
 import com.lluis.ServiGest.dto.LoginUsuario;
@@ -45,7 +46,7 @@ public class AuthController {
     public ResponseEntity<JwtDTO> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
         
     	if (bindingResult.hasErrors()) {
-            return new ResponseEntity("Campos vacíos o email inválido", HttpStatus.BAD_REQUEST);
+    		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos vacíos o email inválido");
     	}
     	
         Authentication authentication = authenticationManager.authenticate(
