@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col">
+      <a [routerLink]="['/usuarios/crear']" class="btn btn-success">Crear Usuario</a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+      <table class="table table-hover" datatable [dtOptions]="dtOptions" *ngIf="usuarios">
+          <thead>
+              <tr>
+                  <th scope="col">Dirección</th>
+                  <th scope="col">Localidad</th>
+                  <th scope="col">Provincia</th>
+                  <th scope="col"></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let usuario of usuarios">
+                  <td><a [routerLink]="['/usuarios/ver', usuario.nombreUsuario]" class="nav-link">{{usuario.nombreUsuario}}</a>
+                  </td>
+                  <td>{{usuario.nombre}}</td>
+                  <td><button (click)="borrarUsuario(usuario)" class="btn btn-danger">Borrar</button></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>

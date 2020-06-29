@@ -1,0 +1,29 @@
+<form (ngSubmit)="actualizarVivienda()" #addVivienda="ngForm">
+    <div class="form-group">
+        <label for="direccion">Dirección</label>
+        <input type="text" class="form-control" [(ngModel)]="vivienda.direccion" name="direccion" placeholder="Direccion">
+    </div>
+    <div class="form-group">
+        <label for="localidad">Localidad</label>
+        <input type="text" class="form-control" [(ngModel)]="vivienda.localidad" name="localidad" placeholder="Localidad">
+    </div>
+    <div class="form-group">
+        <label for="provincia">Provincia</label>
+        <input type="text" class="form-control" [(ngModel)]="vivienda.provincia" name="provincia" placeholder="Provincia">
+    </div>
+    <div class="form-group">
+        <label for="idPropietario">Propietario</label>
+        <select class="form-control" [(ngModel)]="vivienda.propietario" name="idPropietario">
+          <option [ngValue]="null">--- Sin Propietario ---</option>
+          <option *ngFor="let cliente of clientes" [ngValue]="cliente" [selected]="cliente.idCliente == vivienda.propietario.idCliente">{{cliente.dni}} - {{cliente.nombre}} {{cliente.apellidos}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="idInquilino">Inquilino</label>
+        <select class="form-control" [(ngModel)]="vivienda.inquilino" name="idInquilino">
+          <option [ngValue]="null">--- Sin Inquilino ---</option>
+          <option *ngFor="let cliente of clientes" [ngValue]="cliente" [selected]="cliente.idCliente == vivienda.inquilino.idCliente">{{cliente.dni}} - {{cliente.nombre}} {{cliente.apellidos}}</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

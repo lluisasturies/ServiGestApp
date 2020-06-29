@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-6">
+        <p>{{cliente.nombre}} {{cliente.apellidos}}</p>
+        <p>{{cliente.dni}}</p>
+    </div>
+    <div class="col">
+      <a (click)="addContacto()" class="btn btn-success">Añadir Contacto</a>
+        <div class="card">
+            <h5 class="card-header">Contactos</h5>
+            <div class="card-body">
+                <table class="table" *ngIf="cliente.contactos">
+                    <thead>
+                        <tr>
+                            <th scope="col">Contacto</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Telefono</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let contacto of cliente.contactos">
+                            <td>{{contacto.contacto}}</td>
+                            <td><a href="mailto:{{contacto.email}}">{{contacto.email}}</a></td>
+                            <td><a href="tel:{{contacto.telefono}}">{{contacto.telefono}}</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

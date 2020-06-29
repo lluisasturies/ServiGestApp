@@ -1,0 +1,35 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Crear Orden</h4>
+  <button type="button" class="close" aria-label="Close" (click)="modalService.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="guardarOrden()" #addOrden="ngForm">
+    <div class="form-group">
+        <label for="direccion">Asunto</label>
+        <input type="text" class="form-control" [(ngModel)]="orden.asunto" name="direccion" placeholder="" required>
+    </div>
+    <div class="form-group">
+      <label for="idEmpresa">Empresa</label>
+      <select class="form-control" [(ngModel)]="orden.empresa" name="idPropietario">
+        <option *ngFor="let empresa of empresas" [ngValue]="empresa">{{empresa.nombreFiscal}} - {{empresa.nombreComercial}}</option>
+      </select>
+  </div>
+    <div class="form-group">
+        <label for="localidad">Estado</label>
+        <select class="form-control" [(ngModel)]="orden.estado" name="idPropietario">
+          <option [value]="1">Abierta</option>
+          <option [value]="0">Cerrada</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="provincia">Orden nº</label>
+        <input type="text" class="form-control" [(ngModel)]="orden.orden" name="provincia" placeholder="" required>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modalService.dismiss()">Cerrar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!addOrden.valid">Crear</button>
+    </div>
+  </form>
+</div>

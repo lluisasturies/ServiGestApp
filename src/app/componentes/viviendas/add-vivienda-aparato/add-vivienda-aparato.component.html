@@ -1,0 +1,21 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Añadir Aparato</h4>
+  <button type="button" class="close" aria-label="Close" (click)="modalService.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="guardarViviendaAparato()" #addAparatoVivienda="ngForm">
+    <div class="form-group">
+      <label for="">Aparatos</label>
+      <select class="form-control selectpicker" [(ngModel)]="aparato" name="aparato" data-live-search="true" required>
+        <option [ngValue]="null" disabled>------</option>
+        <option *ngFor="let ap of aparatos" [ngValue]="ap">{{ap.modelo}}</option>
+      </select>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modalService.dismiss()">Cerrar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!addAparatoVivienda.valid">Añadir</button>
+    </div>
+  </form>
+</div>
