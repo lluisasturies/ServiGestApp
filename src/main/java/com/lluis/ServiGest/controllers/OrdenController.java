@@ -24,7 +24,7 @@ import com.lluis.ServiGest.pojos.Orden;
 import com.lluis.ServiGest.servicios.OrdenService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RequestMapping("api/ordenes")
 public class OrdenController {
 	

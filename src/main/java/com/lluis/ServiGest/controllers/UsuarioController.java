@@ -26,7 +26,7 @@ import com.lluis.ServiGest.servicios.UsuarioService;
 import com.lluis.ServiGest.pojos.Usuario;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RequestMapping("api/usuarios")
 public class UsuarioController {
 	

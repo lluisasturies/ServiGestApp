@@ -20,7 +20,7 @@ import com.lluis.ServiGest.pojos.ClienteContacto;
 import com.lluis.ServiGest.servicios.ClienteContactoService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RequestMapping("api/clientes/contactos")
 public class ClienteContactoController {
 

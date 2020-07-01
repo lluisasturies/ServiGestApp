@@ -24,7 +24,7 @@ import com.lluis.ServiGest.pojos.Cliente;
 import com.lluis.ServiGest.servicios.ClienteService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RequestMapping("api/clientes")
 public class ClienteController {
 

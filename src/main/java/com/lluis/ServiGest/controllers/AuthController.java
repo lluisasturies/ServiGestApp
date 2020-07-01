@@ -25,7 +25,7 @@ import com.lluis.ServiGest.servicios.UsuarioService;
 import javax.validation.Valid;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RequestMapping("/api/auth")
 public class AuthController {
 

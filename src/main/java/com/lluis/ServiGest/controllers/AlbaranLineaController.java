@@ -20,7 +20,7 @@ import com.lluis.ServiGest.pojos.AlbaranLinea;
 import com.lluis.ServiGest.servicios.AlbaranLineaService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RequestMapping("api/albaranes/lineas")
 public class AlbaranLineaController {
 
