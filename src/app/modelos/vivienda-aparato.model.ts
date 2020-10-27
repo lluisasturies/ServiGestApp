@@ -1,4 +1,3 @@
-// Modelos
 import { Aparato } from './aparato.model';
 import { Vivienda } from './Vivienda.model';
 

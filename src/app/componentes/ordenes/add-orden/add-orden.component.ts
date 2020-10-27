@@ -1,15 +1,14 @@
-import { VerOrdenComponent } from './../ver-orden/ver-orden.component';
 import { Component, OnInit, Input } from '@angular/core';
+import { formatDate } from '@angular/common';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 // Servicios
-import { OrdenesService } from './../../../servicios/ordenes.service';
+import { OrdenesService } from 'src/app/servicios/ordenes.service';
+import { EmpresasService } from 'src/app/servicios/empresas.service';
 
 // Modelos
 import { Orden } from 'src/app/modelos/Orden.model';
 import { Empresa } from 'src/app/modelos/Empresa.model';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { EmpresasService } from 'src/app/servicios/empresas.service';
-import { DatePipe, formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-add-orden',
@@ -22,7 +21,7 @@ export class AddOrdenComponent implements OnInit {
   public orden: Orden = new Orden();
   public empresas: Empresa[];
   @Input() public vivienda;
-  fechaActual = formatDate(new Date(), 'yyyy-MM-dd', 'en-EN');
+  public fechaActual = formatDate(new Date(), 'yyyy-MM-dd', 'en-EN');
 
   constructor(
     private _ordenes: OrdenesService,

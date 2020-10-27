@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
-// Servicios
-import { OrdenesService } from './../../../servicios/ordenes.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+// Servicios
+import { OrdenesService } from 'src/app/servicios/ordenes.service';
 
 // Modelos
 import { Orden } from 'src/app/modelos/Orden.model';
@@ -16,7 +16,7 @@ import { Orden } from 'src/app/modelos/Orden.model';
 export class VerOrdenComponent implements OnInit {
 
   // Variables
-  orden: Orden;
+  public orden: Orden;
 
   constructor(
     private _ordenes: OrdenesService,

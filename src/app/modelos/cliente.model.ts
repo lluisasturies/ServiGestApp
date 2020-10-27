@@ -1,6 +1,5 @@
 import { ClienteContacto } from './cliente-contacto.model';
 
-// Modelo de Cliente
 export class Cliente {
     idCliente: number;
     contactos: ClienteContacto[];
