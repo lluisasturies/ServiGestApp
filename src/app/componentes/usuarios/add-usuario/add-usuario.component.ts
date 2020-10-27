@@ -1,12 +1,11 @@
-import { UsuariosService } from 'src/app/servicios/usuarios.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 // Servicios
-import { AuthService } from 'src/app/servicios/auth.service';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 // Modelos
-import { Usuario } from 'src/app/modelos/nuevo-usuario';
-import { Router } from '@angular/router';
+import { Usuario } from 'src/app/modelos/nuevo-usuario.model';
 import { Rol } from 'src/app/modelos/rol.model';
 
 @Component({
