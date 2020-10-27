@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Empresa } from '../modelos/Empresa.model';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class EmpresasService {
   constructor(private http: HttpClient) { }
 
   // Ruta del JSON
-  private apiURL = 'http://localhost:8080/api/empresas';
+  private apiURL = environment.apiURL + '/empresas';
 
   // Variables
   private empresas: Observable<Empresa[]>;

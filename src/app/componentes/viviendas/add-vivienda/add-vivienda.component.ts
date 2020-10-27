@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 // Servicios
 import { ViviendasService } from 'src/app/servicios/viviendas.service';
@@ -15,15 +16,28 @@ import { Cliente } from 'src/app/modelos/Cliente.model';
   styleUrls: ['./add-vivienda.component.css']
 })
 export class AddViviendaComponent implements OnInit {
-
   // Variables
   clientes: Cliente[] = [];
   vivienda: Vivienda = new Vivienda();
+  viviendaForm: FormGroup;
 
-  constructor(private router: Router, private _viviendas: ViviendasService, private _clientes: ClientesService) { }
+  constructor(
+    private router: Router,
+    private _viviendas: ViviendasService,
+    private _clientes: ClientesService
+  ) { }
 
   ngOnInit(): void {
     this.obtenerClientes();
+
+    // Creo el FormGroup
+    this.viviendaForm = new FormGroup({
+      direccion: new FormControl('', Validators.required),
+      localidad: new FormControl('', Validators.required),
+      provincia: new FormControl('', Validators.required),
+      propietario: new FormControl(''),
+      inquilino: new FormControl('')
+    });
   }
 
   // Obtengo los Clientes
@@ -33,6 +47,8 @@ export class AddViviendaComponent implements OnInit {
 
   // Guardar Vivienda
   guardarVivienda() {
+    this.vivienda = Object.assign({}, this.viviendaForm.value);
+
     this._viviendas.addVivienda(this.vivienda).subscribe(data => {
       this.router.navigate(['viviendas']);
     });

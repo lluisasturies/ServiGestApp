@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 // Modelo
 import { Cliente } from 'src/app/modelos/Cliente.model'
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class ClientesService {
   constructor(private http: HttpClient) { }
 
   // Ruta del JSON
-  private apiURL = "http://localhost:8080/api/clientes";
+  private apiURL = environment.apiURL + '/clientes';
 
   // Variables
   private clientes: Observable<Cliente[]>;

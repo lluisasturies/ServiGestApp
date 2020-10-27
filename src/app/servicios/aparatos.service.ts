@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 // Modelo
 import { Aparato } from '../modelos/aparato.model';
 import { ViviendaAparato } from '../modelos/vivienda-aparato.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class AparatosService {
   constructor(private http: HttpClient) { }
 
   // Ruta del JSON
-  private apiURL = 'http://localhost:8080/api/aparatos';
+  private apiURL = environment.apiURL + '/aparatos';
 
   // Variables
   private aparatos: Observable<Aparato[]>;

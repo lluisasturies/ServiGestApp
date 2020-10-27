@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 // Modelos
 import { LoginUsuario } from 'src/app/modelos/login-usuario';
 import { JwtModel } from 'src/app/modelos/jwt-model';
-import { Usuario } from 'src/app/modelos/nuevo-usuario';
+import { environment } from 'src/environments/environment';
 
 const cabecera = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
 
@@ -14,12 +14,12 @@ const cabecera = {headers: new HttpHeaders({'Content-Type': 'application/json'})
 })
 export class AuthService {
 
-  private authURL = 'http://localhost:8080/api/auth/';
+  private apiURL = environment.apiURL + '/auth';
 
   constructor(private httpClient: HttpClient) { }
 
   public login(usuario: LoginUsuario): Observable<JwtModel> {
-    return this.httpClient.post<JwtModel>(this.authURL + 'login', usuario, cabecera);
+    return this.httpClient.post<JwtModel>(this.apiURL + '/login', usuario, cabecera);
   }
 
 }

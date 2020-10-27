@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Usuario } from '../modelos/nuevo-usuario';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class UsuariosService {
   constructor(private http: HttpClient) { }
 
   // Ruta del JSON
-  private apiURL = 'http://localhost:8080/api/usuarios';
+  private apiURL = environment.apiURL + '/usuarios';
 
   // Variables
   private usuarios: Observable<Usuario[]>;

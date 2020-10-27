@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -60,6 +61,7 @@ import { UpdateOrdenComponent } from './componentes/ordenes/update-orden/update-
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     DataTablesModule,
     HttpClientModule,
     FormsModule,

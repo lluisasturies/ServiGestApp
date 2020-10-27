@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 // Modelo
 import { Orden } from 'src/app/modelos/Orden.model'
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class OrdenesService {
   constructor(private http: HttpClient) { }
 
   // Ruta del JSON
-  private apiURL = 'http://localhost:8080/api/ordenes';
+  private apiURL = environment.apiURL + '/ordenes';
 
   // Variables
   private ordenes: Observable<Orden[]>;

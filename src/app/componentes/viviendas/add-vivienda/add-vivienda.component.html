@@ -1,29 +1,29 @@
-<form (ngSubmit)="guardarVivienda()" #addVivienda="ngForm">
-    <div class="form-group">
-        <label for="direccion">Dirección</label>
-        <input type="text" class="form-control" [(ngModel)]="vivienda.direccion" name="direccion" placeholder="Direccion" required>
-    </div>
-    <div class="form-group">
-        <label for="localidad">Localidad</label>
-        <input type="text" class="form-control" [(ngModel)]="vivienda.localidad" name="localidad" placeholder="Localidad" required>
-    </div>
-    <div class="form-group">
-        <label for="provincia">Provincia</label>
-        <input type="text" class="form-control" [(ngModel)]="vivienda.provincia" name="provincia" placeholder="Provincia" required>
-    </div>
-    <div class="form-group">
-        <label for="idPropietario">Propietario</label>
-        <select class="form-control" [(ngModel)]="vivienda.propietario" name="idPropietario">
-          <option [ngValue]="null" selected>--- Sin Propietario ---</option>
-          <option *ngFor="let cliente of clientes" [ngValue]="cliente">{{cliente.dni}} - {{cliente.nombre}} {{cliente.apellidos}}</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="idInquilino">Inquilino</label>
-        <select class="form-control" [(ngModel)]="vivienda.inquilino" name="idInquilino">
-          <option [ngValue]="null" selected>--- Sin Inquilino ---</option>
-          <option *ngFor="let cliente of clientes" [ngValue]="cliente">{{cliente.dni}} - {{cliente.nombre}} {{cliente.apellidos}}</option>
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!addVivienda.valid">Crear</button>
+<form [formGroup]="viviendaForm" (ngSubmit)="guardarVivienda()">
+  <div class="form-group">
+      <label for="direccion">Dirección</label>
+      <input [class.is-invalid]="viviendaForm.get('direccion').touched && viviendaForm.get('direccion').invalid" type="text" class="form-control" formControlName="direccion" name="direccion" placeholder="Direccion" required>
+  </div>
+  <div class="form-group">
+      <label for="localidad">Localidad</label>
+      <input [class.is-invalid]="viviendaForm.get('localidad').touched && viviendaForm.get('localidad').invalid" type="text" class="form-control" formControlName="localidad" name="localidad" placeholder="Localidad" required>
+  </div>
+  <div class="form-group">
+      <label for="provincia">Provincia</label>
+      <input [class.is-invalid]="viviendaForm.get('provincia').touched && viviendaForm.get('provincia').invalid"  type="text" class="form-control" formControlName="provincia" name="provincia" placeholder="Provincia" required>
+  </div>
+  <div class="form-group">
+      <label for="idPropietario">Propietario</label>
+      <select [class.is-invalid]="viviendaForm.get('propietario').touched && viviendaForm.get('propietario').invalid" class="form-control" formControlName="propietario" name="propietario">
+        <option [ngValue]="null" selected>--- Sin Propietario ---</option>
+        <option *ngFor="let cliente of clientes" [ngValue]="cliente">{{cliente.dni}} - {{cliente.nombre}} {{cliente.apellidos}}</option>
+      </select>
+  </div>
+  <div class="form-group">
+      <label for="idInquilino">Inquilino</label>
+      <select [class.is-invalid]="viviendaForm.get('inquilino').touched && viviendaForm.get('inquilino').invalid" class="form-control" formControlName="inquilino" name="inquilino">
+        <option [ngValue]="null" selected>--- Sin Inquilino ---</option>
+        <option *ngFor="let cliente of clientes" [ngValue]="cliente">{{cliente.dni}} - {{cliente.nombre}} {{cliente.apellidos}}</option>
+      </select>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="viviendaForm.invalid">Crear</button>
 </form>

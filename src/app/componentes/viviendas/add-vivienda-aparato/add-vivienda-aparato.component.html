@@ -5,17 +5,16 @@
   </button>
 </div>
 <div class="modal-body">
-  <form (ngSubmit)="guardarViviendaAparato()" #addAparatoVivienda="ngForm">
+  <form [formGroup]="aparatoViviendaForm" (ngSubmit)="guardarViviendaAparato()">
     <div class="form-group">
       <label for="">Aparatos</label>
-      <select class="form-control selectpicker" [(ngModel)]="aparato" name="aparato" data-live-search="true" required>
-        <option [ngValue]="null" disabled>------</option>
-        <option *ngFor="let ap of aparatos" [ngValue]="ap">{{ap.modelo}}</option>
+      <select class="form-control selectpicker" [class.is-invalid]="aparatoViviendaForm.get('aparato').touched && aparatoViviendaForm.get('aparato').invalid" formControlName="aparato" name="aparato" data-live-search="true" required>
+        <option *ngFor="let ap of aparatos" [ngValue]="ap">{{ap.marca.nombre}} {{ap.modelo}}</option>
       </select>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" (click)="modalService.dismiss()">Cerrar</button>
-      <button type="submit" class="btn btn-primary" [disabled]="!addAparatoVivienda.valid">Añadir</button>
+      <button type="submit" class="btn btn-primary" [disabled]="aparatoViviendaForm.invalid">Añadir</button>
     </div>
   </form>
 </div>

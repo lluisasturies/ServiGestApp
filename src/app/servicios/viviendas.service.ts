@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 import { Vivienda } from 'src/app/modelos/Vivienda.model'
 import { Cliente } from 'src/app/modelos/Cliente.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class ViviendasService {
   constructor(private http: HttpClient) { }
 
   // Ruta del JSON
-  private apiURL = "http://localhost:8080/api/viviendas";
+  private apiURL = environment.apiURL + '/viviendas';
 
   // Variables
   private viviendas: Observable<Vivienda[]>;
@@ -35,9 +36,7 @@ export class ViviendasService {
 
   // Obtengo UNA Vivienda en concreto
   getVivienda(idVivienda: number): Observable<Vivienda> {
-    this.vivienda = this.http.get<Vivienda>(this.apiURL + '/' + idVivienda);
-
-    return this.vivienda;
+    return this.http.get<Vivienda>(this.apiURL + '/' + idVivienda);
   }
 
   // Add

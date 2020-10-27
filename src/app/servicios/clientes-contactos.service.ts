@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { ClienteContacto } from '../modelos/cliente-contacto.model';
 import { Observable } from 'rxjs';
 import { Cliente } from '../modelos/Cliente.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class ClientesContactosService {
   constructor(private http: HttpClient) { }
 
   // Ruta del JSON
-  private apiURL = 'http://localhost:8080/api/clientes/contactos';
+  private apiURL = environment.apiURL + '/contactos/clientes';
 
   // Variables
 

@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 
 // Modelos
 import { ViviendaAparato } from '../modelos/vivienda-aparato.model';
-import { Aparato } from '../modelos/aparato.model';
 import { Vivienda } from '../modelos/Vivienda.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class ViviendasAparatosService {
   constructor(private http: HttpClient) { }
 
   // Ruta del JSON
-  private apiURL = 'http://localhost:8080/api/aparatos/vivienda';
+  private apiURL = environment.apiURL + '/vivienda/aparato';
 
   // Variables
 
@@ -23,8 +23,8 @@ export class ViviendasAparatosService {
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   // Add
-  addAparatoVivienda(aparato: Aparato, vivienda: Vivienda): Observable<ViviendaAparato> {
-    return this.http.post<ViviendaAparato>(this.apiURL + '/' + vivienda.idVivienda + '/add', aparato, { headers: this.headers });
+  addAparatoVivienda(viviendaAparato: ViviendaAparato): Observable<ViviendaAparato> {
+    return this.http.post<ViviendaAparato>(this.apiURL + '/add', viviendaAparato, { headers: this.headers });
   }
 
   // Delete

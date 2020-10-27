@@ -9,7 +9,7 @@ import { Orden } from 'src/app/modelos/Orden.model';
 import { Empresa } from 'src/app/modelos/Empresa.model';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { EmpresasService } from 'src/app/servicios/empresas.service';
-import { DatePipe } from '@angular/common';
+import { DatePipe, formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-add-orden',
@@ -22,7 +22,7 @@ export class AddOrdenComponent implements OnInit {
   public orden: Orden = new Orden();
   public empresas: Empresa[];
   @Input() public vivienda;
-  public fecha = new Date();
+  fechaActual = formatDate(new Date(), 'yyyy-MM-dd', 'en-EN');
 
   constructor(
     private _ordenes: OrdenesService,
@@ -43,7 +43,7 @@ export class AddOrdenComponent implements OnInit {
   // Guardar Orden
   guardarOrden() {
     this.orden.vivienda = this.vivienda;
-    //this.orden.fecha = this.datePipe.transform(this.fecha, 'yyyy-MM-dd');
+    this.orden.fecha = this.fechaActual;
     this._ordenes.addOrden(this.orden).subscribe(data => {
       this.modalService.close();
     });
