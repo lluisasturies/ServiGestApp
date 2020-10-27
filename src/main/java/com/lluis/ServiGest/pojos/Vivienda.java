@@ -2,6 +2,7 @@ package com.lluis.ServiGest.pojos;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,7 +31,7 @@ public class Vivienda {
 	@JoinColumn(name = "idInquilino")
 	private Cliente inquilino; // Cliente asignado como inquilino
 	
-	@OneToMany(mappedBy = "vivienda")
+	@OneToMany(mappedBy = "vivienda", cascade = CascadeType.REMOVE)
 	private List<ViviendaAparato> aparatos;
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "vivienda")

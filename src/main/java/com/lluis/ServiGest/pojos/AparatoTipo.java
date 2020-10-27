@@ -48,12 +48,12 @@ public class AparatoTipo {
 		this.aparatos = aparatos;
 	}
 
-	public String getTipo() {
+	public String getNombre() {
 		return nombre;
 	}
 
-	public void setTipo(String tipo) {
-		this.nombre = tipo;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	
 }

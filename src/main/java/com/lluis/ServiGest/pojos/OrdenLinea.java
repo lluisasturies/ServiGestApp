@@ -19,7 +19,7 @@ public class OrdenLinea {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer idTrabajo;
+	private Integer idLinea;
 	
 	@ManyToOne
 	@JoinColumn(name = "idOrden")
@@ -37,12 +37,12 @@ public class OrdenLinea {
 
 	
 	
-	public Integer getIdTrabajo() {
-		return idTrabajo;
+	public Integer getIdLinea() {
+		return idLinea;
 	}
 
-	public void setIdTrabajo(Integer idTrabajo) {
-		this.idTrabajo = idTrabajo;
+	public void setIdLinea(Integer idLinea) {
+		this.idLinea = idLinea;
 	}
 
 	public Orden getOrden() {

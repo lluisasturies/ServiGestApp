@@ -51,9 +51,11 @@ public class Orden {
 	private String asunto;
 	
 	@Column
+	@NotNull
 	private LocalDate fecha;
 	
 	@Column(columnDefinition = "BIT DEFAULT 1")
+	@NotNull
 	private byte estado;
 	
 	

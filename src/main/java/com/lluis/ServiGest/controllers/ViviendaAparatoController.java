@@ -2,6 +2,7 @@ package com.lluis.ServiGest.controllers;
 
 import javax.validation.Valid;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,8 +14,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.lluis.ServiGest.pojos.Aparato;
-import com.lluis.ServiGest.pojos.Vivienda;
 import com.lluis.ServiGest.pojos.ViviendaAparato;
 import com.lluis.ServiGest.servicios.ViviendaAparatoService;
 
@@ -24,28 +23,21 @@ import org.springframework.validation.BindingResult;
 
 @RestController
 @CrossOrigin
-@RequestMapping("api/aparatos/vivienda")
+@RequestMapping("api/vivienda/aparato")
 public class ViviendaAparatoController {
 	
 	@Autowired
 	ViviendaAparatoService viviendaAparatoService;
 	
 	// ADD
-	@PostMapping("/{idVivienda}/add")
+	@PostMapping("/add")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void add(@PathVariable("idVivienda") Integer idVivienda, @Valid @RequestBody Aparato aparato, BindingResult bindingResult) {
-		if (bindingResult.hasErrors()) {
-    		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos vacíos o datos erroneos");
-    	}
+	public void add(@Valid @RequestBody ViviendaAparato viviendaAparato, BindingResult bindingResult) {
+//		if (bindingResult.hasErrors()) {
+//    		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos vacíos o datos erroneos");
+//    	}
 		
-		Vivienda vivienda = new Vivienda();
-		vivienda.setIdVivienda(idVivienda);
-		
-		ViviendaAparato viviendaAparato = new ViviendaAparato();
-		viviendaAparato.setAparato(aparato);
-		viviendaAparato.setIdVivienda(vivienda);
-			
 		viviendaAparatoService.add(viviendaAparato);	
 	}
 	

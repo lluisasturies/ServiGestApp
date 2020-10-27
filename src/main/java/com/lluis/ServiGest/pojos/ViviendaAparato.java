@@ -10,6 +10,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 @Table(name="viviendas_aparatos")
 public class ViviendaAparato {
@@ -20,6 +23,7 @@ public class ViviendaAparato {
 	
 	@ManyToOne
 	@JoinColumn(name = "FK_idVivienda")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@NotNull
 	private Vivienda vivienda ;
 	
@@ -38,7 +42,7 @@ public class ViviendaAparato {
 		this.idAparato = idAparato;
 	}
 
-	public Vivienda getIdVivienda() {
+	public Vivienda getVivienda() {
 		return vivienda;
 	}
 

@@ -48,12 +48,12 @@ public class AparatoMarca {
 		this.aparatos = aparatos;
 	}
 
-	public String getMarca() {
+	public String getNombre() {
 		return nombre;
 	}
 
-	public void setMarca(String marca) {
-		this.nombre = marca;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	
 }

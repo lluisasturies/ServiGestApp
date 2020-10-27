@@ -19,7 +19,7 @@ public class OrdenLineaServiceImpl implements OrdenLineaService {
 
 	@Override
 	public void update(OrdenLinea ordenLinea) {
-		if (ordenLineaDAO.existsById(ordenLinea.getIdTrabajo())) {
+		if (ordenLineaDAO.existsById(ordenLinea.getIdLinea())) {
 			ordenLineaDAO.save(ordenLinea);
 		}
 	}
