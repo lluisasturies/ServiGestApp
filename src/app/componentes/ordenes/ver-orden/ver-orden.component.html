@@ -7,17 +7,16 @@
 <table class="table" *ngIf="orden.lineas">
   <thead>
       <tr>
-          <th scope="col">Cantidad</th>
+          <th scope="col">Fecha</th>
           <th scope="col">Concepto</th>
+          <th></th>
       </tr>
   </thead>
   <tbody>
       <tr *ngFor="let linea of orden.lineas">
-          <td>{{linea}}</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><a [routerLink]="['/ordenes/ver']" class="btn btn-info">Ver</a></td>
+          <td>{{linea.fecha}}</td>
+          <td>{{linea.concepto}}</td>
+          <td><a [routerLink]="['/ordenes/ver']" class="btn btn-info"></a></td>
       </tr>
   </tbody>
 </table>
