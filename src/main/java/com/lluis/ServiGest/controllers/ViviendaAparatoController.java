@@ -2,7 +2,6 @@ package com.lluis.ServiGest.controllers;
 
 import javax.validation.Valid;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,9 +33,9 @@ public class ViviendaAparatoController {
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
 	public void add(@Valid @RequestBody ViviendaAparato viviendaAparato, BindingResult bindingResult) {
-//		if (bindingResult.hasErrors()) {
-//    		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos vacíos o datos erroneos");
-//    	}
+		if (bindingResult.hasErrors()) {
+    		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos vacíos o datos erroneos");
+    	}
 		
 		viviendaAparatoService.add(viviendaAparato);	
 	}
