@@ -28,8 +28,8 @@ export class ClientesContactosService {
   }
 
   // Update
-  updateClienteContacto(cliente: Cliente, contacto: ClienteContacto): Observable<ClienteContacto> {
-    return this.http.put<ClienteContacto>(this.apiURL + '/update/' + contacto.idContacto, cliente, { headers: this.headers });
+  updateClienteContacto(clienteContacto: ClienteContacto): Observable<ClienteContacto> {
+    return this.http.put<ClienteContacto>(this.apiURL + '/update/', clienteContacto, { headers: this.headers });
   }
 
   // Delete

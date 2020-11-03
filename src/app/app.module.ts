@@ -34,6 +34,7 @@ import { AddViviendaAparatoComponent } from './componentes/viviendas/add-viviend
 // Servicios
 import { interceptorProvider } from './servicios/interceptor.service';
 import { UpdateOrdenComponent } from './componentes/ordenes/update-orden/update-orden.component';
+import { AddOrdenLineaComponent } from './componentes/ordenes/add-orden-linea/add-orden-linea.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { UpdateOrdenComponent } from './componentes/ordenes/update-orden/update-
     UsuariosComponent,
     AddContactoComponent,
     AddViviendaAparatoComponent,
-    UpdateOrdenComponent
+    UpdateOrdenComponent,
+    AddOrdenLineaComponent
   ],
   imports: [
     BrowserModule,

@@ -24,10 +24,10 @@ export class AddViviendaAparatoComponent implements OnInit {
   @Input() vivienda: Vivienda;
   @Output() passEntry: EventEmitter<any> = new EventEmitter();
 
-  aparatos: Aparato[];
-  aparato: Aparato = new Aparato();
-  viviendaAparato: ViviendaAparato = new ViviendaAparato();
-  aparatoViviendaForm: FormGroup;
+  public aparatos: Aparato[];
+  public aparato: Aparato = new Aparato();
+  public viviendaAparato: ViviendaAparato = new ViviendaAparato();
+  public aparatoViviendaForm: FormGroup;
 
   constructor(
     private _viviendaAparato: ViviendasAparatosService,

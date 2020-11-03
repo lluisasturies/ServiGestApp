@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Añadir Linea</h4>
+  <button type="button" class="close" aria-label="Close" (click)="modalService.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="ordenLineaForm" (ngSubmit)="guardarOrdenLinea()">
+    <div class="form-group">
+      <label for="">Concepto</label>
+      <input [class.is-invalid]="ordenLineaForm.get('concepto').touched && ordenLineaForm.get('concepto').invalid"  type="text" class="form-control" formControlName="concepto" name="provincia" placeholder="Concepto de la linea" required>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modalService.dismiss()">Cerrar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="ordenLineaForm.invalid">Añadir</button>
+    </div>
+  </form>
+</div>

@@ -28,26 +28,25 @@ const routes: Routes = [
   {path: 'inicio', component: InicioComponent},
 
   // Viviendas
-  { path: 'viviendas', component:ViviendasComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
-  { path: 'viviendas/ver/:idVivienda', component:VerViviendaComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
-  { path: 'viviendas/crear', component:AddViviendaComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
-  { path: 'viviendas/editar/:idVivienda', component:UpdateViviendaComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']}},
+  { path: 'viviendas', component: ViviendasComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
+  { path: 'viviendas/ver/:idVivienda', component: VerViviendaComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
+  { path: 'viviendas/crear', component: AddViviendaComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
+  { path: 'viviendas/editar/:idVivienda', component: UpdateViviendaComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']}},
 
   // Ordenes
-  { path: 'ordenes', component:OrdenesComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
-  { path: 'ordenes/ver/:idOrden', component:VerOrdenComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
-  { path: 'ordenes/crear', component:AddOrdenComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
-  { path: 'ordenes/editar/:idOrden', component:UpdateOrdenComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']}},
+  { path: 'ordenes', component: OrdenesComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
+  { path: 'ordenes/ver/:idOrden', component: VerOrdenComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
+  { path: 'ordenes/editar/:idOrden', component: UpdateOrdenComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']}},
 
   // Clientes
-  { path: 'clientes', component:ClientesComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
-  { path: 'clientes/ver/:idCliente', component:VerClienteComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
-  { path: 'clientes/crear', component:AddClienteComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
+  { path: 'clientes', component: ClientesComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
+  { path: 'clientes/ver/:idCliente', component: VerClienteComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
+  { path: 'clientes/crear', component: AddClienteComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
 
   // Administracion
-  { path: 'usuarios', component:UsuariosComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
-  { path: 'usuarios/crear', component:AddUsuarioComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
-  { path: 'usuarios/editar/:idUsuario', component:UpdateUsuarioComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
+  { path: 'usuarios', component: UsuariosComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
+  { path: 'usuarios/crear', component: AddUsuarioComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
+  { path: 'usuarios/editar/:idUsuario', component: UpdateUsuarioComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
 
   // Login
   { path: 'login', component: LoginComponent },

@@ -18,9 +18,9 @@ import { Empresa } from 'src/app/modelos/Empresa.model';
 export class AddOrdenComponent implements OnInit {
 
   // Variables
+  @Input() public vivienda;
   public orden: Orden = new Orden();
   public empresas: Empresa[];
-  @Input() public vivienda;
   public fechaActual = formatDate(new Date(), 'yyyy-MM-dd', 'en-EN');
 
   constructor(

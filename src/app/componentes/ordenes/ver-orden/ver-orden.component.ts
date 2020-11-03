@@ -7,6 +7,7 @@ import { OrdenesService } from 'src/app/servicios/ordenes.service';
 
 // Modelos
 import { Orden } from 'src/app/modelos/Orden.model';
+import { AddOrdenLineaComponent } from '../add-orden-linea/add-orden-linea.component';
 
 @Component({
   selector: 'app-ver-orden',
@@ -33,6 +34,15 @@ export class VerOrdenComponent implements OnInit {
   // Obtener la Orden
   obtenerOrden(idOrden: number): void {
     this._ordenes.getOrden(idOrden).subscribe(data => { this.orden = data; });
+  }
+
+  // Modal Asociar Orden a Linea
+  addOrdenLinea() {
+    const modalRef = this.modalService.open(AddOrdenLineaComponent);
+    modalRef.componentInstance.orden = this.orden;
+    modalRef.result.then((result) => {
+      this.ngOnInit();
+    });
   }
 
 }

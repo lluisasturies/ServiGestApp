@@ -3,6 +3,8 @@
 <p>{{orden.fecha}}</p>
 <p>{{orden.empresa.nombreComercial}}</p>
 
+<a (click)="addOrdenLinea()" class="btn btn-success">Añadir Linea</a>
+
 <h3>Lineas</h3>
 <table class="table" *ngIf="orden.lineas">
   <thead>
