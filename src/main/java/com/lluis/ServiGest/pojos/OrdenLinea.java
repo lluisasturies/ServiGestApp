@@ -15,8 +15,13 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="ordenes_lineas")
+@Getter
+@Setter
 public class OrdenLinea {
 
 	@Id
@@ -36,39 +41,5 @@ public class OrdenLinea {
 	@Column
 	@NotNull
 	private LocalDate fecha;
-
-	
-	
-	public Integer getIdLinea() {
-		return idLinea;
-	}
-
-	public void setIdLinea(Integer idLinea) {
-		this.idLinea = idLinea;
-	}
-
-	public Orden getOrden() {
-		return orden;
-	}
-
-	public void setOrden(Orden orden) {
-		this.orden = orden;
-	}
-
-	public String getConcepto() {
-		return concepto;
-	}
-
-	public void setConcepto(String concepto) {
-		this.concepto = concepto;
-	}
-
-	public LocalDate getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(LocalDate fecha) {
-		this.fecha = fecha;
-	}
 	
 }

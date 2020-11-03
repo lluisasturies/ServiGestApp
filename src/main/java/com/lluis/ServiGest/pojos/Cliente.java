@@ -13,8 +13,13 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="clientes")
+@Getter
+@Setter
 public class Cliente {
 
 	@Id
@@ -47,63 +52,5 @@ public class Cliente {
 	@Column
 	@NotNull
 	private String dni;
-
-	
-	
-	public Integer getIdCliente() {
-		return idCliente;
-	}
-
-	public void setIdCliente(Integer idCliente) {
-		this.idCliente = idCliente;
-	}
-
-	public List<Vivienda> getViviendasPropietario() {
-		return viviendasPropietario;
-	}
-
-	public void setViviendasPropietario(List<Vivienda> viviendasPropietario) {
-		this.viviendasPropietario = viviendasPropietario;
-	}
-
-	public List<Vivienda> getViviendasInquilino() {
-		return viviendasInquilino;
-	}
-
-	public void setViviendasInquilino(List<Vivienda> viviendasInquilino) {
-		this.viviendasInquilino = viviendasInquilino;
-	}
-
-	public List<ClienteContacto> getContactos() {
-		return contactos;
-	}
-
-	public void setContactos(List<ClienteContacto> contactos) {
-		this.contactos = contactos;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellidos() {
-		return apellidos;
-	}
-
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
-
-	public String getDni() {
-		return dni;
-	}
-
-	public void setDni(String dni) {
-		this.dni = dni;
-	}
 	
 }

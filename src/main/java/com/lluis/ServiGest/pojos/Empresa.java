@@ -13,8 +13,13 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="empresas")
+@Getter
+@Setter
 public class Empresa {
 
 	@Id
@@ -56,86 +61,4 @@ public class Empresa {
 	@NotNull
 	private String email;
 
-	
-	
-	public Integer getIdEmpresa() {
-		return idEmpresa;
-	}
-
-	public void setIdEmpresa(Integer idEmpresa) {
-		this.idEmpresa = idEmpresa;
-	}
-
-	public List<EmpresaContacto> getContactos() {
-		return contactos;
-	}
-
-	public void setContactos(List<EmpresaContacto> contactos) {
-		this.contactos = contactos;
-	}
-
-	public List<Orden> getOrdenes() {
-		return ordenes;
-	}
-
-	public void setOrdenes(List<Orden> ordenes) {
-		this.ordenes = ordenes;
-	}
-
-	public String getNombreComercial() {
-		return nombreComercial;
-	}
-
-	public void setNombreComercial(String nombreComercial) {
-		this.nombreComercial = nombreComercial;
-	}
-
-	public String getNombreFiscal() {
-		return nombreFiscal;
-	}
-
-	public void setNombreFiscal(String nombreFiscal) {
-		this.nombreFiscal = nombreFiscal;
-	}
-
-	public String getNif() {
-		return nif;
-	}
-
-	public void setNif(String nif) {
-		this.nif = nif;
-	}
-
-	public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
-	public String getLocalidad() {
-		return localidad;
-	}
-
-	public void setLocalidad(String localidad) {
-		this.localidad = localidad;
-	}
-
-	public String getProvincia() {
-		return provincia;
-	}
-
-	public void setProvincia(String provincia) {
-		this.provincia = provincia;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
 }

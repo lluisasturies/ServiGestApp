@@ -14,8 +14,13 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="aparatos_marcas")
+@Getter
+@Setter
 public class AparatoMarca {
 
 	@Id
@@ -29,31 +34,5 @@ public class AparatoMarca {
 	@Column
 	@NotNull
 	private String nombre;
-
-	
-	
-	public Integer getIdMarca() {
-		return idMarca;
-	}
-
-	public void setIdMarca(Integer idMarca) {
-		this.idMarca = idMarca;
-	}
-
-	public List<Aparato> getAparatos() {
-		return aparatos;
-	}
-
-	public void setAparatos(List<Aparato> aparatos) {
-		this.aparatos = aparatos;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 	
 }

@@ -1,6 +1,5 @@
 package com.lluis.ServiGest.pojos;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,8 +12,13 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="viviendas_aparatos")
+@Getter
+@Setter
 public class ViviendaAparato {
 	
 	@Id
@@ -31,31 +35,5 @@ public class ViviendaAparato {
 	@JoinColumn(name = "FK_idAparato")
 	@NotNull
 	private Aparato aparato;
-
-	
-	
-	public Integer getIdAparato() {
-		return idAparato;
-	}
-
-	public void setIdAparato(Integer idAparato) {
-		this.idAparato = idAparato;
-	}
-
-	public Vivienda getVivienda() {
-		return vivienda;
-	}
-
-	public void setIdVivienda(Vivienda idVivienda) {
-		this.vivienda = idVivienda;
-	}
-
-	public Aparato getAparato() {
-		return aparato;
-	}
-
-	public void setAparato(Aparato aparato) {
-		this.aparato = aparato;
-	}
 	
 }

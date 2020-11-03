@@ -13,8 +13,13 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="albaranes_lineas")
+@Getter
+@Setter
 public class AlbaranLinea {
 
 	@Id
@@ -39,46 +44,4 @@ public class AlbaranLinea {
 	@NotNull
 	private Integer precio;
 
-	
-	
-	public Integer getIdLinea() {
-		return idLinea;
-	}
-
-	public void setIdLinea(Integer idLinea) {
-		this.idLinea = idLinea;
-	}
-
-	public Albaran getAlbaran() {
-		return albaran;
-	}
-
-	public void setAlbaran(Albaran albaran) {
-		this.albaran = albaran;
-	}
-
-	public String getConcepto() {
-		return concepto;
-	}
-
-	public void setConcepto(String concepto) {
-		this.concepto = concepto;
-	}
-
-	public Integer getCantidad() {
-		return cantidad;
-	}
-
-	public void setCantidad(Integer cantidad) {
-		this.cantidad = cantidad;
-	}
-
-	public Integer getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(Integer precio) {
-		this.precio = precio;
-	}
-	
 }

@@ -15,8 +15,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="viviendas")
+@Getter
+@Setter
 public class Vivienda {
 	
 	@Id
@@ -48,72 +53,5 @@ public class Vivienda {
 	@Column
 	@NotNull
 	private String provincia;
-	
-	
-	
-	public Integer getIdVivienda() {
-		return idVivienda;
-	}
-
-	public void setIdVivienda(Integer idVivienda) {
-		this.idVivienda = idVivienda;
-	}
-
-	public Cliente getPropietario() {
-		return propietario;
-	}
-	
-	
-	public void setPropietario(Cliente propietario) {
-		this.propietario = propietario;
-	}
-
-	public Cliente getInquilino() {
-		return inquilino;
-	}
-
-	public void setInquilino(Cliente inquilino) {
-		this.inquilino = inquilino;
-	}
-
-	public List<ViviendaAparato> getAparatos() {
-		return aparatos;
-	}
-
-	public void setAparatos(List<ViviendaAparato> aparatos) {
-		this.aparatos = aparatos;
-	}
-
-	public List<Orden> getOrdenes() {
-		return ordenes;
-	}
-
-	public void setOrdenes(List<Orden> ordenes) {
-		this.ordenes = ordenes;
-	}
-
-	public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
-	public String getLocalidad() {
-		return localidad;
-	}
-
-	public void setLocalidad(String localidad) {
-		this.localidad = localidad;
-	}
-
-	public String getProvincia() {
-		return provincia;
-	}
-
-	public void setProvincia(String provincia) {
-		this.provincia = provincia;
-	}
 	
 }

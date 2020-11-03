@@ -15,8 +15,13 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="ordenes_citas")
+@Getter
+@Setter
 public class OrdenCita {
 
 	@Id
@@ -31,23 +36,5 @@ public class OrdenCita {
 	
 	@Column
 	private LocalDate fecha;
-	
-	
-	
-	public Integer getIdCita() {
-		return idCita;
-	}
-
-	public void setIdCita(Integer idCita) {
-		this.idCita = idCita;
-	}
-
-	public LocalDate getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(LocalDate fecha) {
-		this.fecha = fecha;
-	}
 	
 }

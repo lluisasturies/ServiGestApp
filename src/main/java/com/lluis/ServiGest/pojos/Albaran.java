@@ -17,8 +17,13 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="albaranes")
+@Getter
+@Setter
 public class Albaran {
 
 	@Id
@@ -49,62 +54,4 @@ public class Albaran {
 	@NotNull
 	private boolean facturado;
 
-	
-	
-	public Integer getIdAlbaran() {
-		return idAlbaran;
-	}
-
-	public void setIdAlbaran(Integer idAlbaran) {
-		this.idAlbaran = idAlbaran;
-	}
-	
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public Orden getOrden() {
-		return orden;
-	}
-
-	public void setOrden(Orden orden) {
-		this.orden = orden;
-	}
-
-	public List<AlbaranLinea> getLineas() {
-		return lineas;
-	}
-
-	public void setLineas(List<AlbaranLinea> lineas) {
-		this.lineas = lineas;
-	}
-
-	public String getCodigoAlbaran() {
-		return codigoAlbaran;
-	}
-
-	public void setCodigoAlbaran(String codigoAlbaran) {
-		this.codigoAlbaran = codigoAlbaran;
-	}
-
-	public Date getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
-
-	public boolean isFacturado() {
-		return facturado;
-	}
-
-	public void setFacturado(boolean facturado) {
-		this.facturado = facturado;
-	}
-	
 }

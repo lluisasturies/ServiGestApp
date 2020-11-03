@@ -14,8 +14,13 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="empresas_contactos")
+@Getter
+@Setter
 public class EmpresaContacto {
 
 	@Id
@@ -40,47 +45,5 @@ public class EmpresaContacto {
 	@NotNull
 	@Email
 	private String email;
-
-	
-	
-	public Integer getIdContacto() {
-		return idContacto;
-	}
-
-	public void setIdContacto(Integer idContacto) {
-		this.idContacto = idContacto;
-	}
-
-	public Empresa getEmpresa() {
-		return empresa;
-	}
-
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public Integer getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(Integer telefono) {
-		this.telefono = telefono;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
 	
 }
