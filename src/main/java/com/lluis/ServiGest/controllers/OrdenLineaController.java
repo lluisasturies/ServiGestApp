@@ -23,7 +23,7 @@ import org.springframework.validation.BindingResult;
 
 @RestController
 @CrossOrigin
-@RequestMapping("api/ordenes/linea")
+@RequestMapping("api/ordenes/lineas")
 public class OrdenLineaController {
 	
 	@Autowired
