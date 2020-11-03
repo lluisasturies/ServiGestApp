@@ -33,7 +33,7 @@ public class Albaran {
 	@OneToOne
 	@JoinColumn(name = "idOrden")
 	@NotNull
-	private Orden orden; // Relación con la Orden
+	private Orden orden;
 	
 	@OneToMany(mappedBy = "albaran")
     private List<AlbaranLinea> lineas;

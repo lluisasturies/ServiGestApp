@@ -1,5 +1,7 @@
 package com.lluis.ServiGest.pojos;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +35,7 @@ public class OrdenLinea {
 	
 	@Column
 	@NotNull
-	private Integer cantidad;
+	private LocalDate fecha;
 
 	
 	
@@ -61,11 +63,12 @@ public class OrdenLinea {
 		this.concepto = concepto;
 	}
 
-	public Integer getCantidad() {
-		return cantidad;
+	public LocalDate getFecha() {
+		return fecha;
 	}
 
-	public void setCantidad(Integer cantidad) {
-		this.cantidad = cantidad;
+	public void setFecha(LocalDate fecha) {
+		this.fecha = fecha;
 	}
+	
 }

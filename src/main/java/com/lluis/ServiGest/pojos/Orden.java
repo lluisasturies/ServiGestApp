@@ -29,12 +29,12 @@ public class Orden {
 	@JoinColumn(name = "idVivienda")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@NotNull
-	private Vivienda vivienda; // Relación con la Vivienda
+	private Vivienda vivienda;
 	
 	@ManyToOne
 	@JoinColumn(name = "idEmpresa")
 	@NotNull
-	private Empresa empresa; // Relación con la Empresa
+	private Empresa empresa;
 	
 	@OneToMany(mappedBy = "orden")
 	private List<OrdenLinea> lineas;

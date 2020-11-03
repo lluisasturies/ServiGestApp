@@ -25,7 +25,7 @@ public class ClienteContacto {
 	@ManyToOne
 	@JoinColumn(name = "idCliente")
 	@JsonProperty(access = Access.WRITE_ONLY)
-	private Cliente cliente; // Relación con el Cliente
+	private Cliente cliente;
 	
 	@Column
 	@NotNull

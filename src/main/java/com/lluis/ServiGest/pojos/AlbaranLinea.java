@@ -25,7 +25,7 @@ public class AlbaranLinea {
 	@JoinColumn(name = "idAlbaran")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@NotNull
-	private Albaran albaran; // Relación con el Albaran
+	private Albaran albaran;
 	
 	@Column
 	@NotNull

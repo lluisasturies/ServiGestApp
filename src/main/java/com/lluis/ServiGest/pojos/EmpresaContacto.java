@@ -26,7 +26,7 @@ public class EmpresaContacto {
 	@JoinColumn(name = "idEmpresa")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@NotNull
-	private Empresa empresa; // Relación con la Empresa
+	private Empresa empresa;
 	
 	@Column
 	@NotNull

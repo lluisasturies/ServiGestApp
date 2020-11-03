@@ -25,11 +25,11 @@ public class Vivienda {
 	
 	@ManyToOne
 	@JoinColumn(name = "idPropietario")
-	private Cliente propietario; // Cliente asignado como propietario
+	private Cliente propietario;
 	
 	@ManyToOne
 	@JoinColumn(name = "idInquilino")
-	private Cliente inquilino; // Cliente asignado como inquilino
+	private Cliente inquilino;
 	
 	@OneToMany(mappedBy = "vivienda", cascade = CascadeType.REMOVE)
 	private List<ViviendaAparato> aparatos;

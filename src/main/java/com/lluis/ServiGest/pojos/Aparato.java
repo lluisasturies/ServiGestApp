@@ -26,12 +26,12 @@ public class Aparato {
 	@ManyToOne
 	@JoinColumn(name = "idTipo")
 	@NotNull
-	private AparatoTipo tipo; // Relación con el AparatoTipo
+	private AparatoTipo tipo;
 	
 	@ManyToOne
 	@JoinColumn(name = "idMarca")
 	@NotNull
-	private AparatoMarca marca; // Relación con el AparatoMarca
+	private AparatoMarca marca;
 	
 	@OneToMany(mappedBy = "aparato")
 	@JsonIgnore
