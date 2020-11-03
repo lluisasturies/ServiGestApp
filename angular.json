@@ -127,5 +127,10 @@
       }
     }
   },
-  "defaultProject": "ServiGest"
+  "defaultProject": "ServiGest",
+  "schematics": {
+    "@schematics/angular:component": {
+      "skipTests": true
+    }
+  }
 }
