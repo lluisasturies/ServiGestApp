@@ -17,8 +17,10 @@ import { AddUsuarioComponent } from './componentes/usuarios/add-usuario/add-usua
 import { UpdateUsuarioComponent } from './componentes/usuarios/update-usuario/update-usuario.component';
 import { OrdenesComponent } from './componentes/ordenes/ordenes.component';
 import { VerOrdenComponent } from './componentes/ordenes/ver-orden/ver-orden.component';
-import { AddOrdenComponent } from './componentes/ordenes/add-orden/add-orden.component';
 import { UpdateOrdenComponent } from './componentes/ordenes/update-orden/update-orden.component';
+import { EmpresasComponent } from './componentes/empresas/empresas.component';
+import { AddEmpresaComponent } from './componentes/empresas/add-empresa/add-empresa.component';
+import { UpdateEmpresaComponent } from './componentes/empresas/update-empresa/update-empresa.component';
 
 // Servicios
 import { GuardService as guard } from './servicios/guard.service';
@@ -43,7 +45,12 @@ const routes: Routes = [
   { path: 'clientes/ver/:idCliente', component: VerClienteComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
   { path: 'clientes/crear', component: AddClienteComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
 
-  // Administracion
+  // Empresas
+  { path: 'empresas', component: EmpresasComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
+  { path: 'empresas/crear', component: AddEmpresaComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
+  { path: 'empresas/editar/idEmpresa', component: UpdateEmpresaComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
+
+  // Usuarios
   { path: 'usuarios', component: UsuariosComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
   { path: 'usuarios/crear', component: AddUsuarioComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
   { path: 'usuarios/editar/:idUsuario', component: UpdateUsuarioComponent, canActivate: [guard], data: { expectedRol: ['admin']} },

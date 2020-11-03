@@ -35,6 +35,9 @@ import { AddViviendaAparatoComponent } from './componentes/viviendas/add-viviend
 import { interceptorProvider } from './servicios/interceptor.service';
 import { UpdateOrdenComponent } from './componentes/ordenes/update-orden/update-orden.component';
 import { AddOrdenLineaComponent } from './componentes/ordenes/add-orden-linea/add-orden-linea.component';
+import { EmpresasComponent } from './componentes/empresas/empresas.component';
+import { AddEmpresaComponent } from './componentes/empresas/add-empresa/add-empresa.component';
+import { UpdateEmpresaComponent } from './componentes/empresas/update-empresa/update-empresa.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +61,10 @@ import { AddOrdenLineaComponent } from './componentes/ordenes/add-orden-linea/ad
     AddContactoComponent,
     AddViviendaAparatoComponent,
     UpdateOrdenComponent,
-    AddOrdenLineaComponent
+    AddOrdenLineaComponent,
+    EmpresasComponent,
+    AddEmpresaComponent,
+    UpdateEmpresaComponent
   ],
   imports: [
     BrowserModule,
