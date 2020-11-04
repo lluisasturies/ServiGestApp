@@ -29,6 +29,6 @@ export class ViviendasAparatosService {
 
   // Delete
   deleteViviendaAparato(viviendaAparato: ViviendaAparato): Observable<Vivienda> {
-    return this.http.delete<Vivienda>(this.apiURL + '/delete/' + viviendaAparato.id);
+    return this.http.delete<Vivienda>(this.apiURL + '/delete/' + viviendaAparato.idAparato);
   }
 }

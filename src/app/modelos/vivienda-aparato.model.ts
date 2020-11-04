@@ -3,7 +3,7 @@ import { Vivienda } from './Vivienda.model';
 
 // Modelo de ViviendaAparato
 export class ViviendaAparato {
-  id: number;
+  idAparato: number;
   vivienda: Vivienda;
   aparato: Aparato;
 }

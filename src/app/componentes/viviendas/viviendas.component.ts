@@ -17,7 +17,9 @@ export class ViviendasComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   viviendas: Vivienda[];
 
-  constructor(private _viviendas: ViviendasService) { }
+  constructor(
+    private _viviendas: ViviendasService
+  ) { }
 
   ngOnInit(): void {
     this.opcionesDt();
@@ -34,12 +36,16 @@ export class ViviendasComponent implements OnInit {
 
   // Obtengo las Viviendas
   obtenerViviendas(): void {
-    this._viviendas.getViviendas().subscribe(data =>{ this.viviendas = data; });
+    this._viviendas.getViviendas().subscribe(data => {
+      this.viviendas = data;
+    });
   }
 
   // Borrar una Vivienda
   borrarVivienda(vivienda: Vivienda) {
-    this._viviendas.deleteVivienda(vivienda).subscribe(data => { this.viviendas = this.viviendas.filter(v => v !== vivienda); });
+    this._viviendas.deleteVivienda(vivienda).subscribe(data => {
+      this.viviendas = this.viviendas.filter(v => v !== vivienda);
+    });
   }
 
 }
