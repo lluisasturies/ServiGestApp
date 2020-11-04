@@ -12,9 +12,9 @@ import { UpdateViviendaComponent } from './viviendas/componentes/update-vivienda
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { LogoutComponent } from './componentes/logout/logout.component';
-import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
-import { AddUsuarioComponent } from './componentes/usuarios/add-usuario/add-usuario.component';
-import { UpdateUsuarioComponent } from './componentes/usuarios/update-usuario/update-usuario.component';
+import { UsuariosComponent } from './usuarios/componentes/usuarios.component';
+import { AddUsuarioComponent } from './usuarios/componentes/add-usuario/add-usuario.component';
+import { UpdateUsuarioComponent } from './usuarios/componentes/update-usuario/update-usuario.component';
 import { OrdenesComponent } from './ordenes/componentes/ordenes.component';
 import { VerOrdenComponent } from './ordenes/componentes/ver-orden/ver-orden.component';
 import { UpdateOrdenComponent } from './ordenes/componentes/update-orden/update-orden.component';

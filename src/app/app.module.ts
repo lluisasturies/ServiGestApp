@@ -15,9 +15,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { LogoutComponent } from './componentes/logout/logout.component';
-import { AddUsuarioComponent } from './componentes/usuarios/add-usuario/add-usuario.component';
-import { UpdateUsuarioComponent } from './componentes/usuarios/update-usuario/update-usuario.component';
-import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 
 // Servicios
 import { interceptorProvider } from './servicios/interceptor.service';
@@ -25,16 +22,14 @@ import { ViviendasModule } from './viviendas/viviendas.module';
 import { ClientesModule } from './clientes/clientes.module';
 import { OrdenesModule } from './ordenes/ordenes.module';
 import { EmpresasModule } from './empresas/empresas.module';
+import { UsuariosModule } from './usuarios/usuarios.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     InicioComponent,
-    LogoutComponent,
-    AddUsuarioComponent,
-    UpdateUsuarioComponent,
-    UsuariosComponent
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +43,8 @@ import { EmpresasModule } from './empresas/empresas.module';
     ViviendasModule,
     ClientesModule,
     OrdenesModule,
-    EmpresasModule
+    EmpresasModule,
+    UsuariosModule
   ],
   providers: [
     interceptorProvider
