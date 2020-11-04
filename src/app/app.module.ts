@@ -12,15 +12,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Componentes
 import { AppComponent } from './app.component';
-import { ViviendasComponent } from './componentes/viviendas/viviendas.component';
-import { VerViviendaComponent } from './componentes/viviendas/ver-vivienda/ver-vivienda.component';
 import { OrdenesComponent } from './componentes/ordenes/ordenes.component';
 import { VerOrdenComponent } from './componentes/ordenes/ver-orden/ver-orden.component';
 import { ClientesComponent } from './componentes/clientes/clientes.component';
 import { VerClienteComponent } from './componentes/clientes/ver-cliente/ver-cliente.component';
-import { AddViviendaComponent } from './componentes/viviendas/add-vivienda/add-vivienda.component';
 import { AddClienteComponent } from './componentes/clientes/add-cliente/add-cliente.component';
-import { UpdateViviendaComponent } from './componentes/viviendas/update-vivienda/update-vivienda.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { LogoutComponent } from './componentes/logout/logout.component';
@@ -29,7 +25,6 @@ import { AddUsuarioComponent } from './componentes/usuarios/add-usuario/add-usua
 import { UpdateUsuarioComponent } from './componentes/usuarios/update-usuario/update-usuario.component';
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { AddContactoComponent } from './componentes/clientes/add-contacto/add-contacto.component';
-import { AddViviendaAparatoComponent } from './componentes/viviendas/add-vivienda-aparato/add-vivienda-aparato.component';
 
 // Servicios
 import { interceptorProvider } from './servicios/interceptor.service';
@@ -38,19 +33,16 @@ import { AddOrdenLineaComponent } from './componentes/ordenes/add-orden-linea/ad
 import { EmpresasComponent } from './componentes/empresas/empresas.component';
 import { AddEmpresaComponent } from './componentes/empresas/add-empresa/add-empresa.component';
 import { UpdateEmpresaComponent } from './componentes/empresas/update-empresa/update-empresa.component';
+import { ViviendasModule } from './viviendas/viviendas.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ViviendasComponent,
-    VerViviendaComponent,
     OrdenesComponent,
     VerOrdenComponent,
     ClientesComponent,
     VerClienteComponent,
-    AddViviendaComponent,
     AddClienteComponent,
-    UpdateViviendaComponent,
     LoginComponent,
     InicioComponent,
     LogoutComponent,
@@ -59,7 +51,6 @@ import { UpdateEmpresaComponent } from './componentes/empresas/update-empresa/up
     UpdateUsuarioComponent,
     UsuariosComponent,
     AddContactoComponent,
-    AddViviendaAparatoComponent,
     UpdateOrdenComponent,
     AddOrdenLineaComponent,
     EmpresasComponent,
@@ -74,7 +65,8 @@ import { UpdateEmpresaComponent } from './componentes/empresas/update-empresa/up
     HttpClientModule,
     FormsModule,
     NgbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ViviendasModule
   ],
   providers: [
     interceptorProvider

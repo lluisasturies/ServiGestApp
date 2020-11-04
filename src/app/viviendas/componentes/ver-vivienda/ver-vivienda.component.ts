@@ -10,8 +10,8 @@ import { ViviendasAparatosService } from './../../../servicios/viviendas-aparato
 import { Vivienda } from 'src/app/modelos/Vivienda.model';
 import { Orden } from 'src/app/modelos/Orden.model';
 import { ViviendaAparato } from 'src/app/modelos/vivienda-aparato.model';
-import { AddViviendaAparatoComponent } from '../add-vivienda-aparato/add-vivienda-aparato.component';
-import { AddOrdenComponent } from '../../ordenes/add-orden/add-orden.component';
+import { AddViviendaAparatoComponent } from 'src/app/viviendas/componentes/add-vivienda-aparato/add-vivienda-aparato.component';
+import { AddOrdenComponent } from 'src/app/componentes/ordenes/add-orden/add-orden.component';
 
 @Component({
   selector: 'app-ver-vivienda',

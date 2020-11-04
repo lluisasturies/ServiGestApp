@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Componentes
-import { AddViviendaComponent } from './componentes/viviendas/add-vivienda/add-vivienda.component';
-import { VerViviendaComponent } from './componentes/viviendas/ver-vivienda/ver-vivienda.component';
-import { ViviendasComponent } from './componentes/viviendas/viviendas.component';
+import { AddViviendaComponent } from './viviendas/componentes/add-vivienda/add-vivienda.component';
+import { VerViviendaComponent } from './viviendas/componentes/ver-vivienda/ver-vivienda.component';
+import { ViviendasComponent } from './viviendas/componentes/viviendas.component';
 import { ClientesComponent } from './componentes/clientes/clientes.component';
 import { VerClienteComponent } from './componentes/clientes/ver-cliente/ver-cliente.component';
 import { AddClienteComponent } from './componentes/clientes/add-cliente/add-cliente.component';
-import { UpdateViviendaComponent } from './componentes/viviendas/update-vivienda/update-vivienda.component';
+import { UpdateViviendaComponent } from './viviendas/componentes/update-vivienda/update-vivienda.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { LogoutComponent } from './componentes/logout/logout.component';
