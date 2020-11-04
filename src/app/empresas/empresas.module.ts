@@ -9,19 +9,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Componentes
-import { ClientesComponent } from '../clientes/componentes/clientes.component';
-import { VerClienteComponent } from '../clientes/componentes/ver-cliente/ver-cliente.component';
-import { AddClienteComponent } from '../clientes/componentes/add-cliente/add-cliente.component';
-import { AddContactoComponent } from './componentes/add-contacto/add-contacto.component';
+import { EmpresasComponent } from './componentes/empresas.component';
+import { AddEmpresaComponent } from './componentes/add-empresa/add-empresa.component';
+import { UpdateEmpresaComponent } from './componentes/update-empresa/update-empresa.component';
 
 
 
 @NgModule({
   declarations: [
-    ClientesComponent,
-    VerClienteComponent,
-    AddClienteComponent,
-    AddContactoComponent,
+    EmpresasComponent,
+    AddEmpresaComponent,
+    UpdateEmpresaComponent
   ],
   imports: [
     CommonModule,
@@ -35,4 +33,4 @@ import { AddContactoComponent } from './componentes/add-contacto/add-contacto.co
     BrowserAnimationsModule,
   ]
 })
-export class ClientesModule { }
+export class EmpresasModule { }

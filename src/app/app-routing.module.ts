@@ -18,9 +18,9 @@ import { UpdateUsuarioComponent } from './componentes/usuarios/update-usuario/up
 import { OrdenesComponent } from './ordenes/componentes/ordenes.component';
 import { VerOrdenComponent } from './ordenes/componentes/ver-orden/ver-orden.component';
 import { UpdateOrdenComponent } from './ordenes/componentes/update-orden/update-orden.component';
-import { EmpresasComponent } from './componentes/empresas/empresas.component';
-import { AddEmpresaComponent } from './componentes/empresas/add-empresa/add-empresa.component';
-import { UpdateEmpresaComponent } from './componentes/empresas/update-empresa/update-empresa.component';
+import { EmpresasComponent } from './empresas/componentes/empresas.component';
+import { AddEmpresaComponent } from './empresas/componentes/add-empresa/add-empresa.component';
+import { UpdateEmpresaComponent } from './empresas/componentes/update-empresa/update-empresa.component';
 
 // Servicios
 import { GuardService as guard } from './servicios/guard.service';
