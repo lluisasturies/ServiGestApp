@@ -11,7 +11,7 @@ import { Vivienda } from 'src/app/modelos/Vivienda.model';
 import { Orden } from 'src/app/modelos/Orden.model';
 import { ViviendaAparato } from 'src/app/modelos/vivienda-aparato.model';
 import { AddViviendaAparatoComponent } from 'src/app/viviendas/componentes/add-vivienda-aparato/add-vivienda-aparato.component';
-import { AddOrdenComponent } from 'src/app/componentes/ordenes/add-orden/add-orden.component';
+import { AddOrdenComponent } from 'src/app/ordenes/componentes/add-orden/add-orden.component';
 
 @Component({
   selector: 'app-ver-vivienda',
