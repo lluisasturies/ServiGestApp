@@ -14,9 +14,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { OrdenesComponent } from './componentes/ordenes/ordenes.component';
 import { VerOrdenComponent } from './componentes/ordenes/ver-orden/ver-orden.component';
-import { ClientesComponent } from './componentes/clientes/clientes.component';
-import { VerClienteComponent } from './componentes/clientes/ver-cliente/ver-cliente.component';
-import { AddClienteComponent } from './componentes/clientes/add-cliente/add-cliente.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { LogoutComponent } from './componentes/logout/logout.component';
@@ -24,7 +21,7 @@ import { AddOrdenComponent } from './componentes/ordenes/add-orden/add-orden.com
 import { AddUsuarioComponent } from './componentes/usuarios/add-usuario/add-usuario.component';
 import { UpdateUsuarioComponent } from './componentes/usuarios/update-usuario/update-usuario.component';
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
-import { AddContactoComponent } from './componentes/clientes/add-contacto/add-contacto.component';
+import { AddContactoComponent } from './clientes/componentes/add-contacto/add-contacto.component';
 
 // Servicios
 import { interceptorProvider } from './servicios/interceptor.service';
@@ -34,15 +31,13 @@ import { EmpresasComponent } from './componentes/empresas/empresas.component';
 import { AddEmpresaComponent } from './componentes/empresas/add-empresa/add-empresa.component';
 import { UpdateEmpresaComponent } from './componentes/empresas/update-empresa/update-empresa.component';
 import { ViviendasModule } from './viviendas/viviendas.module';
+import { ClientesModule } from './clientes/clientes.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     OrdenesComponent,
     VerOrdenComponent,
-    ClientesComponent,
-    VerClienteComponent,
-    AddClienteComponent,
     LoginComponent,
     InicioComponent,
     LogoutComponent,
@@ -66,7 +61,8 @@ import { ViviendasModule } from './viviendas/viviendas.module';
     FormsModule,
     NgbModule,
     BrowserAnimationsModule,
-    ViviendasModule
+    ViviendasModule,
+    ClientesModule
   ],
   providers: [
     interceptorProvider
