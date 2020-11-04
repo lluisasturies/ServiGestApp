@@ -15,7 +15,7 @@ export class ClientesContactosService {
   constructor(private http: HttpClient) { }
 
   // Ruta del JSON
-  private apiURL = environment.apiURL + '/contactos/clientes';
+  private apiURL = environment.apiURL + '/clientes/contactos';
 
   // Variables
 

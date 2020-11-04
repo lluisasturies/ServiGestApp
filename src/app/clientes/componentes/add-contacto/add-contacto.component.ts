@@ -5,6 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ClientesContactosService } from 'src/app/servicios/clientes-contactos.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Cliente } from 'src/app/modelos/Cliente.model';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-contacto',
@@ -14,8 +15,10 @@ import { Cliente } from 'src/app/modelos/Cliente.model';
 export class AddContactoComponent implements OnInit {
 
   // Variables
-  clienteContacto: ClienteContacto = new ClienteContacto();
   @Input() public cliente: Cliente;
+
+  public clienteContactoForm: FormGroup;
+  public clienteContacto: ClienteContacto = new ClienteContacto();
 
   constructor(
     private _clientesContactos: ClientesContactosService,
@@ -23,12 +26,20 @@ export class AddContactoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // Creo el FormGroup
+    this.clienteContactoForm = new FormGroup({
+      cliente: new FormControl(this.cliente),
+      telefono: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      contacto: new FormControl('', Validators.required)
+    });
   }
 
   guardarClienteContacto() {
-    this.clienteContacto.cliente = this.cliente;
+    this.clienteContacto = Object.assign({}, this.clienteContactoForm.value);
     this._clientesContactos.addClienteContacto(this.clienteContacto).subscribe(data => {
-      this.modalService.close(); });
+      this.modalService.close();
+    });
   }
 
 }

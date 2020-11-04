@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Componentes
 import { AppComponent } from './app.component';
@@ -39,7 +38,7 @@ import { UsuariosModule } from './usuarios/usuarios.module';
     HttpClientModule,
     FormsModule,
     NgbModule,
-    BrowserAnimationsModule,
+    BrowserModule,
     ViviendasModule,
     ClientesModule,
     OrdenesModule,

@@ -5,22 +5,28 @@
   </button>
 </div>
 <div class="modal-body">
-  <form (ngSubmit)="guardarClienteContacto()" #addContacto="ngForm">
-    <div class="form-group">
-      <label for="">Telefono</label>
-      <input type="number" class="form-control" [(ngModel)]="clienteContacto.telefono" name="telefono" placeholder="Numero de telefono" required>
-    </div>
-    <div class="form-group">
-      <label for="">Email</label>
-      <input type="email" class="form-control" [(ngModel)]="clienteContacto.email" name="email" placeholder="Correo electrónico" required>
-    </div>
-    <div class="form-group">
-      <label for="">Información</label>
-      <input type="text" class="form-control" [(ngModel)]="clienteContacto.contacto" name="contacto" placeholder="Sobre este contacto" required>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" (click)="modalService.dismiss()">Cerrar</button>
-      <button type="submit" class="btn btn-primary" [disabled]="!addContacto.valid">Añadir</button>
-    </div>
-  </form>
+  <form [formGroup]="clienteContactoForm" (ngSubmit)="guardarClienteContacto()">
+      <div class="form-group">
+        <label for="">Telefono</label>
+        <input [class.is-invalid]="clienteContactoForm.get('telefono').touched && clienteContactoForm.get('telefono').invalid"
+          type="number" class="form-control" formControlName="telefono" name="telefono" placeholder="Numero de telefono"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="">Email</label>
+        <input [class.is-invalid]="clienteContactoForm.get('email').touched && clienteContactoForm.get('email').invalid"
+          type="email" class="form-control" formControlName="email" name="email" placeholder="Correo electrónico"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="">Información</label>
+        <input [class.is-invalid]="clienteContactoForm.get('contacto').touched && clienteContactoForm.get('contacto').invalid"
+          type="text" class="form-control" formControlName="contacto" name="contacto" placeholder="Sobre este contacto"
+          required>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modalService.dismiss()">Cerrar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="clienteContactoForm.invalid">Añadir</button>
+      </div>
+    </form>
 </div>
