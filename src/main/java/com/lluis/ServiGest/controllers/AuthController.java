@@ -45,18 +45,25 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<JwtDTO> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
         
+    	// Validación del usuario y contraseña
     	if (bindingResult.hasErrors()) {
     		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos vacíos o email inválido");
     	}
     	
+    	// Proceso de autenticación por parte de Spring Security
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginUsuario.getNombreUsuario(), loginUsuario.getPassword())
         );
         
         SecurityContextHolder.getContext().setAuthentication(authentication);
+        
+        // Hago uso de un servicio para generar un Token
         String jwt = jwtProvider.generateToken(authentication);
+        
+        // Obtengo el usuario con su Rol
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         
+        // Lo coloco en el objeto que devolvere con el Token
         JwtDTO jwtDTO = new JwtDTO(jwt, userDetails.getUsername(), userDetails.getAuthorities());
         
         return new ResponseEntity<JwtDTO>(jwtDTO, HttpStatus.OK);
