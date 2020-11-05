@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lluis.ServiGest.pojos.Usuario;
-import com.lluis.ServiGest.seguridad.UsuarioPrincipal;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -20,6 +19,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Transactional
     public UserDetails loadUserByUsername(String nombreUsuario) throws UsernameNotFoundException {
         Usuario usuario = usuarioService.getUsuario(nombreUsuario);
-        return UsuarioPrincipal.build(usuario);
+        return usuario;
     }
 }

@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,7 +27,7 @@ public class Rol {
     @NotNull
     private RolNombre rolNombre;
     
-    @ManyToMany(mappedBy = "roles")
+    @OneToMany(mappedBy = "rol")
     @JsonIgnore
     private List<Usuario> usuarios;
     
