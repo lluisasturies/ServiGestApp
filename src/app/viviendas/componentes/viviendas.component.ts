@@ -5,6 +5,7 @@ import { ViviendasService } from './../../servicios/viviendas.service';
 
 // Modelos
 import { Vivienda } from 'src/app/modelos/Vivienda.model';
+import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
 
 @Component({
   selector: 'app-viviendas',
@@ -18,7 +19,8 @@ export class ViviendasComponent implements OnInit {
   viviendas: Vivienda[];
 
   constructor(
-    private _viviendas: ViviendasService
+    private _viviendas: ViviendasService,
+    private confirmationDialogService: ConfirmationDialogService
   ) { }
 
   ngOnInit(): void {
@@ -43,8 +45,13 @@ export class ViviendasComponent implements OnInit {
 
   // Borrar una Vivienda
   borrarVivienda(vivienda: Vivienda) {
-    this._viviendas.deleteVivienda(vivienda).subscribe(data => {
-      this.viviendas = this.viviendas.filter(v => v !== vivienda);
+    this.confirmationDialogService.confirm('Confirmar', '¿Estás seguro de que quieres borrar esta vivienda?')
+    .then((confirmed) => {
+      if (confirmed) {
+        this._viviendas.deleteVivienda(vivienda).subscribe(data => {
+          this.viviendas = this.viviendas.filter(v => v !== vivienda);
+        });
+      }
     });
   }
 

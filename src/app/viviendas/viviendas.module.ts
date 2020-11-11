@@ -14,6 +14,8 @@ import { VerViviendaComponent } from 'src/app/viviendas/componentes/ver-vivienda
 import { AddViviendaComponent } from 'src/app/viviendas/componentes/add-vivienda/add-vivienda.component';
 import { UpdateViviendaComponent } from 'src/app/viviendas/componentes/update-vivienda/update-vivienda.component';
 import { AddViviendaAparatoComponent } from 'src/app/viviendas/componentes/add-vivienda-aparato/add-vivienda-aparato.component';
+import { ConfirmationDialogComponent } from '../componentes/confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogService } from '../servicios/confirmation-dialog.service';
 
 
 
@@ -24,6 +26,7 @@ import { AddViviendaAparatoComponent } from 'src/app/viviendas/componentes/add-v
     AddViviendaComponent,
     UpdateViviendaComponent,
     AddViviendaAparatoComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +38,8 @@ import { AddViviendaAparatoComponent } from 'src/app/viviendas/componentes/add-v
     FormsModule,
     NgbModule,
     BrowserAnimationsModule
-  ]
+  ],
+  providers: [ ConfirmationDialogService ],
+  entryComponents: [ ConfirmationDialogComponent ],
 })
 export class ViviendasModule { }

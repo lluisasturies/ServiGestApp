@@ -25,5 +25,5 @@
         <option *ngFor="let cliente of clientes" [ngValue]="cliente" [selected]="cliente == vivienda.inquilino">{{cliente.dni}} - {{cliente.nombre}} {{cliente.apellidos}}</option>
       </select>
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="viviendaForm.invalid">Crear</button>
+  <button type="submit" class="btn btn-primary" [disabled]="viviendaForm.invalid">Guardar</button>
 </form>

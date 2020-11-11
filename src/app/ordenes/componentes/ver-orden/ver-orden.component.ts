@@ -17,7 +17,7 @@ import { AddOrdenLineaComponent } from '../add-orden-linea/add-orden-linea.compo
 export class VerOrdenComponent implements OnInit {
 
   // Variables
-  public orden: Orden;
+  public orden: Orden = new Orden();
 
   constructor(
     private _ordenes: OrdenesService,
@@ -33,7 +33,9 @@ export class VerOrdenComponent implements OnInit {
 
   // Obtener la Orden
   obtenerOrden(idOrden: number): void {
-    this._ordenes.getOrden(idOrden).subscribe(data => { this.orden = data; });
+    this._ordenes.getOrden(idOrden).subscribe(data => {
+      this.orden = data;
+    });
   }
 
   // Modal Asociar Orden a Linea

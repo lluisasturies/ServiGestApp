@@ -1,7 +1,7 @@
 <p>{{orden.asunto}}</p>
 <p>{{orden.estado}}</p>
 <p>{{orden.fecha}}</p>
-<p>{{orden.empresa.nombreComercial}}</p>
+<p><a [routerLink]="['/empresas/ver', orden.empresa.idEmpresa]">{{orden.empresa.nombreComercial}}</a></p>
 
 <a (click)="addOrdenLinea()" class="btn btn-success">Añadir Linea</a>
 

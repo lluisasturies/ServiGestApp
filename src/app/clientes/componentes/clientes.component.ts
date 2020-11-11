@@ -5,6 +5,7 @@ import { ClientesService } from 'src/app/servicios/clientes.service';
 
 // Modelos
 import { Cliente } from 'src/app/modelos/Cliente.model';
+import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
 
 @Component({
   selector: 'app-clientes',
@@ -17,7 +18,10 @@ export class ClientesComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   clientes: Cliente[];
 
-  constructor(private _clientes:ClientesService) { }
+  constructor(
+    private _clientes:ClientesService,
+    private confirmationDialogService: ConfirmationDialogService
+  ) { }
 
   ngOnInit(): void {
     this.opcionesDt();
@@ -39,7 +43,14 @@ export class ClientesComponent implements OnInit {
 
   // Borrar un Cliente
   borrarCliente(cliente: Cliente) {
-    this._clientes.deleteCliente(cliente).subscribe(data => { this.clientes = this.clientes.filter(v => v !== cliente); });
+    this.confirmationDialogService.confirm('Confirmar', '¿Estás seguro de que quieres borrar este cliente?')
+    .then((confirmed) => {
+      if (confirmed) {
+        this._clientes.deleteCliente(cliente).subscribe(data => {
+          this.clientes = this.clientes.filter(v => v !== cliente);
+        });
+      }
+    });
   }
 
 }

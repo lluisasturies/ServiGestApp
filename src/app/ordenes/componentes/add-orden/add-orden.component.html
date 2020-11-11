@@ -1,6 +1,6 @@
 <div class="modal-header">
   <h4 class="modal-title" id="modal-basic-title">Crear Orden</h4>
-  <button type="button" class="close" aria-label="Close" (click)="modalService.dismiss('Cross click')">
+  <button type="button" class="close" aria-label="Close" (click)="modalService.close()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
@@ -28,7 +28,7 @@
         <input [class.is-invalid]="ordenForm.get('orden').touched && ordenForm.get('orden').invalid" type="text" class="form-control" formControlName="orden" placeholder="" required>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" (click)="modalService.dismiss()">Cerrar</button>
+      <button type="button" class="btn btn-secondary" (click)="modalService.close()">Cerrar</button>
       <button type="submit" class="btn btn-primary" [disabled]="ordenForm.invalid">Crear</button>
     </div>
   </form>

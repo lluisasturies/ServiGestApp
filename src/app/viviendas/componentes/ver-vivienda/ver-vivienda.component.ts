@@ -12,6 +12,7 @@ import { Orden } from 'src/app/modelos/Orden.model';
 import { ViviendaAparato } from 'src/app/modelos/vivienda-aparato.model';
 import { AddViviendaAparatoComponent } from 'src/app/viviendas/componentes/add-vivienda-aparato/add-vivienda-aparato.component';
 import { AddOrdenComponent } from 'src/app/ordenes/componentes/add-orden/add-orden.component';
+import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
 
 @Component({
   selector: 'app-ver-vivienda',
@@ -21,13 +22,14 @@ import { AddOrdenComponent } from 'src/app/ordenes/componentes/add-orden/add-ord
 export class VerViviendaComponent implements OnInit {
 
   // Variables
-  vivienda: Vivienda = new Vivienda();
-  ordenes: Orden[];
-  aparatos: ViviendaAparato[];
+  public vivienda: Vivienda = new Vivienda();
+  public ordenes: Orden[];
+  public aparatos: ViviendaAparato[];
 
   constructor(
     private _viviendas: ViviendasService,
     private _viviendasAparatos: ViviendasAparatosService,
+    private confirmationDialogService: ConfirmationDialogService,
     private route: ActivatedRoute,
     private modalService: NgbModal
   ) { }
@@ -47,8 +49,13 @@ export class VerViviendaComponent implements OnInit {
 
   // Borrar un Aparato de la Vivienda
   borrarViviendaAparato(viviendaAparato: ViviendaAparato) {
-    this._viviendasAparatos.deleteViviendaAparato(viviendaAparato).subscribe(data => {
-      this.aparatos = this.aparatos.filter(v => v !== viviendaAparato);
+    this.confirmationDialogService.confirm('Confirmar', '¿Estás seguro de que quieres borrar este aparato?')
+    .then((confirmed) => {
+      if (confirmed) {
+        this._viviendasAparatos.deleteViviendaAparato(viviendaAparato).subscribe(data => {
+          this.aparatos = this.aparatos.filter(v => v !== viviendaAparato);
+        });
+      }
     });
   }
 

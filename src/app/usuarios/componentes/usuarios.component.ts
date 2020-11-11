@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/modelos/nuevo-usuario.model';
+import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
@@ -13,7 +14,10 @@ export class UsuariosComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   usuarios: Usuario[];
 
-  constructor(private _usuarios:UsuariosService) { }
+  constructor(
+    private _usuarios:UsuariosService,
+    private confirmationDialogService: ConfirmationDialogService
+  ) { }
 
   ngOnInit(): void {
     this.opcionesDt();
@@ -35,7 +39,16 @@ export class UsuariosComponent implements OnInit {
 
   // Borrar un Usuario
   borrarUsuario(usuario: Usuario) {
-    this._usuarios.deleteUsuario(usuario).subscribe(data => { this.usuarios = this.usuarios.filter(v => v !== usuario); });
+
+
+    this.confirmationDialogService.confirm('Confirmar', '¿Estás seguro de que quieres borrar este usuario?')
+    .then((confirmed) => {
+      if (confirmed) {
+        this._usuarios.deleteUsuario(usuario).subscribe(data => {
+          this.usuarios = this.usuarios.filter(v => v !== usuario);
+        });
+      }
+    });
   }
 
 }
