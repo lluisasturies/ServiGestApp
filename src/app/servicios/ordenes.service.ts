@@ -30,6 +30,13 @@ export class OrdenesService {
     return this.ordenes;
   }
 
+  // Lista de las Ordenes Abiertas
+  getOrdenesAbiertas(): Observable<Orden[]> {
+    this.ordenes = this.http.get<Orden[]>(this.apiURL + '/abiertas');
+
+    return this.ordenes;
+  }
+
   // Obtengo UNA Orden en concreto
   getOrden(idOrden: number): Observable<Orden> {
     this.orden = this.http.get<Orden>(this.apiURL + '/' + idOrden);
@@ -43,12 +50,17 @@ export class OrdenesService {
   }
 
   // Update
-  updateVivienda(orden: Orden): Observable<Orden> {
+  updateOrden(orden: Orden): Observable<Orden> {
     return this.http.put<Orden>(this.apiURL + '/update', orden, { headers: this.headers });
   }
 
+  // Update Estado
+  updateEstadoOrden(estado: boolean, orden: Orden): Observable<Orden> {
+    return this.http.put<Orden>(this.apiURL + '/update/estado' + estado, orden, { headers: this.headers });
+  }
+
   // Delete
-  deleteVivienda(orden: Orden): Observable<Orden> {
+  deleteOrden(orden: Orden): Observable<Orden> {
     return this.http.delete<Orden>(this.apiURL + '/delete/' + orden.idOrden);
   }
 }
