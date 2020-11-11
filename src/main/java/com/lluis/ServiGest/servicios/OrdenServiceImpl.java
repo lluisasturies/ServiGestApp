@@ -20,6 +20,11 @@ public class OrdenServiceImpl implements OrdenService {
 		return (List<Orden>) ordenDAO.findAll();
 		
 	}
+	
+	@Override
+	public List<Orden> listaOrdenesAbiertas() {
+		return ordenDAO.mostrarPendientes();
+	}
 
 	@Override
 	public Orden verOrden(Integer idOrden) {
@@ -47,7 +52,7 @@ public class OrdenServiceImpl implements OrdenService {
 	}
 
 	@Override
-	public void cambiarEstado(Integer idOrden, byte estado) {
+	public void cambiarEstado(Integer idOrden, boolean estado) {
 		if (ordenDAO.existsById(idOrden)) {
 			Orden orden = ordenDAO.findById(idOrden).get();
 			orden.setEstado(estado);

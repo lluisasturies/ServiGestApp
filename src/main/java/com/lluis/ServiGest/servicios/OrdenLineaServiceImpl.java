@@ -19,7 +19,7 @@ public class OrdenLineaServiceImpl implements OrdenLineaService {
 
 	@Override
 	public void add(OrdenLinea ordenLinea) {
-		if (ordenLinea.getOrden().getEstado() == 1) {
+		if (ordenLinea.getOrden().isEstado() == true) {
 			ordenLineaDAO.save(ordenLinea);
 		} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La orden está cerrada");
 

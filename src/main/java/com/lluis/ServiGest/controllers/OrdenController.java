@@ -37,6 +37,13 @@ public class OrdenController {
 	public List<Orden> listaOrdenes(){
 		return ordenService.listaOrdenes();
 	}
+	
+	// Obtener Ordenes Abiertas
+	@GetMapping("/abiertas")
+	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
+	public List<Orden> listaOrdenesAbiertas(){
+		return ordenService.listaOrdenesAbiertas();
+	}
 		
 	// Obtener UNA Orden
 	@GetMapping("/{idOrden}")
@@ -72,7 +79,7 @@ public class OrdenController {
 	@PutMapping("/{idOrden}/update/estado/{estado}")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void updateEstado(@PathVariable("") Integer idOrden, @PathVariable("estado") byte estado) {
+	public void updateEstado(@PathVariable("") Integer idOrden, @PathVariable("estado") boolean estado) {
 		ordenService.cambiarEstado(idOrden, estado);
 	}
 	

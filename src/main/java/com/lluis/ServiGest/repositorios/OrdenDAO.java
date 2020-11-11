@@ -13,8 +13,8 @@ import com.lluis.ServiGest.pojos.Orden;
 @Repository
 public interface OrdenDAO extends CrudRepository<Orden,Integer> {
 
-	// Query para sacar las ordenes que estan pendientes... (1 = Abierta)
-	@Transactional @Query(value="SELECT * FROM ordenes WHERE estado = '1'", nativeQuery=true)
+	// Query para sacar las ordenes que estan pendientes... (true = Abierta)
+	@Transactional @Query(value="SELECT * FROM ordenes WHERE estado = true", nativeQuery=true)
 	List<Orden> mostrarPendientes();
 
 	@Transactional @Query(value="SELECT * FROM ordenes WHERE id_vivienda = :idVivienda", nativeQuery=true)

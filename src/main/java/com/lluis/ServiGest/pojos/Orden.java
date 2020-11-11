@@ -59,8 +59,8 @@ public class Orden {
 	@NotNull
 	private LocalDate fecha;
 	
-	@Column(columnDefinition = "BIT DEFAULT 1")
+	@Column
 	@NotNull
-	private byte estado;
+	private boolean estado = true;
 	
 }

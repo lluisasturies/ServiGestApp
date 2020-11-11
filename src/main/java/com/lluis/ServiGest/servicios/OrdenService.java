@@ -8,6 +8,9 @@ public interface OrdenService {
 
 	// LIST de Ordenes
 	public List<Orden> listaOrdenes();
+	
+	// Listado Ordenes Pendientes
+	public List<Orden> listaOrdenesAbiertas();
 		
 	// READ
 	public Orden verOrden(Integer idOrden);
@@ -22,6 +25,6 @@ public interface OrdenService {
 	public void delete(Integer idOrden);
 	
 	// Cambiar el estado de la Orden
-	public void cambiarEstado(Integer idOrden, byte estado);
+	public void cambiarEstado(Integer idOrden, boolean estado);
 
 }
