@@ -9,7 +9,7 @@ import { ClientesComponent } from './clientes/componentes/clientes.component';
 import { VerClienteComponent } from './clientes/componentes/ver-cliente/ver-cliente.component';
 import { AddClienteComponent } from './clientes/componentes/add-cliente/add-cliente.component';
 import { UpdateViviendaComponent } from './viviendas/componentes/update-vivienda/update-vivienda.component';
-import { InicioComponent } from './componentes/inicio/inicio.component';
+import { InicioComponent } from './inicio/componentes/inicio.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { LogoutComponent } from './componentes/logout/logout.component';
 import { UsuariosComponent } from './usuarios/componentes/usuarios.component';

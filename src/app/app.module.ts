@@ -1,3 +1,4 @@
+import { InicioModule } from './inicio/inicio.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -12,7 +13,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // Componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
-import { InicioComponent } from './componentes/inicio/inicio.component';
 import { LogoutComponent } from './componentes/logout/logout.component';
 
 // Servicios
@@ -25,20 +25,14 @@ import { UsuariosModule } from './usuarios/usuarios.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    InicioComponent,
-    LogoutComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    DataTablesModule,
-    HttpClientModule,
-    FormsModule,
     NgbModule,
     BrowserModule,
+    InicioModule,
     ViviendasModule,
     ClientesModule,
     OrdenesModule,
