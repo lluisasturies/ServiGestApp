@@ -25,6 +25,6 @@ public interface OrdenService {
 	public void delete(Integer idOrden);
 	
 	// Cambiar el estado de la Orden
-	public void cambiarEstado(Integer idOrden, boolean estado);
+	public void cambiarEstado(Integer idOrden);
 
 }

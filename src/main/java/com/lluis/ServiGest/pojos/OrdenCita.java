@@ -1,6 +1,6 @@
 package com.lluis.ServiGest.pojos;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,6 +35,6 @@ public class OrdenCita {
 	private Orden orden;
 	
 	@Column
-	private LocalDate fecha;
+	private LocalDateTime fecha;
 	
 }

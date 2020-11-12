@@ -76,11 +76,11 @@ public class OrdenController {
 		ordenService.update(orden);
 	}
 	
-	@PutMapping("/{idOrden}/update/estado/{estado}")
+	@PutMapping("/{idOrden}/update/estado")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void updateEstado(@PathVariable("") Integer idOrden, @PathVariable("estado") boolean estado) {
-		ordenService.cambiarEstado(idOrden, estado);
+	public void updateEstado(@PathVariable("idOrden") Integer idOrden) {
+		ordenService.cambiarEstado(idOrden);
 	}
 	
 	// DELETE

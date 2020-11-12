@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.lluis.ServiGest.error.OrdenNotFoundException;
 import com.lluis.ServiGest.pojos.Orden;
+import com.lluis.ServiGest.repositorios.OrdenCitaDAO;
 import com.lluis.ServiGest.repositorios.OrdenDAO;
 
 @Service
@@ -14,11 +15,13 @@ public class OrdenServiceImpl implements OrdenService {
 	
 	@Autowired
 	OrdenDAO ordenDAO;
+	
+	@Autowired
+	OrdenCitaDAO ordenCitaDAO;
 
 	@Override
 	public List<Orden> listaOrdenes() {
 		return (List<Orden>) ordenDAO.findAll();
-		
 	}
 	
 	@Override
@@ -52,10 +55,16 @@ public class OrdenServiceImpl implements OrdenService {
 	}
 
 	@Override
-	public void cambiarEstado(Integer idOrden, boolean estado) {
+	public void cambiarEstado(Integer idOrden) {
 		if (ordenDAO.existsById(idOrden)) {
 			Orden orden = ordenDAO.findById(idOrden).get();
-			orden.setEstado(estado);
+			
+			if (orden.isEstado() == true) {
+				orden.setEstado(false);
+			} else {
+				orden.setEstado(true);
+			}
+
 			ordenDAO.save(orden);
 		}
 	}

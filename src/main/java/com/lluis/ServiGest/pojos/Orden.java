@@ -14,6 +14,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.Where;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -32,7 +35,8 @@ public class Orden {
 	
 	@ManyToOne
 	@JoinColumn(name = "idVivienda")
-	@JsonProperty(access = Access.WRITE_ONLY)
+	//@JsonProperty(access = Access.WRITE_ONLY)
+	@JsonBackReference
 	@NotNull
 	private Vivienda vivienda;
 	
@@ -43,6 +47,10 @@ public class Orden {
 	
 	@OneToMany(mappedBy = "orden")
 	private List<OrdenLinea> lineas;
+	
+	@OneToMany(mappedBy = "orden")
+	@Where(clause = "fecha > CURRENT_TIMESTAMP()")
+	private List<OrdenCita> citasPendientes;
 	
 	@OneToMany(mappedBy = "orden")
 	private List<OrdenCita> citas;
