@@ -55,8 +55,8 @@ export class OrdenesService {
   }
 
   // Update Estado
-  updateEstadoOrden(estado: boolean, orden: Orden): Observable<Orden> {
-    return this.http.put<Orden>(this.apiURL + '/update/estado' + estado, orden, { headers: this.headers });
+  updateEstadoOrden(idOrden: number): Observable<Orden> {
+    return this.http.put<Orden>(this.apiURL + '/' + idOrden + '/update/estado', { headers: this.headers });
   }
 
   // Delete

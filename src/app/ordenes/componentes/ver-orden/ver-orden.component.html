@@ -1,9 +1,23 @@
-<p>{{orden.asunto}}</p>
-<p>{{orden.estado}}</p>
-<p>{{orden.fecha}}</p>
-<p><a [routerLink]="['/empresas/ver', orden.empresa.idEmpresa]">{{orden.empresa.nombreComercial}}</a></p>
+<div *ngIf="orden.estado && (orden.citas | json) == '[]'" class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Atención!</strong> Esta orden no ha sido citada aun!.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 
-<a *ngIf="orden.estado == 1" (click)="addOrdenLinea()" class="btn btn-success">Añadir Linea</a>
+<p><strong>Nº:</strong> {{orden.orden}}
+  <span *ngIf="orden.estado && (orden.citasPendientes | json) == '[]' && (orden.citas | json) == '[]'" class="badge badge-danger">Sin citar</span>
+  <span *ngIf="orden.estado && (orden.citasPendientes | json) !== '[]' && (orden.citas | json) !== '[]'" class="badge badge-warning">Citada</span>
+  <span *ngIf="orden.estado && (orden.citas | json) !== '[]' && (orden.citasPendientes | json) == '[]'" class="badge badge-light">Visitada</span>
+</p>
+<p><strong>Asunto:</strong> {{orden.asunto}}</p>
+<p><strong>Fecha:</strong> {{orden.fecha}}</p>
+<p><strong>Empresa: </strong><a [routerLink]="['/empresas/ver', orden.empresa.idEmpresa]">{{orden.empresa.nombreComercial}}</a></p>
+
+<a *ngIf="orden.estado" (click)="addOrdenCita()" class="btn btn-primary">Nueva Cita</a>
+<a *ngIf="orden.estado" (click)="addOrdenLinea()" class="btn btn-success">Añadir Linea</a>
+<a *ngIf="orden.estado" (click)="cambiarEstadoOrden(orden.idOrden)" class="btn btn-danger">Cerrar Orden</a>
+<a *ngIf="!orden.estado" (click)="cambiarEstadoOrden(orden.idOrden)" class="btn btn-secondary">Abrir Orden</a>
 
 <h3>Lineas</h3>
 <table class="table" *ngIf="orden.lineas">

@@ -14,6 +14,7 @@ import { VerOrdenComponent } from '../ordenes/componentes/ver-orden/ver-orden.co
 import { AddOrdenComponent } from '../ordenes/componentes/add-orden/add-orden.component';
 import { UpdateOrdenComponent } from '../ordenes/componentes/update-orden/update-orden.component';
 import { AddOrdenLineaComponent } from '../ordenes/componentes/add-orden-linea/add-orden-linea.component';
+import { AddOrdenCitaComponent } from './componentes/add-orden-cita/add-orden-cita.component';
 
 
 
@@ -24,6 +25,7 @@ import { AddOrdenLineaComponent } from '../ordenes/componentes/add-orden-linea/a
     AddOrdenComponent,
     UpdateOrdenComponent,
     AddOrdenLineaComponent,
+    AddOrdenCitaComponent,
   ],
   imports: [
     CommonModule,

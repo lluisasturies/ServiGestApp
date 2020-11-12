@@ -8,6 +8,9 @@ import { OrdenesService } from 'src/app/servicios/ordenes.service';
 // Modelos
 import { Orden } from 'src/app/modelos/Orden.model';
 import { AddOrdenLineaComponent } from '../add-orden-linea/add-orden-linea.component';
+import { AddOrdenCitaComponent } from '../add-orden-cita/add-orden-cita.component';
+import { OrdenCita } from 'src/app/modelos/orden-cita.model';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-ver-orden',
@@ -18,6 +21,7 @@ export class VerOrdenComponent implements OnInit {
 
   // Variables
   public orden: Orden = new Orden();
+  public fechaActual = formatDate(new Date(), 'yyyy-MM-dd', 'en-EN');
 
   constructor(
     private _ordenes: OrdenesService,
@@ -39,10 +43,25 @@ export class VerOrdenComponent implements OnInit {
   }
 
   // Modal Asociar Orden a Linea
-  addOrdenLinea() {
+  addOrdenLinea(): void {
     const modalRef = this.modalService.open(AddOrdenLineaComponent);
     modalRef.componentInstance.orden = this.orden;
     modalRef.result.then((result) => {
+      this.ngOnInit();
+    });
+  }
+
+  // Modal Asociar Orden a Linea
+  addOrdenCita(): void {
+    const modalRef = this.modalService.open(AddOrdenCitaComponent);
+    modalRef.componentInstance.orden = this.orden;
+    modalRef.result.then((result) => {
+      this.ngOnInit();
+    });
+  }
+
+  cambiarEstadoOrden(idOrden): void {
+    this._ordenes.updateEstadoOrden(idOrden).subscribe(data => {
       this.ngOnInit();
     });
   }

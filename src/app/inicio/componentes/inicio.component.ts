@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 // Servicios
 import { TokenService } from 'src/app/servicios/token.service';
 import { Orden } from 'src/app/modelos/Orden.model';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-inicio',

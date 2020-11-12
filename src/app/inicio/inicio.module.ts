@@ -4,6 +4,7 @@ import { InicioComponent } from './componentes/inicio.component';
 import { LoginComponent } from '../componentes/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -15,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     CommonModule,
+    AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     NgbModule,

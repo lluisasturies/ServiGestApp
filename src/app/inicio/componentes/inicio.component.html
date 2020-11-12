@@ -1,18 +1,43 @@
 <div *ngIf="info.token; else loggedOut">
   <div class="jumbotron">
     <h1 class="display-4">Bienvenido!</h1>
-    <p class="lead">Esta es la pantalla principal de Servigest. Puedes utilizar el menú superior para utilizar cada módulo.</p>
+    <p class="lead">Esta es la pantalla principal de Servigest. Puedes utilizar el menú superior para utilizar cada
+      módulo.</p>
     <hr class="my-4">
     <p>¿Primera vez? Échale un vistazo a nuestro manual de usuario.</p>
     <a class="btn btn-primary btn-lg" href="#" role="button">Leer más</a>
   </div>
 
-  <div class="container">
-    <p><strong>Tu nombre de usuario: </strong>{{ info.nombreUsuario }}</p>
-    <p><strong>Este es el token: </strong>{{ info.token }}</p>
-    <p><strong>Tu privilegio: </strong>{{ info.authorities }}</p>
+  <div class="row">
+    <div class="col">
+      <div *ngFor="let orden of ordenesPendientes">
+        <p><strong>Nº:</strong> <a [routerLink]="['/ordenes/ver', orden.idOrden]">{{orden.orden}}</a>
+          <span *ngIf="orden.estado && (orden.citasPendientes | json) == '[]' && (orden.citas | json) == '[]'" class="badge badge-danger">Sin citar</span>
+          <span *ngIf="orden.estado && (orden.citasPendientes | json) !== '[]' && (orden.citas | json) !== '[]'" class="badge badge-warning">Citada</span>
+          <span *ngIf="orden.estado && (orden.citas | json) !== '[]' && (orden.citasPendientes | json) == '[]'" class="badge badge-light">Visitada</span>
+        </p>
+        <p><strong>Asunto:</strong> {{orden.asunto}}</p>
+        <p><strong>Fecha:</strong> {{orden.fecha}}</p>
+        <p><strong>Empresa: </strong>{{orden.empresa.nombreComercial}}</p>
+      </div>
+    </div>
+    <div class="col">
+      2 of 2
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      1 of 3
+    </div>
+    <div class="col">
+      2 of 3
+    </div>
+    <div class="col">
+      3 of 3
+    </div>
   </div>
 </div>
+
 <ng-template #loggedOut>
   <app-login></app-login>
 </ng-template>
