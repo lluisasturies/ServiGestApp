@@ -35,7 +35,7 @@ public class OrdenCita {
 	private Orden orden;
 	
 	@Column
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	private LocalDateTime fecha;
 	
 }
