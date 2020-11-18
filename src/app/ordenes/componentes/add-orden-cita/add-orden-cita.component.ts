@@ -41,6 +41,10 @@ export class AddOrdenCitaComponent implements OnInit {
   }
 
   guardarCita() {
+    if (this.ordenCitaForm.controls.fecha.value.day < 10) {
+      this.ordenCitaForm.controls.fecha.value.day = '0' + this.ordenCitaForm.controls.fecha.value.day;
+    }
+
     if (this.ordenCitaForm.controls.hora.value.hour < 10) {
       this.ordenCitaForm.controls.hora.value.hour = '0' + this.ordenCitaForm.controls.hora.value.hour;
     }
@@ -52,7 +56,7 @@ export class AddOrdenCitaComponent implements OnInit {
     this.fechaCita =
     this.ordenCitaForm.controls.fecha.value.year + '-' +
     this.ordenCitaForm.controls.fecha.value.month + '-' +
-    this.ordenCitaForm.controls.fecha.value.day + ' ' +
+    this.ordenCitaForm.controls.fecha.value.day + 'T' +
     this.ordenCitaForm.controls.hora.value.hour + ':' +
     this.ordenCitaForm.controls.hora.value.minute + ':00';
 
