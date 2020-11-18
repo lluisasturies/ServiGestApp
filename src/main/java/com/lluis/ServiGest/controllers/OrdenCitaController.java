@@ -1,10 +1,13 @@
 package com.lluis.ServiGest.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.lluis.ServiGest.dto.OrdenCitaProjection;
 import com.lluis.ServiGest.pojos.OrdenCita;
 import com.lluis.ServiGest.servicios.OrdenCitaService;
 
@@ -28,6 +32,13 @@ public class OrdenCitaController {
 	
 	@Autowired
 	OrdenCitaService ordenCitaService;
+	
+	// Obtener Citas Pendientes
+	@GetMapping("/pendientes")
+	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
+	public List<OrdenCitaProjection> listaOrdenCitaPendientes(){
+		return ordenCitaService.listaCitasPendientes();
+	}
 	
 	// ADD
 	@PostMapping("/add")

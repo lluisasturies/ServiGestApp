@@ -17,13 +17,17 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name="viviendas")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Vivienda {
 	
 	@Id
@@ -41,7 +45,7 @@ public class Vivienda {
 	@OneToMany(mappedBy = "vivienda", cascade = CascadeType.REMOVE)
 	private List<ViviendaAparato> aparatos;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "vivienda")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "vivienda")
 	@JsonManagedReference
     private List<Orden> ordenes;
 	

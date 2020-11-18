@@ -59,6 +59,6 @@ public class Empresa {
 	
 	@Column
 	@NotNull
-	private String email;
-
+	private String prefijoOrdenes;
+	
 }

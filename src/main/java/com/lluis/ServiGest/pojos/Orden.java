@@ -17,16 +17,18 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Where;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name="ordenes")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Orden {
 	
 	@Id

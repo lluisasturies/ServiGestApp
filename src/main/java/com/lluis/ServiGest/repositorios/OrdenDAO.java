@@ -20,4 +20,6 @@ public interface OrdenDAO extends CrudRepository<Orden,Integer> {
 	@Transactional @Query(value="SELECT * FROM ordenes WHERE id_vivienda = :idVivienda", nativeQuery=true)
 	List<Orden> ordenesPorVivienda(Integer idVivienda);
 	
+	
+	
 }
