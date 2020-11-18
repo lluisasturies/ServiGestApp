@@ -15,8 +15,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -46,7 +44,6 @@ public class Vivienda {
 	private List<ViviendaAparato> aparatos;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "vivienda")
-	@JsonManagedReference
     private List<Orden> ordenes;
 	
 	@Column

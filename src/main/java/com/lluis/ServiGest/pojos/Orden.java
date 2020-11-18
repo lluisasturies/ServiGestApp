@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Where;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,8 +37,8 @@ public class Orden {
 	
 	@ManyToOne
 	@JoinColumn(name = "idVivienda")
-	//@JsonProperty(access = Access.WRITE_ONLY)
-	@JsonBackReference
+	//@JsonProperty(access = Access.READ_WRITE)s
+	@JsonIgnoreProperties(allowSetters = true, value = {"ordenes"})
 	@NotNull
 	private Vivienda vivienda;
 	
