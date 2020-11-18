@@ -8,4 +8,5 @@ export class Empresa {
     localidad: string;
     provincia: string;
     email: string;
+    prefijoOrdenes;
 }

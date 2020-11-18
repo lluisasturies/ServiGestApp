@@ -13,6 +13,7 @@ import { EmpresasComponent } from './componentes/empresas.component';
 import { AddEmpresaComponent } from './componentes/add-empresa/add-empresa.component';
 import { UpdateEmpresaComponent } from './componentes/update-empresa/update-empresa.component';
 import { VerEmpresaComponent } from './componentes/ver-empresa/ver-empresa.component';
+import { AddContactoComponent } from './componentes/add-contacto/add-contacto.component';
 
 
 
@@ -21,7 +22,8 @@ import { VerEmpresaComponent } from './componentes/ver-empresa/ver-empresa.compo
     EmpresasComponent,
     AddEmpresaComponent,
     UpdateEmpresaComponent,
-    VerEmpresaComponent
+    VerEmpresaComponent,
+    AddContactoComponent
   ],
   imports: [
     CommonModule,

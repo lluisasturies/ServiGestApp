@@ -25,6 +25,9 @@ import { UpdateEmpresaComponent } from './empresas/componentes/update-empresa/up
 // Servicios
 import { GuardService as guard } from './servicios/guard.service';
 import { VerEmpresaComponent } from './empresas/componentes/ver-empresa/ver-empresa.component';
+import { AparatosMarcasComponent } from './aparatos/componentes/aparatos-marcas/aparatos-marcas.component';
+import { AparatosComponent } from './aparatos/componentes/aparatos.component';
+import { AparatosTiposComponent } from './aparatos/componentes/aparatos-tipos/aparatos-tipos.component';
 
 const routes: Routes = [
   {path: '', component: InicioComponent},
@@ -49,8 +52,12 @@ const routes: Routes = [
   // Empresas
   { path: 'empresas', component: EmpresasComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
   { path: 'empresas/ver/:idEmpresa', component: VerEmpresaComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
-  { path: 'empresas/crear', component: AddEmpresaComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
   { path: 'empresas/editar/idEmpresa', component: UpdateEmpresaComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
+
+  // Aparatos
+  { path: 'aparatos', component: AparatosComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
+  { path: 'aparatos/marcas', component: AparatosMarcasComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
+  { path: 'aparatos/tipos', component: AparatosTiposComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
 
   // Usuarios
   { path: 'usuarios', component: UsuariosComponent, canActivate: [guard], data: { expectedRol: ['admin']} },

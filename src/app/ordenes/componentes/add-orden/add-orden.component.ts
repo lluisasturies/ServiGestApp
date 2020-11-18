@@ -57,6 +57,7 @@ export class AddOrdenComponent implements OnInit {
   // Guardar Orden
   guardarOrden() {
     this.orden = Object.assign({}, this.ordenForm.value);
+
     this._ordenes.addOrden(this.orden).subscribe(data => {
       this.modalService.close();
     });

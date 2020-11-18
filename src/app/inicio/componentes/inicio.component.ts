@@ -1,3 +1,4 @@
+import { OrdenCitaPendiente } from './../../modelos/orden-cita-pendiente.model';
 import { OrdenCita } from 'src/app/modelos/orden-cita.model';
 import { OrdenesService } from 'src/app/servicios/ordenes.service';
 import { Component, OnInit } from '@angular/core';
@@ -17,7 +18,7 @@ export class InicioComponent implements OnInit {
   info: any = {};
 
   public ordenesPendientes: Orden[];
-  public citasPendientes: OrdenCita[];
+  public citasPendientes: OrdenCitaPendiente[];
 
   constructor(
     private tokenService: TokenService,

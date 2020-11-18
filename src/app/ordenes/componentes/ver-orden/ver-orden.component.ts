@@ -88,7 +88,7 @@ export class VerOrdenComponent implements OnInit {
 
   // Borrar una Cita
   borrarCita(ordenCita: OrdenCita) {
-    this.confirmationDialogService.confirm('Confirmar', '¿Estás seguro de que quieres borrar esta cita?')
+    this.confirmationDialogService.confirm('Confirmar', '¿Estás seguro de que quieres anular esta cita?')
     .then((confirmed) => {
       if (confirmed) {
         this._ordenesCitas.deleteCita(ordenCita).subscribe(data => {

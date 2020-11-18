@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { OrdenCitaPendiente } from '../modelos/orden-cita-pendiente.model';
 import { OrdenCita } from '../modelos/orden-cita.model';
 
 @Injectable({
@@ -15,16 +16,16 @@ export class OrdenesCitasService {
   private apiURL = environment.apiURL + '/ordenes/citas';
 
   // Variables
-  private citas: Observable<OrdenCita[]>;
+  private citasPendientes: Observable<OrdenCitaPendiente[]>;
 
   // Utiles
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   // Lista de las Citas Pendientes
-  getCitasPendientes(): Observable<OrdenCita[]> {
-    this.citas = this.http.get<OrdenCita[]>(this.apiURL + '/pendientes');
+  getCitasPendientes(): Observable<OrdenCitaPendiente[]> {
+    this.citasPendientes = this.http.get<OrdenCitaPendiente[]>(this.apiURL + '/pendientes');
 
-    return this.citas;
+    return this.citasPendientes;
   }
 
   // Add

@@ -1,17 +1,14 @@
-<div *ngIf="orden.estado && (orden.citas | json) == '[]'" class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Atención!</strong> Esta orden no ha sido citada aun!.
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
+<ngb-alert *ngIf="orden.estado && (orden.citas | json) == '[]'" type="warning" [dismissible]="false">
+  <strong>Atención!</strong> Esta orden no ha sido citada aun!
+</ngb-alert>
 
 <ng-container *ngIf="orden.estado && (orden.citasPendientes | json) !== '[]'">
-  <ngb-alert *ngFor="let cita of orden.citasPendientes" type="info" [dismissible]="true">
-    Tienes una cita el dia <strong>{{cita.fecha}} </strong><button (click)="borrarCita(cita)" class="btn btn-danger btn-sm">Anular</button>
+  <ngb-alert *ngFor="let cita of orden.citasPendientes" type="info" [dismissible]="false">
+    Tienes una cita el dia <strong>{{cita.fecha | date: 'd/M/yyyy'}}</strong> a las <strong>{{cita.fecha | date: 'H:mm'}}H </strong><button (click)="borrarCita(cita)" class="btn btn-danger btn-sm">Anular</button>
   </ngb-alert>
 </ng-container>
 
-<p><strong>Nº:</strong> {{orden.orden}}
+<p><strong>Nº:</strong> {{orden.empresa.prefijoOrdenes}}{{orden.orden}}
   <span *ngIf="orden.estado && (orden.citasPendientes | json) == '[]' && (orden.citas | json) == '[]'" class="badge badge-danger">Sin citar</span>
   <span *ngIf="orden.estado && (orden.citasPendientes | json) !== '[]' && (orden.citas | json) !== '[]'" class="badge badge-warning">Citada</span>
   <span *ngIf="orden.estado && (orden.citas | json) !== '[]' && (orden.citasPendientes | json) == '[]'" class="badge badge-light">Visitada</span>
@@ -36,7 +33,7 @@
   </thead>
   <tbody>
       <tr *ngFor="let linea of orden.lineas">
-        <td>{{linea.fecha}}</td>
+        <td>{{linea.fecha | date: 'd/M/yyyy'}}</td>
         <td>{{linea.concepto}}</td>
         <td><button (click)="borrarOrdenLinea(linea)" class="btn btn-danger btn-sm">Borrar</button></td>
       </tr>
