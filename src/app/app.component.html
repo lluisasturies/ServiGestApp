@@ -12,6 +12,9 @@
           <a [routerLink]="['/viviendas']" class="nav-link">Viviendas</a>
         </li>
         <li *ngIf="isLogin" routerLinkActive="nav-item active" class="nav-item">
+          <a [routerLink]="['/ordenes']" class="nav-link">Ordenes</a>
+        </li>
+        <li *ngIf="isLogin" routerLinkActive="nav-item active" class="nav-item">
           <a [routerLink]="['/clientes']" class="nav-link">Clientes</a>
         </li>
         <li *ngIf="isLogin" routerLinkActive="nav-item active" class="nav-item">
@@ -38,7 +41,7 @@
   <div class="row">
     <div class="col">
       <img class="mb-2" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
-      <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+      <small class="d-block mb-3 text-muted">&copy; 2020</small>
     </div>
   </div>
 </footer>
