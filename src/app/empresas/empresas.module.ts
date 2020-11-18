@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmpresasComponent } from './componentes/empresas.component';
 import { AddEmpresaComponent } from './componentes/add-empresa/add-empresa.component';
 import { UpdateEmpresaComponent } from './componentes/update-empresa/update-empresa.component';
+import { VerEmpresaComponent } from './componentes/ver-empresa/ver-empresa.component';
 
 
 
@@ -19,7 +20,8 @@ import { UpdateEmpresaComponent } from './componentes/update-empresa/update-empr
   declarations: [
     EmpresasComponent,
     AddEmpresaComponent,
-    UpdateEmpresaComponent
+    UpdateEmpresaComponent,
+    VerEmpresaComponent
   ],
   imports: [
     CommonModule,

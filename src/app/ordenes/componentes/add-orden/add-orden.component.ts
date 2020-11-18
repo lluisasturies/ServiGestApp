@@ -43,13 +43,15 @@ export class AddOrdenComponent implements OnInit {
       orden: new FormControl('', Validators.required),
       asunto: new FormControl('', Validators.required),
       fecha: new FormControl(this.fechaActual),
-      estado: new FormControl(1, Validators.required)
+      estado: new FormControl(1)
     });
   }
 
   // Obtener lista de Empresas
   obtenerEmpresas() {
-    this._empresas.getEmpresas().subscribe(data => { this.empresas = data; });
+    this._empresas.getEmpresas().subscribe(data => {
+      this.empresas = data;
+    });
   }
 
   // Guardar Orden

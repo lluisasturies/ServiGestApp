@@ -10,30 +10,29 @@
 
   <div class="row">
     <div class="col">
-      <div *ngFor="let orden of ordenesPendientes">
-        <p><strong>Nº:</strong> <a [routerLink]="['/ordenes/ver', orden.idOrden]">{{orden.orden}}</a>
-          <span *ngIf="orden.estado && (orden.citasPendientes | json) == '[]' && (orden.citas | json) == '[]'" class="badge badge-danger">Sin citar</span>
-          <span *ngIf="orden.estado && (orden.citasPendientes | json) !== '[]' && (orden.citas | json) !== '[]'" class="badge badge-warning">Citada</span>
-          <span *ngIf="orden.estado && (orden.citas | json) !== '[]' && (orden.citasPendientes | json) == '[]'" class="badge badge-light">Visitada</span>
-        </p>
-        <p><strong>Asunto:</strong> {{orden.asunto}}</p>
-        <p><strong>Fecha:</strong> {{orden.fecha}}</p>
-        <p><strong>Empresa: </strong>{{orden.empresa.nombreComercial}}</p>
+      <div class="card">
+        <h5 class="card-header">Ordenes Pendientes</h5>
+        <div class="card-body">
+          <div *ngFor="let orden of ordenesPendientes">
+            <p>
+              <strong>Nº:</strong> <a [routerLink]="['/ordenes/ver', orden.idOrden]">{{orden.orden}}</a>
+              <span *ngIf="orden.estado && (orden.citasPendientes | json) == '[]' && (orden.citas | json) == '[]'" class="badge badge-danger">Sin citar</span>
+              <span *ngIf="orden.estado && (orden.citasPendientes | json) !== '[]' && (orden.citas | json) !== '[]'" class="badge badge-warning">Citada</span>
+              <span *ngIf="orden.estado && (orden.citas | json) !== '[]' && (orden.citasPendientes | json) == '[]'" class="badge badge-light">Visitada</span>
+            </p>
+            <p><strong>Asunto:</strong> {{orden.asunto}}</p>
+            <p><strong>Fecha:</strong> {{orden.fecha}}</p>
+            <p><strong>Empresa: </strong>{{orden.empresa.nombreComercial}}</p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col">
-      2 of 2
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      1 of 3
-    </div>
-    <div class="col">
-      2 of 3
-    </div>
-    <div class="col">
-      3 of 3
+      <div class="card">
+        <h5 class="card-header">Citas</h5>
+        <div class="card-body">
+        </div>
+      </div>
     </div>
   </div>
 </div>

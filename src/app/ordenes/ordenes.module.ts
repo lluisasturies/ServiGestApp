@@ -1,3 +1,4 @@
+import { SharedModuleModule } from '../shared-module.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
@@ -25,10 +26,11 @@ import { AddOrdenCitaComponent } from './componentes/add-orden-cita/add-orden-ci
     AddOrdenComponent,
     UpdateOrdenComponent,
     AddOrdenLineaComponent,
-    AddOrdenCitaComponent,
+    AddOrdenCitaComponent
   ],
   imports: [
     CommonModule,
+    SharedModuleModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
@@ -36,7 +38,7 @@ import { AddOrdenCitaComponent } from './componentes/add-orden-cita/add-orden-ci
     HttpClientModule,
     FormsModule,
     NgbModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ]
 })
 export class OrdenesModule { }

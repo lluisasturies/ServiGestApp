@@ -1,3 +1,4 @@
+import { SharedModuleModule } from '../shared-module.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
@@ -26,10 +27,11 @@ import { ConfirmationDialogService } from '../servicios/confirmation-dialog.serv
     AddViviendaComponent,
     UpdateViviendaComponent,
     AddViviendaAparatoComponent,
-    ConfirmationDialogComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     CommonModule,
+    SharedModuleModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

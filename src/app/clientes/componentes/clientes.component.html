@@ -20,7 +20,7 @@
                     <td><a [routerLink]="['/clientes/ver', cliente.idCliente]">{{cliente.nombre}}</a></td>
                     <td><a [routerLink]="['/clientes/ver', cliente.idCliente]">{{cliente.apellidos}}</a></td>
                     <td>{{cliente.dni}}</td>
-                    <td><button (click)="borrarCliente(cliente)" class="btn btn-danger">Borrar</button></td>
+                    <td><button (click)="borrarCliente(cliente)" class="btn btn-danger btn-sm">Borrar</button></td>
                 </tr>
             </tbody>
         </table>

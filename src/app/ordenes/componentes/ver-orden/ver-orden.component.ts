@@ -1,6 +1,7 @@
+import { OrdenesCitasService } from 'src/app/servicios/ordenes-citas.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 // Servicios
 import { OrdenesService } from 'src/app/servicios/ordenes.service';
@@ -9,8 +10,11 @@ import { OrdenesService } from 'src/app/servicios/ordenes.service';
 import { Orden } from 'src/app/modelos/Orden.model';
 import { AddOrdenLineaComponent } from '../add-orden-linea/add-orden-linea.component';
 import { AddOrdenCitaComponent } from '../add-orden-cita/add-orden-cita.component';
-import { OrdenCita } from 'src/app/modelos/orden-cita.model';
 import { formatDate } from '@angular/common';
+import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
+import { OrdenesLineasService } from 'src/app/servicios/ordenes-lineas.service';
+import { OrdenLinea } from 'src/app/modelos/Orden-linea.model';
+import { OrdenCita } from 'src/app/modelos/orden-cita.model';
 
 @Component({
   selector: 'app-ver-orden',
@@ -25,7 +29,10 @@ export class VerOrdenComponent implements OnInit {
 
   constructor(
     private _ordenes: OrdenesService,
+    private _ordenesLineas: OrdenesLineasService,
+    private _ordenesCitas: OrdenesCitasService,
     private route: ActivatedRoute,
+    private confirmationDialogService: ConfirmationDialogService,
     private modalService: NgbModal
   ) { }
 
@@ -51,7 +58,7 @@ export class VerOrdenComponent implements OnInit {
     });
   }
 
-  // Modal Asociar Orden a Linea
+  // Modal añadir nueva cita
   addOrdenCita(): void {
     const modalRef = this.modalService.open(AddOrdenCitaComponent);
     modalRef.componentInstance.orden = this.orden;
@@ -60,9 +67,34 @@ export class VerOrdenComponent implements OnInit {
     });
   }
 
+  // Cambia el estado de la Orden
   cambiarEstadoOrden(idOrden): void {
     this._ordenes.updateEstadoOrden(idOrden).subscribe(data => {
       this.ngOnInit();
+    });
+  }
+
+  // Borrar un Linea de una Orden
+  borrarOrdenLinea(ordenLinea: OrdenLinea) {
+    this.confirmationDialogService.confirm('Confirmar', '¿Estás seguro de que quieres borrar esta linea?')
+    .then((confirmed) => {
+      if (confirmed) {
+        this._ordenesLineas.deleteOrdenLinea(ordenLinea).subscribe(data => {
+          this.ngOnInit();
+        });
+      }
+    });
+  }
+
+  // Borrar una Cita
+  borrarCita(ordenCita: OrdenCita) {
+    this.confirmationDialogService.confirm('Confirmar', '¿Estás seguro de que quieres borrar esta cita?')
+    .then((confirmed) => {
+      if (confirmed) {
+        this._ordenesCitas.deleteCita(ordenCita).subscribe(data => {
+          this.ngOnInit();
+        });
+      }
     });
   }
 

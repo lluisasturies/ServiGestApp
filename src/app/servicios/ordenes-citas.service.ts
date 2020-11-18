@@ -14,8 +14,18 @@ export class OrdenesCitasService {
   // Ruta del JSON
   private apiURL = environment.apiURL + '/ordenes/citas';
 
+  // Variables
+  private citas: Observable<OrdenCita[]>;
+
   // Utiles
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+  // Lista de las Citas Pendientes
+  getCitasPendientes(): Observable<OrdenCita[]> {
+    this.citas = this.http.get<OrdenCita[]>(this.apiURL + '/pendientes');
+
+    return this.citas;
+  }
 
   // Add
   addCita(ordenCita: OrdenCita): Observable<OrdenCita> {
@@ -23,12 +33,12 @@ export class OrdenesCitasService {
   }
 
   // Update
-  updateOrden(ordenCita: OrdenCita): Observable<OrdenCita> {
+  updateCita(ordenCita: OrdenCita): Observable<OrdenCita> {
     return this.http.put<OrdenCita>(this.apiURL + '/update', ordenCita, { headers: this.headers });
   }
 
   // Delete
-  deleteOrden(ordenCita: OrdenCita): Observable<OrdenCita> {
+  deleteCita(ordenCita: OrdenCita): Observable<OrdenCita> {
     return this.http.delete<OrdenCita>(this.apiURL + '/delete/' + ordenCita.idCita);
   }
 }

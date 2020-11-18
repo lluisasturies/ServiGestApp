@@ -5,6 +5,12 @@
   </button>
 </div>
 
+<ng-container *ngIf="orden.estado && (orden.citasPendientes | json) !== '[]'">
+  <ngb-alert *ngFor="let cita of orden.citasPendientes" type="info" [dismissible]="true">
+    Tienes una cita el dia <strong>{{cita.fecha}} </strong><button (click)="borrarCita(cita)" class="btn btn-danger btn-sm">Anular</button>
+  </ngb-alert>
+</ng-container>
+
 <p><strong>Nº:</strong> {{orden.orden}}
   <span *ngIf="orden.estado && (orden.citasPendientes | json) == '[]' && (orden.citas | json) == '[]'" class="badge badge-danger">Sin citar</span>
   <span *ngIf="orden.estado && (orden.citasPendientes | json) !== '[]' && (orden.citas | json) !== '[]'" class="badge badge-warning">Citada</span>
@@ -23,16 +29,16 @@
 <table class="table" *ngIf="orden.lineas">
   <thead>
       <tr>
-          <th scope="col">Fecha</th>
-          <th scope="col">Concepto</th>
-          <th></th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Concepto</th>
+        <th></th>
       </tr>
   </thead>
   <tbody>
       <tr *ngFor="let linea of orden.lineas">
-          <td>{{linea.fecha}}</td>
-          <td>{{linea.concepto}}</td>
-          <td><a [routerLink]="['/ordenes/ver']" class="btn btn-info"></a></td>
+        <td>{{linea.fecha}}</td>
+        <td>{{linea.concepto}}</td>
+        <td><button (click)="borrarOrdenLinea(linea)" class="btn btn-danger btn-sm">Borrar</button></td>
       </tr>
   </tbody>
 </table>

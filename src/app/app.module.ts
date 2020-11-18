@@ -1,19 +1,14 @@
+import { SortByPipe } from './pipes/sort-by.pipe';
 import { InicioModule } from './inicio/inicio.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 // Modulos
-import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
-import { DataTablesModule } from 'angular-datatables';
-import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';;
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Componentes
 import { AppComponent } from './app.component';
-import { LoginComponent } from './componentes/login/login.component';
-import { LogoutComponent } from './componentes/logout/logout.component';
 
 // Servicios
 import { interceptorProvider } from './servicios/interceptor.service';

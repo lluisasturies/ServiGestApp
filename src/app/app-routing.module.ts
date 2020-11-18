@@ -24,6 +24,7 @@ import { UpdateEmpresaComponent } from './empresas/componentes/update-empresa/up
 
 // Servicios
 import { GuardService as guard } from './servicios/guard.service';
+import { VerEmpresaComponent } from './empresas/componentes/ver-empresa/ver-empresa.component';
 
 const routes: Routes = [
   {path: '', component: InicioComponent},
@@ -46,7 +47,8 @@ const routes: Routes = [
   { path: 'clientes/crear', component: AddClienteComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
 
   // Empresas
-  { path: 'empresas', component: EmpresasComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
+  { path: 'empresas', component: EmpresasComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
+  { path: 'empresas/ver/:idEmpresa', component: VerEmpresaComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
   { path: 'empresas/crear', component: AddEmpresaComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
   { path: 'empresas/editar/idEmpresa', component: UpdateEmpresaComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
 
