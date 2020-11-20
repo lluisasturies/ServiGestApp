@@ -54,14 +54,10 @@ public class UsuarioController {
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity add(@Valid @RequestBody Usuario nuevoUsuario, BindingResult bindingResult) {
+	public ResponseEntity<?> add(@Valid @RequestBody Usuario nuevoUsuario, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos erroneos");
     	}
-        
-        if (usuarioService.existePorNombre(nuevoUsuario.getNombreUsuario())) {
-        	throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El nombre de usuario ya existe");
-        }
         
         if (usuarioService.existePorEmail(nuevoUsuario.getEmail())) {
         	throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El email ya existe");

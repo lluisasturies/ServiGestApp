@@ -49,7 +49,7 @@ public class Cliente {
 	@NotNull
 	private String apellidos;
 	
-	@Column
+	@Column(unique = true)
 	@NotNull
 	private String dni;
 	

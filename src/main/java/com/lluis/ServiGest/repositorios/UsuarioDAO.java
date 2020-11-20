@@ -7,10 +7,8 @@ import com.lluis.ServiGest.pojos.Usuario;
 
 @Repository
 public interface UsuarioDAO extends JpaRepository<Usuario, Long> {
-	
-    Usuario findByNombreUsuario(String nu);
     
-    boolean existsByNombreUsuario(String nu);
+    Usuario findByEmail(String email);
     
     boolean existsByEmail(String email);
     

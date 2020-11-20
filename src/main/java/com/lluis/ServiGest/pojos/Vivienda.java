@@ -46,7 +46,7 @@ public class Vivienda {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "vivienda")
     private List<Orden> ordenes;
 	
-	@Column
+	@Column(unique = true)
 	@NotNull
 	private String direccion;
 	

@@ -10,7 +10,7 @@ public interface UsuarioService {
 	public List<Usuario> listaUsuarios();
 	
 	// READ
-	public Usuario getUsuario(String nu);
+	public Usuario getUsuario(String email);
 	
 	// CREATE
 	public void add(Usuario usuario);
@@ -20,8 +20,6 @@ public interface UsuarioService {
 	
 	// DELETE
 	public void delete(Long idUsuario);
-	
-	public boolean existePorNombre(String nu);
 	
 	public boolean existePorEmail(String email);
 	

@@ -23,7 +23,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Usuario getUsuario(String nu) {
-        return usuarioDAO.findByNombreUsuario(nu);
+        return usuarioDAO.findByEmail(nu);
     }
     
     @Override
@@ -45,11 +45,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 			usuarioDAO.delete(usuario);
 		}
 	}
-
-    @Override
-    public boolean existePorNombre(String nu) {
-        return usuarioDAO.existsByNombreUsuario(nu);
-    }
 
     @Override
     public boolean existePorEmail(String email) {

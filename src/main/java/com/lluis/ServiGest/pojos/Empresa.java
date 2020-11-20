@@ -37,11 +37,11 @@ public class Empresa {
 	@NotNull
 	private String nombreComercial;
 	
-	@Column
+	@Column(unique = true)
 	@NotNull
 	private String nombreFiscal;
 	
-	@Column
+	@Column(unique = true)
 	@NotNull
 	private String nif;
 	
@@ -57,7 +57,7 @@ public class Empresa {
 	@NotNull
 	private String provincia;
 	
-	@Column
+	@Column(unique = true)
 	@NotNull
 	private String prefijoOrdenes;
 	

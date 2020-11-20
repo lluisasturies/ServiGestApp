@@ -71,7 +71,7 @@ public class EmpresaController {
 	}
 	
 	// DELETE
-	@DeleteMapping("/delete/{idVivienda}")
+	@DeleteMapping("/delete/{idEmpresa}")
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	public void delete(@PathVariable("idEmpresa") Integer idEmpresa) {

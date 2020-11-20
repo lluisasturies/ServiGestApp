@@ -52,7 +52,7 @@ public class AuthController {
     	
     	// Proceso de autenticación por parte de Spring Security
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginUsuario.getNombreUsuario(), loginUsuario.getPassword())
+                new UsernamePasswordAuthenticationToken(loginUsuario.getEmail(), loginUsuario.getPassword())
         );
         
         SecurityContextHolder.getContext().setAuthentication(authentication);

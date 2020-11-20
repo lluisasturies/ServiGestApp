@@ -32,7 +32,7 @@ public class EmpresaServiceImpl implements EmpresaService {
 	}
 
 	@Override
-	public void update(Empresa empresa) {
+	public void update(Empresa empresa) {	
 		if (empresaDAO.existsById(empresa.getIdEmpresa())) {
 			empresaDAO.save(empresa);
 		}		

@@ -29,10 +29,6 @@ public class Usuario implements UserDetails {
 
     @NotNull
     @Column(unique = true)
-    private String nombreUsuario;
-
-    @NotNull
-    @Column(unique = true)
     private String email;
 
     @NotNull
@@ -58,7 +54,7 @@ public class Usuario implements UserDetails {
 
     @Override
     public String getUsername() {
-        return nombreUsuario;
+        return email;
     }
 
     @Override
