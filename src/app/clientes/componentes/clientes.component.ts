@@ -6,6 +6,8 @@ import { ClientesService } from 'src/app/servicios/clientes.service';
 // Modelos
 import { Cliente } from 'src/app/modelos/Cliente.model';
 import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { UpdateClienteComponent } from './update-cliente/update-cliente.component';
 
 @Component({
   selector: 'app-clientes',
@@ -20,6 +22,7 @@ export class ClientesComponent implements OnInit {
 
   constructor(
     private _clientes:ClientesService,
+    private modalService: NgbModal,
     private confirmationDialogService: ConfirmationDialogService
   ) { }
 
@@ -50,6 +53,15 @@ export class ClientesComponent implements OnInit {
           this.clientes = this.clientes.filter(v => v !== cliente);
         });
       }
+    });
+  }
+
+  // Modal Editar Cliente
+  editarCliente(cliente: Cliente) {
+    const modalRef = this.modalService.open(UpdateClienteComponent);
+    modalRef.componentInstance.cliente = cliente;
+    modalRef.result.then((result) => {
+      this.ngOnInit();
     });
   }
 

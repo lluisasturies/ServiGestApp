@@ -15,14 +15,18 @@ import { TokenService } from 'src/app/servicios/token.service';
 })
 export class LoginComponent implements OnInit {
 
-  form: any = {};
-  usuario: LoginUsuario;
-  isLogged = false;
-  isLoginFail = false;
-  roles: string[] = [];
-  errorMsg = '';
+  // Variables
+  public form: any = {};
+  public usuario: LoginUsuario;
+  public isLogged = false;
+  public isLoginFail = false;
+  public roles: string[] = [];
+  public errorMsg = '';
 
-  constructor(private authService: AuthService, private tokenService: TokenService, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private tokenService: TokenService
+  ) { }
 
   ngOnInit() {
     if (this.tokenService.getToken()) {
@@ -33,11 +37,11 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    this.usuario = new LoginUsuario(this.form.nombreUsuario, this.form.password);
+    this.usuario = new LoginUsuario(this.form.email, this.form.password);
 
     this.authService.login(this.usuario).subscribe(data => {
       this.tokenService.setToken(data.token);
-      this.tokenService.setUserName(data.nombreUsuario);
+      this.tokenService.setUserName(data.email);
       this.tokenService.setAuthorities(data.authorities);
 
       this.isLogged = true;

@@ -17,10 +17,19 @@
             </thead>
             <tbody>
                 <tr *ngFor="let cliente of clientes">
-                    <td><a [routerLink]="['/clientes/ver', cliente.idCliente]">{{cliente.nombre}}</a></td>
-                    <td><a [routerLink]="['/clientes/ver', cliente.idCliente]">{{cliente.apellidos}}</a></td>
+                    <td><a [routerLink]="['/clientes/ver', cliente.idCliente]" class="nav-link">{{cliente.nombre}}</a></td>
+                    <td><a [routerLink]="['/clientes/ver', cliente.idCliente]" class="nav-link">{{cliente.apellidos}}</a></td>
                     <td>{{cliente.dni}}</td>
-                    <td><button (click)="borrarCliente(cliente)" class="btn btn-danger btn-sm">Borrar</button></td>
+                    <td>
+                      <div ngbDropdown class="d-inline-block">
+                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                          <button ngbDropdownItem (click)="editarCliente(cliente)">Editar</button>
+                          <div class="dropdown-divider"></div>
+                          <button ngbDropdownItem (click)="borrarCliente(cliente)">Borrar</button>
+                        </div>
+                      </div>
+                    </td>
                 </tr>
             </tbody>
         </table>

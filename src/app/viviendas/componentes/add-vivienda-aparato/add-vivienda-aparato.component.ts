@@ -55,7 +55,8 @@ export class AddViviendaAparatoComponent implements OnInit {
   guardarViviendaAparato() {
     this.viviendaAparato = Object.assign({}, this.aparatoViviendaForm.value);
     this._viviendaAparato.addAparatoVivienda(this.viviendaAparato).subscribe(data => {
-      this.modalService.close(); });
+      this.modalService.close();
+    });
   }
 
 }

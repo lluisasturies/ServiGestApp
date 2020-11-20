@@ -13,6 +13,7 @@ import { ClientesComponent } from '../clientes/componentes/clientes.component';
 import { VerClienteComponent } from '../clientes/componentes/ver-cliente/ver-cliente.component';
 import { AddClienteComponent } from '../clientes/componentes/add-cliente/add-cliente.component';
 import { AddContactoComponent } from './componentes/add-contacto/add-contacto.component';
+import { UpdateClienteComponent } from './componentes/update-cliente/update-cliente.component';
 
 
 
@@ -22,6 +23,7 @@ import { AddContactoComponent } from './componentes/add-contacto/add-contacto.co
     VerClienteComponent,
     AddClienteComponent,
     AddContactoComponent,
+    UpdateClienteComponent,
   ],
   imports: [
     CommonModule,

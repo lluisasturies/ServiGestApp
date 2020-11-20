@@ -62,6 +62,12 @@ export class UpdateViviendaComponent implements OnInit {
 
   }
 
+  // Comparador del Formulario
+  comparaCliente(c1: Cliente, c2: Cliente): boolean
+  {
+    return c1 && c2 ? c1.idCliente === c2.idCliente : c1 === c2;
+  }
+
   // Obtener la vivienda
   obtenerVivienda(idVivienda: number): void {
     this._viviendas.getVivienda(idVivienda).subscribe(data => { this.vivienda = data; });

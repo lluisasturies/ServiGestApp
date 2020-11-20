@@ -26,6 +26,8 @@ export class AddOrdenComponent implements OnInit {
   public empresas: Empresa[];
   public ordenForm: FormGroup;
   public fechaActual = formatDate(new Date(), 'yyyy-MM-dd', 'en-EN');
+  public isFail = false;
+  public errorMsg = '';
 
   constructor(
     private _ordenes: OrdenesService,
@@ -60,6 +62,10 @@ export class AddOrdenComponent implements OnInit {
 
     this._ordenes.addOrden(this.orden).subscribe(data => {
       this.modalService.close();
+    },
+    (err: any) => {
+      this.isFail = true;
+      this.errorMsg = err.error.message;
     });
   }
 

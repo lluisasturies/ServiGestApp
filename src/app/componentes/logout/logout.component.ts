@@ -9,10 +9,13 @@ import { Router } from '@angular/router';
 })
 export class LogoutComponent implements OnInit {
 
-  isLogin = false;
-  authority: string;
+  public isLogin = false;
+  public authority: string;
 
-  constructor(private tokenService: TokenService, private router: Router) { }
+  constructor(
+    private tokenService: TokenService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.logOut();

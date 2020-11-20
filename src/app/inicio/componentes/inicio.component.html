@@ -18,6 +18,7 @@
               <span *ngIf="orden.estado && (orden.citas | json) !== '[]' && (orden.citasPendientes | json) == '[]'" class="badge badge-light">Visitada</span>
             </p>
             <p><strong>Asunto:</strong> {{orden.asunto}}</p>
+            <p><strong>Dirección:</strong> {{orden.vivienda.direccion}} ({{orden.vivienda.localidad}})</p>
             <p><strong>Fecha:</strong> {{orden.fecha | date: 'd/M/yyyy'}}</p>
             <p><strong>Empresa: </strong>{{orden.empresa.nombreComercial}}</p>
             <hr>

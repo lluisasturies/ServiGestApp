@@ -1,1 +1,43 @@
-<p>update-empresa works!</p>
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Editar Empresa</h4>
+  <button type="button" class="close" aria-label="Close" (click)="modalService.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="empresaForm" (ngSubmit)="actualizarEmpresa()">
+    <div class="form-group">
+      <label for="idEmpresa">Nombre Comercial</label>
+      <input [class.is-invalid]="empresaForm.get('nombreComercial').touched && empresaForm.get('nombreComercial').invalid" type="text" class="form-control" formControlName="nombreComercial" placeholder="" required>
+    </div>
+    <div class="form-group">
+      <label for="idEmpresa">Nombre Fiscal</label>
+      <input [class.is-invalid]="empresaForm.get('nombreFiscal').touched && empresaForm.get('nombreFiscal').invalid" type="text" class="form-control" formControlName="nombreFiscal" placeholder="" required>
+    </div>
+    <div class="form-group">
+      <label for="idEmpresa">NIF</label>
+      <input [class.is-invalid]="empresaForm.get('nif').touched && empresaForm.get('nif').invalid" type="text" class="form-control" formControlName="nif" placeholder="" required>
+    </div>
+    <div class="form-group">
+      <label for="idEmpresa">Direccion</label>
+      <input [class.is-invalid]="empresaForm.get('direccion').touched && empresaForm.get('direccion').invalid" type="text" class="form-control" formControlName="direccion" placeholder="" required>
+    </div>
+    <div class="form-group">
+      <label for="idEmpresa">Localidad</label>
+      <input [class.is-invalid]="empresaForm.get('localidad').touched && empresaForm.get('localidad').invalid" type="text" class="form-control" formControlName="localidad" placeholder="" required>
+    </div>
+    <div class="form-group">
+      <label for="idEmpresa">Provincia</label>
+      <input [class.is-invalid]="empresaForm.get('provincia').touched && empresaForm.get('provincia').invalid" type="text" class="form-control" formControlName="provincia" placeholder="" required>
+    </div>
+    <div class="form-group">
+      <label for="idEmpresa">Prefijo Ordenes</label>
+      <input [class.is-invalid]="empresaForm.get('prefijoOrdenes').touched && empresaForm.get('prefijoOrdenes').invalid" type="text" class="form-control" formControlName="prefijoOrdenes" placeholder="" required>
+    </div>
+    <div class="modal-footer">
+      <div *ngIf="empresaForm.touched && isFail" class="alert alert-danger mt-3">Error: {{ errorMsg }}</div>
+      <button type="button" class="btn btn-secondary" (click)="modalService.close()">Cerrar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="empresaForm.invalid">Guardar</button>
+    </div>
+  </form>
+</div>

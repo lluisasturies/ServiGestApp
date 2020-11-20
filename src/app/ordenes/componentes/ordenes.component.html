@@ -1,1 +1,41 @@
-<p>ordenes works!</p>
+<div class="row">
+  <div class="col">
+      <a [routerLink]="['/ordenes/crear']" class="btn btn-success">Crear Orden</a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+      <table class="table table-hover" datatable [dtOptions]="dtOptions" *ngIf="ordenes">
+          <thead>
+              <tr>
+                  <th scope="col">Referencia</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Empresa</th>
+                  <th scope="col">Dirección</th>
+                  <th scope="col"></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let orden of ordenes">
+                  <td><a [routerLink]="['/ordenes/ver', orden.idOrden]" class="nav-link">{{orden.empresa.prefijoOrdenes}}{{orden.orden}}</a></td>
+                  <td>{{orden.fecha}}</td>
+                  <td>{{orden.empresa.nombreComercial}}</td>
+                  <td>{{orden.vivienda.direccion}}</td>
+                  <td>
+                    <div ngbDropdown class="d-inline-block">
+                      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
+                      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button ngbDropdownItem (click)="editarOrden(orden)">Editar</button>
+                        <button ngbDropdownItem *ngIf="orden.estado" (click)="cambiarEstadoOrden(orden.idOrden)">Cerrar</button>
+                        <button ngbDropdownItem *ngIf="!orden.estado" (click)="cambiarEstadoOrden(orden.idOrden)">Abrir</button>
+                        <div class="dropdown-divider"></div>
+                        <button ngbDropdownItem (click)="borrarOrden(orden)">Borrar</button>
+                      </div>
+                    </div>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>

@@ -1,33 +1,26 @@
-<div class="container">
-  <h3 class="mb-4">Crear Usuario</h3>
-  <form name="form" #f="ngForm" style="max-width: 250px;" (ngSubmit)="onRegister()" novalidate>
-
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Crear usuario</h4>
+  <button type="button" class="close" aria-label="Close" (click)="modalService.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="usuarioForm" (ngSubmit)="addUsuario()">
     <div class="form-group">
-      <label for="nombre">Nombre:</label>
-      <input class="form-control" name="nombre" type="text" [(ngModel)]="usuario.nombre" #nombre="ngModel"
-        autocomplete="off" required>
-    </div>
-
-    <div class="form-group">
-      <label for="nombreUsuario">Nombre de Usuario:</label>
-      <input class="form-control" name="nombreUsuario" type="text" [(ngModel)]="usuario.nombreUsuario"
-        #nombreUsuario="ngModel" autocomplete="off" required>
-    </div>
-
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input class="form-control" name="email" type="email" [(ngModel)]="usuario.email" #email="ngModel" email
-        autocomplete="off" required>
-    </div>
-
-    <div class="form-group">
-      <label for="password">Contraseña:</label>
-      <input class="form-control" type="password" name="password" [(ngModel)]="usuario.password" #password="ngModel"
-        required>
+      <label for="direccion">Nombre</label>
+      <input type="text" [class.is-invalid]="usuarioForm.get('nombre').touched && usuarioForm.get('nombre').invalid" formControlName="nombre"  class="form-control" required>
     </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-primary mb-3" [disabled]="!f.valid">Crear Cuenta</button>
-      <div *ngIf="f.submitted && isRegisterFail" class="alert alert-danger">Fail al crear cuenta: {{ errorMsg }}</div>
+        <label for="provincia">Email</label>
+        <input type="text" [class.is-invalid]="usuarioForm.get('email').touched && usuarioForm.get('email').invalid" formControlName="email"  class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="idPropietario">Contraseña</label>
+        <input type="text" [class.is-invalid]="usuarioForm.get('password').touched && usuarioForm.get('password').invalid" formControlName="password"  class="form-control" required>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modalService.close()">Cerrar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="usuarioForm.invalid">Crear</button>
     </div>
   </form>
 </div>

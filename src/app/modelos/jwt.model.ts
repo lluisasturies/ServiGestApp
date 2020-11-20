@@ -1,6 +1,6 @@
 export class JwtModel {
   token: string;
   type: string;
-  nombreUsuario: string;
+  email: string;
   authorities: string[];
 }
