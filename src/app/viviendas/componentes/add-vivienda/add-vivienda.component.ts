@@ -9,6 +9,7 @@ import { ClientesService } from 'src/app/servicios/clientes.service';
 // Modelos
 import { Vivienda } from 'src/app/modelos/Vivienda.model';
 import { Cliente } from 'src/app/modelos/Cliente.model';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-add-vivienda',
@@ -16,15 +17,18 @@ import { Cliente } from 'src/app/modelos/Cliente.model';
   styleUrls: ['./add-vivienda.component.css']
 })
 export class AddViviendaComponent implements OnInit {
+
   // Variables
-  clientes: Cliente[] = [];
-  vivienda: Vivienda = new Vivienda();
-  viviendaForm: FormGroup;
+  public clientes: Cliente[] = [];
+  public vivienda: Vivienda = new Vivienda();
+  public viviendaForm: FormGroup;
+  public isFail = false;
+  public errorMsg = '';
 
   constructor(
-    private router: Router,
     private _viviendas: ViviendasService,
-    private _clientes: ClientesService
+    private _clientes: ClientesService,
+    public modalService: NgbActiveModal
   ) { }
 
   ngOnInit(): void {
@@ -50,7 +54,7 @@ export class AddViviendaComponent implements OnInit {
     this.vivienda = Object.assign({}, this.viviendaForm.value);
 
     this._viviendas.addVivienda(this.vivienda).subscribe(data => {
-      this.router.navigate(['viviendas']);
+      this.modalService.close();
     });
   }
 

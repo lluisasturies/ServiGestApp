@@ -23,7 +23,7 @@ import { UpdateClienteComponent } from './componentes/update-cliente/update-clie
     VerClienteComponent,
     AddClienteComponent,
     AddContactoComponent,
-    UpdateClienteComponent,
+    UpdateClienteComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +34,7 @@ import { UpdateClienteComponent } from './componentes/update-cliente/update-clie
     HttpClientModule,
     FormsModule,
     NgbModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ]
 })
 export class ClientesModule { }

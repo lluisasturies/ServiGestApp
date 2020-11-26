@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 // Servicios
-import { ViviendasService } from 'src/app/servicios/viviendas.service';
 import { ClientesService } from 'src/app/servicios/clientes.service';
 
 // Modelos
-import { Vivienda } from 'src/app/modelos/Vivienda.model';
 import { Cliente } from 'src/app/modelos/Cliente.model';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-add-cliente',
@@ -17,17 +16,35 @@ import { Cliente } from 'src/app/modelos/Cliente.model';
 export class AddClienteComponent implements OnInit {
 
   // Variables
-  cliente: Cliente = new Cliente();
+  public cliente: Cliente = new Cliente();
+  public clienteForm: FormGroup;
+  public isFail = false;
+  public errorMsg = '';
 
-  constructor(private router:Router, private _clientes:ClientesService) { }
+  constructor(
+    private _clientes:ClientesService,
+    public modalService: NgbActiveModal
+    ) { }
 
   ngOnInit(): void {
+    // Creo el FormGroup
+    this.clienteForm = new FormGroup({
+      nombre: new FormControl('', Validators.required),
+      apellidos: new FormControl('', Validators.required),
+      dni: new FormControl('', Validators.required)
+    });
   }
 
   // Guardar Cliente
-  guardarCliente() {    
+  guardarCliente() {
+    this.cliente = Object.assign({}, this.clienteForm.value);
+
     this._clientes.addCliente(this.cliente).subscribe(data => { 
-      this.router.navigate(["clientes"]) 
+      this.modalService.close();
+    },
+    (err: any) => {
+      this.isFail = true;
+      this.errorMsg = err.error.message;
     });
   }
 

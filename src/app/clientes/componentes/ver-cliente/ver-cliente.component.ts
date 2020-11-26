@@ -9,6 +9,8 @@ import { ClientesService } from 'src/app/servicios/clientes.service';
 import { Cliente } from 'src/app/modelos/Cliente.model';
 import { ClienteContacto } from 'src/app/modelos/cliente-contacto.model';
 import { AddContactoComponent } from '../add-contacto/add-contacto.component';
+import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
+import { ClientesContactosService } from 'src/app/servicios/clientes-contactos.service';
 
 @Component({
   selector: 'app-ver-cliente',
@@ -23,7 +25,9 @@ export class VerClienteComponent implements OnInit {
 
   constructor(
     private _clientes: ClientesService,
+    private _clientesContactos: ClientesContactosService,
     private route: ActivatedRoute,
+    private confirmationDialogService: ConfirmationDialogService,
     private modalService: NgbModal
   ) { }
 
@@ -44,6 +48,23 @@ export class VerClienteComponent implements OnInit {
     modalRef.result.then((result) => {
       this.ngOnInit();
     });
+  }
+
+  // Borrar una linea de Contacto
+  borrarContacto(clienteContacto: ClienteContacto) {
+    this.confirmationDialogService.confirm('Confirmar', '¿Estás seguro de que quieres borrar este contacto?')
+    .then((confirmed) => {
+      if (confirmed) {
+        this._clientesContactos.deleteClienteContacto(clienteContacto).subscribe(data => {
+          this.ngOnInit();
+        });
+      }
+    });
+  }
+
+  //
+  editarContacto(clienteContacto: ClienteContacto) {
+    
   }
 
 }

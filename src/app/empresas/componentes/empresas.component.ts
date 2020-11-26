@@ -1,10 +1,13 @@
-import { EmpresasService } from './../../servicios/empresas.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AddEmpresaComponent } from './add-empresa/add-empresa.component';
+
 import { Empresa } from 'src/app/modelos/Empresa.model';
-import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
+
+import { AddEmpresaComponent } from './add-empresa/add-empresa.component';
 import { UpdateEmpresaComponent } from './update-empresa/update-empresa.component';
+import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
+import { EmpresasService } from './../../servicios/empresas.service';
+
 
 @Component({
   selector: 'app-empresas',

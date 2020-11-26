@@ -5,6 +5,7 @@ import { LoginComponent } from '../componentes/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from '../app-routing.module';
+import { SharedModuleModule } from '../shared-module.module';
 
 
 
@@ -16,14 +17,11 @@ import { AppRoutingModule } from '../app-routing.module';
   ],
   imports: [
     CommonModule,
+    SharedModuleModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-  ],
-  exports: [
-    LoginComponent,
-    LoginComponent
   ]
 })
 export class InicioModule { }

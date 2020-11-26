@@ -53,7 +53,7 @@ export class VerViviendaComponent implements OnInit {
     .then((confirmed) => {
       if (confirmed) {
         this._viviendasAparatos.deleteViviendaAparato(viviendaAparato).subscribe(data => {
-          this.aparatos = this.aparatos.filter(v => v !== viviendaAparato);
+          this.ngOnInit();
         });
       }
     });

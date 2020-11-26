@@ -17,6 +17,10 @@ import { ClientesModule } from './clientes/clientes.module';
 import { OrdenesModule } from './ordenes/ordenes.module';
 import { EmpresasModule } from './empresas/empresas.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
+import { ConfirmationDialogComponent } from './componentes/confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogService } from './servicios/confirmation-dialog.service';
+import { AparatosModule } from './aparatos/aparatos.module';
+import { SharedModuleModule } from './shared-module.module';
 
 @NgModule({
   declarations: [
@@ -27,15 +31,18 @@ import { UsuariosModule } from './usuarios/usuarios.module';
     AppRoutingModule,
     NgbModule,
     BrowserModule,
+    SharedModuleModule,
     InicioModule,
     ViviendasModule,
     ClientesModule,
     OrdenesModule,
     EmpresasModule,
+    AparatosModule,
     UsuariosModule
   ],
   providers: [
-    interceptorProvider
+    interceptorProvider,
+    ConfirmationDialogService
   ],
   bootstrap: [AppComponent]
 })

@@ -26,8 +26,7 @@ import { ConfirmationDialogService } from '../servicios/confirmation-dialog.serv
     VerViviendaComponent,
     AddViviendaComponent,
     UpdateViviendaComponent,
-    AddViviendaAparatoComponent,
-    ConfirmationDialogComponent
+    AddViviendaAparatoComponent
   ],
   imports: [
     CommonModule,
@@ -40,8 +39,6 @@ import { ConfirmationDialogService } from '../servicios/confirmation-dialog.serv
     FormsModule,
     NgbModule,
     BrowserAnimationsModule
-  ],
-  providers: [ ConfirmationDialogService ],
-  entryComponents: [ ConfirmationDialogComponent ],
+  ]
 })
 export class ViviendasModule { }

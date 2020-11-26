@@ -34,7 +34,7 @@ import { AddContactoComponent } from './componentes/add-contacto/add-contacto.co
     HttpClientModule,
     FormsModule,
     NgbModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ]
 })
 export class EmpresasModule { }

@@ -8,6 +8,7 @@ import { Cliente } from 'src/app/modelos/Cliente.model';
 import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateClienteComponent } from './update-cliente/update-cliente.component';
+import { AddClienteComponent } from './add-cliente/add-cliente.component';
 
 @Component({
   selector: 'app-clientes',
@@ -21,7 +22,7 @@ export class ClientesComponent implements OnInit {
   clientes: Cliente[];
 
   constructor(
-    private _clientes:ClientesService,
+    private _clientes: ClientesService,
     private modalService: NgbModal,
     private confirmationDialogService: ConfirmationDialogService
   ) { }
@@ -41,7 +42,9 @@ export class ClientesComponent implements OnInit {
 
   // Obtener todos los Clientes
   obtenerClientes(): void {
-    this._clientes.getClientes().subscribe(data => { this.clientes = data });
+    this._clientes.getClientes().subscribe(data => {
+      this.clientes = data;
+    });
   }
 
   // Borrar un Cliente
@@ -53,6 +56,14 @@ export class ClientesComponent implements OnInit {
           this.clientes = this.clientes.filter(v => v !== cliente);
         });
       }
+    });
+  }
+
+  // Modal Nuevo Cliente
+  nuevoCliente() {
+    const modalRef = this.modalService.open(AddClienteComponent);
+    modalRef.result.then((result) => {
+      this.ngOnInit();
     });
   }
 

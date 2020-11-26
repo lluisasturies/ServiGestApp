@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Crear Aparato</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modalService.close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="aparatoForm" (ngSubmit)="guardarAparato()">
+      <div class="form-group">
+        <label for="idEmpresa">Tipo</label>
+        <select class="form-control" [class.is-invalid]="aparatoForm.get('tipo').touched && aparatoForm.get('tipo').invalid" formControlName="tipo" data-live-search="true" required>
+          <option *ngFor="let tipo of tipos" [ngValue]="tipo">{{tipo.nombre}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="idEmpresa">Marca</label>
+        <select class="form-control" [class.is-invalid]="aparatoForm.get('marca').touched && aparatoForm.get('marca').invalid" formControlName="marca" data-live-search="true" required>
+          <option *ngFor="let marca of marcas" [ngValue]="marca">{{marca.nombre}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="direccion">Modelo</label>
+        <input [class.is-invalid]="aparatoForm.get('modelo').touched && aparatoForm.get('modelo').invalid"  type="text" class="form-control" formControlName="modelo" placeholder="" required>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modalService.close()">Cerrar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="aparatoForm.invalid">Crear</button>
+      </div>
+    </form>
+  </div>
+  

@@ -6,6 +6,8 @@ import { ViviendasService } from './../../servicios/viviendas.service';
 // Modelos
 import { Vivienda } from 'src/app/modelos/Vivienda.model';
 import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddViviendaComponent } from './add-vivienda/add-vivienda.component';
 
 @Component({
   selector: 'app-viviendas',
@@ -20,6 +22,7 @@ export class ViviendasComponent implements OnInit {
 
   constructor(
     private _viviendas: ViviendasService,
+    private modalService: NgbModal,
     private confirmationDialogService: ConfirmationDialogService
   ) { }
 
@@ -52,6 +55,14 @@ export class ViviendasComponent implements OnInit {
           this.viviendas = this.viviendas.filter(v => v !== vivienda);
         });
       }
+    });
+  }
+
+  // Modal Nuevo Cliente
+  nuevaVivienda() {
+    const modalRef = this.modalService.open(AddViviendaComponent);
+    modalRef.result.then((result) => {
+      this.ngOnInit();
     });
   }
 

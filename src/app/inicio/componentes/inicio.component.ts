@@ -15,7 +15,8 @@ import { OrdenesCitasService } from 'src/app/servicios/ordenes-citas.service';
 })
 export class InicioComponent implements OnInit {
 
-  info: any = {};
+  public info: any = {};
+  public loading: boolean = true;
 
   public ordenesPendientes: Orden[];
   public citasPendientes: OrdenCitaPendiente[];
@@ -48,6 +49,7 @@ export class InicioComponent implements OnInit {
   cargaCitasPendientes() {
     this._ordenesCitas.getCitasPendientes().subscribe(data => {
       this.citasPendientes = data;
+      this.loading = false;
     });
   }
 
