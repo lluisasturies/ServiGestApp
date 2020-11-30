@@ -35,8 +35,12 @@ public class OrdenLineaServiceImpl implements OrdenLineaService {
 	@Override
 	public void delete(Integer idTrabajo) {
 		if (ordenLineaDAO.existsById(idTrabajo)) {
-			OrdenLinea ordenLinea = ordenLineaDAO.findById(idTrabajo).get();
-			ordenLineaDAO.delete(ordenLinea);
+			if (ordenLineaDAO.findById(idTrabajo).get().getOrden().isEstado() == true) {
+				OrdenLinea ordenLinea = ordenLineaDAO.findById(idTrabajo).get();
+				ordenLineaDAO.delete(ordenLinea);
+			} else {
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La orden está cerrada");
+			}
 		}
 	}
 
