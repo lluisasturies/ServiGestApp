@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Empresa } from 'src/app/modelos/Empresa.model';
@@ -7,6 +7,7 @@ import { AddEmpresaComponent } from './add-empresa/add-empresa.component';
 import { UpdateEmpresaComponent } from './update-empresa/update-empresa.component';
 import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
 import { EmpresasService } from './../../servicios/empresas.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 
 @Component({
@@ -17,16 +18,30 @@ import { EmpresasService } from './../../servicios/empresas.service';
 export class EmpresasComponent implements OnInit {
 
   // Variables
+  public roles: string[];
+  public authority: string;
   public dtOptions: DataTables.Settings = {};
   public empresas: Empresa[];
 
   constructor(
+    private tokenService: TokenService,
     private _empresas: EmpresasService,
     private modalService: NgbModal,
     private confirmationDialogService: ConfirmationDialogService
   ) { }
 
   ngOnInit(): void {
+    if (this.tokenService.getToken()) {
+      this.roles = this.tokenService.getAuthorities();
+      this.roles.every(rol => {
+        if (rol === 'ROLE_ADMIN') {
+          this.authority = 'admin';
+          return false;
+        }
+        this.authority = 'tecnico';
+        return true;
+      });
+    }
     this.opcionesDt();
     this.obtenerEmpresas();
   }

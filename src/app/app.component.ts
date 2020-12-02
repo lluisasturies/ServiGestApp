@@ -9,11 +9,14 @@ import { TokenService } from './servicios/token.service';
 })
 export class AppComponent implements OnInit {
 
-  isLogin = false;
-  roles: string[];
-  authority: string;
+  public isLogin = false;
+  public roles: string[];
+  public authority: string;
+  public isMenuCollapsed = true;
 
-  constructor(private tokenService: TokenService, private router: Router) { }
+  constructor(
+    private tokenService: TokenService, 
+    private router: Router) { }
 
   ngOnInit() {
     if (this.tokenService.getToken()) {
@@ -25,7 +28,7 @@ export class AppComponent implements OnInit {
           this.authority = 'admin';
           return false;
         }
-        this.authority = 'user';
+        this.authority = 'tecnico';
         return true;
       });
     }

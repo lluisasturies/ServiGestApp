@@ -48,7 +48,7 @@
           <tr *ngFor="let linea of orden.lineas">
             <td>{{linea.fecha | date: 'd/M/yyyy'}}</td>
             <td>{{linea.concepto}}</td>
-            <td><button (click)="borrarOrdenLinea(linea)" class="btn btn-danger btn-sm">Borrar</button></td>
+            <td><button *ngIf="orden.estado" (click)="borrarOrdenLinea(linea)" class="btn btn-danger btn-sm">Borrar</button></td>
           </tr>
         </tbody>
       </table>

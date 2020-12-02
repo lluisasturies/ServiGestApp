@@ -1,6 +1,6 @@
 <div class="container animated fadeIn">
   <div class="row">
-    <a (click)="nuevaEmpresa()" class="btn btn-success">Crear Empresa</a>
+    <a *ngIf="authority === 'admin'" (click)="nuevaEmpresa()" class="btn btn-success">Crear Empresa</a>
   </div>
   <div class="row">
     <div class="col">
@@ -21,7 +21,7 @@
             <td>{{empresa.nif}}</td>
             <td>
               <div ngbDropdown class="d-inline-block">
-                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
+                <button *ngIf="authority === 'admin'" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                   <button ngbDropdownItem (click)="editarEmpresa(empresa)">Editar</button>
                   <div class="dropdown-divider"></div>

@@ -1,30 +1,29 @@
 <div class="container">
   <nav *ngIf="isLogin" class="navbar navbar-expand-lg navbar-light bg-light rounded">
-    <a class="navbar-brand" href="/">ServiGest</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09"
-      aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <a [routerLink]="['']" class="navbar-brand">ServiGest</a>
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+      &#9776;
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExample09">
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto">
         <li *ngIf="isLogin" routerLinkActive="nav-item active" class="nav-item">
-          <a [routerLink]="['/viviendas']" class="nav-link">Viviendas</a>
+          <a [routerLink]="['viviendas']" class="nav-link">Viviendas</a>
         </li>
         <li *ngIf="isLogin" routerLinkActive="nav-item active" class="nav-item">
-          <a [routerLink]="['/ordenes']" class="nav-link">Ordenes</a>
+          <a [routerLink]="['ordenes']" class="nav-link">Ordenes</a>
         </li>
         <li *ngIf="isLogin" routerLinkActive="nav-item active" class="nav-item">
-          <a [routerLink]="['/clientes']" class="nav-link">Clientes</a>
+          <a [routerLink]="['clientes']" class="nav-link">Clientes</a>
         </li>
         <li *ngIf="isLogin" routerLinkActive="nav-item active" class="nav-item">
-          <a [routerLink]="['/empresas']" class="nav-link">Empresas</a>
+          <a [routerLink]="['empresas']" class="nav-link">Empresas</a>
         </li>
         <li *ngIf="isLogin && authority === 'admin'" routerLinkActive="nav-item active" class="nav-item">
-          <a [routerLink]="['/aparatos']" class="nav-link">Aparatos</a>
+          <a [routerLink]="['aparatos']" class="nav-link">Aparatos</a>
         </li>
         <li *ngIf="isLogin && authority === 'admin'" routerLinkActive="nav-item active" class="nav-item">
-          <a [routerLink]="['/usuarios']" class="nav-link">Usuarios</a>
+          <a [routerLink]="['usuarios']" class="nav-link">Usuarios</a>
         </li>
       </ul>
       <ul *ngIf="isLogin" class="navbar-nav">

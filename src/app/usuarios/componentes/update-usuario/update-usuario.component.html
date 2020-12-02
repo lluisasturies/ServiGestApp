@@ -15,8 +15,8 @@
         <input type="text" [class.is-invalid]="usuarioForm.get('email').touched && usuarioForm.get('email').invalid" formControlName="email"  class="form-control" required>
     </div>
     <div class="form-group">
-        <label for="idPropietario">Contraseña</label>
-        <input type="text" [class.is-invalid]="usuarioForm.get('password').touched && usuarioForm.get('password').invalid" formControlName="password"  class="form-control" required>
+        <label for="idPropietario">Nueva Contraseña</label>
+        <input type="password" [class.is-invalid]="usuarioForm.get('password').touched && usuarioForm.get('password').invalid" formControlName="password"  class="form-control" required>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" (click)="modalService.close()">Cerrar</button>
