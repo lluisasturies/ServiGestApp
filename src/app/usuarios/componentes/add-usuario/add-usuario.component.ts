@@ -9,6 +9,7 @@ import { Usuario } from 'src/app/modelos/nuevo-usuario.model';
 import { Rol } from 'src/app/modelos/rol.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { RolesService } from 'src/app/servicios/roles.service';
 
 @Component({
   selector: 'app-add-usuario',
@@ -20,6 +21,7 @@ export class AddUsuarioComponent implements OnInit {
   // Variables
   usuario: Usuario = new Usuario();
   rol: Rol = new Rol();
+  roles: Rol[] = [];
   public usuarioForm: FormGroup;
 
   isRegister = false;
@@ -28,11 +30,13 @@ export class AddUsuarioComponent implements OnInit {
 
   constructor(
     private _usuarios: UsuariosService,
+    private _roles: RolesService,
     private router: Router,
     public modalService: NgbActiveModal
   ) { }
 
   ngOnInit() {
+    this.obtenerRoles();
     this.rol.rolNombre = 'ROLE_TECNICO';
     this.usuario.rol = this.rol;
 
@@ -41,8 +45,12 @@ export class AddUsuarioComponent implements OnInit {
       nombre: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
-      rol: new FormControl(this.usuario.rol)
+      rol: new FormControl('', Validators.required)
     });
+  }
+
+  obtenerRoles(): void {
+    this._roles.getRoles().subscribe(data => { this.roles = data; });
   }
 
   addUsuario() {

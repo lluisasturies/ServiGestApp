@@ -16,7 +16,13 @@
     </div>
     <div class="form-group">
         <label for="idPropietario">Contraseña</label>
-        <input type="text" [class.is-invalid]="usuarioForm.get('password').touched && usuarioForm.get('password').invalid" formControlName="password"  class="form-control" required>
+        <input type="password" [class.is-invalid]="usuarioForm.get('password').touched && usuarioForm.get('password').invalid" formControlName="password"  class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="idPropietario">Rol</label>
+      <select [class.is-invalid]="usuarioForm.get('rol').touched && usuarioForm.get('rol').invalid" formControlName="rol" class="form-control">
+        <option *ngFor="let rol of roles" [ngValue]="rol">{{rol.rolNombre}}</option>
+      </select>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" (click)="modalService.close()">Cerrar</button>
