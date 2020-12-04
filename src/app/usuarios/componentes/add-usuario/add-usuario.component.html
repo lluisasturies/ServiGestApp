@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Crear usuario</h4>
+  <button type="button" class="close" aria-label="Close" (click)="modalService.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="usuarioForm" (ngSubmit)="addUsuario()">
+    <div class="form-group">
+      <label for="direccion">Nombre</label>
+      <input type="text" [class.is-invalid]="usuarioForm.get('nombre').touched && usuarioForm.get('nombre').invalid" formControlName="nombre"  class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="provincia">Email</label>
+        <input type="text" [class.is-invalid]="usuarioForm.get('email').touched && usuarioForm.get('email').invalid" formControlName="email"  class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="idPropietario">Contraseña</label>
+        <input type="password" [class.is-invalid]="usuarioForm.get('password').touched && usuarioForm.get('password').invalid" formControlName="password"  class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="idPropietario">Rol</label>
+      <select [class.is-invalid]="usuarioForm.get('rol').touched && usuarioForm.get('rol').invalid" formControlName="rol" class="form-control">
+        <option *ngFor="let rol of roles" [ngValue]="rol">{{rol.rolNombre}}</option>
+      </select>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modalService.close()">Cerrar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="usuarioForm.invalid">Crear</button>
+    </div>
+  </form>
+</div>

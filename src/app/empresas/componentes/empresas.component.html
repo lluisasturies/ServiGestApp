@@ -1,0 +1,38 @@
+<div class="container animated fadeIn">
+  <div class="row">
+    <a *ngIf="authority === 'admin'" (click)="nuevaEmpresa()" class="btn btn-success">Crear Empresa</a>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3>Empresas</h3>
+      <table class="table table-hover" datatable [dtOptions]="dtOptions" *ngIf="empresas">
+        <thead>
+          <tr>
+            <th scope="col">Nombre Comercial</th>
+            <th scope="col">Nombre Fiscal</th>
+            <th scope="col">NIF</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let empresa of empresas">
+            <td><a [routerLink]="['/empresas/ver', empresa.idEmpresa]" class="nav-link">{{empresa.nombreComercial}}</a></td>
+            <td>{{empresa.nombreFiscal}}</td>
+            <td>{{empresa.nif}}</td>
+            <td>
+              <div ngbDropdown class="d-inline-block">
+                <button *ngIf="authority === 'admin'" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem (click)="editarEmpresa(empresa)">Editar</button>
+                  <div class="dropdown-divider"></div>
+                  <button ngbDropdownItem (click)="borrarEmpresa(empresa)">Borrar</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

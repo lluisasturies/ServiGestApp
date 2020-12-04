@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Crear Cliente</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modalService.close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="clienteForm" (ngSubmit)="guardarCliente()">
+      <div class="form-group">
+        <label for="idEmpresa">Nombre</label>
+        <input type="text" formControlName="nombre" [class.is-invalid]="clienteForm.get('nombre').touched && clienteForm.get('nombre').invalid" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="idEmpresa">Apellidos</label>
+        <input type="text" formControlName="apellidos" [class.is-invalid]="clienteForm.get('apellidos').touched && clienteForm.get('apellidos').invalid" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="idEmpresa">DNI</label>
+        <input type="text" formControlName="dni" [class.is-invalid]="clienteForm.get('dni').touched && clienteForm.get('dni').invalid" class="form-control" required>
+      </div>
+      <div class="modal-footer">
+        <div *ngIf="clienteForm.touched && isFail" class="alert alert-danger mt-3">Error: {{ errorMsg }}</div>
+        <button type="button" class="btn btn-secondary" (click)="modalService.close()">Cerrar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="clienteForm.invalid">Crear</button>
+      </div>
+    </form>
+  </div>
+  

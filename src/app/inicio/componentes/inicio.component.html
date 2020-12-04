@@ -1,0 +1,47 @@
+<div *ngIf="info.token; else loggedOut" class="container animated fadeIn">
+  <div class="jumbotron">
+    <h1 class="display-4">Bienvenido!</h1>
+    <p class="lead">Esta es la pantalla principal de Servigest. Puedes utilizar el menú superior para utilizar cada
+      módulo.</p>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <h5 class="card-header">Ordenes Pendientes</h5>
+        <div class="card-body">
+          <div *ngFor="let orden of ordenesPendientes">
+            <p>
+              <strong><a [routerLink]="['/ordenes/ver', orden.idOrden]">{{orden.empresa.prefijoOrdenes}}{{orden.orden}}</a></strong>
+              <span *ngIf="orden.estado && (orden.citasPendientes | json) == '[]' && (orden.citas | json) == '[]'" class="badge badge-danger">Sin citar</span>
+              <span *ngIf="orden.estado && (orden.citasPendientes | json) !== '[]' && (orden.citas | json) !== '[]'" class="badge badge-warning">Citada</span>
+              <span *ngIf="orden.estado && (orden.citas | json) !== '[]' && (orden.citasPendientes | json) == '[]'" class="badge badge-light">Visitada</span>
+            </p>
+            <p><strong>Asunto:</strong> {{orden.asunto}}</p>
+            <p><strong>Dirección:</strong> {{orden.vivienda.direccion}} ({{orden.vivienda.localidad}})</p>
+            <p><strong>Fecha:</strong> {{orden.fecha | date: 'd/M/yyyy'}}</p>
+            <p><strong>Empresa: </strong>{{orden.empresa.nombreComercial}}</p>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h5 class="card-header">Próximas Citas</h5>
+        <div class="card-body">
+          <div *ngFor="let cita of citasPendientes">
+            <p><strong><a [routerLink]="['/ordenes/ver', cita.idOrden]">{{cita.prefijoEmpresa}}{{cita.orden}}</a></strong> </p>
+            <p><strong>Direccion: </strong><a [routerLink]="['/viviendas/ver', cita.idVivienda]">{{cita.direccion}}</a></p>
+            <p><strong>Fecha:</strong> {{cita.fechaCita | date: 'd/M/yyyy H:mm'}}H</p>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loggedOut>
+  <app-login></app-login>
+</ng-template>

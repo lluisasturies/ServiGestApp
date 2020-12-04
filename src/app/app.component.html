@@ -1,0 +1,46 @@
+<div class="container">
+  <nav *ngIf="isLogin" class="navbar navbar-expand-lg navbar-light bg-light rounded">
+    <a [routerLink]="['']" class="navbar-brand">ServiGest</a>
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+      &#9776;
+    </button>
+
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li *ngIf="isLogin" routerLinkActive="nav-item active" class="nav-item">
+          <a [routerLink]="['viviendas']" class="nav-link">Viviendas</a>
+        </li>
+        <li *ngIf="isLogin" routerLinkActive="nav-item active" class="nav-item">
+          <a [routerLink]="['ordenes']" class="nav-link">Ordenes</a>
+        </li>
+        <li *ngIf="isLogin" routerLinkActive="nav-item active" class="nav-item">
+          <a [routerLink]="['clientes']" class="nav-link">Clientes</a>
+        </li>
+        <li *ngIf="isLogin" routerLinkActive="nav-item active" class="nav-item">
+          <a [routerLink]="['empresas']" class="nav-link">Empresas</a>
+        </li>
+        <li *ngIf="isLogin && authority === 'admin'" routerLinkActive="nav-item active" class="nav-item">
+          <a [routerLink]="['aparatos']" class="nav-link">Aparatos</a>
+        </li>
+        <li *ngIf="isLogin && authority === 'admin'" routerLinkActive="nav-item active" class="nav-item">
+          <a [routerLink]="['usuarios']" class="nav-link">Usuarios</a>
+        </li>
+      </ul>
+      <ul *ngIf="isLogin" class="navbar-nav">
+        <a (click)="logOut()" class="btn btn-primary btn-sm">Cerrar Sesión</a>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <router-outlet></router-outlet>
+  </div>
+
+<footer class="pt-2 my-md-5 border-top">
+  <div class="row">
+    <div class="col">
+      <small class="d-block mb-3 text-muted">ServiGest &copy; 2020</small>
+    </div>
+  </div>
+</footer>
+</div>

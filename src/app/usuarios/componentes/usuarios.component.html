@@ -1,0 +1,38 @@
+<div class="container animated fadeIn">
+  <div class="row">
+    <div class="col">
+      <a (click)="crearUsuario()" class="btn btn-success">Crear Usuario</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table class="table table-hover" datatable [dtOptions]="dtOptions" *ngIf="usuarios">
+        <thead>
+          <tr>
+            <th scope="col">Email</th>
+            <th scope="col">Nombre</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios">
+            <td><a [routerLink]="['/usuarios/ver', usuario.email]" class="nav-link">{{usuario.email}}</a></td>
+            <td>{{usuario.nombre}}</td>
+            <td>
+              <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem (click)="editarUsuario(usuario)">Editar</button>
+                  <div class="dropdown-divider"></div>
+                  <button ngbDropdownItem (click)="borrarUsuario(usuario)">Borrar</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

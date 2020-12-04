@@ -1,0 +1,31 @@
+<div class="container animated fadeIn">
+    <div class="row">
+        <div class="col">
+            <a (click)="nuevaVivienda()" class="btn btn-success">Crear Vivienda</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table table-hover" datatable [dtOptions]="dtOptions" *ngIf="viviendas">
+                <thead>
+                    <tr>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Localidad</th>
+                        <th scope="col">Provincia</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let vivienda of viviendas">
+                        <td><a [routerLink]="['/viviendas/ver', vivienda.idVivienda]" class="nav-link">{{vivienda.direccion}}</a>
+                        </td>
+                        <td>{{vivienda.localidad}}</td>
+                        <td>{{vivienda.provincia}}</td>
+                        <td><button (click)="borrarVivienda(vivienda)" class="btn btn-danger btn-sm">Borrar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

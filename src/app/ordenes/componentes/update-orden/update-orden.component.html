@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Editar Orden</h4>
+  <button type="button" class="close" aria-label="Close" (click)="modalService.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="ordenForm" (ngSubmit)="actualizarOrden()">
+    <div class="form-group">
+      <label for="idEmpresa">Empresa</label>
+      <select [compareWith]="comparaEmpresa" class="form-control" [class.is-invalid]="ordenForm.get('empresa').touched && ordenForm.get('empresa').invalid" formControlName="empresa" data-live-search="true" required>
+        <option *ngFor="let empresa of empresas" [ngValue]="empresa" >{{empresa.nombreFiscal}} - {{empresa.nombreComercial}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="provincia">Orden nº</label>
+      <input [class.is-invalid]="ordenForm.get('orden').touched && ordenForm.get('orden').invalid" type="text" class="form-control" formControlName="orden" placeholder="" required>
+    </div>
+    <div class="form-group">
+      <label for="direccion">Asunto</label>
+      <input [class.is-invalid]="ordenForm.get('asunto').touched && ordenForm.get('asunto').invalid"  type="text" class="form-control" formControlName="asunto" placeholder="" required>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modalService.close()">Cerrar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="ordenForm.invalid">Guardar</button>
+    </div>
+  </form>
+</div>

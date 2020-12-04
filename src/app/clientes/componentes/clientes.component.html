@@ -1,0 +1,40 @@
+<div class="container animated fadeIn">
+    <div class="row">
+        <div class="col">
+            <a (click)="nuevoCliente()" class="btn btn-success">Crear Cliente</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table table-hover" datatable [dtOptions]="dtOptions" *ngIf="clientes">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">DNI</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cliente of clientes">
+                        <td><a [routerLink]="['/clientes/ver', cliente.idCliente]" class="nav-link">{{cliente.nombre}}</a></td>
+                        <td><a [routerLink]="['/clientes/ver', cliente.idCliente]" class="nav-link">{{cliente.apellidos}}</a></td>
+                        <td>{{cliente.dni}}</td>
+                        <td>
+                        <div ngbDropdown class="d-inline-block">
+                            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                            <button ngbDropdownItem (click)="editarCliente(cliente)">Editar</button>
+                            <div class="dropdown-divider"></div>
+                            <button ngbDropdownItem (click)="borrarCliente(cliente)">Borrar</button>
+                            </div>
+                        </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
