@@ -1,4 +1,4 @@
-# ServiGest - Backend
+# ServiGest App
 Proyecto de Desarrollo de Aplicaciones Web. 2020
 
 ## Qué es ServiGest?
