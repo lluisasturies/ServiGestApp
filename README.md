@@ -12,6 +12,9 @@ mvn package
 
 Compilar el frontend
 ```
+npm install
+```
+```
 ng-build --prod
 ```
 
