@@ -7,7 +7,7 @@ Proyecto de Desarrollo de Aplicaciones Web. 2020
 ## Despliegue
 Primero compilar el backend
 ```
-mvn package
+mvn package -DskipTests
 ```
 
 Compilar el frontend
