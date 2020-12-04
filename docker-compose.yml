@@ -1,0 +1,33 @@
+version: '3'
+services:
+  servigest-frontend:
+    build: servigest-frontend/.
+    container_name: servigest-frontend
+    environment:
+      - API_URL=http://192.168.1.44:8080/api
+    ports:
+      - "80:80"
+    depends_on:
+      - servigest-backend
+
+  servigest-backend:
+    build: servigest-backend/.
+    container_name: servigest-backend
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://servigest-db:3306/servigest?serverTimezone=UTC
+      - SPRING_JPA_HIBERNATE_DDL-AUTO=update
+    ports:
+      - 8080:8080
+    depends_on:
+      - servigest-db
+
+  servigest-db:
+    image: mysql:5.7
+    container_name: servigest-db
+    ports: 
+      - 3306:3306
+    environment: 
+      MYSQL_DATABASE: servigest
+      MYSQL_ROOT_PASSWORD: root
+      # MYSQL_USER: 
+      # MYSQL_PASSWORD: 
