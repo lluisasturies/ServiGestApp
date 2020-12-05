@@ -37,7 +37,7 @@ public class Aparato {
 	@JsonIgnore
 	private List<ViviendaAparato> viviendas;
 	
-	@Column
+	@Column(unique = true)
 	@NotNull
 	private String modelo;
 

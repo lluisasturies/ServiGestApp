@@ -33,7 +33,7 @@ public class Empresa {
 	@JsonIgnore
     private List<Orden> ordenes;
 	
-	@Column
+	@Column(unique = true)
 	@NotNull
 	private String nombreComercial;
 	

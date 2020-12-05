@@ -31,7 +31,7 @@ public class AparatoMarca {
 	@JsonIgnore
 	private List<Aparato> aparatos;
 	
-	@Column
+	@Column(unique = true)
 	@NotNull
 	private String nombre;
 	
