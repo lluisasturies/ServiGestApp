@@ -8,11 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import com.lluis.ServiGest.enums.TipoContacto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -34,15 +34,10 @@ public class ClienteContacto {
 	
 	@Column
 	@NotNull
-	private String contacto;
+	private TipoContacto tipo;
 	
-	@Column
+	@Column(unique = true)
 	@NotNull
-	private Integer telefono;
-	
-	@Column
-	@NotNull
-	@Email
-	private String email;
+	private String dato;
 
 }
