@@ -51,6 +51,9 @@ public class Vivienda {
 	private String direccion;
 	
 	@Column
+	private String coordenadas;
+	
+	@Column
 	@NotNull
 	private String localidad;
 	
