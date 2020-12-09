@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 // Servicios
@@ -32,7 +32,8 @@ export class VerViviendaComponent implements OnInit {
     private _viviendasAparatos: ViviendasAparatosService,
     private confirmationDialogService: ConfirmationDialogService,
     private route: ActivatedRoute,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -84,6 +85,18 @@ export class VerViviendaComponent implements OnInit {
     modalRef.componentInstance.vivienda = this.vivienda;
     modalRef.result.then((result) => {
       this.ngOnInit();
+    });
+  }
+
+  // Borrar una Vivienda
+  borrarVivienda() {
+    this.confirmationDialogService.confirm('Confirmar', '¿Estás seguro de que quieres borrar esta vivienda?')
+    .then((confirmed) => {
+      if (confirmed) {
+        this._viviendas.deleteVivienda(this.vivienda).subscribe(data => {
+          this.router.navigate(['viviendas']);
+        });
+      }
     });
   }
 

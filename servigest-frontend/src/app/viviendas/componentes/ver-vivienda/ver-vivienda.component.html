@@ -13,9 +13,16 @@
       </p>
     </div>
     <div class="col">
-      <a (click)="editarVivienda()" class="btn btn-warning">Editar</a>
       <a (click)="addViviendaAparato()" class="btn btn-info">Añadir Aparato</a>
       <a (click)="nuevaOrden()" class="btn btn-success">Crear Orden</a>
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem (click)="editarVivienda()">Editar</button>
+          <div class="dropdown-divider"></div>
+          <button ngbDropdownItem (click)="borrarVivienda()">Borrar</button>
+        </div>
+      </div>
       <h3>Aparatos</h3>
       <table class="table" *ngIf="vivienda.aparatos">
         <thead>
