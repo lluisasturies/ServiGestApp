@@ -1,8 +1,13 @@
 <div class="container animated fadeIn">
   <div class="row">
     <div class="col">
-      <p>{{vivienda.direccion}}</p>
+      <p>
+        <a [href]="['https://www.google.com/maps/search/?api=1&query=' + vivienda.direccion]">{{vivienda.direccion}}</a>
+      </p>
       <p>{{vivienda.localidad}}, {{vivienda.provincia}}</p>
+      <p *ngIf="vivienda.coordenadas">
+        <strong>GPS: </strong><a [href]="['https://www.google.com/maps/search/?api=1&query=' + vivienda.coordenadas]">{{vivienda.coordenadas}}</a>
+      </p>
       <p *ngIf="vivienda.propietario">
         Propietario: <a [routerLink]="['/clientes/ver', vivienda.propietario.idCliente]">{{vivienda.propietario.nombre}}
           {{vivienda.propietario.apellidos}}</a>

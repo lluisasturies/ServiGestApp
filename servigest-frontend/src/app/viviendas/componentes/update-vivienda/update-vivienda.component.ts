@@ -46,6 +46,7 @@ export class UpdateViviendaComponent implements OnInit {
       direccion: new FormControl(this.vivienda.direccion, Validators.required),
       localidad: new FormControl(this.vivienda.localidad, Validators.required),
       provincia: new FormControl(this.vivienda.provincia, Validators.required),
+      coordenadas: new FormControl(this.vivienda.coordenadas),
       propietario: new FormControl(null),
       inquilino: new FormControl(null)
     });

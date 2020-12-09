@@ -19,6 +19,10 @@
       <input [class.is-invalid]="viviendaForm.get('provincia').touched && viviendaForm.get('provincia').invalid"  type="text" class="form-control" formControlName="provincia" name="provincia" placeholder="Provincia" required>
     </div>
     <div class="form-group">
+      <label for="coordenadas">Coordenadas GPS</label>
+      <input [class.is-invalid]="viviendaForm.get('coordenadas').touched && viviendaForm.get('coordenadas').invalid"  type="text" class="form-control" formControlName="coordenadas" placeholder="Lat,Long" required>
+    </div>
+    <div class="form-group">
       <label for="idPropietario">Propietario</label>
       <select [class.is-invalid]="viviendaForm.get('propietario').touched && viviendaForm.get('propietario').invalid" class="form-control" formControlName="propietario" name="propietario">
         <option [ngValue]="null" selected>--- Sin Propietario ---</option>
