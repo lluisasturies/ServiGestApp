@@ -27,12 +27,16 @@ public class AparatoTipoServiceImpl implements AparatoTipoService {
 
 	@Override
 	public void add(AparatoTipo aparatoTipo) {
+		aparatoTipo.setNombre(aparatoTipo.getNombre());
+		
 		aparatoTipoDAO.save(aparatoTipo);
 	}
 
 	@Override
 	public void update(AparatoTipo aparatoTipo) {
 		if (aparatoTipoDAO.existsById(aparatoTipo.getIdTipo())) {
+			aparatoTipo.setNombre(aparatoTipo.getNombre());
+			
 			aparatoTipoDAO.save(aparatoTipo);
 		}
 	}
