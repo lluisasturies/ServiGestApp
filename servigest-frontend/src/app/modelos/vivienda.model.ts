@@ -11,4 +11,5 @@ export class Vivienda {
     direccion: string;
     localidad: string;
     provincia: string;
+    coordenadas: string;
 }
