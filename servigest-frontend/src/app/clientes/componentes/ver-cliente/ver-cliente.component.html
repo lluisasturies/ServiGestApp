@@ -6,23 +6,22 @@
         </div>
         <div class="col">
         <a (click)="addContacto()" class="btn btn-success">Añadir Contacto</a>
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem (click)="editarCliente()">Editar</button>
+              <div class="dropdown-divider"></div>
+              <button ngbDropdownItem (click)="borrarCliente()">Borrar</button>
+            </div>
+          </div>
             <div class="card">
                 <h5 class="card-header">Contactos</h5>
                 <div class="card-body">
                     <table class="table" *ngIf="cliente.contactos">
-                        <thead>
-                            <tr>
-                                <th scope="col">Contacto</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Telefono</th>
-                                <td scope="col"></td>
-                            </tr>
-                        </thead>
                         <tbody>
                             <tr *ngFor="let contacto of cliente.contactos">
-                                <td>{{contacto.contacto}}</td>
-                                <td><a href="mailto:{{contacto.email}}">{{contacto.email}}</a></td>
-                                <td><a href="tel:{{contacto.telefono}}">{{contacto.telefono}}</a></td>
+                                <td *ngIf="contacto.tipo == 'TELEFONO'"><i class="fas fa-phone-alt"></i><a href="tel:{{contacto.dato}}">{{contacto.dato}}</a></td>
+                                <td *ngIf="contacto.tipo == 'EMAIL'"><i class="fas fa-envelope"></i><a href="mailto:{{contacto.dato}}">{{contacto.dato}}</a></td>
                                 <td>
                                    <div ngbDropdown class="d-inline-block">
                                         <button class="btn btn-outline-primary btn-sm" id="dropdownBasic1" ngbDropdownToggle>Acción</button>

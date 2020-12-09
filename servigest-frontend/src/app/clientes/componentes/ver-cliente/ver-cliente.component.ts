@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 // Servicios
@@ -11,6 +11,7 @@ import { ClienteContacto } from 'src/app/modelos/cliente-contacto.model';
 import { AddContactoComponent } from '../add-contacto/add-contacto.component';
 import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
 import { ClientesContactosService } from 'src/app/servicios/clientes-contactos.service';
+import { UpdateClienteComponent } from '../update-cliente/update-cliente.component';
 
 @Component({
   selector: 'app-ver-cliente',
@@ -28,7 +29,8 @@ export class VerClienteComponent implements OnInit {
     private _clientesContactos: ClientesContactosService,
     private route: ActivatedRoute,
     private confirmationDialogService: ConfirmationDialogService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -65,6 +67,27 @@ export class VerClienteComponent implements OnInit {
   //
   editarContacto(clienteContacto: ClienteContacto) {
     
+  }
+
+  // Modal Editar Cliente
+  editarCliente() {
+    const modalRef = this.modalService.open(UpdateClienteComponent);
+    modalRef.componentInstance.cliente = this.cliente;
+    modalRef.result.then((result) => {
+      this.ngOnInit();
+    });
+  }
+
+  // Borrar un Cliente
+  borrarCliente() {
+    this.confirmationDialogService.confirm('Confirmar', '¿Estás seguro de que quieres borrar este cliente?')
+    .then((confirmed) => {
+      if (confirmed) {
+        this._clientes.deleteCliente(this.cliente).subscribe(data => {
+          this.router.navigate(['clientes']);
+        });
+      }
+    });
   }
 
 }
