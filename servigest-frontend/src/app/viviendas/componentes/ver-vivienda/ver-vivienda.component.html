@@ -13,7 +13,7 @@
       </p>
     </div>
     <div class="col">
-      <a [routerLink]="['/viviendas/editar/', vivienda.idVivienda]" class="btn btn-warning">Editar</a>
+      <a (click)="editarVivienda()" class="btn btn-warning">Editar</a>
       <a (click)="addViviendaAparato()" class="btn btn-info">Añadir Aparato</a>
       <a (click)="nuevaOrden()" class="btn btn-success">Crear Orden</a>
       <h3>Aparatos</h3>

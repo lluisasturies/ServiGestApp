@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -9,6 +9,7 @@ import { ClientesService } from 'src/app/servicios/clientes.service';
 // Modelos
 import { Vivienda } from 'src/app/modelos/Vivienda.model';
 import { Cliente } from 'src/app/modelos/Cliente.model';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-update-vivienda',
@@ -18,16 +19,19 @@ import { Cliente } from 'src/app/modelos/Cliente.model';
 export class UpdateViviendaComponent implements OnInit {
 
   // Variables
-  vivienda: Vivienda = new Vivienda();
-  clientes: Cliente[];
-  cliente: Cliente = new Cliente();
-  viviendaForm: FormGroup;
+  @Input() vivienda: Vivienda;
+  
+  public clientes: Cliente[];
+  public cliente: Cliente = new Cliente();
+  public viviendaForm: FormGroup;
+  public isFail = false;
+  public errorMsg = '';
 
   constructor(
     private _viviendas: ViviendasService,
     private _clientes: ClientesService,
     private route: ActivatedRoute,
-    private router: Router
+    public modalService: NgbActiveModal
   ) { }
 
   ngOnInit(): void {
@@ -38,7 +42,7 @@ export class UpdateViviendaComponent implements OnInit {
 
     // Creo el FormGroup
     this.viviendaForm = new FormGroup({
-      idVivienda: new FormControl('', Validators.required),
+      idVivienda: new FormControl(this.vivienda.idVivienda),
       direccion: new FormControl(this.vivienda.direccion, Validators.required),
       localidad: new FormControl(this.vivienda.localidad, Validators.required),
       provincia: new FormControl(this.vivienda.provincia, Validators.required),
@@ -83,7 +87,7 @@ export class UpdateViviendaComponent implements OnInit {
     this.vivienda = Object.assign({}, this.viviendaForm.value);
 
     this._viviendas.updateVivienda(this.vivienda).subscribe(data => {
-      this.router.navigate(['viviendas/ver/' + this.vivienda.idVivienda]);
+      this.modalService.close();
     });
   }
 

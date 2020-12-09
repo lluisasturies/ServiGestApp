@@ -9,7 +9,7 @@
     <div class="form-group">
       <label for="idEmpresa">Empresa</label>
       <select class="form-control" [class.is-invalid]="ordenForm.get('empresa').touched && ordenForm.get('empresa').invalid" formControlName="empresa" data-live-search="true" required>
-        <option *ngFor="let empresa of empresas" [ngValue]="empresa">{{empresa.nombreFiscal}} - {{empresa.nombreComercial}}</option>
+        <option *ngFor="let empresa of empresas" [ngValue]="empresa">{{empresa.nombreComercial}} - {{empresa.nombreFiscal}}</option>
       </select>
     </div>
     <div class="form-group">

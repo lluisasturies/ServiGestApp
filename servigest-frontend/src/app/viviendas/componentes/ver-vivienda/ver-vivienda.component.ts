@@ -13,6 +13,7 @@ import { ViviendaAparato } from 'src/app/modelos/vivienda-aparato.model';
 import { AddViviendaAparatoComponent } from 'src/app/viviendas/componentes/add-vivienda-aparato/add-vivienda-aparato.component';
 import { AddOrdenComponent } from 'src/app/ordenes/componentes/add-orden/add-orden.component';
 import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
+import { UpdateViviendaComponent } from '../update-vivienda/update-vivienda.component';
 
 @Component({
   selector: 'app-ver-vivienda',
@@ -71,6 +72,15 @@ export class VerViviendaComponent implements OnInit {
   // Modal Asociar Aparato a Vivienda
   addViviendaAparato() {
     const modalRef = this.modalService.open(AddViviendaAparatoComponent);
+    modalRef.componentInstance.vivienda = this.vivienda;
+    modalRef.result.then((result) => {
+      this.ngOnInit();
+    });
+  }
+
+  // Modal Editar Vivienda
+  editarVivienda() {
+    const modalRef = this.modalService.open(UpdateViviendaComponent);
     modalRef.componentInstance.vivienda = this.vivienda;
     modalRef.result.then((result) => {
       this.ngOnInit();
