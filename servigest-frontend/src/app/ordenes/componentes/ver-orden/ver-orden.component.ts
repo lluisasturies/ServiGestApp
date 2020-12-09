@@ -15,6 +15,7 @@ import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog
 import { OrdenesLineasService } from 'src/app/servicios/ordenes-lineas.service';
 import { OrdenLinea } from 'src/app/modelos/Orden-linea.model';
 import { OrdenCita } from 'src/app/modelos/orden-cita.model';
+import { UpdateOrdenComponent } from '../update-orden/update-orden.component';
 
 @Component({
   selector: 'app-ver-orden',
@@ -68,8 +69,8 @@ export class VerOrdenComponent implements OnInit {
   }
 
   // Cambia el estado de la Orden
-  cambiarEstadoOrden(idOrden): void {
-    this._ordenes.updateEstadoOrden(idOrden).subscribe(data => {
+  cambiarEstadoOrden(): void {
+    this._ordenes.updateEstadoOrden(this.orden.idOrden).subscribe(data => {
       this.ngOnInit();
     });
   }
@@ -93,6 +94,27 @@ export class VerOrdenComponent implements OnInit {
       if (confirmed) {
         this._ordenesCitas.deleteCita(ordenCita).subscribe(data => {
           this.ngOnInit();
+        });
+      }
+    });
+  }
+
+  // Modal Editar Orden
+  editarOrden() {
+    const modalRef = this.modalService.open(UpdateOrdenComponent);
+    modalRef.componentInstance.orden = this.orden;
+    modalRef.result.then((result) => {
+      this.ngOnInit();
+    });
+  }
+
+  // Borrar una Orden
+  borrarOrden() {
+    this.confirmationDialogService.confirm('Confirmar', '¿Estás seguro de que quieres borrar esta orden?')
+    .then((confirmed) => {
+      if (confirmed) {
+        this._ordenes.deleteOrden(this.orden).subscribe(data => {
+          
         });
       }
     });

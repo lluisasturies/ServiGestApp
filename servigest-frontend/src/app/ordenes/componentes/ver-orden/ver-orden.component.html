@@ -28,8 +28,16 @@
     <div class="col-4">
       <a *ngIf="orden.estado" (click)="addOrdenCita()" class="btn btn-primary">Nueva Cita</a>
       <a *ngIf="orden.estado" (click)="addOrdenLinea()" class="btn btn-success">Añadir Linea</a>
-      <a *ngIf="orden.estado" (click)="cambiarEstadoOrden(orden.idOrden)" class="btn btn-danger">Cerrar Orden</a>
-      <a *ngIf="!orden.estado" (click)="cambiarEstadoOrden(orden.idOrden)" class="btn btn-secondary">Abrir Orden</a>
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button *ngIf="orden.estado" ngbDropdownItem (click)="editarOrden()">Editar</button>
+          <button ngbDropdownItem *ngIf="orden.estado" (click)="cambiarEstadoOrden()">Cerrar</button>
+          <button ngbDropdownItem *ngIf="!orden.estado" (click)="cambiarEstadoOrden()">Abrir</button>
+          <div class="dropdown-divider"></div>
+          <button ngbDropdownItem (click)="borrarOrden()">Borrar</button>
+        </div>
+      </div>
     </div>
   </div>
 

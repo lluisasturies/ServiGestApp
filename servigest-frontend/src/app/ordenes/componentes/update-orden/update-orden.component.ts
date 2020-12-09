@@ -32,6 +32,7 @@ export class UpdateOrdenComponent implements OnInit {
 
     // Creo el FormGroup
     this.ordenForm = new FormGroup({
+      idOrden: new FormControl(this.orden.idOrden),
       vivienda: new FormControl(this.orden.vivienda),
       empresa: new FormControl(this.orden.empresa, Validators.required),
       orden: new FormControl(this.orden.orden, Validators.required),
