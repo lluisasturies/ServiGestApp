@@ -27,7 +27,7 @@ public class AparatoTipoServiceImpl implements AparatoTipoService {
 
 	@Override
 	public void add(AparatoTipo aparatoTipo) {
-		aparatoTipo.setNombre(aparatoTipo.getNombre());
+		aparatoTipo.setNombre(aparatoTipo.getNombre().toUpperCase());
 		
 		aparatoTipoDAO.save(aparatoTipo);
 	}
@@ -35,7 +35,7 @@ public class AparatoTipoServiceImpl implements AparatoTipoService {
 	@Override
 	public void update(AparatoTipo aparatoTipo) {
 		if (aparatoTipoDAO.existsById(aparatoTipo.getIdTipo())) {
-			aparatoTipo.setNombre(aparatoTipo.getNombre());
+			aparatoTipo.setNombre(aparatoTipo.getNombre().toUpperCase());
 			
 			aparatoTipoDAO.save(aparatoTipo);
 		}
