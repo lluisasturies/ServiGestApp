@@ -81,6 +81,9 @@ public class UsuarioController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos erroneos");
     	}
 		
+		// Codifico el password
+        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+		
 		usuarioService.update(usuario);
 	}
 	
