@@ -29,13 +29,17 @@ export class UpdateUsuarioComponent implements OnInit {
       id: new FormControl(this.usuario.id),
       nombre: new FormControl(this.usuario.nombre, Validators.required),
       email: new FormControl(this.usuario.email, Validators.required),
-      password: new FormControl(this.usuario.password),
+      password: new FormControl(''),
       rol: new FormControl(this.usuario.rol)
     });
   }
 
   // Actualizar el Usuario
   actualizarUsuario() {
+    if (!this.usuarioForm.controls.password.value) {
+      this.usuarioForm.controls.password.setValue(this.usuario.password);
+    }
+
     this.usuario = Object.assign({}, this.usuarioForm.value);
 
     this._usuarios.updateUsuario(this.usuario).subscribe(data => {

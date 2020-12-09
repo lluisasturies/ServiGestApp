@@ -34,7 +34,7 @@ export class AddEmpresaContactoComponent implements OnInit {
 
   guardarEmpresaContacto() {
     this.empresaContacto = Object.assign({}, this.empresaContactoForm.value);
-    console.log(this.empresaContacto);
+
     this._empresasContactos.addEmpresaContacto(this.empresaContacto).subscribe(data => {
       this.modalService.close();
     });
