@@ -36,7 +36,13 @@ export class ClientesComponent implements OnInit {
   opcionesDt(): void {
     this.dtOptions = {
       pageLength: 25, // Registros por pagina
-      language: { url: '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json' } // Español
+      language: { url: '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json' }, // Español
+      columnDefs: [
+        {
+        targets: 3,
+        searchable: true,
+        visible: false
+      }]
     };
   }
 
