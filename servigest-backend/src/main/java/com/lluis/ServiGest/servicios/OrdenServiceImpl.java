@@ -36,12 +36,18 @@ public class OrdenServiceImpl implements OrdenService {
 
 	@Override
 	public void add(Orden orden) {
+		orden.setAsunto(orden.getAsunto().toUpperCase());
+		orden.setOrden(orden.getOrden().toUpperCase());
+		
 		ordenDAO.save(orden);
 	}
 
 	@Override
 	public void update(Orden orden) {
 		if (ordenDAO.existsById(orden.getIdOrden())) {
+			orden.setAsunto(orden.getAsunto().toUpperCase());
+			orden.setOrden(orden.getOrden().toUpperCase());
+			
 			ordenDAO.save(orden);
 		}
 	}
