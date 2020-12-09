@@ -27,12 +27,16 @@ public class AparatoMarcaServiceImpl implements AparatoMarcaService {
 
 	@Override
 	public void add(AparatoMarca aparatoMarca) {
+		aparatoMarca.setNombre(aparatoMarca.getNombre().toUpperCase());
+		
 		aparatoMarcaDAO.save(aparatoMarca);
 	}
 
 	@Override
 	public void update(AparatoMarca aparatoMarca) {
 		if (aparatoMarcaDAO.existsById(aparatoMarca.getIdMarca())) {
+			aparatoMarca.setNombre(aparatoMarca.getNombre().toUpperCase());
+			
 			aparatoMarcaDAO.save(aparatoMarca);
 		}
 	}
