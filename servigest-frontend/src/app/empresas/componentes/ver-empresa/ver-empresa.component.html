@@ -1,1 +1,39 @@
-<p>ver-empresa works!</p>
+<div class="container animated fadeIn">
+    <div class="row">
+        <div class="col-6">
+            <p>{{empresa.nombreComercial}}</p>
+        </div>
+        <div class="col">
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem (click)="addEmpresa()">Añadir Contacto</button>
+              <button ngbDropdownItem (click)="editarEmpresa()">Editar Empresa</button>
+              <div class="dropdown-divider"></div>
+              <button ngbDropdownItem (click)="borrarEmpresa()">Borrar</button>
+            </div>
+          </div>
+            <div class="card">
+                <h5 class="card-header">Contactos</h5>
+                <div class="card-body">
+                    <table class="table" *ngIf="empresa.contactos">
+                        <tbody>
+                            <tr *ngFor="let contacto of empresa.contactos">
+                                <td *ngIf="contacto.tipo == 'TELEFONO'"><i class="fas fa-phone-alt"></i><a href="tel:{{contacto.dato}}">{{contacto.dato}}</a></td>
+                                <td *ngIf="contacto.tipo == 'EMAIL'"><i class="fas fa-envelope"></i><a href="mailto:{{contacto.dato}}">{{contacto.dato}}</a></td>
+                                <td>
+                                   <div ngbDropdown class="d-inline-block">
+                                        <button class="btn btn-outline-primary btn-sm" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
+                                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                          <button ngbDropdownItem (click)="borrarContacto(contacto)">Borrar</button>
+                                        </div>
+                                      </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
