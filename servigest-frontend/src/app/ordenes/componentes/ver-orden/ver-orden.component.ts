@@ -1,6 +1,6 @@
 import { OrdenesCitasService } from 'src/app/servicios/ordenes-citas.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbAlertConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 // Servicios
@@ -34,7 +34,8 @@ export class VerOrdenComponent implements OnInit {
     private _ordenesCitas: OrdenesCitasService,
     private route: ActivatedRoute,
     private confirmationDialogService: ConfirmationDialogService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -114,7 +115,7 @@ export class VerOrdenComponent implements OnInit {
     .then((confirmed) => {
       if (confirmed) {
         this._ordenes.deleteOrden(this.orden).subscribe(data => {
-          
+          this.router.navigate(['viviendas/ver/' + this.orden.vivienda.idVivienda]);
         });
       }
     });
