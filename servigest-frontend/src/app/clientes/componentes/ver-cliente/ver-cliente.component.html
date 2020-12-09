@@ -5,11 +5,11 @@
             <p>{{cliente.dni}}</p>
         </div>
         <div class="col">
-        <a (click)="addContacto()" class="btn btn-success">Añadir Contacto</a>
         <div ngbDropdown class="d-inline-block">
             <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <button ngbDropdownItem (click)="editarCliente()">Editar</button>
+                <button ngbDropdownItem (click)="addContacto()">Añadir Contacto</button>
+              <button ngbDropdownItem (click)="editarCliente()">Editar Cliente</button>
               <div class="dropdown-divider"></div>
               <button ngbDropdownItem (click)="borrarCliente()">Borrar</button>
             </div>
@@ -26,8 +26,6 @@
                                    <div ngbDropdown class="d-inline-block">
                                         <button class="btn btn-outline-primary btn-sm" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
                                         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                          <button ngbDropdownItem (click)="editarContacto(contacto)">Editar</button>
-                                          <div class="dropdown-divider"></div>
                                           <button ngbDropdownItem (click)="borrarContacto(contacto)">Borrar</button>
                                         </div>
                                       </div>
