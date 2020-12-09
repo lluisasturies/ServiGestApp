@@ -14,6 +14,7 @@ import { AddEmpresaComponent } from './componentes/add-empresa/add-empresa.compo
 import { UpdateEmpresaComponent } from './componentes/update-empresa/update-empresa.component';
 import { VerEmpresaComponent } from './componentes/ver-empresa/ver-empresa.component';
 import { AddContactoComponent } from './componentes/add-contacto/add-contacto.component';
+import { AddEmpresaContactoComponent } from './componentes/add-empresa-contacto/add-empresa-contacto.component';
 
 
 
@@ -23,7 +24,8 @@ import { AddContactoComponent } from './componentes/add-contacto/add-contacto.co
     AddEmpresaComponent,
     UpdateEmpresaComponent,
     VerEmpresaComponent,
-    AddContactoComponent
+    AddContactoComponent,
+    AddEmpresaContactoComponent
   ],
   imports: [
     CommonModule,
