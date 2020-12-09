@@ -27,12 +27,12 @@ public class EmpresaServiceImpl implements EmpresaService {
 
 	@Override
 	public void add(Empresa empresa) {
-		empresa.setNombreComercial(empresa.getNombreComercial().toUpperCase());
-		empresa.setNombreFiscal(empresa.getNombreFiscal());
-		empresa.setDireccion(empresa.getDireccion());
-		empresa.setLocalidad(empresa.getLocalidad());
-		empresa.setProvincia(empresa.getProvincia());
-		empresa.setPrefijoOrdenes(empresa.getPrefijoOrdenes());
+		empresa.setNombreComercial(empresa.getNombreComercial().toUpperCase().toUpperCase());
+		empresa.setNombreFiscal(empresa.getNombreFiscal().toUpperCase());
+		empresa.setDireccion(empresa.getDireccion().toUpperCase());
+		empresa.setLocalidad(empresa.getLocalidad().toUpperCase());
+		empresa.setProvincia(empresa.getProvincia().toUpperCase());
+		empresa.setPrefijoOrdenes(empresa.getPrefijoOrdenes().toUpperCase());
 		
 		empresaDAO.save(empresa);
 		
@@ -41,12 +41,12 @@ public class EmpresaServiceImpl implements EmpresaService {
 	@Override
 	public void update(Empresa empresa) {	
 		if (empresaDAO.existsById(empresa.getIdEmpresa())) {
-			empresa.setNombreComercial(empresa.getNombreComercial().toUpperCase());
-			empresa.setNombreFiscal(empresa.getNombreFiscal());
-			empresa.setDireccion(empresa.getDireccion());
-			empresa.setLocalidad(empresa.getLocalidad());
-			empresa.setProvincia(empresa.getProvincia());
-			empresa.setPrefijoOrdenes(empresa.getPrefijoOrdenes());
+			empresa.setNombreComercial(empresa.getNombreComercial().toUpperCase().toUpperCase());
+			empresa.setNombreFiscal(empresa.getNombreFiscal().toUpperCase());
+			empresa.setDireccion(empresa.getDireccion().toUpperCase());
+			empresa.setLocalidad(empresa.getLocalidad().toUpperCase());
+			empresa.setProvincia(empresa.getProvincia().toUpperCase());
+			empresa.setPrefijoOrdenes(empresa.getPrefijoOrdenes().toUpperCase());
 			
 			empresaDAO.save(empresa);
 		}		
