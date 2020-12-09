@@ -31,12 +31,20 @@ public class ClienteServiceImpl implements ClienteService {
 
 	@Override
 	public void add(Cliente cliente) {
+		cliente.setNombre(cliente.getNombre().toUpperCase());
+		cliente.setApellidos(cliente.getApellidos());
+		cliente.setDni(cliente.getDni().toUpperCase());
+		
 		clienteDAO.save(cliente);
 	}
 
 	@Override
 	public void update(Cliente cliente) {
 		if (clienteDAO.existsById(cliente.getIdCliente())) {
+			cliente.setNombre(cliente.getNombre().toUpperCase());
+			cliente.setApellidos(cliente.getApellidos());
+			cliente.setDni(cliente.getDni().toUpperCase());
+			
 			clienteDAO.save(cliente);
 		}
 	}
