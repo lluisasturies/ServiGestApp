@@ -42,9 +42,9 @@ export class VerEmpresaComponent implements OnInit {
     });
   }
 
-  addEmpresa() {
+  addContacto() {
     const modalRef = this.modalService.open(AddEmpresaContactoComponent);
-    modalRef.componentInstance.cliente = this.empresa;
+    modalRef.componentInstance.empresa = this.empresa;
     modalRef.result.then((result) => {
       this.ngOnInit();
     });

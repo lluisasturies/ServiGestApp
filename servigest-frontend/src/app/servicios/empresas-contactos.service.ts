@@ -23,7 +23,7 @@ export class EmpresasContactosService {
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   // Add
-  addEmrpesaContacto(empresaContacto: EmpresaContacto): Observable<EmpresaContacto> {
+  addEmpresaContacto(empresaContacto: EmpresaContacto): Observable<EmpresaContacto> {
     return this.http.post<EmpresaContacto>(this.apiURL + '/add', empresaContacto, { headers: this.headers });
   }
 
