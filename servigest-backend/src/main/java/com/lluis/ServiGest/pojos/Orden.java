@@ -37,7 +37,6 @@ public class Orden {
 	
 	@ManyToOne
 	@JoinColumn(name = "idVivienda")
-	//@JsonProperty(access = Access.WRITE)s
 	@JsonIgnoreProperties(allowSetters = true, value = {"ordenes"})
 	@NotNull
 	private Vivienda vivienda;

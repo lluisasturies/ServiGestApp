@@ -7,22 +7,16 @@
 <div class="modal-body">
   <form [formGroup]="clienteContactoForm" (ngSubmit)="guardarClienteContacto()">
       <div class="form-group">
-        <label for="">Telefono</label>
-        <input [class.is-invalid]="clienteContactoForm.get('telefono').touched && clienteContactoForm.get('telefono').invalid"
-          type="number" class="form-control" formControlName="telefono" name="telefono" placeholder="Numero de telefono"
-          required>
+        <label for="">Tipo</label>
+        <select class="form-control" [class.is-invalid]="clienteContactoForm.get('tipo').touched && clienteContactoForm.get('tipo').invalid" formControlName="tipo">
+          <option disabled selected value>-- Elegir tipo --</option>
+          <option value="TELEFONO">Teléfono</option>
+          <option value="EMAIL">Email</option>
+        </select>
       </div>
       <div class="form-group">
-        <label for="">Email</label>
-        <input [class.is-invalid]="clienteContactoForm.get('email').touched && clienteContactoForm.get('email').invalid"
-          type="email" class="form-control" formControlName="email" name="email" placeholder="Correo electrónico"
-          required>
-      </div>
-      <div class="form-group">
-        <label for="">Información</label>
-        <input [class.is-invalid]="clienteContactoForm.get('contacto').touched && clienteContactoForm.get('contacto').invalid"
-          type="text" class="form-control" formControlName="contacto" name="contacto" placeholder="Sobre este contacto"
-          required>
+        <label for="">Dato</label>
+        <input type="text" class="form-control" [class.is-invalid]="clienteContactoForm.get('dato').touched && clienteContactoForm.get('dato').invalid" formControlName="dato" required>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" (click)="modalService.close()">Cerrar</button>

@@ -29,14 +29,14 @@ export class AddContactoComponent implements OnInit {
     // Creo el FormGroup
     this.clienteContactoForm = new FormGroup({
       cliente: new FormControl(this.cliente),
-      telefono: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      contacto: new FormControl('', Validators.required)
+      tipo: new FormControl('', Validators.required),
+      dato: new FormControl('', Validators.required)
     });
   }
 
   guardarClienteContacto() {
     this.clienteContacto = Object.assign({}, this.clienteContactoForm.value);
+    console.log(this.clienteContacto);
     this._clientesContactos.addClienteContacto(this.clienteContacto).subscribe(data => {
       this.modalService.close();
     });
