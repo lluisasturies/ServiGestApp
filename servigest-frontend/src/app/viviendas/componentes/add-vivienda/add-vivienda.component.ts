@@ -39,8 +39,8 @@ export class AddViviendaComponent implements OnInit {
       direccion: new FormControl('', Validators.required),
       localidad: new FormControl('', Validators.required),
       provincia: new FormControl('', Validators.required),
-      propietario: new FormControl(''),
-      inquilino: new FormControl('')
+      propietario: new FormControl(null),
+      inquilino: new FormControl(null)
     });
   }
 
