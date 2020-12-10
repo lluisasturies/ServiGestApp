@@ -33,7 +33,7 @@ public class OrdenLineaServiceImpl implements OrdenLineaService {
 			ordenLinea.setConcepto(ordenLinea.getConcepto().toUpperCase());
 			
 			ordenLineaDAO.save(ordenLinea);
-		} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La orden está cerrada");
+		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "La linea de orden no existe");
 	}
 
 	@Override
@@ -42,10 +42,8 @@ public class OrdenLineaServiceImpl implements OrdenLineaService {
 			if (ordenLineaDAO.findById(idTrabajo).get().getOrden().isEstado() == true) {
 				OrdenLinea ordenLinea = ordenLineaDAO.findById(idTrabajo).get();
 				ordenLineaDAO.delete(ordenLinea);
-			} else {
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La orden está cerrada");
-			}
-		}
+			} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La orden está cerrada");
+		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "La linea de orden no existe");
 	}
 
 }
