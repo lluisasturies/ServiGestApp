@@ -44,7 +44,7 @@ public class AparatoServiceImpl implements AparatoService {
 			
 				aparatoDAO.save(aparato);
 			} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El modelo ya existe");
-		}
+		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se encuentra aparato");
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class AparatoServiceImpl implements AparatoService {
 			Aparato aparato = aparatoDAO.findById(idAparato).get();
 			
 			aparatoDAO.delete(aparato);
-		}
+		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se encuentra aparato");
 	}
 
 }
