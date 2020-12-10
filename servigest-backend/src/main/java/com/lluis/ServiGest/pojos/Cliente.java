@@ -50,7 +50,6 @@ public class Cliente {
 	private String apellidos;
 	
 	@Column(unique = true)
-	@NotNull
 	private String dni;
 	
 }
