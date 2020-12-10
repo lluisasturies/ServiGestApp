@@ -8,8 +8,9 @@ import com.lluis.ServiGest.pojos.Empresa;
 @Repository
 public interface EmpresaDAO extends CrudRepository<Empresa,Integer>{
 
+	boolean existsByNombreComercial(String nombreComercial);
+	boolean existsByNombreFiscal(String nombreFiscal);
 	boolean existsByNif(String nif);
-
 	boolean existsByPrefijoOrdenes(String prefijo);
 
 }
