@@ -31,7 +31,7 @@ export class AddClienteComponent implements OnInit {
     this.clienteForm = new FormGroup({
       nombre: new FormControl('', Validators.required),
       apellidos: new FormControl('', Validators.required),
-      dni: new FormControl('', Validators.required)
+      dni: new FormControl('')
     });
   }
 

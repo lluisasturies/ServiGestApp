@@ -30,7 +30,7 @@ export class UpdateClienteComponent implements OnInit {
       idCliente: new FormControl(this.cliente.idCliente),
       nombre: new FormControl(this.cliente.nombre, Validators.required),
       apellidos: new FormControl(this.cliente.apellidos, Validators.required),
-      dni: new FormControl(this.cliente.dni, Validators.required)
+      dni: new FormControl(this.cliente.dni)
     });
   }
 
