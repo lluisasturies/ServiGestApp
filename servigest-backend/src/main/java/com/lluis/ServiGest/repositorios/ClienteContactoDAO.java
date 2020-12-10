@@ -16,4 +16,6 @@ public interface ClienteContactoDAO extends CrudRepository<ClienteContacto,Integ
 	@Transactional @Query(value="SELECT * FROM clientes_contactos WHERE id_cliente = :idCliente", nativeQuery=true)
 	List<ClienteContacto> contactosPorCliente(@Param("idCliente") Integer idCliente);
 
+	boolean existsByDato(String dato);
+
 }
