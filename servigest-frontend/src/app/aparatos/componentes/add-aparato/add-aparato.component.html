@@ -23,6 +23,7 @@
         <input [class.is-invalid]="aparatoForm.get('modelo').touched && aparatoForm.get('modelo').invalid"  type="text" class="form-control" formControlName="modelo" placeholder="" required>
       </div>
       <div class="modal-footer">
+        <div *ngIf="aparatoForm.touched && isFail" class="alert alert-danger mt-3">Error: {{ errorMsg }}</div>
         <button type="button" class="btn btn-secondary" (click)="modalService.close()">Cerrar</button>
         <button type="submit" class="btn btn-primary" [disabled]="aparatoForm.invalid">Crear</button>
       </div>
