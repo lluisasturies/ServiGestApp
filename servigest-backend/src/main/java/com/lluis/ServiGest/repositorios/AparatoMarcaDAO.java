@@ -6,5 +6,7 @@ import com.lluis.ServiGest.pojos.AparatoMarca;
 
 @Repository
 public interface AparatoMarcaDAO extends CrudRepository<AparatoMarca,Integer> {
+	
+	boolean existsByNombre(String nombre);
 
 }
