@@ -3,7 +3,9 @@ package com.lluis.ServiGest.servicios;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.lluis.ServiGest.dto.OrdenCitaProjection;
 import com.lluis.ServiGest.pojos.OrdenCita;
@@ -29,7 +31,7 @@ public class OrdenCitaServiceImpl implements OrdenCitaService {
 	public void update(OrdenCita ordenCita) {
 		if (ordenCitaDAO.existsById(ordenCita.getIdCita())) {
 			ordenCitaDAO.save(ordenCita);
-		}
+		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "La cita no existe");
 	}
 
 	@Override
@@ -37,7 +39,7 @@ public class OrdenCitaServiceImpl implements OrdenCitaService {
 		if (ordenCitaDAO.existsById(idCita)) {
 			OrdenCita ordenCita = ordenCitaDAO.findById(idCita).get();
 			ordenCitaDAO.delete(ordenCita);
-		}
+		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "La cita no existe");
 	}
 
 }
