@@ -44,7 +44,7 @@ public class AparatoMarcaServiceImpl implements AparatoMarcaService {
 			
 				aparatoMarcaDAO.save(aparatoMarca);
 			} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El nombre de marca ya existe");
-		}
+		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se encuentra la marca de aparato");
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class AparatoMarcaServiceImpl implements AparatoMarcaService {
 		if (aparatoMarcaDAO.existsById(idMarca)) {
 			AparatoMarca aparatoMarca = aparatoMarcaDAO.findById(idMarca).get();
 			aparatoMarcaDAO.delete(aparatoMarca);
-		}
+		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se encuentra la marca de aparato");
 	}
 
 }
