@@ -7,5 +7,7 @@ import com.lluis.ServiGest.pojos.Cliente;
 
 @Repository
 public interface ClienteDAO extends CrudRepository<Cliente,Integer> {
+	
+	boolean existsByDni(String dni);
 
 }
