@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import com.lluis.ServiGest.pojos.Aparato;
 
 @Repository
-public interface AparatoDAO extends CrudRepository<Aparato,Integer>{
+public interface AparatoDAO extends CrudRepository<Aparato,Integer> {
+	
+	boolean existsByModelo(String modelo);
 	
 }

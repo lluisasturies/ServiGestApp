@@ -3,7 +3,9 @@ package com.lluis.ServiGest.servicios;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.lluis.ServiGest.error.AparatoNotFoundException;
 import com.lluis.ServiGest.pojos.Aparato;
@@ -27,17 +29,21 @@ public class AparatoServiceImpl implements AparatoService {
 
 	@Override
 	public void add(Aparato aparato) {
-		aparato.setModelo(aparato.getModelo().toUpperCase());
-		
-		aparatoDAO.save(aparato);
+		if (!aparatoDAO.existsByModelo(aparato.getModelo())) {
+			aparato.setModelo(aparato.getModelo().toUpperCase());
+			
+			aparatoDAO.save(aparato);
+		} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El modelo ya existe");
 	}
 
 	@Override
 	public void update(Aparato aparato) {
 		if (aparatoDAO.existsById(aparato.getIdAparato())) {
-			aparato.setModelo(aparato.getModelo().toUpperCase());
+			if (!aparatoDAO.existsByModelo(aparato.getModelo())) {
+				aparato.setModelo(aparato.getModelo().toUpperCase());
 			
-			aparatoDAO.save(aparato);
+				aparatoDAO.save(aparato);
+			} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El modelo ya existe");
 		}
 	}
 
