@@ -6,5 +6,7 @@ import com.lluis.ServiGest.pojos.EmpresaContacto;
 
 @Repository
 public interface EmpresaContactoDAO extends CrudRepository<EmpresaContacto,Integer> {
+	
+	boolean existsByDato(String dato);
 
 }
