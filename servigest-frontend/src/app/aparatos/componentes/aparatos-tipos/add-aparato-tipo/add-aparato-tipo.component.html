@@ -8,7 +8,7 @@
     <form [formGroup]="aparatoTipoForm" (ngSubmit)="guardarAparatoMarca()">
       <div class="form-group">
         <label for="idEmpresa">Nombre</label>
-        <input type="text" formControlName="nombre" [class.is-invalid]="aparatoTipoForm.get('nombre').touched && aparatoTipoForm.get('nombre').invalid" class="form-control" required>
+        <input type="text" formControlName="nombre" [class.is-invalid]="aparatoTipoForm.get('nombre').touched && aparatoTipoForm.get('nombre').invalid" class="form-control" uppercase required>
       </div>
       <div class="modal-footer">
         <div *ngIf="aparatoTipoForm.touched && isFail" class="alert alert-danger mt-3">Error: {{ errorMsg }}</div>

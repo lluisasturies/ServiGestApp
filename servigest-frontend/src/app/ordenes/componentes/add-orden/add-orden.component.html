@@ -18,7 +18,7 @@
     </div>
     <div class="form-group">
       <label for="direccion">Asunto</label>
-      <input [class.is-invalid]="ordenForm.get('asunto').touched && ordenForm.get('asunto').invalid"  type="text" class="form-control" formControlName="asunto" placeholder="" required>
+      <input [class.is-invalid]="ordenForm.get('asunto').touched && ordenForm.get('asunto').invalid"  type="text" class="form-control" formControlName="asunto" placeholder="" uppercase required>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" (click)="modalService.close()">Cerrar</button>

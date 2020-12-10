@@ -1,18 +1,21 @@
 import { SortByPipe } from './pipes/sort-by.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { UppercaseInputDirective } from './directives/uppercase-input.directive';
 
 
 
 @NgModule({
   declarations: [
-    SortByPipe
+    SortByPipe, 
+    UppercaseInputDirective
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    SortByPipe
+    SortByPipe, 
+    UppercaseInputDirective
   ],
 })
 export class SharedModuleModule { }

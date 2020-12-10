@@ -15,6 +15,7 @@ import { UpdateEmpresaComponent } from './componentes/update-empresa/update-empr
 import { VerEmpresaComponent } from './componentes/ver-empresa/ver-empresa.component';
 import { AddContactoComponent } from './componentes/add-contacto/add-contacto.component';
 import { AddEmpresaContactoComponent } from './componentes/add-empresa-contacto/add-empresa-contacto.component';
+import { SharedModuleModule } from '../shared-module.module';
 
 
 
@@ -29,6 +30,7 @@ import { AddEmpresaContactoComponent } from './componentes/add-empresa-contacto/
   ],
   imports: [
     CommonModule,
+    SharedModuleModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

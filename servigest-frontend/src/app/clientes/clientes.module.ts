@@ -14,6 +14,7 @@ import { VerClienteComponent } from '../clientes/componentes/ver-cliente/ver-cli
 import { AddClienteComponent } from '../clientes/componentes/add-cliente/add-cliente.component';
 import { AddContactoComponent } from './componentes/add-contacto/add-contacto.component';
 import { UpdateClienteComponent } from './componentes/update-cliente/update-cliente.component';
+import { SharedModuleModule } from '../shared-module.module';
 
 
 
@@ -27,6 +28,7 @@ import { UpdateClienteComponent } from './componentes/update-cliente/update-clie
   ],
   imports: [
     CommonModule,
+    SharedModuleModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

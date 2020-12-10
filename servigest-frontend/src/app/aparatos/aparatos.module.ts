@@ -14,6 +14,7 @@ import { AddAparatoTipoComponent } from './componentes/aparatos-tipos/add-aparat
 import { AddAparatoMarcaComponent } from './componentes/aparatos-marcas/add-aparato-marca/add-aparato-marca.component';
 import { AparatosComponent } from './componentes/aparatos.component';
 import { AddAparatoComponent } from './componentes/add-aparato/add-aparato.component';
+import { SharedModuleModule } from '../shared-module.module';
 
 
 
@@ -28,6 +29,7 @@ import { AddAparatoComponent } from './componentes/add-aparato/add-aparato.compo
   ],
   imports: [
     CommonModule,
+    SharedModuleModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
