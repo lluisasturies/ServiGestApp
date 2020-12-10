@@ -19,6 +19,7 @@
         <input type="text" class="form-control" [class.is-invalid]="clienteContactoForm.get('dato').touched && clienteContactoForm.get('dato').invalid" formControlName="dato" required>
       </div>
       <div class="modal-footer">
+        <div *ngIf="clienteContactoForm.touched && isFail" class="alert alert-danger mt-3">Error: {{ errorMsg }}</div>
         <button type="button" class="btn btn-secondary" (click)="modalService.close()">Cerrar</button>
         <button type="submit" class="btn btn-primary" [disabled]="clienteContactoForm.invalid">Añadir</button>
       </div>

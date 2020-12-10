@@ -19,6 +19,8 @@ export class AddContactoComponent implements OnInit {
 
   public clienteContactoForm: FormGroup;
   public clienteContacto: ClienteContacto = new ClienteContacto();
+  public isFail = false;
+  public errorMsg = '';
 
   constructor(
     private _clientesContactos: ClientesContactosService,
@@ -36,9 +38,13 @@ export class AddContactoComponent implements OnInit {
 
   guardarClienteContacto() {
     this.clienteContacto = Object.assign({}, this.clienteContactoForm.value);
-    console.log(this.clienteContacto);
+    
     this._clientesContactos.addClienteContacto(this.clienteContacto).subscribe(data => {
       this.modalService.close();
+    },
+    (err: any) => {
+      this.isFail = true;
+      this.errorMsg = err.error.message;
     });
   }
 
