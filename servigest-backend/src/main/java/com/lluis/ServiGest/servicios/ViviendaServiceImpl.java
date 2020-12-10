@@ -29,7 +29,7 @@ public class ViviendaServiceImpl implements ViviendaService {
 
 	@Override
 	public void add(Vivienda vivienda) {
-		if (!viviendaDAO.existsByDirecion(vivienda.getDireccion())) {
+		if (!viviendaDAO.existsByDireccion(vivienda.getDireccion())) {
 			vivienda.setDireccion(vivienda.getDireccion().toUpperCase());
 			vivienda.setLocalidad(vivienda.getLocalidad().toUpperCase());
 			vivienda.setProvincia(vivienda.getProvincia().toUpperCase());
@@ -41,7 +41,7 @@ public class ViviendaServiceImpl implements ViviendaService {
 	@Override
 	public void update(Vivienda vivienda) {
 		if (viviendaDAO.existsById(vivienda.getIdVivienda())) {
-			if (!viviendaDAO.existsByDirecion(vivienda.getDireccion())) {
+			if (!viviendaDAO.existsByDireccion(vivienda.getDireccion())) {
 				vivienda.setDireccion(vivienda.getDireccion().toUpperCase());
 				vivienda.setLocalidad(vivienda.getLocalidad().toUpperCase());
 				vivienda.setProvincia(vivienda.getProvincia().toUpperCase());
