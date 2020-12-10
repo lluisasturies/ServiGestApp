@@ -3,7 +3,9 @@ package com.lluis.ServiGest.servicios;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.lluis.ServiGest.error.ViviendaNotFoundException;
 import com.lluis.ServiGest.pojos.Vivienda;
@@ -27,22 +29,26 @@ public class ViviendaServiceImpl implements ViviendaService {
 
 	@Override
 	public void add(Vivienda vivienda) {
-		vivienda.setDireccion(vivienda.getDireccion().toUpperCase());
-		vivienda.setLocalidad(vivienda.getLocalidad().toUpperCase());
-		vivienda.setProvincia(vivienda.getProvincia().toUpperCase());
-		
-		viviendaDAO.save(vivienda);
-	}
-
-	@Override
-	public void update(Vivienda vivienda) {
-		if (viviendaDAO.existsById(vivienda.getIdVivienda())) {
+		if (!viviendaDAO.existsByDirecion(vivienda.getDireccion())) {
 			vivienda.setDireccion(vivienda.getDireccion().toUpperCase());
 			vivienda.setLocalidad(vivienda.getLocalidad().toUpperCase());
 			vivienda.setProvincia(vivienda.getProvincia().toUpperCase());
 			
 			viviendaDAO.save(vivienda);
-		}
+		} throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Esta dirección ya existe");
+	}
+
+	@Override
+	public void update(Vivienda vivienda) {
+		if (viviendaDAO.existsById(vivienda.getIdVivienda())) {
+			if (!viviendaDAO.existsByDirecion(vivienda.getDireccion())) {
+				vivienda.setDireccion(vivienda.getDireccion().toUpperCase());
+				vivienda.setLocalidad(vivienda.getLocalidad().toUpperCase());
+				vivienda.setProvincia(vivienda.getProvincia().toUpperCase());
+				
+				viviendaDAO.save(vivienda);
+			} throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Esta dirección ya existe");
+		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "La vivienda no existe");
 	}
 
 	@Override
@@ -50,7 +56,7 @@ public class ViviendaServiceImpl implements ViviendaService {
 		if (viviendaDAO.existsById(idVivienda)) {
 			Vivienda vivienda = viviendaDAO.findById(idVivienda).get();
 			viviendaDAO.delete(vivienda);
-		}
+		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "La vivienda no existe");
 	}
 
 }

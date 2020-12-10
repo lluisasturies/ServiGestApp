@@ -18,4 +18,6 @@ public interface ViviendaDAO extends CrudRepository<Vivienda,Integer>{
 	@Transactional @Query(value="SELECT * FROM viviendas WHERE id_propietario = :idCliente OR id_inquilino = :idCliente", nativeQuery=true)
 	List<Vivienda> viviendasPorCliente(@Param("idCliente") Integer idCliente);
 	
+	boolean existsByDirecion(String direccion);
+	
 }
