@@ -45,7 +45,7 @@ public class AparatoTipoServiceImpl implements AparatoTipoService {
 			
 				aparatoTipoDAO.save(aparatoTipo);
 			} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Este tipo ya existe");
-		}
+		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se encuentra el tipo de aparato");
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class AparatoTipoServiceImpl implements AparatoTipoService {
 		if (aparatoTipoDAO.existsById(idTipo)) {
 			AparatoTipo aparatoTipo = aparatoTipoDAO.findById(idTipo).get();
 			aparatoTipoDAO.save(aparatoTipo);
-		}
+		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se encuentra el tipo de aparato");
 	}
 
 }
