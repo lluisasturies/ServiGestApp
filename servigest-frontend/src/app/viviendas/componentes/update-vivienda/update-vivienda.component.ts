@@ -89,6 +89,10 @@ export class UpdateViviendaComponent implements OnInit {
 
     this._viviendas.updateVivienda(this.vivienda).subscribe(data => {
       this.modalService.close();
+    },
+    (err: any) => {
+      this.isFail = true;
+      this.errorMsg = err.error.message;
     });
   }
 

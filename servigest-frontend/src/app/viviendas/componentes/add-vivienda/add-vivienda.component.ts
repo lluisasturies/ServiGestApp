@@ -56,6 +56,10 @@ export class AddViviendaComponent implements OnInit {
 
     this._viviendas.addVivienda(this.vivienda).subscribe(data => {
       this.modalService.close();
+    },
+    (err: any) => {
+      this.isFail = true;
+      this.errorMsg = err.error.message;
     });
   }
 
