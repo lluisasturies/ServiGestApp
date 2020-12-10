@@ -9,6 +9,7 @@
     <div class="form-group">
       <label for="">Aparatos</label>
       <select class="form-control selectpicker" [class.is-invalid]="aparatoViviendaForm.get('aparato').touched && aparatoViviendaForm.get('aparato').invalid" formControlName="aparato" name="aparato" data-live-search="true" required>
+        <option disabled selected value>-- Elegir aparato --</option>
         <option *ngFor="let ap of aparatos" [ngValue]="ap">{{ap.marca.nombre}} {{ap.modelo}}</option>
       </select>
     </div>
