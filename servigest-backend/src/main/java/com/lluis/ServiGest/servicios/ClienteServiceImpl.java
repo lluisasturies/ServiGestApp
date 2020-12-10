@@ -35,7 +35,7 @@ public class ClienteServiceImpl implements ClienteService {
 	public void add(Cliente cliente) {
 		if (!clienteDAO.existsByDni(cliente.getDni())) {
 			cliente.setNombre(cliente.getNombre().toUpperCase());
-			cliente.setApellidos(cliente.getApellidos());
+			cliente.setApellidos(cliente.getApellidos().toUpperCase());
 			cliente.setDni(cliente.getDni().toUpperCase());
 			
 			clienteDAO.save(cliente);
@@ -47,7 +47,7 @@ public class ClienteServiceImpl implements ClienteService {
 		if (clienteDAO.existsById(cliente.getIdCliente())) {
 			if (!clienteDAO.existsByDni(cliente.getDni())) {
 				cliente.setNombre(cliente.getNombre().toUpperCase());
-				cliente.setApellidos(cliente.getApellidos());
+				cliente.setApellidos(cliente.getApellidos().toUpperCase());
 				cliente.setDni(cliente.getDni().toUpperCase());
 				
 				clienteDAO.save(cliente);
