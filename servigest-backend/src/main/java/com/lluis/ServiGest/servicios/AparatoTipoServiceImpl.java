@@ -3,7 +3,9 @@ package com.lluis.ServiGest.servicios;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.lluis.ServiGest.error.AparatoTipoNotFoundException;
 import com.lluis.ServiGest.pojos.AparatoTipo;
@@ -27,17 +29,22 @@ public class AparatoTipoServiceImpl implements AparatoTipoService {
 
 	@Override
 	public void add(AparatoTipo aparatoTipo) {
-		aparatoTipo.setNombre(aparatoTipo.getNombre().toUpperCase());
+		if (!aparatoTipoDAO.existsByNombre(aparatoTipo.getNombre())) {
+			aparatoTipo.setNombre(aparatoTipo.getNombre().toUpperCase());
+			
+			aparatoTipoDAO.save(aparatoTipo);
+		} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Este tipo ya existe");
 		
-		aparatoTipoDAO.save(aparatoTipo);
 	}
 
 	@Override
 	public void update(AparatoTipo aparatoTipo) {
 		if (aparatoTipoDAO.existsById(aparatoTipo.getIdTipo())) {
-			aparatoTipo.setNombre(aparatoTipo.getNombre().toUpperCase());
+			if (!aparatoTipoDAO.existsByNombre(aparatoTipo.getNombre())) {
+				aparatoTipo.setNombre(aparatoTipo.getNombre().toUpperCase());
 			
-			aparatoTipoDAO.save(aparatoTipo);
+				aparatoTipoDAO.save(aparatoTipo);
+			} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Este tipo ya existe");
 		}
 	}
 

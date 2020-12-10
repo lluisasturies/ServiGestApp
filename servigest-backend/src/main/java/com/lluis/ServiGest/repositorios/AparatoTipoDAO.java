@@ -7,4 +7,6 @@ import com.lluis.ServiGest.pojos.AparatoTipo;
 @Repository
 public interface AparatoTipoDAO extends CrudRepository<AparatoTipo,Integer> {
 
+	boolean existsByNombre(String nombre);
+	
 }
