@@ -9,10 +9,13 @@ import org.springframework.web.server.ResponseStatusException;
 import com.lluis.ServiGest.pojos.Usuario;
 import com.lluis.ServiGest.repositorios.UsuarioDAO;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
 
 @Service
 @Transactional
+@Slf4j
 public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
@@ -32,7 +35,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     public void add(Usuario usuario) {
     	if (!usuarioDAO.existsByEmail(usuario.getEmail())) {
     		usuarioDAO.save(usuario);
-    	} throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El email ya existe");
+    	} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El email ya existe");
         
     }
 
