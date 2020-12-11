@@ -22,17 +22,17 @@ export class EmpresasTelefonosService {
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   // Add
-  addClienteTelefono(empresaTelefono: EmpresaTelefono): Observable<EmpresaTelefono> {
+  addEmpresaTelefono(empresaTelefono: EmpresaTelefono): Observable<EmpresaTelefono> {
     return this.http.post<EmpresaTelefono>(this.apiURL + '/add', empresaTelefono, { headers: this.headers });
   }
 
   // Update
-  updateClienteTelefono(empresaTelefono: EmpresaTelefono): Observable<EmpresaTelefono> {
+  updateEmpresaTelefono(empresaTelefono: EmpresaTelefono): Observable<EmpresaTelefono> {
     return this.http.put<EmpresaTelefono>(this.apiURL + '/update/', empresaTelefono, { headers: this.headers });
   }
 
   // Delete
-  deleteClienteTelefono(empresaTelefono: EmpresaTelefono): Observable<EmpresaTelefono> {
+  deleteEmpresaTelefono(empresaTelefono: EmpresaTelefono): Observable<EmpresaTelefono> {
     return this.http.delete<EmpresaTelefono>(this.apiURL + '/delete/' + empresaTelefono.telefono);
   }
 }

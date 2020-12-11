@@ -45,7 +45,7 @@ export class AddEmpresaContactoComponent implements OnInit {
       this.empresaTelefono.informacion = this.empresaContactoForm.controls.informacion.value;
       this.empresaTelefono.empresa = this.empresaContactoForm.controls.empresa.value;
 
-      this._empresasTelefonos.addClienteTelefono(this.empresaTelefono).subscribe(data => {
+      this._empresasTelefonos.addEmpresaTelefono(this.empresaTelefono).subscribe(data => {
         this.modalService.close();
       },
       (err: any) => {
@@ -58,7 +58,7 @@ export class AddEmpresaContactoComponent implements OnInit {
       this.empresaEmail.informacion = this.empresaContactoForm.controls.informacion.value;
       this.empresaEmail.empresa = this.empresaContactoForm.controls.empresa.value;
 
-      this._empresasEmails.addClienteEmail(this.empresaEmail).subscribe(data => {
+      this._empresasEmails.addEmpresaEmail(this.empresaEmail).subscribe(data => {
         this.modalService.close();
       },
       (err: any) => {

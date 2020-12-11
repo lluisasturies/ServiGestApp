@@ -20,6 +20,7 @@
                         <tbody>
                             <tr *ngFor="let telefono of empresa.telefonos">
                                 <td><i class="fas fa-phone-alt"></i><a href="tel:{{telefono.telefono}}">{{telefono.telefono}}</a></td>
+                                <td>{{telefono.informacion}}</td>
                                 <td>
                                    <div ngbDropdown class="d-inline-block">
                                         <button class="btn btn-outline-primary btn-sm" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
@@ -36,6 +37,7 @@
                         <tbody>
                             <tr *ngFor="let email of empresa.emails">
                                 <td><i class="fas fa-envelope"></i><a href="mailto:{{email.email}}">{{email.email}}</a></td>
+                                <td>{{email.informacion}}</td>
                                 <td>
                                    <div ngbDropdown class="d-inline-block">
                                         <button class="btn btn-outline-primary btn-sm" id="dropdownBasic1" ngbDropdownToggle>Acción</button>

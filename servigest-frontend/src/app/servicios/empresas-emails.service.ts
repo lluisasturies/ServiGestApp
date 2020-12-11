@@ -23,17 +23,17 @@ export class EmpresasEmailsService {
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   // Add
-  addClienteEmail(empresaEmail: EmpresaEmail): Observable<EmpresaEmail> {
+  addEmpresaEmail(empresaEmail: EmpresaEmail): Observable<EmpresaEmail> {
     return this.http.post<EmpresaEmail>(this.apiURL + '/add', empresaEmail, { headers: this.headers });
   }
 
   // Update
-  updateClienteEmail(empresaEmail: EmpresaEmail): Observable<EmpresaEmail> {
+  updateEmpresaEmail(empresaEmail: EmpresaEmail): Observable<EmpresaEmail> {
     return this.http.put<EmpresaEmail>(this.apiURL + '/update/', empresaEmail, { headers: this.headers });
   }
 
   // Delete
-  deleteClienteEmail(empresaEmail: EmpresaEmail): Observable<EmpresaEmail> {
+  deleteEmpresaEmail(empresaEmail: EmpresaEmail): Observable<EmpresaEmail> {
     return this.http.delete<EmpresaEmail>(this.apiURL + '/delete/' + empresaEmail.email);
   }
 }
