@@ -6,7 +6,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
@@ -54,22 +53,16 @@ public class UsuarioController {
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<?> add(@Valid @RequestBody Usuario nuevoUsuario, BindingResult bindingResult) {
+	public void add(@Valid @RequestBody Usuario nuevoUsuario, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos erroneos");
     	}
-        
-        if (usuarioService.existePorEmail(nuevoUsuario.getEmail())) {
-        	throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El email ya existe");
-        }
         
         // Codifico el password
         nuevoUsuario.setPassword(passwordEncoder.encode(nuevoUsuario.getPassword()));
         
         // Añado el nuevo Usuario
         usuarioService.add(nuevoUsuario);
-        
-        return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 	// UPDATE

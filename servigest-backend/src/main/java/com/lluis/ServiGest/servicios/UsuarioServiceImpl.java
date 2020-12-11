@@ -30,7 +30,10 @@ public class UsuarioServiceImpl implements UsuarioService {
     
     @Override
     public void add(Usuario usuario) {
-        usuarioDAO.save(usuario);
+    	if (!usuarioDAO.existsByEmail(usuario.getEmail())) {
+    		usuarioDAO.save(usuario);
+    	} throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El email ya existe");
+        
     }
 
 	@Override
@@ -47,10 +50,5 @@ public class UsuarioServiceImpl implements UsuarioService {
 			usuarioDAO.delete(usuario);
 		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "El usuario no existe");
 	}
-
-    @Override
-    public boolean existePorEmail(String email) {
-        return usuarioDAO.existsByEmail(email);
-    }
 
 }

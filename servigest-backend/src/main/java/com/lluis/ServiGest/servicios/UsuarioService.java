@@ -21,6 +21,4 @@ public interface UsuarioService {
 	// DELETE
 	public void delete(Long idUsuario);
 	
-	public boolean existePorEmail(String email);
-	
 }
