@@ -7,10 +7,8 @@ import { ClientesService } from 'src/app/servicios/clientes.service';
 
 // Modelos
 import { Cliente } from 'src/app/modelos/Cliente.model';
-import { ClienteContacto } from 'src/app/modelos/cliente-contacto.model';
 import { AddContactoComponent } from '../add-contacto/add-contacto.component';
 import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
-import { ClientesContactosService } from 'src/app/servicios/clientes-contactos.service';
 import { UpdateClienteComponent } from '../update-cliente/update-cliente.component';
 import { ClienteTelefono } from 'src/app/modelos/cliente-telefono.model';
 import { ClientesTelefonosService } from 'src/app/servicios/clientes-telefonos.service';
@@ -26,7 +24,6 @@ export class VerClienteComponent implements OnInit {
 
   // Variables
   cliente: Cliente = new Cliente();
-  contactos: ClienteContacto[];
 
   constructor(
     private _clientes: ClientesService,
@@ -82,7 +79,7 @@ export class VerClienteComponent implements OnInit {
   }
 
   //
-  editarContacto(clienteContacto: ClienteContacto) {
+  editarContacto() {
     
   }
 

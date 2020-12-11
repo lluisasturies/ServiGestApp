@@ -2,20 +2,32 @@
   <div class="row">
     <div class="col">
       <p>
-        <a [href]="['https://www.google.com/maps/search/?api=1&query=' + vivienda.direccion + ',' + vivienda.localidad + ',' + vivienda.provincia]">{{vivienda.direccion}}</a>
+        <strong><a [href]="['https://www.google.com/maps/search/?api=1&query=' + vivienda.direccion + ',' + vivienda.localidad + ',' + vivienda.provincia]">{{vivienda.direccion}}</a></strong>
       </p>
       <p>{{vivienda.localidad}}, {{vivienda.provincia}}</p>
       <p *ngIf="vivienda.coordenadas">
         <strong>GPS: </strong><a [href]="['https://www.google.com/maps/search/?api=1&query=' + vivienda.coordenadas]">{{vivienda.coordenadas}}</a>
       </p>
-      <p *ngIf="vivienda.propietario">
-        Propietario: <a [routerLink]="['/clientes/ver', vivienda.propietario.idCliente]">{{vivienda.propietario.nombre}}
-          {{vivienda.propietario.apellidos}}</a>
-      </p>
-      <p *ngIf="vivienda.inquilino">
-        Inquilino: <a [routerLink]="['/clientes/ver', vivienda.inquilino.idCliente]">{{vivienda.inquilino.nombre}}
-          {{vivienda.inquilino.apellidos}}</a>
-      </p>
+      <div *ngIf="vivienda.propietario">
+        <p>
+          <strong>Propietario: </strong><a [routerLink]="['/clientes/ver', vivienda.propietario.idCliente]">{{vivienda.propietario.nombre}} {{vivienda.propietario.apellidos}}</a>
+        </p>
+        <div *ngIf="vivienda.propietario.telefonos">
+          <p *ngFor="let telefono of vivienda.propietario.telefonos">
+            <i class="fas fa-phone-alt"></i><a href="tel:{{telefono.telefono}}">{{telefono.telefono}}</a> ({{telefono.informacion}})
+          </p>
+        </div>
+      </div>
+      <div *ngIf="vivienda.inquilino">
+        <p>
+          <strong>Inquilino: </strong><a [routerLink]="['/clientes/ver', vivienda.inquilino.idCliente]">{{vivienda.inquilino.nombre}} {{vivienda.inquilino.apellidos}}</a>
+        </p>
+        <div *ngIf="vivienda.inquilino.telefonos">
+          <p *ngFor="let telefono of vivienda.inquilino.telefonos">
+            <i class="fas fa-phone-alt"></i><a href="tel:{{telefono.telefono}}">{{telefono.telefono}}</a> ({{telefono.informacion}})
+          </p>
+        </div>
+      </div>
     </div>
     <div class="col">
       <a (click)="addViviendaAparato()" class="btn btn-info">Añadir Aparato</a>
