@@ -11,5 +11,5 @@ public interface ClienteEmailService {
 	public void update(ClienteEmail clienteEmail);
 	
 	// DELETE
-	public void delete(String email);
+	public void delete(Integer idEmail);
 }

@@ -40,11 +40,11 @@ public class EmpresaEmailController {
 	}
 		
 	// DELETE
-	@DeleteMapping("/delete/{email}")
+	@DeleteMapping("/delete/{idEmail}")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void delete(@PathVariable("email") String email) {
-		empresaEmailService.delete(email);
+	public void delete(@PathVariable("idEmail") Integer idEmail) {
+		empresaEmailService.delete(idEmail);
 	}
 	
 }

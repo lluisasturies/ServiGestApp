@@ -11,5 +11,5 @@ public interface ClienteTelefonoService {
 	public void update(ClienteTelefono clienteTelefono);
 	
 	// DELETE
-	public void delete(Integer telefono);
+	public void delete(Integer idTelefono);
 }

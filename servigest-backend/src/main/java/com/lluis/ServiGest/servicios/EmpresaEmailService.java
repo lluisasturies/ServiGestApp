@@ -11,5 +11,5 @@ public interface EmpresaEmailService {
 	public void update(EmpresaEmail empresaEmail);
 	
 	// DELETE
-	public void delete(String email);
+	public void delete(Integer idEmail);
 }

@@ -16,16 +16,31 @@
             <div class="card">
                 <h5 class="card-header">Contactos</h5>
                 <div class="card-body">
-                    <table class="table" *ngIf="empresa.contactos">
+                    <table class="table" *ngIf="empresa.telefonos">
                         <tbody>
-                            <tr *ngFor="let contacto of empresa.contactos">
-                                <td *ngIf="contacto.tipo == 'TELEFONO'"><i class="fas fa-phone-alt"></i><a href="tel:{{contacto.dato}}">{{contacto.dato}}</a></td>
-                                <td *ngIf="contacto.tipo == 'EMAIL'"><i class="fas fa-envelope"></i><a href="mailto:{{contacto.dato}}">{{contacto.dato}}</a></td>
+                            <tr *ngFor="let telefono of empresa.telefonos">
+                                <td><i class="fas fa-phone-alt"></i><a href="tel:{{telefono.telefono}}">{{telefono.telefono}}</a></td>
                                 <td>
                                    <div ngbDropdown class="d-inline-block">
                                         <button class="btn btn-outline-primary btn-sm" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
                                         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                          <button ngbDropdownItem (click)="borrarContacto(contacto)">Borrar</button>
+                                          <button ngbDropdownItem (click)="borrarTelefono(telefono)">Borrar</button>
+                                        </div>
+                                      </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table" *ngIf="empresa.emails">
+                        <tbody>
+                            <tr *ngFor="let email of empresa.emails">
+                                <td><i class="fas fa-envelope"></i><a href="mailto:{{email.email}}">{{email.email}}</a></td>
+                                <td>
+                                   <div ngbDropdown class="d-inline-block">
+                                        <button class="btn btn-outline-primary btn-sm" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
+                                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                          <button ngbDropdownItem (click)="borrarEmail(email)">Borrar</button>
                                         </div>
                                       </div>
                                 </td>

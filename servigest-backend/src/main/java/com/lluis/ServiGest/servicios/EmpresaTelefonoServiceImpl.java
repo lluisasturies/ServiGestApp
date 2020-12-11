@@ -30,9 +30,9 @@ public class EmpresaTelefonoServiceImpl implements EmpresaTelefonoService  {
 	}
 
 	@Override
-	public void delete(Integer telefono) {
-		if (empresaTelefonoDAO.existsByTelefono(telefono)) {
-			EmpresaTelefono empresaTelefono = empresaTelefonoDAO.findByTelefono(telefono).get();
+	public void delete(Integer idTelefono) {
+		if (empresaTelefonoDAO.existsById(idTelefono)) {
+			EmpresaTelefono empresaTelefono = empresaTelefonoDAO.findById(idTelefono).get();
 			empresaTelefonoDAO.delete(empresaTelefono);
 		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "El telefono no existe");
 	}

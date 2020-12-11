@@ -30,9 +30,9 @@ public class ClienteEmailServiceImpl implements ClienteEmailService  {
 	}
 
 	@Override
-	public void delete(String email) {
-		if (clienteEmailDAO.existsByEmail(email)) {
-			ClienteEmail clienteEmail = clienteEmailDAO.findByEmail(email).get();
+	public void delete(Integer idEmail) {
+		if (clienteEmailDAO.existsById(idEmail)) {
+			ClienteEmail clienteEmail = clienteEmailDAO.findById(idEmail).get();
 			clienteEmailDAO.delete(clienteEmail);
 		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "El contacto no existe");
 	}

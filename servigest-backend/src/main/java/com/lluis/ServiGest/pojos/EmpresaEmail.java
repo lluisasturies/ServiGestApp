@@ -2,6 +2,8 @@ package com.lluis.ServiGest.pojos;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,16 +24,20 @@ import lombok.Setter;
 public class EmpresaEmail {
 
 	@Id
-	@Email
-	private String email;
-	
-	@Column
-	private String dato;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Integer idEmail;
 	
 	@ManyToOne
 	@JoinColumn(name = "idEmpresa")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@NotNull
 	private Empresa empresa;
+	
+	@Column(unique=true)
+	@Email
+	private String email;
+	
+	@Column
+	private String informacion;
 	
 }

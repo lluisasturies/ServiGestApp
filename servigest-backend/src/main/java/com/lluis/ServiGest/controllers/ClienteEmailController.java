@@ -40,11 +40,11 @@ public class ClienteEmailController {
 	}
 		
 	// DELETE
-	@DeleteMapping("/delete/{email}")
+	@DeleteMapping("/delete/{idEmail}")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void delete(@PathVariable("email") String email) {
-		clienteEmailService.delete(email);
+	public void delete(@PathVariable("idEmail") Integer idEmail) {
+		clienteEmailService.delete(idEmail);
 	}
 	
 }

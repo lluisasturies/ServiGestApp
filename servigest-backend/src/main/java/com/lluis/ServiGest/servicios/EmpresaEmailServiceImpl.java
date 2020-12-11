@@ -30,9 +30,9 @@ public class EmpresaEmailServiceImpl implements EmpresaEmailService  {
 	}
 
 	@Override
-	public void delete(String email) {
-		if (empresaEmailDAO.existsByEmail(email)) {
-			EmpresaEmail empresaEmail = empresaEmailDAO.findByEmail(email).get();
+	public void delete(Integer idEmail) {
+		if (empresaEmailDAO.existsById(idEmail)) {
+			EmpresaEmail empresaEmail = empresaEmailDAO.findById(idEmail).get();
 			empresaEmailDAO.delete(empresaEmail);
 		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "El contacto no existe");
 	}
