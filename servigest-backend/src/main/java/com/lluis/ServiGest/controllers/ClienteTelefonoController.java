@@ -16,35 +16,35 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.lluis.ServiGest.pojos.ClienteContacto;
-import com.lluis.ServiGest.servicios.ClienteContactoService;
+import com.lluis.ServiGest.pojos.ClienteTelefono;
+import com.lluis.ServiGest.servicios.ClienteTelefonoService;
 
 @RestController
 @CrossOrigin
-@RequestMapping("api/clientes/contactos")
-public class ClienteContactoController {
+@RequestMapping("api/clientes/telefonos")
+public class ClienteTelefonoController {
 
 	@Autowired
-	ClienteContactoService clienteContactoService;
+	ClienteTelefonoService clienteTelefonoService;
 		
 	// ADD
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void add(@Valid @RequestBody ClienteContacto clienteContacto, BindingResult bindingResult) {
+	public void add(@Valid @RequestBody ClienteTelefono clienteTelefono, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos erroneos");
     	}
 		
-		clienteContactoService.add(clienteContacto);
+		clienteTelefonoService.add(clienteTelefono);
 	}
 		
 	// DELETE
-	@DeleteMapping("/delete/{idContacto}")
+	@DeleteMapping("/delete/{telefono}")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void delete(@PathVariable("idContacto") Integer idContacto) {
-		clienteContactoService.delete(idContacto);
+	public void delete(@PathVariable("telefono") Integer telefono) {
+		clienteTelefonoService.delete(telefono);
 	}
 	
 }

@@ -39,7 +39,10 @@ public class Cliente {
 	private List<Albaran> albaranes;
 	
 	@OneToMany(mappedBy = "cliente")
-    private List<ClienteContacto> contactos;
+    private List<ClienteTelefono> telefonos;
+	
+	@OneToMany(mappedBy = "cliente")
+    private List<ClienteEmail> emails;
 	
 	@Column
 	@NotNull

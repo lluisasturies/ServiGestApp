@@ -9,7 +9,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.lluis.ServiGest.error.ClienteNotFoundException;
 import com.lluis.ServiGest.pojos.Cliente;
-import com.lluis.ServiGest.repositorios.ClienteContactoDAO;
 import com.lluis.ServiGest.repositorios.ClienteDAO;
 
 @Service
@@ -17,9 +16,6 @@ public class ClienteServiceImpl implements ClienteService {
 	
 	@Autowired
 	ClienteDAO clienteDAO;
-	
-	@Autowired
-	ClienteContactoDAO clienteContactoDAO;
 
 	@Override
 	public List<Cliente> listaClientes() {

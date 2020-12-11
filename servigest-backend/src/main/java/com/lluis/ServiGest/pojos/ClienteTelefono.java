@@ -2,43 +2,36 @@ package com.lluis.ServiGest.pojos;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
-import com.lluis.ServiGest.enums.TipoContacto;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="empresas_contactos")
+@Table(name="clientes_telefonos")
 @Getter
 @Setter
-public class EmpresaContacto {
+public class ClienteTelefono {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer idContacto;
-	
-	@ManyToOne
-	@JoinColumn(name = "idEmpresa")
-	@JsonProperty(access = Access.WRITE_ONLY)
-	@NotNull
-	private Empresa empresa;
+	@Size(min = 9, max = 9)
+	private Integer telefono;
 	
 	@Column
-	@NotNull
-	private TipoContacto tipo;
-	
-	@Column(unique = true)
-	@NotNull
 	private String dato;
+	
+	@ManyToOne
+	@JoinColumn(name = "idCliente")
+	@JsonProperty(access = Access.WRITE_ONLY)
+	@NotNull
+	private Cliente cliente;
 	
 }

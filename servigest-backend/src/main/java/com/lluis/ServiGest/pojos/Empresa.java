@@ -27,7 +27,10 @@ public class Empresa {
 	private Integer idEmpresa;
 	
 	@OneToMany(mappedBy = "empresa")
-    private List<EmpresaContacto> contactos;
+    private List<EmpresaTelefono> telefonos;
+	
+	@OneToMany(mappedBy = "empresa")
+    private List<EmpresaEmail> emails;
 	
 	@OneToMany(mappedBy = "empresa")
 	@JsonIgnore
