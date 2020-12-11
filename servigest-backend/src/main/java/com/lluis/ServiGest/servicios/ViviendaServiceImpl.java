@@ -35,7 +35,7 @@ public class ViviendaServiceImpl implements ViviendaService {
 			vivienda.setProvincia(vivienda.getProvincia().toUpperCase());
 			
 			viviendaDAO.save(vivienda);
-		} throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Esta dirección ya existe");
+		} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Esta dirección ya existe");
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class ViviendaServiceImpl implements ViviendaService {
 				vivienda.setProvincia(vivienda.getProvincia().toUpperCase());
 				
 				viviendaDAO.save(vivienda);
-			} throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Esta dirección ya existe");
+			} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Esta dirección ya existe");
 		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "La vivienda no existe");
 	}
 
