@@ -41,13 +41,11 @@ public class ViviendaServiceImpl implements ViviendaService {
 	@Override
 	public void update(Vivienda vivienda) {
 		if (viviendaDAO.existsById(vivienda.getIdVivienda())) {
-			if (!viviendaDAO.existsByDireccion(vivienda.getDireccion())) {
-				vivienda.setDireccion(vivienda.getDireccion().toUpperCase());
-				vivienda.setLocalidad(vivienda.getLocalidad().toUpperCase());
-				vivienda.setProvincia(vivienda.getProvincia().toUpperCase());
+			vivienda.setDireccion(vivienda.getDireccion().toUpperCase());
+			vivienda.setLocalidad(vivienda.getLocalidad().toUpperCase());
+			vivienda.setProvincia(vivienda.getProvincia().toUpperCase());
 				
-				viviendaDAO.save(vivienda);
-			} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Esta dirección ya existe");
+			viviendaDAO.save(vivienda);
 		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "La vivienda no existe");
 	}
 
