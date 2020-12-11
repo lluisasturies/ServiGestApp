@@ -12,6 +12,10 @@ import { AddContactoComponent } from '../add-contacto/add-contacto.component';
 import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
 import { ClientesContactosService } from 'src/app/servicios/clientes-contactos.service';
 import { UpdateClienteComponent } from '../update-cliente/update-cliente.component';
+import { ClienteTelefono } from 'src/app/modelos/cliente-telefono.model';
+import { ClientesTelefonosService } from 'src/app/servicios/clientes-telefonos.service';
+import { ClientesEmailsService } from 'src/app/servicios/clientes-emails.service';
+import { ClienteEmail } from 'src/app/modelos/cliente-email.model';
 
 @Component({
   selector: 'app-ver-cliente',
@@ -26,7 +30,8 @@ export class VerClienteComponent implements OnInit {
 
   constructor(
     private _clientes: ClientesService,
-    private _clientesContactos: ClientesContactosService,
+    private _clientesTelefonos: ClientesTelefonosService,
+    private _clientesEmails: ClientesEmailsService,
     private route: ActivatedRoute,
     private confirmationDialogService: ConfirmationDialogService,
     private modalService: NgbModal,
@@ -52,12 +57,24 @@ export class VerClienteComponent implements OnInit {
     });
   }
 
-  // Borrar una linea de Contacto
-  borrarContacto(clienteContacto: ClienteContacto) {
-    this.confirmationDialogService.confirm('Confirmar', '¿Estás seguro de que quieres borrar este contacto?')
+  // Borrar un Telefono
+  borrarTelefono(clienteTelefono: ClienteTelefono) {
+    this.confirmationDialogService.confirm('Confirmar', '¿Estás seguro de que quieres borrar este telefono?')
     .then((confirmed) => {
       if (confirmed) {
-        this._clientesContactos.deleteClienteContacto(clienteContacto).subscribe(data => {
+        this._clientesTelefonos.deleteClienteTelefono(clienteTelefono).subscribe(data => {
+          this.ngOnInit();
+        });
+      }
+    });
+  }
+
+  // Borrar un Email
+  borrarEmail(clienteEmail: ClienteEmail) {
+    this.confirmationDialogService.confirm('Confirmar', '¿Estás seguro de que quieres borrar este email?')
+    .then((confirmed) => {
+      if (confirmed) {
+        this._clientesEmails.deleteClienteEmail(clienteEmail).subscribe(data => {
           this.ngOnInit();
         });
       }
