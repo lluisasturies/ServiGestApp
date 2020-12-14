@@ -50,7 +50,7 @@ public class Orden {
 	private List<OrdenLinea> lineas;
 	
 	@OneToMany(mappedBy = "orden")
-	@Where(clause = "fecha > CURRENT_TIMESTAMP()")
+	@Where(clause = "fecha >= CURRENT_DATE() && hora_fin > CURRENT_TIME()")
 	private List<OrdenCita> citasPendientes;
 	
 	@OneToMany(mappedBy = "orden")
