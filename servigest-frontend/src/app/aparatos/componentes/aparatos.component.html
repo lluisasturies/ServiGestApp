@@ -12,25 +12,76 @@
     </div>
 
     <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <h5 class="card-header">Tipos</h5>
+                <div class="card-body">
+                    <table *ngIf="tipos">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tipo</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let tipo of tipos">
+                                <td>{{tipo.nombre}}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="card">
+                <h5 class="card-header">Marcas</h5>
+                <div class="card-body">
+                    <table *ngIf="marcas">
+                        <thead>
+                            <tr>
+                                <th scope="col">Marca</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let marca of marcas">
+                                <td>{{marca.nombre}}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col">
-            <table class="table table-hover" datatable [dtOptions]="dtOptions" *ngIf="aparatos">
-                <thead>
-                    <tr>
-                        <th scope="col">Tipo</th>
-                        <th scope="col">Marca</th>
-                        <th scope="col">Modelo</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let aparato of aparatos">
-                        <td>{{aparato.tipo.nombre}}</td>
-                        <td>{{aparato.marca.nombre}}</td>
-                        <td>{{aparato.modelo}}</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="card">
+                <h5 class="card-header">Modelos de Aparatos</h5>
+                <div class="card-body">
+                    <table class="table table-hover" datatable [dtOptions]="dtOptions" *ngIf="aparatos">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Marca</th>
+                                <th scope="col">Modelo</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let aparato of aparatos">
+                                <td>{{aparato.tipo.nombre}}</td>
+                                <td>{{aparato.marca.nombre}}</td>
+                                <td>{{aparato.modelo}}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>
