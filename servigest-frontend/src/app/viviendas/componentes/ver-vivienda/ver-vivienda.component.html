@@ -14,7 +14,7 @@
         </p>
         <div *ngIf="vivienda.propietario.telefonos">
           <p *ngFor="let telefono of vivienda.propietario.telefonos">
-            <i class="fas fa-phone-alt"></i><a href="tel:{{telefono.telefono}}">{{telefono.telefono}}</a> ({{telefono.informacion}})
+            <i class="fas fa-phone-alt"></i><a href="tel:{{telefono.telefono}}">{{telefono.telefono}}</a> <span *ngIf="telefono.informacion"> ({{telefono.informacion}})</span>
           </p>
         </div>
       </div>
@@ -24,7 +24,7 @@
         </p>
         <div *ngIf="vivienda.inquilino.telefonos">
           <p *ngFor="let telefono of vivienda.inquilino.telefonos">
-            <i class="fas fa-phone-alt"></i><a href="tel:{{telefono.telefono}}">{{telefono.telefono}}</a> ({{telefono.informacion}})
+            <i class="fas fa-phone-alt"></i><a href="tel:{{telefono.telefono}}">{{telefono.telefono}}</a> <span *ngIf="telefono.informacion"> ({{telefono.informacion}})</span>
           </p>
         </div>
       </div>
