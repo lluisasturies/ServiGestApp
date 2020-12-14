@@ -2,12 +2,12 @@
   <div class="row">
     <div class="col">
       <ngb-alert *ngIf="orden.estado && (orden.citas | json) == '[]'" type="warning" [dismissible]="false">
-        <strong>Atención!</strong> Esta orden no ha sido citada aun!
+        <strong>Atención!</strong> Esta orden no ha sido citada aún!
       </ngb-alert>
 
       <ng-container *ngIf="orden.estado && (orden.citasPendientes | json) !== '[]'">
         <ngb-alert *ngFor="let cita of orden.citasPendientes" type="info" [dismissible]="false">
-          Tienes una cita el dia <strong>{{cita.fecha | date: 'd/M/yyyy'}}</strong> a las <strong>{{cita.fecha | date: 'H:mm'}}H </strong><button (click)="borrarCita(cita)" class="btn btn-danger btn-sm">Anular</button>
+          Tienes una cita el dia <strong>{{cita.fecha | date: 'd/M/yyyy'}}</strong> de <strong>{{cita.horaInicio}}h</strong> a <strong>{{cita.horaFin}}h </strong><button (click)="borrarCita(cita)" class="btn btn-danger btn-sm">Anular</button>
         </ngb-alert>
       </ng-container>
     </div>

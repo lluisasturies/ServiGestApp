@@ -22,6 +22,8 @@ export class AddOrdenCitaComponent implements OnInit {
   public fecha: {year: number, month: number, day: number};
   public hora: {hour: 13, minute: 30};
   public fechaCita;
+  public horaInicio;
+  public horaFin;
 
   public ordenCita: OrdenCita = new OrdenCita();
   public ordenCitaForm: FormGroup;
@@ -36,7 +38,8 @@ export class AddOrdenCitaComponent implements OnInit {
     // Creo el FormGroup
     this.ordenCitaForm = new FormGroup({
       fecha: new FormControl('', Validators.required),
-      hora: new FormControl('', Validators.required)
+      horaInicio: new FormControl('', Validators.required),
+      horaFin: new FormControl('', Validators.required)
     });
   }
 
@@ -45,23 +48,41 @@ export class AddOrdenCitaComponent implements OnInit {
       this.ordenCitaForm.controls.fecha.value.day = '0' + this.ordenCitaForm.controls.fecha.value.day;
     }
 
-    if (this.ordenCitaForm.controls.hora.value.hour < 10) {
-      this.ordenCitaForm.controls.hora.value.hour = '0' + this.ordenCitaForm.controls.hora.value.hour;
+    if (this.ordenCitaForm.controls.horaInicio.value.hour < 10) {
+      this.ordenCitaForm.controls.horaInicio.value.hour = '0' + this.ordenCitaForm.controls.horaInicio.value.hour;
     }
 
-    if (this.ordenCitaForm.controls.hora.value.minute < 10) {
-      this.ordenCitaForm.controls.hora.value.minute = '0' + this.ordenCitaForm.controls.hora.value.minute;
+    if (this.ordenCitaForm.controls.horaInicio.value.minute < 10) {
+      this.ordenCitaForm.controls.horaInicio.value.minute = '0' + this.ordenCitaForm.controls.horaInicio.value.minute;
+    }
+
+    if (this.ordenCitaForm.controls.horaFin.value.hour < 10) {
+      this.ordenCitaForm.controls.horaFin.value.hour = '0' + this.ordenCitaForm.controls.horaFin.value.hour;
+    }
+
+    if (this.ordenCitaForm.controls.horaFin.value.minute < 10) {
+      this.ordenCitaForm.controls.horaFin.value.minute = '0' + this.ordenCitaForm.controls.horaFin.value.minute;
     }
 
     this.fechaCita =
     this.ordenCitaForm.controls.fecha.value.year + '-' +
     this.ordenCitaForm.controls.fecha.value.month + '-' +
-    this.ordenCitaForm.controls.fecha.value.day + 'T' +
-    this.ordenCitaForm.controls.hora.value.hour + ':' +
-    this.ordenCitaForm.controls.hora.value.minute + ':00';
+    this.ordenCitaForm.controls.fecha.value.day;
+
+    this.horaInicio =
+    this.ordenCitaForm.controls.horaInicio.value.hour + ':' +
+    this.ordenCitaForm.controls.horaInicio.value.minute;
+
+    this.horaFin =
+    this.ordenCitaForm.controls.horaFin.value.hour + ':' +
+    this.ordenCitaForm.controls.horaFin.value.minute;
 
     this.ordenCita.orden = this.orden;
     this.ordenCita.fecha = this.fechaCita;
+    this.ordenCita.horaInicio = this.horaInicio;
+    this.ordenCita.horaFin = this.horaFin;
+
+    console.log(this.ordenCita);
 
     this._ordenesCitas.addCita(this.ordenCita).subscribe(data => {
       this.modalService.close();

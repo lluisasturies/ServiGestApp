@@ -8,5 +8,7 @@ export class OrdenCitaPendiente {
     orden: string;
     prefijoEmpresa: string;
     direccion: string;
-    fechaCita: string;
+    fecha: string;
+    horaInicio: string;
+    horaFin: string;
 }

@@ -33,7 +33,8 @@
           <div *ngFor="let cita of citasPendientes">
             <p><strong><a [routerLink]="['/ordenes/ver', cita.idOrden]">{{cita.prefijoEmpresa}}{{cita.orden}}</a></strong> </p>
             <p><strong>Direccion: </strong><a [routerLink]="['/viviendas/ver', cita.idVivienda]">{{cita.direccion}}</a></p>
-            <p><strong>Fecha:</strong> {{cita.fechaCita | date: 'd/M/yyyy H:mm'}}H</p>
+            <p><strong>Fecha:</strong> {{cita.fecha | date: 'd/M/yyyy'}}</p>
+            <p><strong>Hora:</strong> {{cita.horaInicio}}h - {{cita.horaFin}}h</p>
             <hr>
           </div>
         </div>
