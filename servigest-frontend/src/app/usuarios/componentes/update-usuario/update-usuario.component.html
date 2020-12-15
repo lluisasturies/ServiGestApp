@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title" id="modal-basic-title">Editar Orden</h4>
+  <h4 class="modal-title" id="modal-basic-title">Editar Usuario</h4>
   <button type="button" class="close" aria-label="Close" (click)="modalService.close()">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -14,7 +14,7 @@
         <label for="provincia">Email</label>
         <input type="text" [class.is-invalid]="usuarioForm.get('email').touched && usuarioForm.get('email').invalid" formControlName="email"  class="form-control" required>
     </div>
-    <div class="form-group">
+    <div class="form-group" *ngIf="usuario.rol.rolNombre == 'ROLE_ADMIN'">
       <label for="rol">Rol</label>
       <select [compareWith]="comparaRol" [class.is-invalid]="usuarioForm.get('rol').touched && usuarioForm.get('rol').invalid" class="form-control" formControlName="rol" required>
         <option  disabled selected value>--- Elegir rol ---</option>

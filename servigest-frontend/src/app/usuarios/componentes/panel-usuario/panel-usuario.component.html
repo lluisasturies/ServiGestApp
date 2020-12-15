@@ -1,3 +1,11 @@
 <p>Panel de Usuario</p>
+<div ngbDropdown class="d-inline-block">
+    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acción</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <button ngbDropdownItem (click)="editarUsuario(usuario)">Editar</button>
+      <button ngbDropdownItem (click)="editarPassword(usuario)">Cambiar Contraseña</button>
+    </div>
+  </div>
 <p>{{usuario.nombre}}</p>
 <p>{{usuario.email}}</p>
+<p>{{usuario.rol.rolNombre}}</p>
