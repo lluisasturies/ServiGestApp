@@ -18,6 +18,11 @@ public interface UsuarioService {
 	// UPDATE
 	public void update(Usuario usuario);
 	
+	// UPDATE PASSWORD
+	public void updatePassword(Usuario usuario, String password);
+	
+	public boolean checkIfValidOldPassword(Usuario usuario, String oldPassword); 
+	
 	// DELETE
 	public void delete(Long idUsuario);
 	

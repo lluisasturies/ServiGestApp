@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.lluis.ServiGest.servicios.UsuarioService;
+
+import com.lluis.ServiGest.dto.UpdatePasswordDTO;
 import com.lluis.ServiGest.pojos.Usuario;
 
 @RestController
@@ -44,7 +46,7 @@ public class UsuarioController {
 	
 	// Un Usuario
 	@GetMapping("/{nombreUsuario}")
-	@PreAuthorize("#nombreusuario == authentication.principal.username || hasRole('ADMIN')")
+	@PreAuthorize("#nombreUsuario == authentication.principal.username || hasRole('ADMIN')")
 	public Usuario verUsuario(@PathVariable("nombreUsuario") String nombreUsuario) {
 		return usuarioService.getUsuario(nombreUsuario);
 	}
@@ -67,7 +69,7 @@ public class UsuarioController {
 	
 	// UPDATE
 	@PutMapping("/update")
-	@PreAuthorize("#nombreusuario == authentication.principal.username || hasRole('ADMIN')")
+	@PreAuthorize("#usuario.email == authentication.principal.username || hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	public void update(@Valid @RequestBody Usuario usuario, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
@@ -78,6 +80,23 @@ public class UsuarioController {
         usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 		
 		usuarioService.update(usuario);
+	}
+	
+	// UPDATE PASSWORD
+	@PutMapping("/updatePassword")
+	@PreAuthorize("#updatePasswordDTO.email == authentication.principal.username || hasRole('ADMIN')")
+	@ResponseStatus(HttpStatus.OK)
+	public void updatePassword(@Valid @RequestBody UpdatePasswordDTO updatePasswordDTO, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos erroneos");
+    	}
+		
+		Usuario usuario = usuarioService.getUsuario(updatePasswordDTO.getEmail());
+		
+		if (usuarioService.checkIfValidOldPassword(usuario, updatePasswordDTO.getOldPassword())) {
+			usuarioService.updatePassword(usuario, updatePasswordDTO.getPassword());
+	    } else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Las contraseñas no coinciden");
+		
 	}
 	
 	// DELETE

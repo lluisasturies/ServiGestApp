@@ -2,6 +2,7 @@ package com.lluis.ServiGest.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
@@ -9,17 +10,17 @@ import org.springframework.web.server.ResponseStatusException;
 import com.lluis.ServiGest.pojos.Usuario;
 import com.lluis.ServiGest.repositorios.UsuarioDAO;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.List;
 
 @Service
 @Transactional
-@Slf4j
 public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
     UsuarioDAO usuarioDAO;
+    
+    @Autowired
+    PasswordEncoder passwordEncoder;
     
     @Override
 	public List<Usuario> listaUsuarios() {
@@ -44,6 +45,25 @@ public class UsuarioServiceImpl implements UsuarioService {
 		if (usuarioDAO.existsById(usuario.getId())) {
 			usuarioDAO.save(usuario);
 		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "El usuario no existe");
+	}
+	
+	@Override
+	public void updatePassword(Usuario usuario, String password) {
+		if (usuarioDAO.existsById(usuario.getId())) {
+			usuario.setPassword(passwordEncoder.encode(password));
+			
+			usuarioDAO.save(usuario);
+		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "El usuario no existe");
+	}
+	
+	@Override
+	public boolean checkIfValidOldPassword(Usuario usuario, String oldPassword) {
+		
+		if (passwordEncoder.matches(oldPassword, usuario.getPassword())) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override

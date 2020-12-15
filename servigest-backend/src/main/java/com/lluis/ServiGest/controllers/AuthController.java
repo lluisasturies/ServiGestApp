@@ -20,7 +20,6 @@ import org.springframework.web.server.ResponseStatusException;
 import com.lluis.ServiGest.dto.JwtDTO;
 import com.lluis.ServiGest.dto.LoginUsuario;
 import com.lluis.ServiGest.seguridad.jwt.JwtProvider;
-import com.lluis.ServiGest.servicios.UsuarioService;
 
 import javax.validation.Valid;
 
@@ -34,9 +33,6 @@ public class AuthController {
 
     @Autowired
     AuthenticationManager authenticationManager;
-
-    @Autowired
-    UsuarioService usuarioService;
 
     @Autowired
     JwtProvider jwtProvider;
