@@ -22,6 +22,10 @@ public class UpdateUsuarioDTO {
 	@NotBlank
 	@Email
     private String email;
+	
+	@NotBlank
+	@Email
+    private String oldEmail;
 
     @NotNull
     private Rol rol;

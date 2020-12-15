@@ -5,6 +5,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Rol } from 'src/app/modelos/rol.model';
 import { RolesService } from 'src/app/servicios/roles.service';
+import { TokenService } from 'src/app/servicios/token.service';
+import { UsuarioUpdate } from 'src/app/modelos/usuario-update.model';
 
 @Component({
   selector: 'app-update-usuario',
@@ -16,7 +18,9 @@ export class UpdateUsuarioComponent implements OnInit {
   // Variables
   @Input() usuario: Usuario;
 
+  public usuarioUpdate: UsuarioUpdate;
   public roles: Rol[] = [];
+  public rolUsuario;
 
   public usuarioForm: FormGroup;
   public isFail = false;
@@ -25,19 +29,27 @@ export class UpdateUsuarioComponent implements OnInit {
   constructor(
     public _usuarios: UsuariosService,
     private _roles: RolesService,
+    private tokenService: TokenService,
     public modalService: NgbActiveModal
   ) { }
 
   ngOnInit(): void {
     this.obtenerRoles();
+
+    this.rolUsuario = this.tokenService.getAuthorities();
     
     // Creo el FormGroup
     this.usuarioForm = new FormGroup({
       id: new FormControl(this.usuario.id),
       nombre: new FormControl(this.usuario.nombre, Validators.required),
       email: new FormControl(this.usuario.email, Validators.required),
+      oldEmail: new FormControl(this.usuario.email),
       rol: new FormControl(this.usuario.rol)
     });
+
+    if (this.rolUsuario == 'ROLE_TECNICO') {
+      this.usuarioForm.controls.email.disable();
+    }
   }
 
   // Comparador del Formulario

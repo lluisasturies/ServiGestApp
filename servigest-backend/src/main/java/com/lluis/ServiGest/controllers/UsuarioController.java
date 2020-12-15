@@ -84,7 +84,7 @@ public class UsuarioController {
 		usuario.setNombre(usuarioDTO.getNombre());
 		usuario.setRol(usuarioDTO.getRol());
 		
-		usuario.setPassword(usuarioService.getUsuario(usuarioDTO.getEmail()).getPassword());
+		usuario.setPassword(usuarioService.getUsuario(usuarioDTO.getOldEmail()).getPassword());
 		
 		usuarioService.update(usuario);
 	}
