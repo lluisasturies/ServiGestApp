@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsuariosComponent } from '../usuarios/componentes/usuarios.component';
 import { AddUsuarioComponent } from '../usuarios/componentes/add-usuario/add-usuario.component';
 import { UpdateUsuarioComponent } from '../usuarios/componentes/update-usuario/update-usuario.component';
+import { UpdateUsuarioPasswordComponent } from './componentes/update-usuario-password/update-usuario-password.component';
 
 
 
@@ -19,7 +20,8 @@ import { UpdateUsuarioComponent } from '../usuarios/componentes/update-usuario/u
   declarations: [
     UsuariosComponent,
     AddUsuarioComponent,
-    UpdateUsuarioComponent
+    UpdateUsuarioComponent,
+    UpdateUsuarioPasswordComponent
   ],
   imports: [
     CommonModule,

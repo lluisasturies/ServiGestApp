@@ -82,8 +82,6 @@ export class AddOrdenCitaComponent implements OnInit {
     this.ordenCita.horaInicio = this.horaInicio;
     this.ordenCita.horaFin = this.horaFin;
 
-    console.log(this.ordenCita);
-
     this._ordenesCitas.addCita(this.ordenCita).subscribe(data => {
       this.modalService.close();
     });

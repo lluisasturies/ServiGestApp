@@ -33,6 +33,6 @@ export class ClientesTelefonosService {
 
   // Delete
   deleteClienteTelefono(clienteTelefono: ClienteTelefono): Observable<ClienteTelefono> {
-    return this.http.delete<ClienteTelefono>(this.apiURL + '/delete/' + clienteTelefono.telefono);
+    return this.http.delete<ClienteTelefono>(this.apiURL + '/delete/' + clienteTelefono.idTelefono);
   }
 }

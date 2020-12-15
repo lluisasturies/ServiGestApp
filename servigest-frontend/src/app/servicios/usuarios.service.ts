@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Usuario } from '../modelos/nuevo-usuario.model';
 import { environment } from 'src/environments/environment';
+import { UsuarioPassword } from '../modelos/usuario-password.model';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +44,11 @@ export class UsuariosService {
   // Update
   updateUsuario(usuario: Usuario): Observable<Usuario> {
     return this.http.put<Usuario>(this.apiURL + '/update', usuario, { headers: this.headers });
+  }
+
+  // Update Password
+  updatePassword(usuarioPassword: UsuarioPassword): Observable<UsuarioPassword> {
+    return this.http.put<UsuarioPassword>(this.apiURL + '/updatePassword', usuarioPassword, { headers: this.headers });
   }
 
   // Delete

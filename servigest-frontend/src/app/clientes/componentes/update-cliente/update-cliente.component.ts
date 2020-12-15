@@ -40,6 +40,10 @@ export class UpdateClienteComponent implements OnInit {
 
     this._clientes.updateCliente(this.cliente).subscribe(data => {
       this.modalService.close();
+    },
+    (err: any) => {
+      this.isFail = true;
+      this.errorMsg = err.error.message;
     });
   }
 

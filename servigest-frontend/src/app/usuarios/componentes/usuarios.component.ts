@@ -4,6 +4,7 @@ import { Usuario } from 'src/app/modelos/nuevo-usuario.model';
 import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
 import { AddUsuarioComponent } from './add-usuario/add-usuario.component';
+import { UpdateUsuarioPasswordComponent } from './update-usuario-password/update-usuario-password.component';
 import { UpdateUsuarioComponent } from './update-usuario/update-usuario.component';
 
 @Component({
@@ -63,9 +64,18 @@ export class UsuariosComponent implements OnInit {
     });
   }
 
-  // Modal Editar Emrpesa
+  // Modal Editar Usuario
   editarUsuario(usuario: Usuario) {
     const modalRef = this.modalService.open(UpdateUsuarioComponent);
+    modalRef.componentInstance.usuario = usuario;
+    modalRef.result.then((result) => {
+      this.ngOnInit();
+    });
+  }
+
+  // Modal Editar Contraseña
+  editarPassword(usuario: Usuario) {
+    const modalRef = this.modalService.open(UpdateUsuarioPasswordComponent);
     modalRef.componentInstance.usuario = usuario;
     modalRef.result.then((result) => {
       this.ngOnInit();
