@@ -21,6 +21,7 @@
     <div class="form-group">
       <label for="idPropietario">Rol</label>
       <select [class.is-invalid]="usuarioForm.get('rol').touched && usuarioForm.get('rol').invalid" formControlName="rol" class="form-control">
+        <option  disabled selected value>--- Elegir rol ---</option>
         <option *ngFor="let rol of roles" [ngValue]="rol">{{rol.rolNombre}}</option>
       </select>
     </div>

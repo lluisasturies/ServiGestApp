@@ -14,6 +14,13 @@
         <label for="provincia">Email</label>
         <input type="text" [class.is-invalid]="usuarioForm.get('email').touched && usuarioForm.get('email').invalid" formControlName="email"  class="form-control" required>
     </div>
+    <div class="form-group">
+      <label for="rol">Rol</label>
+      <select [compareWith]="comparaRol" [class.is-invalid]="usuarioForm.get('rol').touched && usuarioForm.get('rol').invalid" class="form-control" formControlName="rol" required>
+        <option  disabled selected value>--- Elegir rol ---</option>
+        <option *ngFor="let rol of roles" [ngValue]="rol">{{rol.rolNombre}}</option>
+      </select>
+    </div>
     <div class="modal-footer">
       <div *ngIf="usuarioForm.touched && isFail" class="alert alert-danger mt-3">Error: {{ errorMsg }}</div>
       <button type="button" class="btn btn-secondary" (click)="modalService.close()">Cerrar</button>
