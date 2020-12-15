@@ -28,6 +28,7 @@ import { VerEmpresaComponent } from './empresas/componentes/ver-empresa/ver-empr
 import { AparatosMarcasComponent } from './aparatos/componentes/aparatos-marcas/aparatos-marcas.component';
 import { AparatosComponent } from './aparatos/componentes/aparatos.component';
 import { AparatosTiposComponent } from './aparatos/componentes/aparatos-tipos/aparatos-tipos.component';
+import { PanelUsuarioComponent } from './usuarios/componentes/panel-usuario/panel-usuario.component';
 
 const routes: Routes = [
   {path: '', component: InicioComponent},
@@ -63,6 +64,8 @@ const routes: Routes = [
   { path: 'usuarios', component: UsuariosComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
   { path: 'usuarios/crear', component: AddUsuarioComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
   { path: 'usuarios/editar/:idUsuario', component: UpdateUsuarioComponent, canActivate: [guard], data: { expectedRol: ['admin']} },
+
+  { path: 'usuarios/panel', component: PanelUsuarioComponent, canActivate: [guard], data: { expectedRol: ['admin', 'tecnico']} },
 
   // Login
   { path: 'login', component: LoginComponent },
