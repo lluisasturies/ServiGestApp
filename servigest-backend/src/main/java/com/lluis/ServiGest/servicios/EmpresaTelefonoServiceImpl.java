@@ -16,17 +16,14 @@ public class EmpresaTelefonoServiceImpl implements EmpresaTelefonoService  {
 	
 	@Override
 	public void add(EmpresaTelefono clienteTelefono) {
-		if (!empresaTelefonoDAO.existsByTelefono(clienteTelefono.getTelefono())) {
-			empresaTelefonoDAO.save(clienteTelefono);
-		} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Este telefono ya existe");
-		
+		empresaTelefonoDAO.save(clienteTelefono);		
 	}
 	
 	@Override
 	public void update(EmpresaTelefono empresaTelefono) {
-		if (!empresaTelefonoDAO.existsByTelefono(empresaTelefono.getTelefono())) {
+		if (empresaTelefonoDAO.existsById(empresaTelefono.getIdTelefono())) {
 			empresaTelefonoDAO.save(empresaTelefono);
-		} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Este telefono ya existe");
+		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "El telefono no existe");
 	}
 
 	@Override

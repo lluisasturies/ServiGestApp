@@ -15,7 +15,7 @@ export class EmpresasEmailsService {
   constructor(private http: HttpClient) { }
 
   // Ruta del JSON
-  private apiURL = environment.apiURL + '/clientes/emails';
+  private apiURL = environment.apiURL + '/empresas/emails';
 
   // Variables
 
@@ -34,6 +34,6 @@ export class EmpresasEmailsService {
 
   // Delete
   deleteEmpresaEmail(empresaEmail: EmpresaEmail): Observable<EmpresaEmail> {
-    return this.http.delete<EmpresaEmail>(this.apiURL + '/delete/' + empresaEmail.email);
+    return this.http.delete<EmpresaEmail>(this.apiURL + '/delete/' + empresaEmail.idEmail);
   }
 }

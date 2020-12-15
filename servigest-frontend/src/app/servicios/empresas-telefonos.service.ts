@@ -33,6 +33,6 @@ export class EmpresasTelefonosService {
 
   // Delete
   deleteEmpresaTelefono(empresaTelefono: EmpresaTelefono): Observable<EmpresaTelefono> {
-    return this.http.delete<EmpresaTelefono>(this.apiURL + '/delete/' + empresaTelefono.telefono);
+    return this.http.delete<EmpresaTelefono>(this.apiURL + '/delete/' + empresaTelefono.idTelefono);
   }
 }

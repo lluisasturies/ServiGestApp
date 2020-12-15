@@ -33,6 +33,6 @@ export class ClientesEmailsService {
 
   // Delete
   deleteClienteEmail(clienteEmail: ClienteEmail): Observable<ClienteEmail> {
-    return this.http.delete<ClienteEmail>(this.apiURL + '/delete/' + clienteEmail.email);
+    return this.http.delete<ClienteEmail>(this.apiURL + '/delete/' + clienteEmail.idEmail);
   }
 }

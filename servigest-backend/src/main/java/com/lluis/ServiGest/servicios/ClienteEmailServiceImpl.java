@@ -16,17 +16,14 @@ public class ClienteEmailServiceImpl implements ClienteEmailService  {
 	
 	@Override
 	public void add(ClienteEmail clienteEmail) {
-		if (!clienteEmailDAO.existsByEmail(clienteEmail.getEmail())) {
-			clienteEmailDAO.save(clienteEmail);
-		} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Este email ya existe");
-		
+		clienteEmailDAO.save(clienteEmail);		
 	}
 	
 	@Override
 	public void update(ClienteEmail clienteEmail) {
-		if (!clienteEmailDAO.existsByEmail(clienteEmail.getEmail())) {
+		if (clienteEmailDAO.existsById(clienteEmail.getIdEmail())) {
 			clienteEmailDAO.save(clienteEmail);
-		} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Este email ya existe");
+		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "El contacto no existe");
 	}
 
 	@Override

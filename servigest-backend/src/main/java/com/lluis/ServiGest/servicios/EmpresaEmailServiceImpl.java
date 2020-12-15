@@ -16,17 +16,14 @@ public class EmpresaEmailServiceImpl implements EmpresaEmailService  {
 	
 	@Override
 	public void add(EmpresaEmail empresaEmail) {
-		if (!empresaEmailDAO.existsByEmail(empresaEmail.getEmail())) {
-			empresaEmailDAO.save(empresaEmail);
-		} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Este email ya existe");
-		
+		empresaEmailDAO.save(empresaEmail);		
 	}
 	
 	@Override
 	public void update(EmpresaEmail empresaEmail) {
-		if (!empresaEmailDAO.existsByEmail(empresaEmail.getEmail())) {
+		if (empresaEmailDAO.existsById(empresaEmail.getIdEmail())) {
 			empresaEmailDAO.save(empresaEmail);
-		} else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Este email ya existe");
+		} else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "El contacto no existe");
 	}
 
 	@Override

@@ -40,11 +40,11 @@ public class EmpresaTelefonoController {
 	}
 		
 	// DELETE
-	@DeleteMapping("/delete/{telefono}")
+	@DeleteMapping("/delete/{idTelefono}")
 	@PreAuthorize("hasRole('TECNICO') or hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void delete(@PathVariable("telefono") Integer telefono) {
-		empresaTelefonoService.delete(telefono);
+	public void delete(@PathVariable("idTelefono") Integer idTelefono) {
+		empresaTelefonoService.delete(idTelefono);
 	}
 	
 }

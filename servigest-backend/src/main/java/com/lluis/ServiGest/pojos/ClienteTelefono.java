@@ -33,8 +33,7 @@ public class ClienteTelefono {
 	@NotNull
 	private Cliente cliente;
 	
-	@Column(unique=true)
-	@Min(9)
+	@Column
 	private Integer telefono;
 	
 	@Column

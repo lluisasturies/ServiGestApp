@@ -33,7 +33,7 @@ public class ClienteEmail {
 	@NotNull
 	private Cliente cliente;
 	
-	@Column(unique=true)
+	@Column
 	@Email
 	private String email;
 	

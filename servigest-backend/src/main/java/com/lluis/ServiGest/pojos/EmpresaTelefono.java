@@ -33,7 +33,7 @@ public class EmpresaTelefono {
 	@NotNull
 	private Empresa empresa;
 	
-	@Min(9)
+	@Column
 	private Integer telefono;
 	
 	@Column
