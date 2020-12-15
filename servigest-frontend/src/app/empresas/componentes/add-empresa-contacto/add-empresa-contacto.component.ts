@@ -58,6 +58,8 @@ export class AddEmpresaContactoComponent implements OnInit {
       this.empresaEmail.informacion = this.empresaContactoForm.controls.informacion.value;
       this.empresaEmail.empresa = this.empresaContactoForm.controls.empresa.value;
 
+      console.log(this.empresaEmail);
+
       this._empresasEmails.addEmpresaEmail(this.empresaEmail).subscribe(data => {
         this.modalService.close();
       },

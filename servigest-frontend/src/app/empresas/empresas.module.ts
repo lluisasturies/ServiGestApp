@@ -13,7 +13,6 @@ import { EmpresasComponent } from './componentes/empresas.component';
 import { AddEmpresaComponent } from './componentes/add-empresa/add-empresa.component';
 import { UpdateEmpresaComponent } from './componentes/update-empresa/update-empresa.component';
 import { VerEmpresaComponent } from './componentes/ver-empresa/ver-empresa.component';
-import { AddContactoComponent } from './componentes/add-contacto/add-contacto.component';
 import { AddEmpresaContactoComponent } from './componentes/add-empresa-contacto/add-empresa-contacto.component';
 import { SharedModuleModule } from '../shared-module.module';
 
@@ -25,7 +24,6 @@ import { SharedModuleModule } from '../shared-module.module';
     AddEmpresaComponent,
     UpdateEmpresaComponent,
     VerEmpresaComponent,
-    AddContactoComponent,
     AddEmpresaContactoComponent
   ],
   imports: [
