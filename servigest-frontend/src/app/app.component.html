@@ -27,7 +27,12 @@
         </li>
       </ul>
       <ul *ngIf="isLogin" class="navbar-nav">
-        <a (click)="logOut()" class="btn btn-primary btn-sm">Cerrar Sesión</a>
+        <li routerLinkActive="nav-item active" class="nav-item">
+          <a [routerLink]="['usuarios/panel']" class="nav-link">{{nombreUsuario}}</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="logOut()" class="btn btn-primary btn-sm">Cerrar Sesión</a>
+        </li>
       </ul>
     </div>
   </nav>

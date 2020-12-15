@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   public roles: string[];
   public authority: string;
   public isMenuCollapsed = true;
+  public nombreUsuario;
 
   constructor(
     private tokenService: TokenService, 
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     if (this.tokenService.getToken()) {
+      this.nombreUsuario = this.tokenService.getUserName();
       this.isLogin = true;
       this.roles = [];
       this.roles = this.tokenService.getAuthorities();
