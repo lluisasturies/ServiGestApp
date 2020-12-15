@@ -102,7 +102,7 @@ public class UsuarioController {
 		
 		if (usuarioService.checkIfValidOldPassword(usuario, updatePasswordDTO.getOldPassword())) {
 			usuarioService.updatePassword(usuario, updatePasswordDTO.getPassword());
-	    } else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Las contraseñas no coinciden");
+	    } else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Contraseña incorrecta");
 		
 	}
 	
