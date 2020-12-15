@@ -24,6 +24,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.lluis.ServiGest.servicios.UsuarioService;
 
 import com.lluis.ServiGest.dto.UpdatePasswordDTO;
+import com.lluis.ServiGest.dto.UpdateUsuarioDTO;
 import com.lluis.ServiGest.pojos.Usuario;
 
 @RestController
@@ -69,15 +70,21 @@ public class UsuarioController {
 	
 	// UPDATE
 	@PutMapping("/update")
-	@PreAuthorize("#usuario.email == authentication.principal.username || hasRole('ADMIN')")
+	@PreAuthorize("#usuarioDTO.email == authentication.principal.username || hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	public void update(@Valid @RequestBody Usuario usuario, BindingResult bindingResult) {
+	public void update(@Valid @RequestBody UpdateUsuarioDTO usuarioDTO, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campos erroneos");
     	}
 		
-		// Codifico el password
-        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+		Usuario usuario = new Usuario();
+		
+		usuario.setId(usuarioDTO.getId());
+		usuario.setEmail(usuarioDTO.getEmail());
+		usuario.setNombre(usuarioDTO.getNombre());
+		usuario.setRol(usuarioDTO.getRol());
+		
+		usuario.setPassword(usuarioService.getUsuario(usuarioDTO.getEmail()).getPassword());
 		
 		usuarioService.update(usuario);
 	}
