@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Usuario } from 'src/app/modelos/nuevo-usuario.model';
 import { UsuarioPassword } from 'src/app/modelos/usuario-password.model';
+import { TokenService } from 'src/app/servicios/token.service';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
@@ -16,12 +18,15 @@ export class UpdateUsuarioPasswordComponent implements OnInit {
   @Input() usuario: Usuario;
   public usuarioPassword: UsuarioPassword;
 
+  public ruta;
+
   public usuarioPasswordForm: FormGroup;
   public isFail = false;
   public errorMsg = '';
 
   constructor(
     public _usuarios: UsuariosService,
+    public router: Router,
     public modalService: NgbActiveModal
   ) { }
 

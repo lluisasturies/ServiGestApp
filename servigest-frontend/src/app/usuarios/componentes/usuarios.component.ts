@@ -73,13 +73,4 @@ export class UsuariosComponent implements OnInit {
     });
   }
 
-  // Modal Editar Contraseña
-  editarPassword(usuario: Usuario) {
-    const modalRef = this.modalService.open(UpdateUsuarioPasswordComponent);
-    modalRef.componentInstance.usuario = usuario;
-    modalRef.result.then((result) => {
-      this.ngOnInit();
-    });
-  }
-
 }

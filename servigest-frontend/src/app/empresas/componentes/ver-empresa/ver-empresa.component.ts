@@ -6,7 +6,6 @@ import { EmpresaEmail } from 'src/app/modelos/empresa-email.model';
 import { EmpresaTelefono } from 'src/app/modelos/empresa-telefono.model';
 import { Empresa } from 'src/app/modelos/Empresa.model';
 import { ConfirmationDialogService } from 'src/app/servicios/confirmation-dialog.service';
-import { EmpresasContactosService } from 'src/app/servicios/empresas-contactos.service';
 import { EmpresasEmailsService } from 'src/app/servicios/empresas-emails.service';
 import { EmpresasTelefonosService } from 'src/app/servicios/empresas-telefonos.service';
 import { EmpresasService } from 'src/app/servicios/empresas.service';

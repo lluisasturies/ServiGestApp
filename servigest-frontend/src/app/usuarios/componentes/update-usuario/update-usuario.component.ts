@@ -7,6 +7,7 @@ import { Rol } from 'src/app/modelos/rol.model';
 import { RolesService } from 'src/app/servicios/roles.service';
 import { TokenService } from 'src/app/servicios/token.service';
 import { UsuarioUpdate } from 'src/app/modelos/usuario-update.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-usuario',
@@ -30,6 +31,7 @@ export class UpdateUsuarioComponent implements OnInit {
     public _usuarios: UsuariosService,
     private _roles: RolesService,
     private tokenService: TokenService,
+    public router: Router,
     public modalService: NgbActiveModal
   ) { }
 
@@ -46,10 +48,6 @@ export class UpdateUsuarioComponent implements OnInit {
       oldEmail: new FormControl(this.usuario.email),
       rol: new FormControl(this.usuario.rol)
     });
-
-    if (this.rolUsuario == 'ROLE_TECNICO') {
-      this.usuarioForm.controls.email.disable();
-    }
   }
 
   // Comparador del Formulario
@@ -65,6 +63,7 @@ export class UpdateUsuarioComponent implements OnInit {
   // Actualizar el Usuario
   actualizarUsuario() {
     this.usuario = Object.assign({}, this.usuarioForm.value);
+    console.log(this.usuario);
 
     this._usuarios.updateUsuario(this.usuario).subscribe(data => {
       this.modalService.close();
