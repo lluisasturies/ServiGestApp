@@ -1,3 +1,4 @@
+FROM maven:latest
 RUN mvn clean package
 
 FROM openjdk:11
