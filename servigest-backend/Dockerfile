@@ -1,6 +1,6 @@
 # Build stage
 FROM maven:latest AS build
-COPY pom.xml
+COPY pom.xml /
 COPY src /src
 RUN mvn -f /app/pom.xml clean package -DskipTests
 
