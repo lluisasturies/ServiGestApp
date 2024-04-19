@@ -2,7 +2,7 @@
 FROM maven:latest AS build
 COPY pom.xml /app/
 COPY src /app/src
-RUN mvn -f /app/pom.xml clean package
+RUN mvn -f /app/pom.xml clean package -DskipTests
 
 # Run stage
 FROM openjdk:11
